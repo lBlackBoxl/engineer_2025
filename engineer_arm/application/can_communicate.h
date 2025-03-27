@@ -46,9 +46,11 @@ typedef enum
 
 typedef struct
 {
-	uint16_t target_position[6];
+	fp32 target_position[6];
 	uint16_t mode;
 	uint16_t suker_mode;
+	uint16_t chassis_mode;
+	uint16_t arm_mode;
 }board_communicate;
 
 extern void CAN_cmd_2006(int16_t motor_2006_current_1, int16_t motor_2006_current_2);

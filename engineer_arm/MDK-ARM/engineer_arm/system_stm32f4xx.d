@@ -2,7 +2,7 @@ engineer_arm\system_stm32f4xx.o: ../Core/Src/system_stm32f4xx.c
 engineer_arm\system_stm32f4xx.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 engineer_arm\system_stm32f4xx.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
 engineer_arm\system_stm32f4xx.o: ../Drivers/CMSIS/Include/core_cm4.h
-engineer_arm\system_stm32f4xx.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
+engineer_arm\system_stm32f4xx.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 engineer_arm\system_stm32f4xx.o: ../Drivers/CMSIS/Include/cmsis_version.h
 engineer_arm\system_stm32f4xx.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 engineer_arm\system_stm32f4xx.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -14,7 +14,7 @@ engineer_arm\system_stm32f4xx.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_h
 engineer_arm\system_stm32f4xx.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 engineer_arm\system_stm32f4xx.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 engineer_arm\system_stm32f4xx.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-engineer_arm\system_stm32f4xx.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
+engineer_arm\system_stm32f4xx.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 engineer_arm\system_stm32f4xx.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 engineer_arm\system_stm32f4xx.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 engineer_arm\system_stm32f4xx.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h

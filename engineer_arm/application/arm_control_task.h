@@ -95,6 +95,8 @@ typedef struct
 		
 	uint16_t arm_mode;
 	uint16_t arm_last_mode;	
+	uint16_t chassis_mode;
+	uint16_t chassis_last_mode;
 	uint8_t  motor_2006_mode;
 	uint8_t  motor_2006_last_mode;
 	

@@ -45,7 +45,7 @@ void arm_task(void const * argument)
 				arm_control_loop(&arm);
 			  //1-3508
 				//2-4达妙发送指令 重力补偿未写
-				if(arm.arm_mode == 0)
+				if(arm.chassis_mode == 0)
 				{
 						CAN_cmd_4310_disable(DM_M2_TX_ID, hcan1);	
 						DWT_Delay(0.0003f);
@@ -54,7 +54,7 @@ void arm_task(void const * argument)
 						CAN_cmd_4310_disable(DM_M4_TX_ID, hcan1);	
 						DWT_Delay(0.0003f);
 				}
-				else if(arm.arm_mode != 0)
+				else if(arm.chassis_mode != 0)
 				{				
 						if(arm.motor_DM_data[0].DM_motor_measure->motor_enabled == 0)
 								CAN_cmd_4310_enable(DM_M2_TX_ID, hcan1);					
@@ -81,7 +81,7 @@ void arm_task(void const * argument)
 								DWT_Delay(0.0003f);	
 				}
 				// 5-6-2006发送电流指令
-				CAN_cmd_2006(arm.motor_2006_data[0].give_current,arm.motor_2006_data[1].give_current);			
+//				CAN_cmd_2006(arm.motor_2006_data[0].give_current,arm.motor_2006_data[1].give_current);			
 				osDelay(1);
 		}	
 }
@@ -118,6 +118,7 @@ void arm_control_init(arm_t *arm_control_init)
 		arm_feedback_update(arm_control_init);
 		//初始化电机相关数据
 		arm_control_init->arm_mode = 0;	
+		arm_control_init->chassis_mode = 0;
 		arm_control_init->motor_DM_data[0].position_set = arm_control_init->motor_DM_data[0].DM_motor_measure->motor_position;
 		arm_control_init->motor_DM_data[1].position_set = arm_control_init->motor_DM_data[1].DM_motor_measure->motor_position;	
 		arm_control_init->motor_DM_data[2].position_set = arm_control_init->motor_DM_data[2].DM_motor_measure->motor_position;	
@@ -146,13 +147,15 @@ void arm_set_mode(arm_t *arm_set_mode)
 		
 		//更新底盘上传的标志位
 		arm_set_mode->arm_last_mode = arm_set_mode->arm_mode;	
-		arm_set_mode->arm_mode = board_message.mode;		
+		arm_set_mode->arm_mode = board_message.arm_mode;		
+		arm_set_mode->chassis_last_mode = arm_set_mode->chassis_mode;	
+		arm_set_mode->chassis_mode = board_message.chassis_mode;	
 		//根据底盘标志位更新1-3508和5&6-2006标志位
-		if(arm_set_mode->arm_mode == 0)
+		if(arm_set_mode->chassis_mode == 0)
 		{
 				arm_set_mode->motor_2006_mode = 0;
 		}
-		else if(arm_set_mode->arm_mode != 0 && arm_set_mode->arm_last_mode == 0)
+		else if(arm_set_mode->chassis_mode != 0 && arm_set_mode->chassis_last_mode == 0)
 		{
 				arm_set_mode->motor_2006_mode = 1;
 		}
@@ -234,7 +237,7 @@ void arm_feedback_update(arm_t *arm_feedback)
 	  arm.roll_angle = (arm.motor_2006_data[0].angle - arm.motor_2006_data[1].angle)/(2 * ROLL_TO_2006);//转化成末端两轴角度
 
 		//根据模式更改TD
-		if(arm_feedback->arm_mode == 1 && board_message.suker_mode == 1)
+		if(arm_feedback->chassis_mode == 1 && board_message.suker_mode == 1)
 		{		
 				TD_set_r(&arm_feedback->arm_2_TD,9.0f);
 				TD_set_r(&arm_feedback->arm_3_TD,10.0f);
@@ -259,7 +262,7 @@ void arm_set_control(arm_t *arm_set_control)
 				return;
 		}
 		//2-4
-		if(arm_set_control->arm_mode == 0)
+		if(arm_set_control->chassis_mode == 0)
 		{
 				TD_set_x(&arm_set_control->arm_2_TD,arm_set_control->motor_DM_data[0].DM_motor_measure->motor_position);
 				TD_set_x(&arm_set_control->arm_3_TD,arm_set_control->motor_DM_data[1].DM_motor_measure->motor_position);
