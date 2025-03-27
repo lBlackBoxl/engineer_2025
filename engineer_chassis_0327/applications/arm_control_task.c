@@ -130,9 +130,9 @@ void arm_feedback_update( arm_control_t *arm_control_position, Robotic_6DOF_cont
 				const float q0[4] = {0.707,0,0,-0.707};//绕z轴逆时针转90度
 				float q_multiply_result[4];
 		 
-				R_6D_ctrl->Pose6D_IK.X = arm_pose.x*30.0f-179.864f    -85.0f;//2025/3/26测试用的偏移量
-				R_6D_ctrl->Pose6D_IK.Y = arm_pose.y*30.0f;
-				R_6D_ctrl->Pose6D_IK.Z = -arm_pose.z*30.0f+469.576f    +50.0f;
+				R_6D_ctrl->Pose6D_IK.X = arm_pose.x*50.0f-179.864f    -185.0f;//2025/3/26测试用的偏移量
+				R_6D_ctrl->Pose6D_IK.Y = arm_pose.y*50.0f;
+				R_6D_ctrl->Pose6D_IK.Z = -arm_pose.z*50.0f+469.576f    +50.0f;
 				
 				for(int i = 0; i < 4; i++)
 				{
