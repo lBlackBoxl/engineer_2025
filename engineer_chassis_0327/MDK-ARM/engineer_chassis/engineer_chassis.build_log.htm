@@ -27,27 +27,17 @@ Project File Date:  03/28/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin'
 Build target 'engineer_chassis'
+compiling can_communicate.c...
+compiling boards_communicate.c...
 compiling nx_communicate.c...
 compiling freertos.c...
 ../components/support/ui_types.h(8): warning:  #14-D: extra text after expected end of preprocessing directive
   #ifdef __CC_ARM || __GNUC__
 ../Core/Src/freertos.c: 1 warning, 0 errors
-compiling arm_control_task.c...
-..\applications\arm_control_task.c(290): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  						arm_control_set->motor_2_position         =   -(R_6D_ctrl->output_solvers_IK.theta[indexConfig][1]+0.279);
-..\applications\arm_control_task.c(291): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  						arm_control_set->motor_3_position					=	  R_6D_ctrl->output_solvers_IK.theta[indexConfig][2]+1.292;
-..\applications\arm_control_task.c(293): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-  						arm_control_set->motor_5_position 				=	  -R_6D_ctrl->output_solvers_IK.theta[indexConfig][4]+0.74;
-..\applications\arm_control_task.c(197): warning:  #177-D: variable "new_joint_flag"  was declared but never referenced
-  		bool new_joint_flag = false;
-..\applications\arm_control_task.c(387): warning:  #177-D: function "arm_check_get_position"  was declared but never referenced
-  void arm_check_get_position(arm_control_t *check_position)
-..\applications\arm_control_task.c: 5 warnings, 0 errors
 linking...
-Program Size: Code=50040 RO-data=4032 RW-data=420 ZI-data=28572  
+Program Size: Code=50076 RO-data=4036 RW-data=420 ZI-data=28572  
 FromELF: creating hex file...
-"engineer_chassis\engineer_chassis.axf" - 0 Error(s), 6 Warning(s).
+"engineer_chassis\engineer_chassis.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 

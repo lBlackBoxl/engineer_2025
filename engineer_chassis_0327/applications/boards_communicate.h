@@ -28,6 +28,7 @@ typedef struct
 	//以 4个字节一组排列 ，不然编译器会凑整
 //	 Head_t Head;
 	 uint16_t mode;
+	 uint16_t suker_key_flag;
 	 fp32 target_position[6];
 	 //fp32 max_speed[5];
 }Tx_Message_t;
@@ -38,7 +39,7 @@ extern Tx_Message_t tx_message_mp;
 
 extern void CAN_board_communicate_can_0(fp32 board_position_message[6]);
 
-extern void CAN_board_communicate_can_1(fp32 board_position_message[6],uint16_t mode);
+void CAN_board_communicate_can_1(fp32 board_position_message[6],uint16_t mode, uint16_t suker_key_falg);
 
 extern void board_communicate_task(void const *pvParameters);
 

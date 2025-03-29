@@ -118,6 +118,9 @@ static void chassis_init(all_key_t *chassis_key_init, chassis_t *chassis_init)
 		//机械臂默认控制模式为一键模式
 		chassis_init->arm_mode = ONE_KEY_MODE;
 		
+		//吸盘默认为关
+		chassis_init->suker_key_flag = 0;
+		
 		//获取遥控器指针
 		chassis_init->chassis_RC = get_remote_control_point();
     

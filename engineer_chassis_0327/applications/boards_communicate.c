@@ -39,7 +39,7 @@ void board_communicate_task(void const *pvParameters)
 		TX_init();
 		CAN_board_communicate_can_0(tx_message_mp.target_position);
 		osDelay(1);
-		CAN_board_communicate_can_1(tx_message_mp.target_position, tx_message_mp.mode);
+		CAN_board_communicate_can_1(tx_message_mp.target_position, tx_message_mp.mode, tx_message_mp.suker_key_flag);
 		osDelay(1);
 		}
 }
@@ -53,6 +53,7 @@ void TX_init(void)
 	tx_message_mp.target_position[3] = arm_control.motor_4_position;
 	tx_message_mp.target_position[4] = arm_control.motor_5_position;
 	tx_message_mp.target_position[5] = arm_control.motor_6_position;
+	tx_message_mp.suker_key_flag = chassis.suker_key_flag;
 }
 
 void CAN_board_communicate_can_0(fp32 board_position_message[6])
@@ -79,7 +80,7 @@ void CAN_board_communicate_can_0(fp32 board_position_message[6])
     HAL_CAN_AddTxMessage(&BROADS_CAN, &board_communicate_can1_tx_message, board_communicate_can1_send_data, &send_mail_box);
 }
 
-void CAN_board_communicate_can_1(fp32 board_position_message[6],uint16_t mode)
+void CAN_board_communicate_can_1(fp32 board_position_message[6],uint16_t mode, uint16_t suker_key_falg)
 {
 		uint16_t board_position_message_tmp[6];
 	  board_position_message_tmp[4] = float_to_uint(board_position_message[4], -6.2831852f, 6.2831852f, 16);

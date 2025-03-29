@@ -148,11 +148,15 @@ void arm_feedback_update( arm_control_t *arm_control_position, Robotic_6DOF_cont
 				R_6D_ctrl->Pose6D_IK.Q[2] = q_multiply_result[2];
 				R_6D_ctrl->Pose6D_IK.Q[3] = q_multiply_result[3]; 
 	 }
-		if(chassis.chassis_mode == 0)
+		if(chassis.arm_mode == 1 && chassis.suker_key_flag == 0)
+		{
+			TD_set_r(&arm_control_position->arm_1_TD,10.0f);
+		}
+		else if((chassis.arm_mode == 0 || chassis.arm_mode == 2) && chassis.suker_key_flag == 0) 
 		{
 			TD_set_r(&arm_control_position->arm_1_TD,5.0f);
 		}
-		else 
+		else
 		{
 			TD_set_r(&arm_control_position->arm_1_TD,5.0f);
 		}

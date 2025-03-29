@@ -3,7 +3,7 @@
 <title>Static Call Graph - [engineer_chassis\engineer_chassis.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image engineer_chassis\engineer_chassis.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Mar 29 17:01:13 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Mar 29 17:44:05 2025
 <BR><P>
 <H3>Maximum Stack Usage =        704 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -630,12 +630,12 @@ Global Symbols
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memcpy
 <LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_device_init
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_set_contorl
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_init
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Joint6D_Init
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_init
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memcpy
 </UL>
 
 <P><STRONG><a name="[20e]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
@@ -892,8 +892,8 @@ Global Symbols
 <P><STRONG><a name="[ac]"></a>CAN_board_communicate_can_0</STRONG> (Thumb, 162 bytes, Stack size 32 bytes, boards_communicate.o(i.CAN_board_communicate_can_0))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = CAN_board_communicate_can_0 &rArr; HAL_CAN_AddTxMessage
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;float_to_uint
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_AddTxMessage
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_AddTxMessage
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;float_to_uint
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;board_communicate_task
 </UL>
@@ -901,8 +901,8 @@ Global Symbols
 <P><STRONG><a name="[af]"></a>CAN_board_communicate_can_1</STRONG> (Thumb, 124 bytes, Stack size 32 bytes, boards_communicate.o(i.CAN_board_communicate_can_1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = CAN_board_communicate_can_1 &rArr; HAL_CAN_AddTxMessage
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;float_to_uint
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_AddTxMessage
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_AddTxMessage
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;float_to_uint
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;board_communicate_task
 </UL>
@@ -928,8 +928,8 @@ Global Symbols
 <P><STRONG><a name="[b2]"></a>CAN_cmd_4310_mit</STRONG> (Thumb, 184 bytes, Stack size 64 bytes, can_communicate.o(i.CAN_cmd_4310_mit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = CAN_cmd_4310_mit &rArr; HAL_CAN_AddTxMessage
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;float_to_uint
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_AddTxMessage
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_AddTxMessage
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;float_to_uint
 </UL>
 <BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
@@ -1084,8 +1084,7 @@ Global Symbols
 <P><STRONG><a name="[ab]"></a>HAL_CAN_IRQHandler</STRONG> (Thumb, 508 bytes, Stack size 40 bytes, stm32f4xx_hal_can.o(i.HAL_CAN_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = HAL_CAN_IRQHandler &rArr; HAL_CAN_RxFifo0MsgPendingCallback &rArr; HAL_CAN_GetRxMessage
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo0MsgPendingCallback
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_WakeUpFromRxMsgCallback
+<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_WakeUpFromRxMsgCallback
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_TxMailbox2CompleteCallback
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_TxMailbox2AbortCallback
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_TxMailbox1CompleteCallback
@@ -1097,6 +1096,7 @@ Global Symbols
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo1FullCallback
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo0FullCallback
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_ErrorCallback
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo0MsgPendingCallback
 </UL>
 <BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN2_RX0_IRQHandler
 <LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN1_RX0_IRQHandler
@@ -1130,8 +1130,8 @@ Global Symbols
 <P><STRONG><a name="[c3]"></a>HAL_CAN_RxFifo0MsgPendingCallback</STRONG> (Thumb, 780 bytes, Stack size 48 bytes, can_communicate.o(i.HAL_CAN_RxFifo0MsgPendingCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = HAL_CAN_RxFifo0MsgPendingCallback &rArr; HAL_CAN_GetRxMessage
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uint_to_float
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_GetRxMessage
+<BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_GetRxMessage
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uint_to_float
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_IRQHandler
 </UL>
@@ -1265,7 +1265,6 @@ Global Symbols
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Init
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
-<LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Start
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort
@@ -1273,6 +1272,7 @@ Global Symbols
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
+<LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
 </UL>
 
 <P><STRONG><a name="[129]"></a>HAL_IncTick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_hal.o(i.HAL_IncTick))
@@ -1660,12 +1660,12 @@ Global Symbols
 <P><STRONG><a name="[109]"></a>MoveL</STRONG> (Thumb, 494 bytes, Stack size 64 bytes, arm_control_task.o(i.MoveL))
 <BR><BR>[Stack]<UL><LI>Max Depth = 600<LI>Call Chain = MoveL &rArr; SolveIK &rArr; RotMatToQua &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
-<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AbsMaxOf6
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AbsMaxOf6
 </UL>
 <BR>[Called By]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_loop
 </UL>
@@ -2223,6 +2223,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 704<LI>Call Chain = arm_control_task &rArr; arm_control_loop &rArr; MoveL &rArr; SolveIK &rArr; RotMatToQua &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
 <BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_GetDeltaT
 <LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Delay
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelSysTick
@@ -2233,7 +2234,6 @@ Global Symbols
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_feedback_update
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_loop
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_init
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.constdata)
 </UL>
@@ -2245,14 +2245,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
 </UL>
 
-<P><STRONG><a name="[7b]"></a>board_communicate_task</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, boards_communicate.o(i.board_communicate_task))
+<P><STRONG><a name="[7b]"></a>board_communicate_task</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, boards_communicate.o(i.board_communicate_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = board_communicate_task &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_board_communicate_can_1
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_board_communicate_can_0
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TX_init
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.constdata)
 </UL>
@@ -2291,7 +2291,10 @@ Global Symbols
 <P><STRONG><a name="[77]"></a>chassis_task</STRONG> (Thumb, 228 bytes, Stack size 72 bytes, chassis_task.o(i.chassis_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = chassis_task &rArr; chassis_init &rArr; PID_Init &rArr; OLS_Init &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_GetDeltaT
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_GetDeltaT
 <LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Delay
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_set_mode
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_set_contorl
@@ -2301,9 +2304,6 @@ Global Symbols
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_cmd_chassis_clamp
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_cmd_chassis
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_cmd_4310_mit
-<LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.constdata)
 </UL>
@@ -2386,14 +2386,14 @@ Global Symbols
 <P><STRONG><a name="[17f]"></a>imu_ahrs_update</STRONG> (Thumb, 2364 bytes, Stack size 264 bytes, bsp_imu.o(i.imu_ahrs_update))
 <BR><BR>[Stack]<UL><LI>Max Depth = 456<LI>Call Chain = imu_ahrs_update &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
-<BR>[Calls]<UL><LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inv_sqrt
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt
+<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inv_sqrt
 </UL>
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_task
 </UL>
@@ -2413,12 +2413,12 @@ Global Symbols
 <P><STRONG><a name="[78]"></a>imu_task</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, imu_task.o(i.imu_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 456<LI>Call Chain = imu_task &rArr; imu_ahrs_update &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
-<BR>[Calls]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_get_data
+<BR>[Calls]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_get_data
 <LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_device_init
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_quaternion
 <LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_attitude_update
 <LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.constdata)
 </UL>
@@ -2459,11 +2459,11 @@ Global Symbols
 <P><STRONG><a name="[18b]"></a>ist8310_init</STRONG> (Thumb, 256 bytes, Stack size 8 bytes, bsp_imu.o(i.ist8310_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = ist8310_init &rArr; mpu_master_i2c_auto_read_config &rArr; mpu_write_byte &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_byte
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_byte
 <LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_master_i2c_auto_read_config
 <LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist_reg_write_by_mpu
 <LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist_reg_read_by_mpu
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_device_init
 </UL>
@@ -2501,14 +2501,14 @@ Global Symbols
 <P><STRONG><a name="[182]"></a>mpu_device_init</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, bsp_imu.o(i.mpu_device_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = mpu_device_init &rArr; mpu_offset_call &rArr; mpu_read_bytes &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_byte
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_byte
 <LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_set_gyro_fsr
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_set_accel_fsr
 <LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_byte
 <LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_offset_call
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_task
 </UL>
@@ -2525,8 +2525,8 @@ Global Symbols
 <P><STRONG><a name="[196]"></a>mpu_offset_call</STRONG> (Thumb, 162 bytes, Stack size 24 bytes, bsp_imu.o(i.mpu_offset_call))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = mpu_offset_call &rArr; mpu_read_bytes &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_bytes
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_bytes
 </UL>
 <BR>[Called By]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_device_init
 </UL>
@@ -2592,10 +2592,10 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = nx_communicate_task &rArr; nx_communicate_init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit_DMA
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_DMA
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nx_communicate_init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.constdata)
@@ -2644,10 +2644,10 @@ Global Symbols
 <P><STRONG><a name="[1ac]"></a>pvPortMalloc</STRONG> (Thumb, 216 bytes, Stack size 24 bytes, heap_4.o(i.pvPortMalloc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
-<LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
-<LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR>[Calls]<UL><LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
+<LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
@@ -2787,9 +2787,9 @@ Global Symbols
 <P><STRONG><a name="[1a8]"></a>vPortFree</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, heap_4.o(i.vPortFree))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
-<LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR>[Calls]<UL><LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
@@ -2978,14 +2978,14 @@ Global Symbols
 <P><STRONG><a name="[10f]"></a>__aeabi_dadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<BR>[Called By]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan2
 <LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
+<LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
 </UL>
 
 <P><STRONG><a name="[1cd]"></a>_dadd</STRONG> (Thumb, 580 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)
@@ -3041,13 +3041,13 @@ Global Symbols
 <P><STRONG><a name="[12e]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul_clz.o(x$fpl$dmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_attitude_update
-<LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<BR>[Called By]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
+<LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_attitude_update
+<LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
 </UL>
 
 <P><STRONG><a name="[1d7]"></a>_dmul</STRONG> (Thumb, 440 bytes, Stack size 32 bytes, dmul_clz.o(x$fpl$dmul), UNUSED)
@@ -3104,10 +3104,10 @@ Global Symbols
 <P><STRONG><a name="[10d]"></a>__aeabi_drsub</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_drsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
+<BR>[Called By]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
 <LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
 </UL>
 
 <P><STRONG><a name="[1db]"></a>_drsb</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb), UNUSED)
@@ -3130,10 +3130,10 @@ Global Symbols
 <P><STRONG><a name="[153]"></a>__aeabi_dsub</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
+<BR>[Called By]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
 <LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
+<LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
 </UL>
 
 <P><STRONG><a name="[1df]"></a>_dsub</STRONG> (Thumb, 664 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub), UNUSED)
@@ -3466,9 +3466,9 @@ Local Symbols
 <P><STRONG><a name="[18e]"></a>ist_reg_read_by_mpu</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, bsp_imu.o(i.ist_reg_read_by_mpu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = ist_reg_read_by_mpu &rArr; mpu_write_byte &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_byte
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_byte
 <LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_byte
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
 </UL>
@@ -3476,8 +3476,8 @@ Local Symbols
 <P><STRONG><a name="[18d]"></a>ist_reg_write_by_mpu</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, bsp_imu.o(i.ist_reg_write_by_mpu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = ist_reg_write_by_mpu &rArr; mpu_write_byte &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_byte
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_byte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
 </UL>
@@ -3485,8 +3485,8 @@ Local Symbols
 <P><STRONG><a name="[18f]"></a>mpu_master_i2c_auto_read_config</STRONG> (Thumb, 142 bytes, Stack size 16 bytes, bsp_imu.o(i.mpu_master_i2c_auto_read_config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = mpu_master_i2c_auto_read_config &rArr; mpu_write_byte &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_byte
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_byte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
 </UL>
@@ -3494,12 +3494,12 @@ Local Symbols
 <P><STRONG><a name="[162]"></a>arm_control_init</STRONG> (Thumb, 504 bytes, Stack size 240 bytes, arm_control_task.o(i.arm_control_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 284<LI>Call Chain = arm_control_init &rArr; CAN_cmd_4310_disable &rArr; HAL_CAN_AddTxMessage
 </UL>
-<BR>[Calls]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Delay
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Delay
 <LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;return_4310_measure
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_init
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_cmd_4310_disable
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
@@ -3507,13 +3507,13 @@ Local Symbols
 <P><STRONG><a name="[166]"></a>arm_control_loop</STRONG> (Thumb, 512 bytes, Stack size 16 bytes, arm_control_task.o(i.arm_control_loop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 616<LI>Call Chain = arm_control_loop &rArr; MoveL &rArr; SolveIK &rArr; RotMatToQua &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
-<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
-<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
 
-<P><STRONG><a name="[168]"></a>arm_feedback_update</STRONG> (Thumb, 266 bytes, Stack size 72 bytes, arm_control_task.o(i.arm_feedback_update))
+<P><STRONG><a name="[168]"></a>arm_feedback_update</STRONG> (Thumb, 294 bytes, Stack size 72 bytes, arm_control_task.o(i.arm_feedback_update))
 <BR><BR>[Stack]<UL><LI>Max Depth = 440<LI>Call Chain = arm_feedback_update &rArr; SolveFK &rArr; RotMatToQua &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_set_r
@@ -3523,7 +3523,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
 
-<P><STRONG><a name="[16c]"></a>TX_init</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, boards_communicate.o(i.TX_init))
+<P><STRONG><a name="[16c]"></a>TX_init</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, boards_communicate.o(i.TX_init))
 <BR><BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;board_communicate_task
 </UL>
 
@@ -3545,10 +3545,11 @@ Local Symbols
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_init
 </UL>
 
-<P><STRONG><a name="[173]"></a>chassis_init</STRONG> (Thumb, 466 bytes, Stack size 120 bytes, chassis_task.o(i.chassis_init))
+<P><STRONG><a name="[173]"></a>chassis_init</STRONG> (Thumb, 470 bytes, Stack size 120 bytes, chassis_task.o(i.chassis_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = chassis_init &rArr; PID_Init &rArr; OLS_Init &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
-<BR>[Calls]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Delay
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Delay
 <LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;key_init
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_remote_control_point
 <LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;first_order_filter_init
@@ -3558,7 +3559,6 @@ Local Symbols
 <LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;return_4310_measure
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_init
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_cmd_4310_disable
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
 </UL>
@@ -3566,13 +3566,13 @@ Local Symbols
 <P><STRONG><a name="[17a]"></a>chassis_set_contorl</STRONG> (Thumb, 444 bytes, Stack size 104 bytes, chassis_task.o(i.chassis_set_contorl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = chassis_set_contorl &rArr; chassis_rc_to_control_vector &rArr; first_order_filter_cali
 </UL>
-<BR>[Calls]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Delay
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Delay
 <LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fp32_constrain
 <LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_rc_to_control_vector
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_cmd_chassis_JC
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_cmd_4310_enable
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_cmd_4310_disable
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
 </UL>

@@ -81,7 +81,6 @@ typedef struct
   fp32 vy_set;                      //chassis_t set horizontal speed,positive means left,unit m/s.底盘设定速度 左右方向 左为正，单位 m/s
   fp32 wz_set;                      //chassis_t set rotation speed,positive means counterclockwise,unit rad/s.底盘设定旋转角速度，逆时针为正 单位 rad/s
 
-	
 	fp32 yaw_angle;
 	fp32 yaw_angle_set;
 	
@@ -89,6 +88,7 @@ typedef struct
 	chassis_mode_e  last_chassis_mode;	
 	arm_mode_e arm_mode;//机械臂模式
 	arm_mode_e last_arm_mode;
+	uint16_t suker_key_flag;
 	
 	float dt;
 	uint32_t  DWT_Count;	
