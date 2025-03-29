@@ -158,7 +158,7 @@ I (../boards/bsp_imu.h)(0x67E5641C)
 I (../boards/mytype.h)(0x67E5641C)
 I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdarg.h)(0x5CEB79E4)
 I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-I (../applications/nx_communicate.h)(0x67E68964)
+I (../applications/nx_communicate.h)(0x67E7B6D6)
 I (../applications/UI_task.h)(0x67E5641C)
 I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
 I (../components/support/ui_types.h)(0x67E5641C)
@@ -1432,7 +1432,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x66F8FAD3)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x66F8FAD3)
 I (../Core/Inc/gpio.h)(0x67E5641B)
 I (..\applications\init.h)(0x67E5641C)
-I (..\applications\nx_communicate.h)(0x67E68964)
+I (..\applications\nx_communicate.h)(0x67E7B6D6)
 I (../Core/Inc/can.h)(0x67E5641B)
 F (..\applications\boards_communicate.c)(0x67E5641C)(--c99 -c --cpu Cortex-M4.fp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../applications -I ../boards -I ../components/algorithm/Include -I ../components/algorithm/kinematic -I ../components/algorithm -I ../components/controller -I ../components/devices -I ../components/support-I.\RTE\_engineer_chassis-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o engineer_chassis\boards_communicate.o --omf_browse engineer_chassis\boards_communicate.crf --depend engineer_chassis\boards_communicate.d)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x66F8FAD3)
@@ -1707,7 +1707,7 @@ I (..\applications\remote_control.h)(0x67E5641C)
 I (../boards/struct_typedef.h)(0x67E5641C)
 I (../boards/bsp_rc.h)(0x67E5641C)
 I (..\applications\keyboard.h)(0x67E5641C)
-F (..\applications\nx_communicate.c)(0x67E68964)(--c99 -c --cpu Cortex-M4.fp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../applications -I ../boards -I ../components/algorithm/Include -I ../components/algorithm/kinematic -I ../components/algorithm -I ../components/controller -I ../components/devices -I ../components/support-I.\RTE\_engineer_chassis-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o engineer_chassis\nx_communicate.o --omf_browse engineer_chassis\nx_communicate.crf --depend engineer_chassis\nx_communicate.d)
+F (..\applications\nx_communicate.c)(0x67E7B6D6)(--c99 -c --cpu Cortex-M4.fp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../applications -I ../boards -I ../components/algorithm/Include -I ../components/algorithm/kinematic -I ../components/algorithm -I ../components/controller -I ../components/devices -I ../components/support-I.\RTE\_engineer_chassis-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U" -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING-o engineer_chassis\nx_communicate.o --omf_browse engineer_chassis\nx_communicate.crf --depend engineer_chassis\nx_communicate.d)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x66F8FAD3)
 I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
 I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
@@ -1747,7 +1747,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x66F8FAE7)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x66F8FAE7)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x66F8FAE7)
 I (../Core/Inc/usart.h)(0x67E5641B)
-I (..\applications\nx_communicate.h)(0x67E68964)
+I (..\applications\nx_communicate.h)(0x67E7B6D6)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x66F8FAD3)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x66F8FAD3)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x66F8FAD3)

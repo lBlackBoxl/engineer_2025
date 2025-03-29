@@ -9,9 +9,10 @@ extern float txData[6];
 
 typedef struct
 {
-	float time_flag;
-	float rxData[6];
-	uint8_t rxData_temp[28];
+	long long time_flag;
+	long long time_last_flag;
+	double rxData[6];
+	uint8_t rxData_temp[56];
 } rxData_t;
 
 extern rxData_t nx_rxData;

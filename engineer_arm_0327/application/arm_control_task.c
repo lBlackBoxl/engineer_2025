@@ -111,7 +111,7 @@ void arm_control_init(arm_t *arm_control_init)
 		CAN_cmd_4310_disable(DM_M2_TX_ID, hcan1);
 		osDelay(1);
 		CAN_cmd_4310_disable(DM_M3_TX_ID, hcan1);
-		osDelay(1);		
+		osDelay(1);
 		CAN_cmd_4310_disable(DM_M4_TX_ID, hcan1);
 		osDelay(1);
 		//数据更新
@@ -150,6 +150,7 @@ void arm_set_mode(arm_t *arm_set_mode)
 		arm_set_mode->arm_mode = board_message.arm_mode;		
 		arm_set_mode->chassis_last_mode = arm_set_mode->chassis_mode;	
 		arm_set_mode->chassis_mode = board_message.chassis_mode;	
+		arm_set_mode->suker_mode = board_message.suker_mode;
 		//根据底盘标志位更新1-3508和5&6-2006标志位
 		if(arm_set_mode->chassis_mode == 0)
 		{
@@ -237,15 +238,15 @@ void arm_feedback_update(arm_t *arm_feedback)
 	  arm.roll_angle = (arm.motor_2006_data[0].angle - arm.motor_2006_data[1].angle)/(2 * ROLL_TO_2006);//转化成末端两轴角度
 
 		//根据模式更改TD
-		if(arm_feedback->chassis_mode == 1 && board_message.suker_mode == 1)
+		if(arm_feedback->arm_mode == 1 && arm_feedback->suker_mode == 0)
 		{		
-				TD_set_r(&arm_feedback->arm_2_TD,5.0f);
-				TD_set_r(&arm_feedback->arm_3_TD,5.0f);
-				TD_set_r(&arm_feedback->arm_4_TD,5.0f);
-				TD_set_r(&arm_feedback->arm_5_TD,5.0f);
-				TD_set_r(&arm_feedback->arm_6_TD,5.0f);					
+				TD_set_r(&arm_feedback->arm_2_TD,10.0f);
+				TD_set_r(&arm_feedback->arm_3_TD,10.0f);
+				TD_set_r(&arm_feedback->arm_4_TD,10.0f);
+				TD_set_r(&arm_feedback->arm_5_TD,10.0f);
+				TD_set_r(&arm_feedback->arm_6_TD,10.0f);					
 		}
-		else
+		else if((arm_feedback->arm_mode == 0 || arm_feedback->arm_mode == 2 )&& arm_feedback->suker_mode == 0)
 		{	
 				TD_set_r(&arm_feedback->arm_2_TD,5.0f);
 				TD_set_r(&arm_feedback->arm_3_TD,5.0f);
@@ -253,6 +254,14 @@ void arm_feedback_update(arm_t *arm_feedback)
 				TD_set_r(&arm_feedback->arm_5_TD,5.0f);
 				TD_set_r(&arm_feedback->arm_6_TD,5.0f);				
 		}	
+		else
+		{
+				TD_set_r(&arm_feedback->arm_2_TD,5.0f);
+				TD_set_r(&arm_feedback->arm_3_TD,5.0f);
+				TD_set_r(&arm_feedback->arm_4_TD,5.0f);
+				TD_set_r(&arm_feedback->arm_5_TD,5.0f);
+				TD_set_r(&arm_feedback->arm_6_TD,5.0f);	
+		}
 }
 
 void arm_set_control(arm_t *arm_set_control)

@@ -39,8 +39,12 @@ void nx_communicate_task(void const *pvParameters)
 		HAL_UART_Receive_DMA(&huart7,nx_rxData.rxData_temp,sizeof(nx_rxData.rxData_temp));
 		osDelay(10);
 		
-		memcpy(&(nx_rxData.time_flag), nx_rxData.rxData_temp + 24, sizeof(nx_rxData.time_flag));
-		memcpy(nx_rxData.rxData, nx_rxData.rxData_temp, sizeof(nx_rxData.rxData));
+		nx_rxData.time_last_flag = nx_rxData.time_flag;
+		memcpy(&(nx_rxData.time_flag), nx_rxData.rxData_temp + 48, sizeof(nx_rxData.time_flag));
+		if(nx_rxData.time_flag > nx_rxData.time_last_flag)
+		{
+			memcpy(nx_rxData.rxData, nx_rxData.rxData_temp, sizeof(nx_rxData.rxData));
+		}
 	}
 }
 

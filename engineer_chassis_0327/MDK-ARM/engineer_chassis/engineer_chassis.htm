@@ -3,7 +3,7 @@
 <title>Static Call Graph - [engineer_chassis\engineer_chassis.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image engineer_chassis\engineer_chassis.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Mar 28 19:35:03 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Mar 29 17:01:13 2025
 <BR><P>
 <H3>Maximum Stack Usage =        704 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -2588,7 +2588,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nx_communicate_task
 </UL>
 
-<P><STRONG><a name="[79]"></a>nx_communicate_task</STRONG> (Thumb, 204 bytes, Stack size 0 bytes, nx_communicate.o(i.nx_communicate_task))
+<P><STRONG><a name="[79]"></a>nx_communicate_task</STRONG> (Thumb, 228 bytes, Stack size 0 bytes, nx_communicate.o(i.nx_communicate_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = nx_communicate_task &rArr; nx_communicate_init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
@@ -2963,6 +2963,7 @@ Global Symbols
 <LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_loop
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToQua
 </UL>
 
@@ -3503,10 +3504,11 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
 
-<P><STRONG><a name="[166]"></a>arm_control_loop</STRONG> (Thumb, 462 bytes, Stack size 16 bytes, arm_control_task.o(i.arm_control_loop))
+<P><STRONG><a name="[166]"></a>arm_control_loop</STRONG> (Thumb, 512 bytes, Stack size 16 bytes, arm_control_task.o(i.arm_control_loop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 616<LI>Call Chain = arm_control_loop &rArr; MoveL &rArr; SolveIK &rArr; RotMatToQua &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
 <BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
+<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
