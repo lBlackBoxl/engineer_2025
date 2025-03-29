@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp.sp
+--cpu=Cortex-M4.fp
 "engineer_arm\startup_stm32f407xx.o"
 "engineer_arm\main.o"
 "engineer_arm\gpio.o"

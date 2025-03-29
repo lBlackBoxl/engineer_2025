@@ -3,68 +3,73 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¦ÌVision V5.31.0.0
-Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information:  ,  , LIC=MPPLD-8STCB-FWU2N-Y7ZNI-7FG8G-2FI77
+IDE-Version: ¦ÌVision V5.28.0.0
+Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Cheng0891@outlook.com Cheng0891@outlook.com, tju, LIC=76F5U-SRG81-MMG9I-TKUX0-13VTY-SEMVU
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.31.0.0
-Toolchain Path:  G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin
+Toolchain:       MDK-ARM Plus  Version: 5.28.0.0
+Toolchain Path:  C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 6 (build 750)
 Assembler:       Armasm.exe V5.06 update 6 (build 750)
 Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
 Library Manager: ArmAr.exe V5.06 update 6 (build 750)
 Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
-CPU DLL:         SARMCM3.DLL V5.31.0.0
+CPU DLL:         SARMCM3.DLL V5.28.0.0
 Dialog DLL:      DCM.DLL V1.17.3.0
-Target DLL:      CMSIS_AGDI.dll V1.32.6.0
-Dialog DLL:      TCM.DLL V1.46.0.0
+Target DLL:      CMSIS_AGDI.dll V1.31.18.0
+Dialog DLL:      TCM.DLL V1.36.2.0
  
 <h2>Project:</h2>
-C:\Users\qiyehwzi\Desktop\engineer_2025_new\engineer_2025\engineer_chassis_0327\MDK-ARM\engineer_chassis.uvprojx
-Project File Date:  03/26/2025
+C:\~Terminal's SSD~\Tewlet\CubeMX program\engineer_2025\engineer_chassis_0327\MDK-ARM\engineer_chassis.uvprojx
+Project File Date:  03/28/2025
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin'
 Build target 'engineer_chassis'
+compiling nx_communicate.c...
 compiling arm_control_task.c...
-..\applications\arm_control_task.c(275): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+..\applications\arm_control_task.c(290): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   						arm_control_set->motor_2_position         =   -(R_6D_ctrl->output_solvers_IK.theta[indexConfig][1]+0.279);
-..\applications\arm_control_task.c(276): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+..\applications\arm_control_task.c(291): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   						arm_control_set->motor_3_position					=	  R_6D_ctrl->output_solvers_IK.theta[indexConfig][2]+1.292;
-..\applications\arm_control_task.c(278): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+..\applications\arm_control_task.c(293): warning:  #1035-D: single-precision operand implicitly converted to double-precision
   						arm_control_set->motor_5_position 				=	  -R_6D_ctrl->output_solvers_IK.theta[indexConfig][4]+0.74;
-..\applications\arm_control_task.c(182): warning:  #177-D: variable "new_joint_flag"  was declared but never referenced
+..\applications\arm_control_task.c(197): warning:  #177-D: variable "new_joint_flag"  was declared but never referenced
   		bool new_joint_flag = false;
-..\applications\arm_control_task.c(372): warning:  #177-D: function "arm_check_get_position"  was declared but never referenced
+..\applications\arm_control_task.c(387): warning:  #177-D: function "arm_check_get_position"  was declared but never referenced
   void arm_check_get_position(arm_control_t *check_position)
 ..\applications\arm_control_task.c: 5 warnings, 0 errors
+compiling freertos.c...
+../components/support/ui_types.h(8): warning:  #14-D: extra text after expected end of preprocessing directive
+  #ifdef __CC_ARM || __GNUC__
+../Core/Src/freertos.c: 1 warning, 0 errors
 linking...
-Program Size: Code=49376 RO-data=3996 RW-data=420 ZI-data=43284  
+Program Size: Code=49968 RO-data=4032 RW-data=420 ZI-data=28500  
 FromELF: creating hex file...
-"engineer_chassis\engineer_chassis.axf" - 0 Error(s), 5 Warning(s).
+"engineer_chassis\engineer_chassis.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
-                ARM.CMSIS.5.7.0
-                CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.4.0
+                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
+                ARM.CMSIS.5.8.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.5.0
 
 Package Vendor: Keil
-                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.16.0.pack
-                Keil.STM32F4xx_DFP.2.16.0
+                https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.1.pack
+                Keil.STM32F4xx_DFP.2.17.1
                 STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_engineer_chassis
-  G:\keil\KeilMDK\packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
-  G:\keil\KeilMDK\packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+  C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.4.0
+   * Component: ARM::CMSIS:CORE:5.5.0
       Include file:  CMSIS\Core\Include\tz_context.h
 Build Time Elapsed:  00:00:02
 </pre>

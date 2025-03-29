@@ -11,9 +11,9 @@ extern DMA_HandleTypeDef hdma_uart7_rx;
 extern DMA_HandleTypeDef hdma_uart7_tx;
 
 float txData[6];
-float rxData[6];
+rxData_t nx_rxData;
 uint8_t txData_uint[24] = {0};
-uint8_t rxData_uint[24] = {0};
+float nx_allowance[6] = {0.0f,0.0f,0.0f,0.0f,0.0f,0.0f};
 
 extern void nx_communicate_init(void);
 
@@ -25,21 +25,22 @@ void nx_communicate_task(void const *pvParameters)
 	
 	while(1)
 	{   
-		txData[0] = arm_control.motor_YAW_data.DM_motor_measure->motor_position;
-		txData[1] = arm_message.target_position[1];
-		txData[2] = arm_message.target_position[2];
-		txData[3] = arm_message.target_position[3];
-		txData[4] = arm_message.target_position[4];
-		txData[5] = arm_message.target_position[5];
+		txData[0] = arm_control.motor_YAW_data.DM_motor_measure->motor_position + nx_allowance[0];
+		txData[1] = arm_message.target_position[1] + nx_allowance[1];
+		txData[2] = arm_message.target_position[2] + nx_allowance[2];
+		txData[3] = arm_message.target_position[3] + nx_allowance[3];
+		txData[4] = arm_message.target_position[4] + nx_allowance[4];
+		txData[5] = arm_message.target_position[5] + nx_allowance[5];
 		
 		memcpy(txData_uint, txData, sizeof(txData));
 		
 		HAL_UART_Transmit_DMA(&huart7,txData_uint,sizeof(txData_uint));
 		osDelay(10);
-		HAL_UART_Receive_DMA(&huart7,rxData_uint,sizeof(rxData_uint));
+		HAL_UART_Receive_DMA(&huart7,nx_rxData.rxData_temp,sizeof(nx_rxData.rxData_temp));
 		osDelay(10);
 		
-		memcpy(rxData, rxData_uint, sizeof(rxData_uint));
+		memcpy(&(nx_rxData.time_flag), nx_rxData.rxData_temp + 24, sizeof(nx_rxData.time_flag));
+		memcpy(nx_rxData.rxData, nx_rxData.rxData_temp, sizeof(nx_rxData.rxData));
 	}
 }
 
@@ -60,7 +61,7 @@ void nx_communicate_init(void)
 	
 	__HAL_UART_ENABLE_IT(&huart7, UART_IT_IDLE);									//使能空闲中断
 	
-	HAL_UART_Receive_DMA(&huart7, rxData_uint,sizeof(rxData_uint));        //初始化接收中断
+	HAL_UART_Receive_DMA(&huart7, nx_rxData.rxData_temp,sizeof(nx_rxData.rxData_temp));        //初始化接收中断
 	
 }
 

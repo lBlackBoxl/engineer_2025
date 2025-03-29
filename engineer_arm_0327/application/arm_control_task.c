@@ -81,7 +81,7 @@ void arm_task(void const * argument)
 								DWT_Delay(0.0003f);	
 				}
 				// 5-6-2006发送电流指令
-//				CAN_cmd_2006(arm.motor_2006_data[0].give_current,arm.motor_2006_data[1].give_current);			
+				CAN_cmd_2006(arm.motor_2006_data[0].give_current,arm.motor_2006_data[1].give_current);			
 				osDelay(1);
 		}	
 }
@@ -239,19 +239,19 @@ void arm_feedback_update(arm_t *arm_feedback)
 		//根据模式更改TD
 		if(arm_feedback->chassis_mode == 1 && board_message.suker_mode == 1)
 		{		
-				TD_set_r(&arm_feedback->arm_2_TD,9.0f);
-				TD_set_r(&arm_feedback->arm_3_TD,10.0f);
-				TD_set_r(&arm_feedback->arm_4_TD,10.0f);
-				TD_set_r(&arm_feedback->arm_5_TD,14.0f);
-				TD_set_r(&arm_feedback->arm_6_TD,14.0f);					
+				TD_set_r(&arm_feedback->arm_2_TD,5.0f);
+				TD_set_r(&arm_feedback->arm_3_TD,5.0f);
+				TD_set_r(&arm_feedback->arm_4_TD,5.0f);
+				TD_set_r(&arm_feedback->arm_5_TD,5.0f);
+				TD_set_r(&arm_feedback->arm_6_TD,5.0f);					
 		}
 		else
 		{	
-				TD_set_r(&arm_feedback->arm_2_TD,10.0f);
-				TD_set_r(&arm_feedback->arm_3_TD,12.0f);
-				TD_set_r(&arm_feedback->arm_4_TD,14.0f);
-				TD_set_r(&arm_feedback->arm_5_TD,18.0f);
-				TD_set_r(&arm_feedback->arm_6_TD,18.0f);				
+				TD_set_r(&arm_feedback->arm_2_TD,5.0f);
+				TD_set_r(&arm_feedback->arm_3_TD,5.0f);
+				TD_set_r(&arm_feedback->arm_4_TD,5.0f);
+				TD_set_r(&arm_feedback->arm_5_TD,5.0f);
+				TD_set_r(&arm_feedback->arm_6_TD,5.0f);				
 		}	
 }
 

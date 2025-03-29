@@ -110,6 +110,8 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 		memcpy(arm_control.pre_Au_reposition,pre_Au_reposition,sizeof(pre_Au_reposition));
 		memcpy(arm_control.Au_reposition,Au_reposition,sizeof(Au_reposition));
 		memcpy(arm_control.Ag_reposition,Ag_reposition,sizeof(Ag_reposition));
+			
+		TD_init(&arm_control.arm_1_TD,12.0f,2.0f,0.002f,arm_control.motor_YAW_data.DM_motor_measure->motor_position);
 }
 
 void arm_feedback_update( arm_control_t *arm_control_position, Robotic_6DOF_control_t *R_6D_ctrl)
@@ -146,15 +148,28 @@ void arm_feedback_update( arm_control_t *arm_control_position, Robotic_6DOF_cont
 				R_6D_ctrl->Pose6D_IK.Q[2] = q_multiply_result[2];
 				R_6D_ctrl->Pose6D_IK.Q[3] = q_multiply_result[3]; 
 	 }
-	 if(chassis.chassis_mode == SELF_CONTROL_MODE && chassis.last_chassis_mode!=SELF_CONTROL_MODE)
-	 {
-				yaw_angle_set = arm_message.target_position[5];
-	 }
+		if(chassis.chassis_mode == 0)
+		{
+			TD_set_r(&arm_control_position->arm_1_TD,5.0f);
+		}
+		else 
+		{
+			TD_set_r(&arm_control_position->arm_1_TD,5.0f);
+		}
 }
 
 void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 {
-		
+				if(chassis.chassis_mode == 0)
+		{
+				TD_set_x(&arm_control_set->arm_1_TD,arm_control_set->motor_YAW_data.DM_motor_measure->motor_position);
+		}
+		else
+		{
+				TD_calc(&arm_control_set->arm_1_TD, arm_control_set->motor_1_position);
+				
+				arm_control_set->motor_YAW_data.position_set = (fp32)(arm_control_set->arm_1_TD.x);					
+		}
 }
 
 float AbsMaxOf6(Joint6D_t _joints)
@@ -359,12 +374,12 @@ void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl,arm_control_t *arm_contr
 		}
 		else if(chassis.arm_mode == NX_CONTROL_MODE)
 		{
-				arm_control_loop->motor_1_position = rxData[0];
-				arm_control_loop->motor_2_position = rxData[1];
-				arm_control_loop->motor_3_position = rxData[2];
-				arm_control_loop->motor_4_position = rxData[3];
-				arm_control_loop->motor_5_position = rxData[4];
-				arm_control_loop->motor_6_position = rxData[5];
+				arm_control_loop->motor_1_position = nx_rxData.rxData[0];
+				arm_control_loop->motor_2_position = nx_rxData.rxData[1];
+				arm_control_loop->motor_3_position = nx_rxData.rxData[2];
+				arm_control_loop->motor_4_position = nx_rxData.rxData[3];
+				arm_control_loop->motor_5_position = nx_rxData.rxData[4];
+				arm_control_loop->motor_6_position = nx_rxData.rxData[5];
 		}
 		arm_control_loop->motor_YAW_data.position_set = arm_control_loop->motor_1_position;
 }

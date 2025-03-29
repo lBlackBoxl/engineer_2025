@@ -1,10 +1,10 @@
 engineer_chassis\protocol.o: ..\components\support\protocol.c
 engineer_chassis\protocol.o: ..\components\support\protocol.h
-engineer_chassis\protocol.o: ..\boards\struct_typedef.h
-engineer_chassis\protocol.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-engineer_chassis\protocol.o: ..\applications\UI_task.h
-engineer_chassis\protocol.o: ..\components\support\ui_types.h
-engineer_chassis\protocol.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+engineer_chassis\protocol.o: ../boards/struct_typedef.h
+engineer_chassis\protocol.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdio.h
+engineer_chassis\protocol.o: ../applications/UI_task.h
+engineer_chassis\protocol.o: ../components/support/ui_types.h
+engineer_chassis\protocol.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
 engineer_chassis\protocol.o: ../Core/Inc/usart.h
 engineer_chassis\protocol.o: ../Core/Inc/main.h
 engineer_chassis\protocol.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
@@ -21,7 +21,7 @@ engineer_chassis\protocol.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 engineer_chassis\protocol.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 engineer_chassis\protocol.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 engineer_chassis\protocol.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-engineer_chassis\protocol.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+engineer_chassis\protocol.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
 engineer_chassis\protocol.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 engineer_chassis\protocol.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 engineer_chassis\protocol.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h

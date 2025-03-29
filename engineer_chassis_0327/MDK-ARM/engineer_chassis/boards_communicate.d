@@ -1,7 +1,7 @@
 engineer_chassis\boards_communicate.o: ..\applications\boards_communicate.c
 engineer_chassis\boards_communicate.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-engineer_chassis\boards_communicate.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-engineer_chassis\boards_communicate.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+engineer_chassis\boards_communicate.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
+engineer_chassis\boards_communicate.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
 engineer_chassis\boards_communicate.o: ../Core/Inc/FreeRTOSConfig.h
 engineer_chassis\boards_communicate.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 engineer_chassis\boards_communicate.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -39,7 +39,7 @@ engineer_chassis\boards_communicate.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32
 engineer_chassis\boards_communicate.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 engineer_chassis\boards_communicate.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 engineer_chassis\boards_communicate.o: ..\applications\boards_communicate.h
-engineer_chassis\boards_communicate.o: ..\boards\struct_typedef.h
+engineer_chassis\boards_communicate.o: ../boards/struct_typedef.h
 engineer_chassis\boards_communicate.o: ..\applications\can_communicate.h
 engineer_chassis\boards_communicate.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 engineer_chassis\boards_communicate.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
@@ -50,19 +50,19 @@ engineer_chassis\boards_communicate.o: ../Middlewares/Third_Party/FreeRTOS/Sourc
 engineer_chassis\boards_communicate.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 engineer_chassis\boards_communicate.o: ..\applications\chassis_task.h
 engineer_chassis\boards_communicate.o: ..\applications\remote_control.h
-engineer_chassis\boards_communicate.o: ..\boards\bsp_rc.h
-engineer_chassis\boards_communicate.o: ..\components\algorithm\user_lib.h
-engineer_chassis\boards_communicate.o: ..\components\controller\controller.h
-engineer_chassis\boards_communicate.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-engineer_chassis\boards_communicate.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-engineer_chassis\boards_communicate.o: ..\boards\bsp_dwt.h
-engineer_chassis\boards_communicate.o: ..\components\algorithm\Include\arm_math.h
+engineer_chassis\boards_communicate.o: ../boards/bsp_rc.h
+engineer_chassis\boards_communicate.o: ../components/algorithm/user_lib.h
+engineer_chassis\boards_communicate.o: ../components/controller/controller.h
+engineer_chassis\boards_communicate.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\string.h
+engineer_chassis\boards_communicate.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdlib.h
+engineer_chassis\boards_communicate.o: ../boards/bsp_dwt.h
+engineer_chassis\boards_communicate.o: ../components/algorithm/Include/arm_math.h
 engineer_chassis\boards_communicate.o: ../Drivers/CMSIS/Include/core_cm4.h
-engineer_chassis\boards_communicate.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-engineer_chassis\boards_communicate.o: ..\components\controller\TD.h
+engineer_chassis\boards_communicate.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\math.h
+engineer_chassis\boards_communicate.o: ../components/controller/TD.h
 engineer_chassis\boards_communicate.o: ..\applications\keyboard.h
 engineer_chassis\boards_communicate.o: ..\applications\referee.h
 engineer_chassis\boards_communicate.o: ..\applications\arm_control_task.h
-engineer_chassis\boards_communicate.o: ..\components\algorithm\kinematic\6dof_kinematic.h
-engineer_chassis\boards_communicate.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-engineer_chassis\boards_communicate.o: ..\components\controller\Butterworth_Filter.h
+engineer_chassis\boards_communicate.o: ../components/algorithm/kinematic/6dof_kinematic.h
+engineer_chassis\boards_communicate.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdbool.h
+engineer_chassis\boards_communicate.o: ../components/controller/Butterworth_Filter.h

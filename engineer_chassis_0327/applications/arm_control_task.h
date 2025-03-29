@@ -60,6 +60,8 @@ typedef struct
 	fp32 lift_adjustion;
 	float dt;
 	uint32_t  DWT_Count;	
+	
+	TD_t arm_1_TD;
 }arm_control_t;
 
 typedef struct
