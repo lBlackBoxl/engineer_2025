@@ -79,7 +79,7 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 		R_6D_ctrl->Joint[3].angleLimitMax =  2.3f;
 		R_6D_ctrl->Joint[3].angleLimitMin =  -1.9f;
 		
-		R_6D_ctrl->Joint[4].angleLimitMax =  PI;
+		R_6D_ctrl->Joint[4].angleLimitMax = PI;
 		R_6D_ctrl->Joint[4].angleLimitMin = -PI;
 		
 		R_6D_ctrl->Joint[5].angleLimitMax =  PI;
@@ -100,7 +100,7 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 		
 		//机械臂复位位置
 		fp32 allowance[6] = {0.0f,0.0f,0.0f,0.0f,0.0f,0.0f};
-		fp32 repositon_position[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],2.31f + allowance[4],0.0f + allowance[5]};		
+		fp32 repositon_position[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],1.8f + allowance[4],0.0f + allowance[5]};		
 		fp32 three_ore_position[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],0.0f + allowance[4],0.0f + allowance[5]};	
 		fp32 pre_Au_reposition[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],0.0f + allowance[4],0.0f + allowance[5]};
 		fp32 Au_reposition[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],0.0f + allowance[4],0.0f + allowance[5]};
@@ -121,8 +121,8 @@ void arm_feedback_update( arm_control_t *arm_control_position, Robotic_6DOF_cont
 		R_6D_ctrl->Joint6D_FK.theta[1] =  -arm_message.target_position[1]-0.279f;
 		R_6D_ctrl->Joint6D_FK.theta[2] =  arm_message.target_position[2]-1.292f;
 		R_6D_ctrl->Joint6D_FK.theta[3] =  arm_message.target_position[3];
-		R_6D_ctrl->Joint6D_FK.theta[4] =  arm_message.target_position[4];
-		R_6D_ctrl->Joint6D_FK.theta[5] =  arm_message.target_position[5]+0.74f;
+		R_6D_ctrl->Joint6D_FK.theta[4] =  arm_message.target_position[4]-0.10f;
+		R_6D_ctrl->Joint6D_FK.theta[5] =  arm_message.target_position[5];
 		//正解算调用
 		SolveFK(&R_6D_ctrl->Robotic_6D, &R_6D_ctrl->Joint6D_FK,&R_6D_ctrl->Pose6D_FK);	
 	
@@ -148,23 +148,11 @@ void arm_feedback_update( arm_control_t *arm_control_position, Robotic_6DOF_cont
 				R_6D_ctrl->Pose6D_IK.Q[2] = q_multiply_result[2];
 				R_6D_ctrl->Pose6D_IK.Q[3] = q_multiply_result[3]; 
 	 }
-		if(chassis.arm_mode == 1 && chassis.suker_key_flag == 0)
-		{
-			TD_set_r(&arm_control_position->arm_1_TD,10.0f);
-		}
-		else if((chassis.arm_mode == 0 || chassis.arm_mode == 2) && chassis.suker_key_flag == 0) 
-		{
-			TD_set_r(&arm_control_position->arm_1_TD,5.0f);
-		}
-		else
-		{
-			TD_set_r(&arm_control_position->arm_1_TD,5.0f);
-		}
 }
 
 void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 {
-				if(chassis.chassis_mode == 0)
+		if(chassis.chassis_mode == 0)
 		{
 				TD_set_x(&arm_control_set->arm_1_TD,arm_control_set->motor_YAW_data.DM_motor_measure->motor_position);
 		}
@@ -173,6 +161,19 @@ void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 				TD_calc(&arm_control_set->arm_1_TD, arm_control_set->motor_1_position);
 				
 				arm_control_set->motor_YAW_data.position_set = (fp32)(arm_control_set->arm_1_TD.x);					
+		}
+		
+		if(chassis.arm_mode == 1 && chassis.suker_key_flag == 0)
+		{
+			TD_set_r(&arm_control_set->arm_1_TD,10.0f);
+		}
+		else if((chassis.arm_mode == 0 || chassis.arm_mode == 2)) 
+		{
+			TD_set_r(&arm_control_set->arm_1_TD,5.0f);
+		}
+		else
+		{
+			TD_set_r(&arm_control_set->arm_1_TD,5.0f);
 		}
 }
 
@@ -291,10 +292,10 @@ void MoveL(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_set, al
 						}
 						
 						arm_control_set->motor_1_position 				= 	R_6D_ctrl->output_solvers_IK.theta[indexConfig][0];
-						arm_control_set->motor_2_position         =   -(R_6D_ctrl->output_solvers_IK.theta[indexConfig][1]+0.279);
-						arm_control_set->motor_3_position					=	  R_6D_ctrl->output_solvers_IK.theta[indexConfig][2]+1.292;
+						arm_control_set->motor_2_position         =   -(R_6D_ctrl->output_solvers_IK.theta[indexConfig][1]+0.279f);
+						arm_control_set->motor_3_position					=	  R_6D_ctrl->output_solvers_IK.theta[indexConfig][2]+1.292f;
 						arm_control_set->motor_4_position 				=		R_6D_ctrl->output_solvers_IK.theta[indexConfig][3];
-						arm_control_set->motor_5_position 				=	  -R_6D_ctrl->output_solvers_IK.theta[indexConfig][4]+0.74;
+						arm_control_set->motor_5_position 				=	  -R_6D_ctrl->output_solvers_IK.theta[indexConfig][4]-0.1f;
 						arm_control_set->motor_6_position 				=		-R_6D_ctrl->output_solvers_IK.theta[indexConfig][5];
 				}
 				else
