@@ -31,6 +31,9 @@ engineer_chassis\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 engineer_chassis\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 engineer_chassis\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 engineer_chassis\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+engineer_chassis\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h
+engineer_chassis\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
+engineer_chassis\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 engineer_chassis\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 engineer_chassis\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 engineer_chassis\main.o: ../Core/Inc/FreeRTOSConfig.h
@@ -49,6 +52,12 @@ engineer_chassis\main.o: ../Core/Inc/can.h
 engineer_chassis\main.o: ../Core/Inc/dma.h
 engineer_chassis\main.o: ../Core/Inc/spi.h
 engineer_chassis\main.o: ../Core/Inc/usart.h
+engineer_chassis\main.o: ../USB_DEVICE/App/usb_device.h
+engineer_chassis\main.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h
+engineer_chassis\main.o: ../USB_DEVICE/Target/usbd_conf.h
+engineer_chassis\main.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdio.h
+engineer_chassis\main.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdlib.h
+engineer_chassis\main.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\string.h
 engineer_chassis\main.o: ../Core/Inc/gpio.h
 engineer_chassis\main.o: ../applications/remote_control.h
 engineer_chassis\main.o: ../boards/struct_typedef.h

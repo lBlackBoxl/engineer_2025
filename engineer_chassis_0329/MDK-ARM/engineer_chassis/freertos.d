@@ -40,6 +40,9 @@ engineer_chassis\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_p
 engineer_chassis\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 engineer_chassis\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 engineer_chassis\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+engineer_chassis\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h
+engineer_chassis\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
+engineer_chassis\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 engineer_chassis\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 engineer_chassis\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 engineer_chassis\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
@@ -76,3 +79,4 @@ engineer_chassis\freertos.o: ../components/algorithm/kinematic/6dof_kinematic.h
 engineer_chassis\freertos.o: ../components/controller/Butterworth_Filter.h
 engineer_chassis\freertos.o: ../applications/boards_communicate.h
 engineer_chassis\freertos.o: ../applications/referee_usart_task.h
+engineer_chassis\freertos.o: ../applications/pc_info_task.h

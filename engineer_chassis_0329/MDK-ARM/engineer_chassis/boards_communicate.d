@@ -38,6 +38,9 @@ engineer_chassis\boards_communicate.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32
 engineer_chassis\boards_communicate.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 engineer_chassis\boards_communicate.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 engineer_chassis\boards_communicate.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+engineer_chassis\boards_communicate.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h
+engineer_chassis\boards_communicate.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
+engineer_chassis\boards_communicate.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 engineer_chassis\boards_communicate.o: ..\applications\boards_communicate.h
 engineer_chassis\boards_communicate.o: ../boards/struct_typedef.h
 engineer_chassis\boards_communicate.o: ..\applications\can_communicate.h

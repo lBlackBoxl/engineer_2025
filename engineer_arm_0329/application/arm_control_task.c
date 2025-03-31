@@ -23,6 +23,7 @@ arm_t arm;
 uint8_t  reset_3508_switch;
 uint32_t reset_3508_count[2];
 uint32_t reset_2006_count[2];
+uint32_t reposition_count = 0;
 float32_t g_2006 = 249.0f;
 float32_t mode2_cnt = 0;
 
@@ -131,11 +132,11 @@ void arm_control_init(arm_t *arm_control_init)
 			arm_control_init->motor_2006_data[i].speed_set = 0;
 		}			
 		//初始化跟踪微分器TD
-		TD_init(&arm_control_init->arm_2_TD,12.0f,2.0f,0.002f,arm_control_init->motor_DM_data[1].DM_motor_measure->motor_position);
-		TD_init(&arm_control_init->arm_3_TD,12.0f,2.0f,0.002f,arm_control_init->motor_DM_data[2].DM_motor_measure->motor_position);
-		TD_init(&arm_control_init->arm_4_TD,12.0f,2.0f,0.002f,arm_control_init->motor_DM_data[3].DM_motor_measure->motor_position);
-		TD_init(&arm_control_init->arm_5_TD,18.0f,2.0f,0.002f,arm_control_init->roll_angle);
-		TD_init(&arm_control_init->arm_6_TD,18.0f,2.0f,0.002f,arm_control_init->yaw_angle);		
+		TD_init(&arm_control_init->arm_2_TD,5.0f,2.0f,0.002f,arm_control_init->motor_DM_data[1].DM_motor_measure->motor_position);
+		TD_init(&arm_control_init->arm_3_TD,5.0f,2.0f,0.002f,arm_control_init->motor_DM_data[2].DM_motor_measure->motor_position);
+		TD_init(&arm_control_init->arm_4_TD,5.0f,2.0f,0.002f,arm_control_init->motor_DM_data[3].DM_motor_measure->motor_position);
+		TD_init(&arm_control_init->arm_5_TD,5.0f,2.0f,0.002f,arm_control_init->roll_angle);
+		TD_init(&arm_control_init->arm_6_TD,5.0f,2.0f,0.002f,arm_control_init->yaw_angle);		
 }
 
 void arm_set_mode(arm_t *arm_set_mode)
@@ -240,27 +241,36 @@ void arm_feedback_update(arm_t *arm_feedback)
 		//根据模式更改TD
 		if(arm_feedback->arm_mode == 1 && arm_feedback->suker_mode == 0)
 		{		
-				TD_set_r(&arm_feedback->arm_2_TD,10.0f);
-				TD_set_r(&arm_feedback->arm_3_TD,10.0f);
-				TD_set_r(&arm_feedback->arm_4_TD,10.0f);
-				TD_set_r(&arm_feedback->arm_5_TD,10.0f);
-				TD_set_r(&arm_feedback->arm_6_TD,10.0f);					
+				if(reposition_count < 500)
+				{
+					reposition_count++;
+				}
+				else
+				{
+					TD_set_r(&arm_feedback->arm_2_TD,10.0f);
+					TD_set_r(&arm_feedback->arm_3_TD,10.0f);
+					TD_set_r(&arm_feedback->arm_4_TD,10.0f);
+					TD_set_r(&arm_feedback->arm_5_TD,10.0f);
+					TD_set_r(&arm_feedback->arm_6_TD,10.0f);
+				}
 		}
 		else if((arm_feedback->arm_mode == 0 || arm_feedback->arm_mode == 2 )&& arm_feedback->suker_mode == 0)
 		{	
-				TD_set_r(&arm_feedback->arm_2_TD,5.0f);
-				TD_set_r(&arm_feedback->arm_3_TD,5.0f);
-				TD_set_r(&arm_feedback->arm_4_TD,5.0f);
-				TD_set_r(&arm_feedback->arm_5_TD,5.0f);
-				TD_set_r(&arm_feedback->arm_6_TD,5.0f);				
+				TD_set_r(&arm_feedback->arm_2_TD,3.0f);
+				TD_set_r(&arm_feedback->arm_3_TD,3.0f);
+				TD_set_r(&arm_feedback->arm_4_TD,3.0f);
+				TD_set_r(&arm_feedback->arm_5_TD,3.0f);
+				TD_set_r(&arm_feedback->arm_6_TD,3.0f);
+				reposition_count = 0;
 		}	
 		else
 		{
-				TD_set_r(&arm_feedback->arm_2_TD,5.0f);
-				TD_set_r(&arm_feedback->arm_3_TD,5.0f);
-				TD_set_r(&arm_feedback->arm_4_TD,5.0f);
-				TD_set_r(&arm_feedback->arm_5_TD,5.0f);
-				TD_set_r(&arm_feedback->arm_6_TD,5.0f);	
+				TD_set_r(&arm_feedback->arm_2_TD,3.0f);
+				TD_set_r(&arm_feedback->arm_3_TD,3.0f);
+				TD_set_r(&arm_feedback->arm_4_TD,3.0f);
+				TD_set_r(&arm_feedback->arm_5_TD,3.0f);
+				TD_set_r(&arm_feedback->arm_6_TD,3.0f);	
+				reposition_count = 0;
 		}
 }
 

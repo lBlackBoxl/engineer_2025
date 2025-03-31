@@ -68,4 +68,5 @@ typedef __packed struct
 
 extern send_msg_t pc_send_msg;
 extern receive_msg_t pc_receive_msg;
+extern float nx_allowance[6];
 #endif

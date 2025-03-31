@@ -31,6 +31,9 @@ engineer_chassis\imu_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_p
 engineer_chassis\imu_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 engineer_chassis\imu_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 engineer_chassis\imu_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+engineer_chassis\imu_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h
+engineer_chassis\imu_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
+engineer_chassis\imu_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 engineer_chassis\imu_task.o: ..\applications\imu_task.h
 engineer_chassis\imu_task.o: ../boards/bsp_imu.h
 engineer_chassis\imu_task.o: ../boards/mytype.h
