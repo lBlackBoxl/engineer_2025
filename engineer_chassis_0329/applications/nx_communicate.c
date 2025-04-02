@@ -32,7 +32,7 @@ void nx_communicate_task(void const *pvParameters)
 		pc_receive_msg.rx_data.motor2_position = nx_allowance[1];
 		pc_receive_msg.rx_data.motor3_position = nx_allowance[2];
 		pc_receive_msg.rx_data.motor4_position = nx_allowance[3];
-		pc_receive_msg.rx_data.motor5_position = nx_allowance[4] + 1.8f;
+		pc_receive_msg.rx_data.motor5_position = (nx_allowance[4] + 1.8f);
 		pc_receive_msg.rx_data.motor6_position = nx_allowance[5];
 	
 		nx_communicate_init();

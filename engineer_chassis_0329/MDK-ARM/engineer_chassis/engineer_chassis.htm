@@ -3,7 +3,7 @@
 <title>Static Call Graph - [engineer_chassis\engineer_chassis.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image engineer_chassis\engineer_chassis.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Mar 31 21:55:35 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Apr 02 19:03:35 2025
 <BR><P>
 <H3>Maximum Stack Usage =        712 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -3814,11 +3814,11 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
-<LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
 <LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[1d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan2
 <LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[1d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
+<LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
 <LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
@@ -3877,10 +3877,10 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_attitude_update
 <LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
-<LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
 <LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
 <LI><a href="#[1d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan
+<LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
 <LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
@@ -4311,7 +4311,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
 
-<P><STRONG><a name="[1e6]"></a>arm_control_loop</STRONG> (Thumb, 526 bytes, Stack size 16 bytes, arm_control_task.o(i.arm_control_loop))
+<P><STRONG><a name="[1e6]"></a>arm_control_loop</STRONG> (Thumb, 530 bytes, Stack size 16 bytes, arm_control_task.o(i.arm_control_loop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 624<LI>Call Chain = arm_control_loop &rArr; MoveL &rArr; SolveIK &rArr; RotMatToQua &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display &rArr; _ttywrch
 </UL>
 <BR>[Calls]<UL><LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
