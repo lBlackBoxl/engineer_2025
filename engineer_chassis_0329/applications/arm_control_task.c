@@ -76,8 +76,8 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 		R_6D_ctrl->Joint[2].angleLimitMax =  1.558f;//1.57f;
 		R_6D_ctrl->Joint[2].angleLimitMin =  -1.242f;//-1.23f;
 		
-		R_6D_ctrl->Joint[3].angleLimitMax =  2.3f;
-		R_6D_ctrl->Joint[3].angleLimitMin =  -1.9f;
+		R_6D_ctrl->Joint[3].angleLimitMax =  1.57f;///////2.3f;
+		R_6D_ctrl->Joint[3].angleLimitMin =  -1.57f;///////-1.9f;
 		
 		R_6D_ctrl->Joint[4].angleLimitMax = PI;
 		R_6D_ctrl->Joint[4].angleLimitMin = -PI;
@@ -191,6 +191,21 @@ float AbsMaxOf6(Joint6D_t _joints)
     return max;
 }
 
+float AbsMaxWithJoint4Priority(Joint6D_t _joints) 
+{
+		float weights[] = {1.0, 1.0, 1.0, 0.2, 1.0, 1.0}; // joint4的权重较低
+		float max = 0;
+		for (uint8_t i = 0; i < 6; i++) 
+		{
+			float weighted = fabs(_joints.theta[i]) * weights[i];
+			if (weighted > max) 
+			{
+				max = weighted;
+			}
+		}
+		return max;
+}
+
 Joint6D_t deltaJoints;
 
 
@@ -264,7 +279,7 @@ void MoveL(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_set, al
 												//Last_Joint6D.theta[j] = R_6D_ctrl->output_solvers_IK.theta[i][j];
 												tmp.theta[j]= R_6D_ctrl->Joint6D_FK.theta[j] - R_6D_ctrl->output_solvers_IK.theta[i][j];
 										}
-										float maxAngle = AbsMaxOf6(tmp);
+										float maxAngle = AbsMaxWithJoint4Priority(tmp);
 										if (maxAngle < min)
 										{
 												min = maxAngle;
@@ -295,7 +310,7 @@ void MoveL(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_set, al
 						arm_control_set->motor_2_position         =   -(R_6D_ctrl->output_solvers_IK.theta[indexConfig][1]+0.279f);
 						arm_control_set->motor_3_position					=	  R_6D_ctrl->output_solvers_IK.theta[indexConfig][2]+1.292f;
 						arm_control_set->motor_4_position 				=		R_6D_ctrl->output_solvers_IK.theta[indexConfig][3];
-						arm_control_set->motor_5_position 				=	  -R_6D_ctrl->output_solvers_IK.theta[indexConfig][4]-0.1f;
+						arm_control_set->motor_5_position 				=	  -(R_6D_ctrl->output_solvers_IK.theta[indexConfig][4]-0.1f);
 						arm_control_set->motor_6_position 				=		-R_6D_ctrl->output_solvers_IK.theta[indexConfig][5];
 				}
 				else
@@ -369,10 +384,10 @@ void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl,arm_control_t *arm_contr
 		}
 		else if(chassis.arm_mode == SELF_CONTROL_MODE)
 		{
-					if(chassis.last_chassis_mode != SELF_CONTROL_MODE)
-					{
-							R_6D_ctrl->Pose6D_IK_Z_TD.x = 0.0f;
-					}
+//					if(chassis.last_chassis_mode != SELF_CONTROL_MODE)
+//					{
+//							R_6D_ctrl->Pose6D_IK_Z_TD.x = 0.0f;
+//					}
 //					TD_calc(&R_6D_ctrl->Pose6D_IK_Z_TD,R_6D_ctrl->Pose6D_IK.Z);
 //					R_6D_ctrl->Pose6D_IK.Z = R_6D_ctrl->Pose6D_IK_Z_TD.x;
 					MoveL(R_6D_ctrl,arm_control_loop,arm_key);

@@ -198,7 +198,7 @@
         <Ww>
           <count>8</count>
           <WinNumber>1</WinNumber>
-          <ItemText>pc_receive_msg,0x0A</ItemText>
+          <ItemText>pc_receive_msg,0x10</ItemText>
         </Ww>
         <Ww>
           <count>9</count>
@@ -213,7 +213,17 @@
         <Ww>
           <count>11</count>
           <WinNumber>1</WinNumber>
-          <ItemText>USART7_RX_BUF</ItemText>
+          <ItemText>Buf</ItemText>
+        </Ww>
+        <Ww>
+          <count>12</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>USB_RX_BUF</ItemText>
+        </Ww>
+        <Ww>
+          <count>13</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>rx_data</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
