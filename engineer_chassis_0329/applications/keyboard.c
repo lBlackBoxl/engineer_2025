@@ -85,9 +85,86 @@ int8_t key_press(key_t *press)
 					else
 						return 0;
 				}
+				case SHIFT:
+				{
+					if(key_RC->key.SHIFT)
+						return 1;
+					else
+						return 0;
+				}
+				case CTRL:
+				{
+					if(key_RC->key.CTRL)
+						return 1;
+					else
+						return 0;
+				}
+				case Q:
+				{
+					if(key_RC->key.Q)
+						return 1;
+					else
+						return 0;
+				}
+				case E:
+				{
+					if(key_RC->key.E)
+						return 1;
+					else
+						return 0;
+				}
+				case R:
+				{
+					if(key_RC->key.R)
+						return 1;
+					else
+						return 0;
+				}
 				case F:
 				{
 					if(key_RC->key.F)
+						return 1;
+					else
+						return 0;
+				}
+				case G:
+				{
+					if(key_RC->key.G)
+						return 1;
+					else
+						return 0;
+				}
+				case Z:
+				{
+					if(key_RC->key.Z)
+						return 1;
+					else
+						return 0;
+				}
+				case X:
+				{
+					if(key_RC->key.X)
+						return 1;
+					else
+						return 0;
+				}
+				case C:
+				{
+					if(key_RC->key.C)
+						return 1;
+					else
+						return 0;
+				}
+				case V:
+				{
+					if(key_RC->key.V)
+						return 1;
+					else
+						return 0;
+				}
+				case B:
+				{
+					if(key_RC->key.B)
 						return 1;
 					else
 						return 0;

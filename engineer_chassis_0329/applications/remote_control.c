@@ -152,4 +152,16 @@ static void sbus_to_rc(volatile const uint8_t *sbus_buf, RC_ctrl_t *rc_ctrl)
 		rc_ctrl->key.S  = (key_information >> 1) & 1;  //按键S
 		rc_ctrl->key.A  = (key_information >> 2) & 1;  //按键A
 		rc_ctrl->key.D  = (key_information >> 3) & 1;  //按键D
+		rc_ctrl->key.SHIFT  = (key_information >> 4) & 1;  //按键SHIFT
+		rc_ctrl->key.CTRL  = (key_information >> 5) & 1;  //按键CTRL
+		rc_ctrl->key.Q  = (key_information >> 6) & 1;  //按键Q
+		rc_ctrl->key.E  = (key_information >> 7) & 1;  //按键E
+		rc_ctrl->key.R  = (key_information >> 8) & 1;  //按键R
+		rc_ctrl->key.F  = (key_information >> 9) & 1;  //按键F
+		rc_ctrl->key.G  = (key_information >> 10) & 1;  //按键G
+		rc_ctrl->key.Z  = (key_information >> 11) & 1;  //按键Z
+		rc_ctrl->key.X  = (key_information >> 12) & 1;  //按键X
+		rc_ctrl->key.C  = (key_information >> 13) & 1;  //按键C
+		rc_ctrl->key.V  = (key_information >> 14) & 1;  //按键V
+		rc_ctrl->key.B  = (key_information >> 15) & 1;  //按键B
 }

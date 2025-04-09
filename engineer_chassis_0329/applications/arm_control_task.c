@@ -394,7 +394,7 @@ void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl,arm_control_t *arm_contr
 		}
 		else if(chassis.arm_mode == NX_CONTROL_MODE)
 		{
-				arm_control_loop->motor_1_position =  (pc_receive_msg.rx_data.motor1_position - nx_allowance[0]);
+				arm_control_loop->motor_1_position =  (pc_receive_msg.rx_data.motor1_position + nx_allowance[0]);
 				arm_control_loop->motor_2_position =  (pc_receive_msg.rx_data.motor2_position - nx_allowance[1]);
 				arm_control_loop->motor_3_position = -(pc_receive_msg.rx_data.motor3_position - nx_allowance[2]);
 				arm_control_loop->motor_4_position =  (pc_receive_msg.rx_data.motor4_position - nx_allowance[3]);

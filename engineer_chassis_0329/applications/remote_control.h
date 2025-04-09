@@ -56,11 +56,22 @@ typedef __packed struct
         __packed struct
         {
 //                uint16_t v;
-					bool_t W;
-					bool_t A;
-					bool_t S;
-					bool_t D;
-					bool_t F;
+								bool_t W;
+								bool_t S;
+								bool_t A;
+								bool_t D;
+								bool_t SHIFT;
+								bool_t CTRL;
+								bool_t Q;
+								bool_t E;
+								bool_t R;
+								bool_t F;
+								bool_t G;
+								bool_t Z;
+								bool_t X;
+								bool_t C;
+								bool_t V;
+								bool_t B;
         } key;
 
 } RC_ctrl_t;

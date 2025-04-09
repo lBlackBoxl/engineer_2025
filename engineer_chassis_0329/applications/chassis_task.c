@@ -315,7 +315,24 @@ void chassis_rc_to_control_vector(fp32 *vx_set, fp32 *vy_set, fp32 *vz_set, chas
     vx_set_channel = vx_channel * CHASSIS_VX_RC_SEN;
     vy_set_channel = vy_channel * -CHASSIS_VY_RC_SEN;
 		vz_set_channel = vz_channel * CHASSIS_ANGLE_Z_RC_SEN;
-
+		
+		if (chassis_rc_to_vector->chassis_RC->key.W)
+		{
+				vx_set_channel = -NORMAL_MAX_CHASSIS_SPEED_X;
+		}
+		else if (chassis_rc_to_vector->chassis_RC->key.S)
+		{
+								vx_set_channel =  NORMAL_MAX_CHASSIS_SPEED_X;
+		}
+		if (chassis_rc_to_vector->chassis_RC->key.A)
+		{
+				vy_set_channel =  NORMAL_MAX_CHASSIS_SPEED_Y;
+		}
+		else if (chassis_rc_to_vector->chassis_RC->key.D)
+		{
+				vy_set_channel = -NORMAL_MAX_CHASSIS_SPEED_Y;
+		}	
+		
     //一阶低通滤波代替斜波作为底盘速度输入
     first_order_filter_cali(&chassis_rc_to_vector->chassis_cmd_slow_set_vx, vx_set_channel);
     first_order_filter_cali(&chassis_rc_to_vector->chassis_cmd_slow_set_vy, vy_set_channel);

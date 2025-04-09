@@ -8,10 +8,23 @@ typedef enum
 		S,
 		A,
 		D,
+		SHIFT,
+		CTRL,
+		Q,
+		E,
+		R,
+		F,
+		G,
+		Z,
+		X,
+		C,
+		V,
+		B,
 		PR,
 		PL,
-		F,
+
 }key_e;
+
 
 typedef struct
 {

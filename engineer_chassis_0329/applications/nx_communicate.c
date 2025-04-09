@@ -6,6 +6,7 @@
 #include "string.h"
 #include "arm_control_task.h"
 #include "boards_communicate.h"
+#include "referee.h"
 
 extern DMA_HandleTypeDef hdma_uart7_rx;
 extern DMA_HandleTypeDef hdma_uart7_tx;
@@ -19,7 +20,7 @@ send_msg_t pc_send_msg;
 receive_msg_t pc_receive_msg;
 uint8_t PC_SEND_BUF[LEN_TX_PACKET + 1];
 
-float nx_allowance[6] = {0.0f,-1.5935f,1.5933f,0.0f,-1.6356f,0.0575f};
+float nx_allowance[6] = {0.5589f,-1.5935f,1.5933f,0.0f,-1.6356f,0.0575f};
 
 extern void nx_communicate_init(void);
 static int UART_Receive_DMA_No_IT(UART_HandleTypeDef* huart, uint8_t* pData, uint32_t Size);
@@ -28,24 +29,25 @@ void nx_communicate_task(void const *pvParameters)
 {
 		vTaskDelay(500);
 		
-		pc_receive_msg.rx_data.motor1_position = nx_allowance[0];
-		pc_receive_msg.rx_data.motor2_position = nx_allowance[1];
-		pc_receive_msg.rx_data.motor3_position = nx_allowance[2];
-		pc_receive_msg.rx_data.motor4_position = nx_allowance[3];
-		pc_receive_msg.rx_data.motor5_position = (nx_allowance[4] + 1.8f);
-		pc_receive_msg.rx_data.motor6_position = nx_allowance[5];
+		pc_receive_msg.rx_data.motor1_position = -nx_allowance[0];
+		pc_receive_msg.rx_data.motor2_position =  nx_allowance[1];
+		pc_receive_msg.rx_data.motor3_position =  nx_allowance[2];
+		pc_receive_msg.rx_data.motor4_position =  nx_allowance[3];
+		pc_receive_msg.rx_data.motor5_position =  (nx_allowance[4] + 1.466f);
+		pc_receive_msg.rx_data.motor6_position =  nx_allowance[5];
 	
 		nx_communicate_init();
 		
 		uint32_t mode_wake_time = osKernelSysTick();
 		while(1)
 		{   
-				pc_send_msg.tx_data.motor1_position =  (arm_control.motor_YAW_data.DM_motor_measure->motor_position + nx_allowance[0]);
+				pc_send_msg.tx_data.motor1_position =  (arm_control.motor_YAW_data.DM_motor_measure->motor_position - nx_allowance[0]);
 				pc_send_msg.tx_data.motor2_position =  (arm_message.target_position[1] + nx_allowance[1]);
 				pc_send_msg.tx_data.motor3_position =  (-arm_message.target_position[2] + nx_allowance[2]);
 				pc_send_msg.tx_data.motor4_position =  (arm_message.target_position[3] + nx_allowance[3]);
-				pc_send_msg.tx_data.motor5_position =  -(arm_message.target_position[4] + nx_allowance[4]);
+				pc_send_msg.tx_data.motor5_position = -(arm_message.target_position[4] + nx_allowance[4]);
 				pc_send_msg.tx_data.motor6_position =  (arm_message.target_position[5] + nx_allowance[5]);
+				pc_send_msg.robot_id = robot_state.robot_id;
 				
 				pc_send_msg.frame_header.sof = 0x69;
 				

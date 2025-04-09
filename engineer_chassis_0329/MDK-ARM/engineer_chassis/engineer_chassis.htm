@@ -3,7 +3,7 @@
 <title>Static Call Graph - [engineer_chassis\engineer_chassis.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image engineer_chassis\engineer_chassis.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Apr 05 00:35:27 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Apr 08 20:34:36 2025
 <BR><P>
 <H3>Maximum Stack Usage =        712 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -169,8 +169,8 @@ Function Pointers
 Global Symbols
 </H3>
 <P><STRONG><a name="[8f]"></a>__main</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))
-<BR><BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+<BR><BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 
 <P><STRONG><a name="[90]"></a>__scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter))
@@ -265,8 +265,8 @@ Global Symbols
 <P><STRONG><a name="[287]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
 
 <P><STRONG><a name="[91]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
-<BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+<BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 </UL>
 
 <P><STRONG><a name="[288]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
@@ -585,8 +585,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Full
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLS_Init
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Joint6D_Init
+<BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Joint6D_Init
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLS_Init
 </UL>
 
 <P><STRONG><a name="[a6]"></a>free</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, h1_free.o(.text))
@@ -658,9 +658,9 @@ Global Symbols
 <P><STRONG><a name="[291]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
 
 <P><STRONG><a name="[164]"></a>__aeabi_memclr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLS_Init
+<BR><BR>[Called By]<UL><LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_referee_struct_data
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLS_Init
 <LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLS_Derivative
-<LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_referee_struct_data
 </UL>
 
 <P><STRONG><a name="[a9]"></a>__rt_memclr</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
@@ -678,9 +678,9 @@ Global Symbols
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[1e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_init
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Joint6D_Init
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLS_Init
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_MspInit
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Joint6D_Init
 <LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CDC_Init
 </UL>
 
@@ -1063,9 +1063,9 @@ Global Symbols
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI5_Init
 <LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN2_Init
 <LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN1_Init
+<LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nx_communicate_init
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_LL_Init
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_ResetCallback
-<LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nx_communicate_init
 </UL>
 
 <P><STRONG><a name="[1f0]"></a>HAL_CAN_ActivateNotification</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, stm32f4xx_hal_can.o(i.HAL_CAN_ActivateNotification))
@@ -1923,8 +1923,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_Derivative_On_Measurement
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
+<BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
+<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_Derivative_On_Measurement
 </UL>
 
 <P><STRONG><a name="[165]"></a>OLS_Init</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, user_lib.o(i.OLS_Init))
@@ -1992,8 +1992,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[186]"></a>Sign</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, td.o(i.Sign))
-<BR><BR>[Called By]<UL><LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fsg
-<LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
+<BR><BR>[Called By]<UL><LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
+<LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fsg
 </UL>
 
 <P><STRONG><a name="[17a]"></a>SolveFK</STRONG> (Thumb, 504 bytes, Stack size 144 bytes, 6dof_kinematic.o(i.SolveFK))
@@ -2437,12 +2437,12 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_EP_Receive
 <LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_Get_USB_Status
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlReceiveStatus
+<BR>[Called By]<UL><LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlPrepareRx
+<LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlReceiveStatus
 <LI><a href="#[1aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlContinueRx
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_LL_DataInStage
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CDC_ReceivePacket
 <LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CDC_Init
-<LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlPrepareRx
 </UL>
 
 <P><STRONG><a name="[12d]"></a>USBD_LL_Reset</STRONG> (Thumb, 92 bytes, Stack size 24 bytes, usbd_core.o(i.USBD_LL_Reset))
@@ -2826,17 +2826,17 @@ Global Symbols
 <LI><a href="#[1db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan2
 <LI><a href="#[1d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
+<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
+<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
 </UL>
 
 <P><STRONG><a name="[cf]"></a>__hardfp_cosf</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, 6dof_kinematic.o(i.__hardfp_cosf))
 <BR><BR>[Calls]<UL><LI><a href="#[1dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_cos_f32
 </UL>
-<BR>[Called By]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EulerAngleToRotMat
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
+<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveFK
+<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EulerAngleToRotMat
 </UL>
 
 <P><STRONG><a name="[206]"></a>__hardfp_fabs</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fabs.o(i.__hardfp_fabs))
@@ -2848,9 +2848,9 @@ Global Symbols
 <P><STRONG><a name="[d0]"></a>__hardfp_sinf</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, 6dof_kinematic.o(i.__hardfp_sinf))
 <BR><BR>[Calls]<UL><LI><a href="#[1dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_sin_f32
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EulerAngleToRotMat
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
+<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveFK
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EulerAngleToRotMat
 </UL>
 
 <P><STRONG><a name="[177]"></a>__hardfp_sqrt</STRONG> (Thumb, 122 bytes, Stack size 32 bytes, sqrt_full.o(i.__hardfp_sqrt))
@@ -2860,8 +2860,8 @@ Global Symbols
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
-<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToQua
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
+<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToQua
 </UL>
 
 <P><STRONG><a name="[174]"></a>__hardfp_sqrtf</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, sqrtf_full.o(i.__hardfp_sqrtf))
@@ -3116,7 +3116,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1f9]"></a>chassis_rc_to_control_vector</STRONG> (Thumb, 230 bytes, Stack size 40 bytes, chassis_task.o(i.chassis_rc_to_control_vector))
+<P><STRONG><a name="[1f9]"></a>chassis_rc_to_control_vector</STRONG> (Thumb, 268 bytes, Stack size 40 bytes, chassis_task.o(i.chassis_rc_to_control_vector))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = chassis_rc_to_control_vector &rArr; first_order_filter_cali
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;first_order_filter_cali
@@ -3424,7 +3424,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nx_communicate_task
 </UL>
 
-<P><STRONG><a name="[8a]"></a>nx_communicate_task</STRONG> (Thumb, 268 bytes, Stack size 8 bytes, nx_communicate.o(i.nx_communicate_task))
+<P><STRONG><a name="[8a]"></a>nx_communicate_task</STRONG> (Thumb, 288 bytes, Stack size 8 bytes, nx_communicate.o(i.nx_communicate_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = nx_communicate_task &rArr; nx_communicate_init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
@@ -3801,8 +3801,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_attitude_update
 <LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
-<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToQua
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
+<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToQua
 </UL>
 
 <P><STRONG><a name="[248]"></a>_d2f</STRONG> (Thumb, 700 bytes, Stack size 32 bytes, d2f_clz.o(x$fpl$d2f), UNUSED)
@@ -4022,8 +4022,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_attitude_update
 <LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_ahrs_update
-<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToQua
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
+<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToQua
 </UL>
 
 <P><STRONG><a name="[263]"></a>_f2d</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
@@ -4413,7 +4413,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;referee_usart_task
 </UL>
 
-<P><STRONG><a name="[19c]"></a>sbus_to_rc</STRONG> (Thumb, 208 bytes, Stack size 20 bytes, remote_control.o(i.sbus_to_rc))
+<P><STRONG><a name="[19c]"></a>sbus_to_rc</STRONG> (Thumb, 290 bytes, Stack size 20 bytes, remote_control.o(i.sbus_to_rc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = sbus_to_rc
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
@@ -4610,11 +4610,11 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> usbd_cdc.o(.data)
 </UL>
 <P><STRONG><a name="[18]"></a>USBD_CDC_Setup</STRONG> (Thumb, 212 bytes, Stack size 32 bytes, usbd_cdc.o(i.USBD_CDC_Setup))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = USBD_CDC_Setup &rArr; USBD_CtlSendData &rArr; USBD_LL_Transmit &rArr; HAL_PCD_EP_Transmit &rArr; USB_EPStartXfer &rArr; USB_WritePacket
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = USBD_CDC_Setup &rArr; USBD_CtlPrepareRx &rArr; USBD_LL_PrepareReceive &rArr; HAL_PCD_EP_Receive &rArr; USB_EPStartXfer &rArr; USB_WritePacket
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlSendData
+<BR>[Calls]<UL><LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlPrepareRx
+<LI><a href="#[1a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlSendData
 <LI><a href="#[1a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlError
-<LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlPrepareRx
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> usbd_cdc.o(.data)
 </UL>

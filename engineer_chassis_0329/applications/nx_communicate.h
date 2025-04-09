@@ -55,6 +55,7 @@ typedef __packed struct
 {
 	frame_header_t 		frame_header;	
 	tx_data_t	  		tx_data;	
+	uint8_t					robot_id;
 	frame_tailer_t 		frame_tailer;	
 } send_msg_t;
 

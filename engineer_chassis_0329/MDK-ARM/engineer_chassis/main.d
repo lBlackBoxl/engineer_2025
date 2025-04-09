@@ -59,10 +59,10 @@ engineer_chassis\main.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\
 engineer_chassis\main.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdlib.h
 engineer_chassis\main.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\string.h
 engineer_chassis\main.o: ../Core/Inc/gpio.h
-engineer_chassis\main.o: ../applications/remote_control.h
+engineer_chassis\main.o: ..\applications\remote_control.h
 engineer_chassis\main.o: ../boards/struct_typedef.h
 engineer_chassis\main.o: ../boards/bsp_rc.h
-engineer_chassis\main.o: ../applications/can_communicate.h
+engineer_chassis\main.o: ..\applications\can_communicate.h
 engineer_chassis\main.o: ../boards/bsp_can.h
 engineer_chassis\main.o: ../boards/bsp_dwt.h
 engineer_chassis\main.o: ../boards/bsp_usart.h

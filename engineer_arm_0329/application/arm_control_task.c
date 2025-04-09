@@ -351,8 +351,21 @@ void arm_control_loop(arm_t *arm_control_loop)
 		else if(arm_control_loop->motor_2006_mode == 3)
 		{
 				int16_t current_2006_tem[2];
-				PID_Calculate_Angle(&arm_control_loop->yaw_angle_pid,arm_control_loop->yaw_angle,arm_control_loop->yaw_angle_set);
-				PID_Calculate(&arm_control_loop->roll_angle_pid,arm_control_loop->roll_angle,arm_control_loop->roll_angle_set);
+			  if(fabs(arm_control_loop->yaw_angle - arm_control_loop->yaw_angle_set) < 0.1f)
+				{
+						arm_control_loop->yaw_angle_pid.Output = 0;
+				}
+				else
+				{
+						PID_Calculate_Angle(&arm_control_loop->yaw_angle_pid,arm_control_loop->yaw_angle,arm_control_loop->yaw_angle_set);
+				}
+				if(fabs(arm_control_loop->roll_angle - arm_control_loop->roll_angle_set) < 0.2f)
+				{
+						arm_control_loop->roll_angle_pid.Output = 0;
+				}
+				{
+						PID_Calculate(&arm_control_loop->roll_angle_pid,arm_control_loop->roll_angle,arm_control_loop->roll_angle_set);
+				}
 				
 				arm_control_loop->motor_2006_data[0].speed_set = arm_control_loop->roll_angle_pid.Output + arm_control_loop->yaw_angle_pid.Output;
 				PID_Calculate(&arm_control_loop->motor_2006_speed_pid[0], arm_control_loop->motor_2006_data[0].speed, arm_control_loop->motor_2006_data[0].speed_set);
