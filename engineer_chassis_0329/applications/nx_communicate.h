@@ -67,6 +67,14 @@ typedef __packed struct
 	frame_tailer_t 		frame_tailer;	
 } receive_msg_t;
 
+typedef enum
+{
+	Home,
+	Au,
+	Ag,
+	Exchange,
+} move_mode_e;
+
 extern send_msg_t pc_send_msg;
 extern receive_msg_t pc_receive_msg;
 extern float nx_allowance[6];

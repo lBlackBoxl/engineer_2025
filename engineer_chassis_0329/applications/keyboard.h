@@ -44,7 +44,12 @@ typedef struct
 {
 	key_t yaw_plus_key;
 	key_t yaw_minus_key;
-	key_t clamp_key;
+	key_t rotate_key_G;
+	key_t rotate_key_V;
+	key_t capture_key;
+	key_t exchange_key;
+	key_t suker_key;
+	key_t home_key;
 }all_key_t;
 
 extern all_key_t all_key;

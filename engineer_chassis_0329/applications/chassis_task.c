@@ -17,6 +17,7 @@
 #include "cmsis_os.h"
 #include "main.h"
 #include "can.h"
+#include "imu_task.h"
 
 #define rc_deadband_limit(input, output, dealine)        \
     {                                                    \
@@ -68,15 +69,14 @@ void chassis_task(void const *pvParameters)
         chassis_set_contorl(&chassis);
 			  //底盘控制PID计算
         chassis_control_loop(&chassis);
-				HAL_GPIO_TogglePin(LED_G_GPIO_Port,LED_G_Pin);
 				
 				//通过底盘模式决定输出数据
 				if(chassis.chassis_mode == NO_POWER_MODE)
 				{			
 						CAN_cmd_chassis(0, 0, 0, 0);
-						CAN_cmd_chassis_clamp(0);
+//						CAN_cmd_chassis_clamp(0);
 				}
-				else if(chassis.chassis_mode == RUN_MODE || chassis.chassis_mode == CLIMB_MODE)
+				else if(chassis.chassis_mode == RUN_MODE || chassis.chassis_mode == STORAGE_MODE)
 				{
 						CAN_cmd_chassis(chassis.motor_chassis[0].give_current,  chassis.motor_chassis[1].give_current, 
 														 chassis.motor_chassis[2].give_current,  chassis.motor_chassis[3].give_current);
@@ -85,14 +85,14 @@ void chassis_task(void const *pvParameters)
 //					DWT_Delay(0.0003f);
 //					CAN_cmd_4310_PV(chassis.motor_DM_data[1].position_set,chassis.motor_DM_data[1].speed_set,DM_4310_M2_TX_ID);
 //					DWT_Delay(0.0003f);
-						CAN_cmd_4310_mit(chassis.motor_DM_data.position_set,0.0f,200.0f,5.0f,0.0f,DM_4310_M1_TX_ID,hcan2);
-						DWT_Delay(0.0003f);
+//						CAN_cmd_4310_mit(chassis.motor_DM_data.position_set,0.0f,200.0f,5.0f,0.0f,DM_4310_M1_TX_ID,hcan2);
+//						DWT_Delay(0.0003f);
 //					CAN_cmd_4310_mit(chassis.motor_DM_data[1].position_set,0.0f,200.0f,5.0f,0.0f,DM_4310_M2_TX_ID);
 //					DWT_Delay(0.0003f);
 				}
 				
         //系统延时
-        vTaskDelay(CHASSIS_CONTROL_TIME_MS);
+				osDelay(2);
 
 		}
 }
@@ -108,7 +108,9 @@ static void chassis_init(all_key_t *chassis_key_init, chassis_t *chassis_init)
     {
         return;
     }
-
+		
+		chassis.error_info = 0;
+		
 		const static fp32 chassis_x_order_filter[1] = {CHASSIS_ACCEL_X_NUM};
     const static fp32 chassis_y_order_filter[1] = {CHASSIS_ACCEL_Y_NUM};
 		
@@ -117,6 +119,9 @@ static void chassis_init(all_key_t *chassis_key_init, chassis_t *chassis_init)
 		
 		//机械臂默认控制模式为一键模式
 		chassis_init->arm_mode = ONE_KEY_MODE;
+		
+		//机械臂目标位置为HOME
+		chassis_init->move_mode = Home;
 		
 		//吸盘默认为关
 		chassis_init->suker_key_flag = 0;
@@ -135,23 +140,23 @@ static void chassis_init(all_key_t *chassis_key_init, chassis_t *chassis_init)
     {
 				chassis_init->motor_chassis[i].chassis_motor_measure = get_chassis_motor_point(i);
 				PID_Init(&chassis_init->chassis_motor_speed_pid[i], CHASSIS_M3508_SPEED_PID_MAX_OUT, CHASSIS_M3508_SPEED_PID_MAX_IOUT,0.0f,
-								CHASSIS_M3508_SPEED_PID_KP, CHASSIS_M3508_SPEED_PID_KI, CHASSIS_M3508_SPEED_PID_KD,0.0f,0.0f,0.000795774715459476f,0.0f,5,0x11);
+								CHASSIS_M3508_SPEED_PID_KP, CHASSIS_M3508_SPEED_PID_KI, CHASSIS_M3508_SPEED_PID_KD,0.0f,0.0f,0.000795774715459476f,0.0f,2,0x11);
     }
 		
-		//获取台阶达妙数据
-		chassis_init->motor_DM_data.DM_motor_measure = return_4310_measure(0);
+//		//获取台阶达妙数据
+//		chassis_init->motor_DM_data.DM_motor_measure = return_4310_measure(0);
 		
 		//初始化角度PID
     PID_Init(&chassis_init->chassis_yaw_pid, CHASSIS_YAW_PID_MAX_OUT, CHASSIA_YAW_PID_MAX_IOUT,0.0f,
-							CHASSIS_YAW_PID_KP, CHASSIS_YAW_PID_KI, CHASSIS_YAW_PID_KD,0.0f,0.0f,0.00106103295394596890512589175582f,0.0f,4,0x11);	
+							CHASSIS_YAW_PID_KP, CHASSIS_YAW_PID_KI, CHASSIS_YAW_PID_KD,0.0f,0.0f,0.00106103295394596890512589175582f,0.0f,2,0x11);	
 		
 		//用一阶滤波代替斜波函数生成
     first_order_filter_init(&chassis_init->chassis_cmd_slow_set_vx, CHASSIS_CONTROL_TIME, chassis_x_order_filter);
     first_order_filter_init(&chassis_init->chassis_cmd_slow_set_vy, CHASSIS_CONTROL_TIME, chassis_y_order_filter);
 
 		//达妙电机需要先发送消息才有反馈帧
-		CAN_cmd_4310_disable(DM_4310_M1_TX_ID, hcan2);
-		DWT_Delay(0.0003f);
+//		CAN_cmd_4310_disable(DM_4310_M1_TX_ID, hcan2);
+//		DWT_Delay(0.0003f);
 //		CAN_cmd_4310_disable(DM_4310_M2_TX_ID);
 //		DWT_Delay(0.0003f);	
 		
@@ -160,9 +165,12 @@ static void chassis_init(all_key_t *chassis_key_init, chassis_t *chassis_init)
 		
 		//初始化TD跟踪微分器
 		TD_init(&chassis_init->chassis_yaw_TD, 12.0f, 2.0f, 0.002f, chassis_init->yaw_angle);
-		
+
 		//初始化按键
-		key_init(&chassis_key_init->clamp_key, F);
+		key_init(&chassis_key_init->rotate_key_G,G);
+		key_init(&chassis_key_init->rotate_key_V,V);
+		key_init(&chassis_key_init->exchange_key,X);
+		key_init(&chassis_key_init->home_key,R);
 }
 
 
@@ -192,7 +200,7 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 		}
 		else if(switch_is_up(chassis_set_mode->chassis_RC->rc.s[RC_S_RIGHT]))
 		{
-			chassis_set_mode->chassis_mode = CLIMB_MODE;
+			chassis_set_mode->chassis_mode = STORAGE_MODE;
 		}
 		
 		//机械臂运动模式选择
@@ -210,7 +218,7 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 		}
 		
 		//夹矿
-		if(chassis_set_key->clamp_key.itself.mode != chassis_set_key->clamp_key.itself.last_mode)
+		if(chassis_set_mode->chassis_mode == STORAGE_MODE && chassis_set_mode->chassis_mode != chassis_set_mode->last_chassis_mode)
 		{
 			clamp_flag = 1 - clamp_flag;
 			if(clamp_flag == 1)
@@ -236,6 +244,24 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 				clamp_mode = 2;
 				clamp_reset_count = 0;
 		}	
+		
+		//机械臂运动目标选定
+		if(all_key.home_key.itself.mode != all_key.home_key.itself.last_mode)
+		{
+				chassis_set_mode->move_mode = Home;
+		}
+		if(all_key.rotate_key_G.itself.mode != all_key.rotate_key_G.itself.last_mode)
+		{
+				chassis_set_mode->move_mode = Ag;
+		}
+		if(all_key.rotate_key_V.itself.mode != all_key.rotate_key_V.itself.last_mode)
+		{
+				chassis_set_mode->move_mode = Au;
+		}
+		if(all_key.exchange_key.itself.mode != all_key.exchange_key.itself.last_mode)
+		{
+				chassis_set_mode->move_mode = Exchange;
+		}
 //		//底盘关节电机模式选择
 //		if(switch_is_mid(chassis_mode->chassis_RC->rc.s[RC_S_LEFT]))
 //		{
@@ -253,8 +279,9 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 
 void chassis_key_check(all_key_t *chassis_key_check)
 {
-		key_itself_press_num(&(chassis_key_check->clamp_key),2);
-
+		key_itself_press_num(&(chassis_key_check->rotate_key_G),2);
+		key_itself_press_num(&(chassis_key_check->rotate_key_V),2);
+		
 }
 
 /**
@@ -281,6 +308,7 @@ static void chassis_feedback_update(chassis_t *chassis_update)
     chassis_update->motor_clamp.speed = chassis_update->motor_clamp.motor_measure->speed_rpm * RPM_TO_RAD_S * REDUCTION_RATIO_2006;	
 		
 		TD_set_r(&chassis_update->joint_TD, 10.0f);
+		chassis_update->yaw_angle = rad_format(imu.yaw);
 		
     //更新底盘纵向速度 x， 平移速度y，旋转速度wz，坐标系为右手系
 		chassis_update->vx = (-chassis_update->motor_chassis[0].speed + chassis_update->motor_chassis[1].speed + chassis_update->motor_chassis[2].speed - chassis_update->motor_chassis[3].speed) * MOTOR_SPEED_TO_CHASSIS_SPEED_VX;
@@ -359,7 +387,11 @@ void chassis_rc_to_control_vector(fp32 *vx_set, fp32 *vy_set, fp32 *vz_set, chas
   */
 static void chassis_set_contorl(chassis_t *chassis_control)
 {
-
+		if(chassis_control->error_info == 1)
+		{
+				chassis_control->chassis_mode = NO_POWER_MODE;
+		}
+	
     if (chassis_control == NULL)
     {
         return;
@@ -370,40 +402,40 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 		//下力模式
 		if(chassis_control->chassis_mode == NO_POWER_MODE)
 		{
-			CAN_cmd_4310_disable(DM_4310_M1_TX_ID,hcan2);
-			DWT_Delay(0.0003f);
 			CAN_cmd_4310_disable(DM_YAW_TX_ID,hcan2);
 			DWT_Delay(0.0003f);
 //			CAN_cmd_4310_disable(chassis_control->motor_DM_data[1].DM_motor_measure->motor_tx_id);
 //			DWT_Delay(0.0003f);
 			chassis_control->yaw_angle_set = chassis_control->yaw_angle;
+			TD_set_x(&chassis_control->chassis_yaw_TD,chassis_control->yaw_angle_set);			
 			chassis_control->vx_set = 0.0f;
 			chassis_control->vy_set = 0.0f;
 			chassis_control->wz_set = 0.0f;
 		}
 		//跑路模式||爬台阶模式
-		else if(chassis_control->chassis_mode == RUN_MODE || chassis_control->chassis_mode == CLIMB_MODE)
+		else if(chassis_control->chassis_mode == RUN_MODE || chassis_control->chassis_mode == STORAGE_MODE)
 		{
-			CAN_cmd_4310_enable(DM_4310_M1_TX_ID,hcan2);
-			DWT_Delay(0.0003f);
-			CAN_cmd_4310_enable(DM_YAW_TX_ID,hcan2);
-			DWT_Delay(0.0003f);
-			if(chassis_control->chassis_mode == CLIMB_MODE)
+			chassis_control->yaw_angle_set = rad_format(chassis_control->yaw_angle_set + angle_set);;
+			if(fabs(chassis_control->yaw_angle_set - chassis_control->yaw_angle) < 0.002f)
 			{
-					CAN_cmd_chassis_JC(0);
-					chassis_control->motor_DM_data.position_set = MOTOR_ANGLE_SET_4310_TEST;
+					chassis_control->yaw_angle_set = chassis_control->yaw_angle;
+					TD_set_x(&chassis_control->chassis_yaw_TD,chassis_control->yaw_angle_set);	
+					chassis_control->chassis_yaw_pid.Output = 0;
 			}
 			else
 			{
-					chassis_control->motor_DM_data.position_set = MOTOR_ANGLE_SET_4310_INIT;
+				TD_calc_angle(&chassis_control->chassis_yaw_TD, chassis_control->yaw_angle_set);
+				PID_Calculate_Angle(&chassis_control->chassis_yaw_pid, chassis_control->yaw_angle, chassis_control->chassis_yaw_TD.x);		
 			}
+			CAN_cmd_4310_enable(DM_YAW_TX_ID,hcan2);
+			DWT_Delay(0.0003f);
 //			CAN_cmd_4310_enable(DM_4310_M2_TX_ID);
-//			DWT_Delay(0.0003f);
+//			DWT_Delay(0.0003f);		
 			chassis_control->vx_set = vx_set;
-      chassis_control->vy_set = vy_set;
+			chassis_control->vy_set = vy_set;
 			chassis_control->vx_set = fp32_constrain(chassis_control->vx_set, -SHIFT_NORMAL_MAX_CHASSIS_SPEED_X, SHIFT_NORMAL_MAX_CHASSIS_SPEED_X);
       chassis_control->vy_set = fp32_constrain(chassis_control->vy_set, -SHIFT_NORMAL_MAX_CHASSIS_SPEED_Y, SHIFT_NORMAL_MAX_CHASSIS_SPEED_Y);
-			chassis_control->wz_set = angle_set;
+			chassis_control->wz_set = chassis_control->chassis_yaw_pid.Output;
 		}
 		
 		//夹矿
@@ -450,11 +482,10 @@ static void chassis_set_contorl(chassis_t *chassis_control)
   */
 static void chassis_vector_to_mecanum_wheel_speed(const fp32 vx_set, const fp32 vy_set, const fp32 wz_set, fp32 wheel_speed[4])
 {
-    //
-    wheel_speed[0] = -vx_set - vy_set + ( CHASSIS_WZ_SET_SCALE + 1.0f) * MOTOR_DISTANCE_TO_CENTER * wz_set;
-    wheel_speed[1] =  vx_set - vy_set + ( CHASSIS_WZ_SET_SCALE + 1.0f) * MOTOR_DISTANCE_TO_CENTER * wz_set;
-    wheel_speed[2] =  vx_set + vy_set + (-CHASSIS_WZ_SET_SCALE + 1.0f) * MOTOR_DISTANCE_TO_CENTER * wz_set;
-    wheel_speed[3] = -vx_set + vy_set + (-CHASSIS_WZ_SET_SCALE + 1.0f) * MOTOR_DISTANCE_TO_CENTER * wz_set;
+    wheel_speed[0] = -(-vy_set - vx_set) + (CHASSIS_WZ_SET_SCALE + 1.0f) * MOTOR_DISTANCE_TO_CENTER * wz_set;
+    wheel_speed[1] = -(vy_set - vx_set) + (CHASSIS_WZ_SET_SCALE + 1.0f) * MOTOR_DISTANCE_TO_CENTER * wz_set;
+    wheel_speed[2] = -(vy_set + vx_set) + (-CHASSIS_WZ_SET_SCALE + 1.0f) * MOTOR_DISTANCE_TO_CENTER * wz_set;
+    wheel_speed[3] = -(-vy_set + vx_set) + (-CHASSIS_WZ_SET_SCALE + 1.0f) * MOTOR_DISTANCE_TO_CENTER * wz_set;
 }
 
 /**

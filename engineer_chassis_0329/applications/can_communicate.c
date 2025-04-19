@@ -46,6 +46,7 @@ extern CAN_HandleTypeDef hcan2;
 {                                                                   			\
     (ptr)->target_position[4] = (uint16_t)((data)[0] << 8 | (data)[1]);  	\
     (ptr)->target_position[5] = (uint16_t)((data)[2] << 8 | (data)[3]);   \
+		(ptr)->error_info = (uint16_t)((data)[4] << 8 | (data)[5]);						\
 }		
 
 motor_measure_t CAN1_rx_buffer[5];//0~3-µ×ÅÌ4¸ö3508 4ÂÄ´ø3508
@@ -100,7 +101,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
             get_motor_measure(&CAN1_rx_buffer[i], rx_data);
             break;
         }
-				case CAN_3508_JC_ID:
+				case CAN_2006_clamp_ID:
 				{
             get_motor_measure(&CAN1_rx_buffer[4], rx_data);
 						break;
@@ -139,6 +140,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 							get_board_communicate_data_1(&arm_message_temp, rx_data);
 							arm_message.target_position[4] = uint_to_float(arm_message_temp.target_position[4], -6.2831852f, 6.2831852f, 16);
 							arm_message.target_position[5] = uint_to_float(arm_message_temp.target_position[5], -6.2831852f, 6.2831852f, 16);
+							chassis.error_info = arm_message.error_info;
 							break;
 					}
 					default:
@@ -252,25 +254,6 @@ void CAN_cmd_chassis(int16_t motor1, int16_t motor2, int16_t motor3, int16_t mot
     HAL_CAN_AddTxMessage(&hcan1, &chassis_can1_tx_message, chassis_can1_send_data, &send_mail_box);
 }
 
-void CAN_cmd_chassis_JC(int16_t motor1)
-{
-	  uint32_t send_mail_box;
-    chassis_can2_tx_message.StdId = CAN_3508_JC_ID;
-    chassis_can2_tx_message.IDE = CAN_ID_STD;
-    chassis_can2_tx_message.RTR = CAN_RTR_DATA;
-    chassis_can2_tx_message.DLC = 0x08;
-    chassis_can2_send_data[0] = motor1 >> 8;
-    chassis_can2_send_data[1] = motor1;
-    chassis_can2_send_data[2] = 0;
-    chassis_can2_send_data[3] = 0;
-    chassis_can2_send_data[4] = 0;
-    chassis_can2_send_data[5] = 0;
-    chassis_can2_send_data[6] = 0;
-    chassis_can2_send_data[7] = 0;
-
-    HAL_CAN_AddTxMessage(&hcan1, &chassis_can2_tx_message, chassis_can2_send_data, &send_mail_box);
-}
-
 void CAN_cmd_chassis_clamp(int16_t motor1)
 {
 	  uint32_t send_mail_box;
@@ -287,7 +270,7 @@ void CAN_cmd_chassis_clamp(int16_t motor1)
     chassis_can2_send_data[6] = 0;
     chassis_can2_send_data[7] = 0;
 
-    HAL_CAN_AddTxMessage(&hcan2, &chassis_can2_tx_message, chassis_can2_send_data, &send_mail_box);
+    HAL_CAN_AddTxMessage(&hcan1, &chassis_can2_tx_message, chassis_can2_send_data, &send_mail_box);
 }
 
 const motor_measure_t *get_chassis_motor_point(uint8_t i)

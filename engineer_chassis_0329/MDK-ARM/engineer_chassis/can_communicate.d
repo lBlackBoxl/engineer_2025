@@ -50,6 +50,7 @@ engineer_chassis\can_communicate.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\AR
 engineer_chassis\can_communicate.o: ../components/controller/TD.h
 engineer_chassis\can_communicate.o: ..\applications\keyboard.h
 engineer_chassis\can_communicate.o: ..\applications\referee.h
+engineer_chassis\can_communicate.o: ..\applications\nx_communicate.h
 engineer_chassis\can_communicate.o: ..\applications\init.h
 engineer_chassis\can_communicate.o: ..\applications\boards_communicate.h
 engineer_chassis\can_communicate.o: ..\applications\arm_control_task.h

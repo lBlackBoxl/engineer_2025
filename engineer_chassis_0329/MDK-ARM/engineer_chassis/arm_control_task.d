@@ -54,6 +54,7 @@ engineer_chassis\arm_control_task.o: ../components/controller/controller.h
 engineer_chassis\arm_control_task.o: ../boards/bsp_dwt.h
 engineer_chassis\arm_control_task.o: ..\applications\keyboard.h
 engineer_chassis\arm_control_task.o: ..\applications\referee.h
+engineer_chassis\arm_control_task.o: ..\applications\nx_communicate.h
 engineer_chassis\arm_control_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 engineer_chassis\arm_control_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 engineer_chassis\arm_control_task.o: ../Core/Inc/FreeRTOSConfig.h
@@ -70,5 +71,4 @@ engineer_chassis\arm_control_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/
 engineer_chassis\arm_control_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 engineer_chassis\arm_control_task.o: ../Core/Inc/gpio.h
 engineer_chassis\arm_control_task.o: ..\applications\init.h
-engineer_chassis\arm_control_task.o: ..\applications\nx_communicate.h
 engineer_chassis\arm_control_task.o: ../Core/Inc/can.h

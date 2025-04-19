@@ -673,9 +673,9 @@ void imu_ahrs_update(void)
 void imu_attitude_update(void)
 {
     /* 偏航角    -pi----pi */
-    imu.yaw = -atan2(2*q1*q2 + 2*q0*q3, -2*q2*q2 - 2*q3*q3 + 1)* 57.3; 
+    imu.yaw = -atan2(2*q1*q2 + 2*q0*q3, -2*q2*q2 - 2*q3*q3 + 1); 
     /* 俯仰角  -pi/2----pi/2 */
-    imu.pit = -asin(-2*q1*q3 + 2*q0*q2)* 57.3;   
+    imu.pit = -asin(-2*q1*q3 + 2*q0*q2);   
     /* 横滚角   -pi----pi  */    
-    imu.rol =  atan2(2*q2*q3 + 2*q0*q1, -2*q1*q1 - 2*q2*q2 + 1)* 57.3;
+    imu.rol =  atan2(2*q2*q3 + 2*q0*q1, -2*q1*q1 - 2*q2*q2 + 1);
 }

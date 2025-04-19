@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "arm_control_task.h"
 #include "boards_communicate_task.h"
+#include "error_check.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -54,6 +55,7 @@ osThreadId defaultTaskHandle;
 /* USER CODE BEGIN FunctionPrototypes */
 osThreadId ArmTaskHandle;
 osThreadId BoardscommunicateTaskHandle;
+osThreadId ErrorCheckTaskHandle;
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
@@ -113,6 +115,9 @@ void MX_FREERTOS_Init(void) {
 	
 	osThreadDef(BoardscommunicateTask, A_communicate_task, osPriorityNormal, 0, 128);
   BoardscommunicateTaskHandle = osThreadCreate(osThread(BoardscommunicateTask), NULL);
+	
+	osThreadDef(ErrorCheckTaskHandle, error_check, osPriorityNormal, 0, 128);
+  BoardscommunicateTaskHandle = osThreadCreate(osThread(ErrorCheckTaskHandle), NULL);
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 

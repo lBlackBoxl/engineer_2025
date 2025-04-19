@@ -57,6 +57,7 @@ engineer_chassis\chassis_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC
 engineer_chassis\chassis_task.o: ../components/controller/TD.h
 engineer_chassis\chassis_task.o: ..\applications\keyboard.h
 engineer_chassis\chassis_task.o: ..\applications\referee.h
+engineer_chassis\chassis_task.o: ..\applications\nx_communicate.h
 engineer_chassis\chassis_task.o: ..\applications\init.h
 engineer_chassis\chassis_task.o: ..\applications\referee_usart_task.h
 engineer_chassis\chassis_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
@@ -67,3 +68,8 @@ engineer_chassis\chassis_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/incl
 engineer_chassis\chassis_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 engineer_chassis\chassis_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 engineer_chassis\chassis_task.o: ../Core/Inc/can.h
+engineer_chassis\chassis_task.o: ..\applications\imu_task.h
+engineer_chassis\chassis_task.o: ../boards/bsp_imu.h
+engineer_chassis\chassis_task.o: ../boards/mytype.h
+engineer_chassis\chassis_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdarg.h
+engineer_chassis\chassis_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdbool.h

@@ -21,6 +21,7 @@
 #include "cmsis_os.h"
 #include "can.h"
 #include "dma.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -97,9 +98,12 @@ int main(void)
   MX_CAN2_Init();
   MX_USART1_UART_Init();
   MX_USART6_UART_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
 	can_filter_init();
 	DWT_Init(168);
+	HAL_TIM_Base_Start(&htim4);
+	HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */

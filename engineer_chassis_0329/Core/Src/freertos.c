@@ -131,14 +131,14 @@ void MX_FREERTOS_Init(void) {
 	osThreadDef(ChassisTask, chassis_task, osPriorityNormal, 0, 1024);
   chassisTaskHandle = osThreadCreate(osThread(ChassisTask), NULL);
 	
-	osThreadDef(ImuTask, imu_task, osPriorityNormal, 0, 128);
+	osThreadDef(ImuTask, imu_task, osPriorityNormal, 0, 256);
 	imuTaskHandle = osThreadCreate(osThread(ImuTask), NULL);
 	
 	osThreadDef(NxTask, nx_communicate_task, osPriorityNormal, 0, 128);
 	nxcommunicateHandle = osThreadCreate(osThread(NxTask), NULL);
 	
-	osThreadDef(UITask, UI_task, osPriorityNormal, 0, 128);
-	uiTaskHandle = osThreadCreate(osThread(UITask), NULL);
+//	osThreadDef(UITask, UI_task, osPriorityNormal, 0, 128);
+//	uiTaskHandle = osThreadCreate(osThread(UITask), NULL);
 	
 	osThreadDef(BoardCommunicate, board_communicate_task, osPriorityNormal, 0, 128);
 	uiTaskHandle = osThreadCreate(osThread(BoardCommunicate), NULL);

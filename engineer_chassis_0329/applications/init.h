@@ -25,7 +25,7 @@
 #define CHASSIS_WZ_RC_SEN    -0.000009f
 #define CHASSIS_WZ_MOUSE_SEN -0.00008f
 //跟随底盘yaw模式下，遥控器的yaw遥杆（max 660）增加到车体角度的比例
-#define CHASSIS_ANGLE_Z_RC_SEN 0.008f
+#define CHASSIS_ANGLE_Z_RC_SEN 0.000012f
 //底盘速度设定值滤波器
 #define CHASSIS_ACCEL_X_NUM 0.18f
 #define CHASSIS_ACCEL_Y_NUM 0.18f

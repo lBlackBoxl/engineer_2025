@@ -1,6 +1,7 @@
 #include "main.h"
 #include "can_communicate.h"
 #include "arm_control_task.h"
+#include "error_check.h"
 
 extern CAN_HandleTypeDef hcan1;
 extern CAN_HandleTypeDef hcan2;
@@ -301,8 +302,8 @@ void CAN_board_communicate_can2_1(fp32 arm_position_message[6])
     board_communicate_can2_send_data[1] = board_position_message_tmp[4];
 		board_communicate_can2_send_data[2] = (board_position_message_tmp[5] >> 8);
     board_communicate_can2_send_data[3] = board_position_message_tmp[5];
-		board_communicate_can2_send_data[4]	= (uint16_t)0;
-		board_communicate_can2_send_data[5]	= (uint16_t)0;
+		board_communicate_can2_send_data[4]	= error_info >> 8;
+		board_communicate_can2_send_data[5]	= error_info;
 		board_communicate_can2_send_data[6]	= (uint16_t)0;
 		board_communicate_can2_send_data[7]	= (uint16_t)0;
 	

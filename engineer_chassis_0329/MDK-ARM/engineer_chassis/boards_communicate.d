@@ -65,6 +65,7 @@ engineer_chassis\boards_communicate.o: C:\~Terminal's SSD~\software\Keil MDK\ARM
 engineer_chassis\boards_communicate.o: ../components/controller/TD.h
 engineer_chassis\boards_communicate.o: ..\applications\keyboard.h
 engineer_chassis\boards_communicate.o: ..\applications\referee.h
+engineer_chassis\boards_communicate.o: ..\applications\nx_communicate.h
 engineer_chassis\boards_communicate.o: ..\applications\arm_control_task.h
 engineer_chassis\boards_communicate.o: ../components/algorithm/kinematic/6dof_kinematic.h
 engineer_chassis\boards_communicate.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdbool.h

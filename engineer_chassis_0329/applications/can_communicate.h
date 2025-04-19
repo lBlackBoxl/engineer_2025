@@ -10,6 +10,7 @@
 typedef struct
 {
 	fp32 target_position[6];
+	uint16_t error_info;
 }arm_communicate;
 
 typedef enum
@@ -19,7 +20,7 @@ typedef enum
 	CAN_3508_M2_ID = 0x202,
 	CAN_3508_M3_ID = 0x203, 
 	CAN_3508_M4_ID = 0x204,
-	CAN_3508_JC_ID = 0x205,
+	CAN_2006_clamp_ID = 0x205,
 } can1_msg_id;
 
 typedef enum
@@ -28,7 +29,6 @@ typedef enum
 	MST_1_ID = 0x00,
 	DM_YAW_TX_ID = 0x03,
 	MST_YAW_ID = 0x02,
-	CAN_2006_clamp_ID = 0x201,
 } can2_msg_id;
 
 typedef struct

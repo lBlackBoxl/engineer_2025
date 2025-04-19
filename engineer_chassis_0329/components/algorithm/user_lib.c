@@ -303,7 +303,7 @@ float OLS_Derivative(Ordinary_Least_Squares_t *OLS, float deltax, float y)
 
     return OLS->k;
 }
-
+	
 /**
   * @brief          获取最小二乘法提取信号微分
   * @param[in]      最小二乘法结构体

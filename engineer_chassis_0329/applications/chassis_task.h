@@ -10,6 +10,7 @@
 #include "main.h"
 #include "keyboard.h"
 #include "referee.h"
+#include "nx_communicate.h"
 
 extern void chassis_task(void const *pvParameters);
 
@@ -17,7 +18,7 @@ typedef enum
 {
 	NO_POWER_MODE,
 	RUN_MODE,
-	CLIMB_MODE,
+	STORAGE_MODE,
 } chassis_mode_e;
 
 typedef enum
@@ -88,11 +89,13 @@ typedef struct
 	chassis_mode_e  last_chassis_mode;	
 	arm_mode_e arm_mode;//»úÐµ±ÛÄ£Ê½
 	arm_mode_e last_arm_mode;
+	move_mode_e move_mode;
 	uint16_t suker_key_flag;
 	
 	float dt;
 	uint32_t  DWT_Count;	
 	
+	uint16_t error_info;
 } chassis_t;
 
 extern chassis_t chassis;

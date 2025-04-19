@@ -13,6 +13,7 @@
 #include "nx_communicate.h"
 #include "can.h"
 #include "6dof_kinematic.h"
+#include "gpio.h"
 
 static void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R_6D_ctrl);
 static void arm_feedback_update( arm_control_t *arm_control_position, Robotic_6DOF_control_t *R_6D_ctrl);
@@ -44,7 +45,7 @@ void arm_control_task(void const * argument)
 				arm_control_set(&arm_control, &all_key);
 				arm_control_loop(&R_6D_ctrl, &arm_control,&all_key);
 				osDelay(2);
-				CAN_cmd_4310_mit(arm_control.motor_YAW_data.position_set,0.0f,800.0f,10.0f,0.0f,DM_YAW_TX_ID,hcan2);
+				CAN_cmd_4310_mit(arm_control.motor_YAW_data.position_set,0.0f,1500.0f,2.0f,0.0f,DM_YAW_TX_ID,hcan2);
 				DWT_Delay(0.0003f);
 		}
 }
@@ -66,6 +67,8 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 		arm_control.motor_5_position = 0.0f;
 		arm_control.motor_6_position = 0.0f;
 		
+		key_init(&arm_control_key_init->capture_key, Z);
+		key_init(&arm_control_key_init->suker_key,F);
 		//各关节角度限制
 		R_6D_ctrl->Joint[0].angleLimitMax =  +2.90f;
 		R_6D_ctrl->Joint[0].angleLimitMin =  -2.85f;
@@ -101,10 +104,10 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 		//机械臂复位位置
 		fp32 allowance[6] = {0.0f,0.0f,0.0f,0.0f,0.0f,0.0f};
 		fp32 repositon_position[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],1.8f + allowance[4],0.0f + allowance[5]};		
-		fp32 three_ore_position[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],0.0f + allowance[4],0.0f + allowance[5]};	
-		fp32 pre_Au_reposition[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],0.0f + allowance[4],0.0f + allowance[5]};
-		fp32 Au_reposition[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],0.0f + allowance[4],0.0f + allowance[5]};
-		fp32 Ag_reposition[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],0.0f + allowance[4],0.0f + allowance[5]};		
+		fp32 three_ore_position[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],1.8f + allowance[4],0.0f + allowance[5]};	
+		fp32 pre_Au_reposition[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],1.8f + allowance[4],0.0f + allowance[5]};
+		fp32 Au_reposition[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],1.8f + allowance[4],0.0f + allowance[5]};
+		fp32 Ag_reposition[6] = {0.0f + allowance[0],0.0f + allowance[1],0.0f + allowance[2],0.0f + allowance[3],1.8f + allowance[4],0.0f + allowance[5]};		
 		memcpy(arm_control.repostion_position,repositon_position,sizeof(repositon_position));
 		memcpy(arm_control.three_ore_position,three_ore_position,sizeof(three_ore_position));
 		memcpy(arm_control.pre_Au_reposition,pre_Au_reposition,sizeof(pre_Au_reposition));
@@ -152,6 +155,19 @@ void arm_feedback_update( arm_control_t *arm_control_position, Robotic_6DOF_cont
 
 void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 {
+		if(arm_key->suker_key.itself.mode != arm_key->suker_key.itself.last_mode)
+		{
+				suker_key_flag = 1 - suker_key_flag;
+		}	
+		if(suker_key_flag == 1)
+		{
+				HAL_GPIO_WritePin(Pump_GPIO_Port,Pump_Pin,GPIO_PIN_SET);
+		}
+		else if(suker_key_flag == 0)
+		{
+				HAL_GPIO_WritePin(Pump_GPIO_Port,Pump_Pin,GPIO_PIN_RESET);
+		}
+		
 		if(chassis.chassis_mode == 0)
 		{
 				TD_set_x(&arm_control_set->arm_1_TD,arm_control_set->motor_YAW_data.DM_motor_measure->motor_position);
@@ -175,6 +191,186 @@ void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 		{
 			TD_set_r(&arm_control_set->arm_1_TD,3.0f);
 		}
+		//机械臂复位
+		if(chassis.move_mode == Home)
+		{
+				arm_control_set->arm_move_flag = NORMAL_POSITION;
+		}
+		
+				//一键抓矿
+		if(arm_key->capture_key.itself.mode != arm_key->capture_key.itself.last_mode)
+		{
+				arm_control_set->arm_position_flag = 0;
+				if(arm_control_set->arm_move_flag == NORMAL_POSITION)
+				{
+						if(chassis.move_mode == Au)
+						{
+								if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_1) == 1)
+								{
+										arm_control_set->arm_move_flag = Au3;
+								}
+								else if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_0) == 1)
+								{
+										arm_control_set->arm_move_flag = Au2;
+								}
+								else
+								{
+										arm_control_set->arm_move_flag = Au1;
+								}
+						}
+						else if(chassis.move_mode == Ag)
+						{
+								if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_1) == 1)
+								{
+										arm_control_set->arm_move_flag = Ag3;
+								}
+								else if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_0) == 1)
+								{
+										arm_control_set->arm_move_flag = Ag2;
+								}
+								else
+								{
+										arm_control_set->arm_move_flag = Ag1;
+								}
+						}
+						else
+						{
+								if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_1) == 1)
+								{
+										arm_control_set->arm_move_flag = Ag3;
+								}
+								else if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_0) == 1)
+								{
+										arm_control_set->arm_move_flag = Ag2;
+								}
+								else
+								{
+										arm_control_set->arm_move_flag = Ag1;
+								}
+						}
+				}
+				else
+				{
+						arm_control_set->arm_move_flag = NORMAL_POSITION;
+				}
+		}
+	
+		//一键兑矿
+		if(chassis.move_mode == Exchange)
+		{
+				arm_control_set->arm_position_flag = 0;
+				if(arm_control_set->arm_move_flag == NORMAL_POSITION)
+				{
+						if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_1) == 1)
+						{
+								arm_control_set->arm_move_flag = EXCHANGE1;
+						}
+						else
+						{
+								arm_control_set->arm_move_flag = EXCHANGE2;
+						}	
+				}
+				else
+				{
+						arm_control_set->arm_move_flag = NORMAL_POSITION;
+				}
+		}
+		
+		if(arm_control_set->arm_move_flag != NORMAL_POSITION)
+		{
+				arm_check_get_position(arm_control_set);
+				if(arm_control_set->arm_get_position_flag > arm_control_set->arm_move_routine.flag_and_time[arm_control_set->arm_move_flag][arm_control_set->arm_position_flag][1])
+				{
+						arm_control_set->arm_position_flag ++;
+						arm_control_set->arm_get_position_flag = 0;
+						if (arm_control_set->arm_move_routine.flag_and_time[arm_control_set->arm_move_flag][arm_control_set->arm_position_flag][0] == 0)
+						{
+								suker_key_flag = 0;
+						}
+						else if(arm_control_set->arm_move_routine.flag_and_time[arm_control_set->arm_move_flag][arm_control_set->arm_position_flag][0] == 1)
+						{
+								suker_key_flag = 1;
+						}
+				}
+				
+				if(arm_control_set->arm_position_flag == arm_control_set->routine_length[arm_control_set->arm_move_flag]-1 
+					&& arm_control_set->arm_get_position_flag >= arm_control_set->arm_move_routine.flag_and_time[arm_control_set->arm_move_flag][arm_control_set->arm_position_flag][1])
+				{
+						//连续一键
+						if(arm_control_set->arm_move_flag == Ag1)
+						{
+								if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_0) == 1)
+								{
+										arm_control_set->arm_move_flag = Ag2;
+										arm_control_set->arm_position_flag = 0;
+								}
+								else
+								{
+										arm_control_set->arm_move_flag = NORMAL_POSITION;
+								}
+						}
+						else if(arm_control_set->arm_move_flag == Ag2)
+						{
+								if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_1) == 1)
+								{
+										arm_control_set->arm_move_flag = NORMAL_POSITION;
+										arm_control_set->arm_position_flag = 0;
+								}
+								else
+								{
+										arm_control_set->arm_move_flag = NORMAL_POSITION;
+								}
+						}
+//						else if(arm_control_set->arm_move_flag == Ag3)
+//						{
+//								arm_control_set->arm_move_flag = NORMAL_POSITION;
+//								arm_control_set->arm_position_flag = 0;
+//						}
+						else if(arm_control_set->arm_move_flag == EXCHANGE1)
+						{
+								arm_control_set->arm_position_flag = 0;
+								arm_control_set->arm_move_flag = NORMAL_POSITION;
+						}
+						else if(arm_control_set->arm_move_flag == EXCHANGE2)
+						{
+								arm_control_set->arm_move_flag = NORMAL_POSITION;
+								arm_control_set->arm_position_flag = 0;
+						}
+						else if(arm_control_set->arm_move_flag == Au1)
+						{
+								if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_0) == 1)
+								{
+										arm_control_set->arm_move_flag = Au2;
+										arm_control_set->arm_position_flag = 0;
+								}
+								else
+								{
+										arm_control_set->arm_move_flag = NORMAL_POSITION;
+								}
+						}
+						else if(arm_control_set->arm_move_flag == Au2)
+						{
+								if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_1) == 1)
+								{
+										arm_control_set->arm_move_flag = Au3;
+										arm_control_set->arm_position_flag = 0;
+								}
+								else
+								{
+										arm_control_set->arm_move_flag = NORMAL_POSITION;
+								}
+						}
+						else if(arm_control_set->arm_move_flag == Au3)
+						{
+								arm_control_set->arm_move_flag = NORMAL_POSITION;
+								arm_control_set->arm_position_flag = 0;
+						}		
+				}
+		}
+		else
+		{
+				arm_control_set->arm_get_position_flag = 0;
+		}	
 }
 
 float AbsMaxOf6(Joint6D_t _joints)
@@ -367,14 +563,43 @@ void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl,arm_control_t *arm_contr
 			
 				if(arm_control_loop->arm_move_flag == NORMAL_POSITION)
 				{
-						arm_control_loop->one_key_position[0] = arm_control_loop->repostion_position[0];
-						arm_control_loop->one_key_position[1] = arm_control_loop->repostion_position[1];
-						arm_control_loop->one_key_position[2] = arm_control_loop->repostion_position[2];
-						arm_control_loop->one_key_position[3] = arm_control_loop->repostion_position[3];
-						arm_control_loop->one_key_position[4] = arm_control_loop->repostion_position[4];
-						arm_control_loop->one_key_position[5] = arm_control_loop->repostion_position[5];
+					switch(chassis.move_mode)
+					{
+							case Home:
+								{
+									for(int i = 0; i < 6; i++)
+									{
+											arm_control_loop->one_key_position[i] = arm_control_loop->repostion_position[i];
+									}
+									break;
+								}
+							case Ag:
+								{
+									for(int i = 0; i < 6; i++)
+									{
+											arm_control_loop->one_key_position[i] = arm_control_loop->Ag_reposition[i];
+									}
+									break;
+								}
+							case Au:
+								{
+									for(int i = 0; i < 6; i++)
+									{
+											arm_control_loop->one_key_position[i] = arm_control_loop->Au_reposition[i];
+									}
+									break;
+								}
+							case Exchange:
+								{
+									for(int i = 0; i < 6; i++)
+									{
+											arm_control_loop->one_key_position[i] = arm_control_loop->repostion_position[i];
+									}
+									break;
+								}
+						}
 				}
-				
+
 				arm_control_loop->motor_1_position = arm_control_loop->one_key_position[0];
 				arm_control_loop->motor_2_position = arm_control_loop->one_key_position[1];
 				arm_control_loop->motor_3_position = arm_control_loop->one_key_position[2];
