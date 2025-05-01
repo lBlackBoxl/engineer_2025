@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "arm_control_task.h": "c",
+        "struct_typedef.h": "c"
+    }
+}

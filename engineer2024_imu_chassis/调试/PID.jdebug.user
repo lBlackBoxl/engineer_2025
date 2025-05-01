@@ -1,0 +1,26 @@
+
+GraphedExpression="((gimbal_control).gimbal_pitch_motor).absolute_angle", Color=#a00909
+GraphedExpression="((gimbal_control).gimbal_pitch_motor).absolute_angle_set", Color=#09a01b
+GraphedExpression="((gimbal_control).gimbal_pitch_motor).motor_gyro", Color=#000000
+GraphedExpression="((gimbal_control).gimbal_pitch_motor).motor_gyro_set", Color=#0984a0
+OpenDocument="main.c", FilePath="C:/Users/14826/Desktop/TJU_Robot/RM/demo/RM_Gimbal/Core/Src/main.c", Line=0
+OpenDocument="stm32f4xx_hal_spi.c", FilePath="C:/Users/14826/Desktop/TJU_Robot/RM/demo/RM_Gimbal/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c", Line=1268
+OpenDocument="stm32f4xx_it.c", FilePath="C:/Users/14826/Desktop/TJU_Robot/RM/demo/RM_Gimbal/Core/Src/stm32f4xx_it.c", Line=91
+OpenDocument="tasks.c", FilePath="C:/Users/14826/Desktop/TJU_Robot/RM/demo/RM_Gimbal/Middlewares/Third_Party/FreeRTOS/Source/tasks.c", Line=3417
+OpenToolbar="Debug", Floating=0, x=0, y=0
+OpenWindow="Global Data", DockArea=LEFT, x=0, y=1, w=542, h=559, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Watched Data 1", DockArea=LEFT, x=0, y=0, w=542, h=533, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Data Sampling", DockArea=BOTTOM, x=1, y=0, w=291, h=328, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, VisibleTab=0, UniformSampleSpacing=0
+OpenWindow="Timeline", DockArea=RIGHT, x=0, y=0, w=1406, h=1093, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=1, DataPaneShown=1, PowerPaneShown=0, CodePaneShown=0, PinCursor="Cursor Movable", TimePerDiv="2 s", TimeStampFormat="Time", DataGraphDrawAsPoints=0, DataGraphLegendShown=1, DataGraphUniformSampleSpacing=0, DataGraphLegendPosition="805;852", PowerGraphDrawAsPoints=0, PowerGraphLegendShown=0, PowerGraphAvgFilterTime=Off, PowerGraphAvgFilterLen=Off, PowerGraphUniformSampleSpacing=0, PowerGraphLegendPosition="1179;-69", CodeGraphLegendShown=0, CodeGraphLegendPosition="1195;0"
+OpenWindow="Console", DockArea=BOTTOM, x=0, y=0, w=2268, h=328, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+TableHeader="Global Data", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Location";"Size";"Type";"Scope"], ColWidths=[383;100;102;100;100;430]
+TableHeader="Data Sampling Table", SortCol="Index", SortOrder="ASCENDING", VisibleCols=["Index";"Time";" ((gimbal_control).gimbal_pitch_motor).absolute_angle";" ((gimbal_control).gimbal_pitch_motor).absolute_angle_set";" ((gimbal_control).gimbal_pitch_motor).motor_gyro";" ((gimbal_control).gimbal_pitch_motor).motor_gyro_set"], ColWidths=[100;100;100;100;100;1188]
+TableHeader="Data Sampling Setup", SortCol="Min. Change", SortOrder="ASCENDING", VisibleCols=["Expression";"Type";"Value";"Min";"Max";"Average";"# Changes";"Min. Change";"Max. Change"], ColWidths=[483;100;144;134;124;164;110;134;126]
+TableHeader="Power Sampling", SortCol="Index", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Ch 0"], ColWidths=[100;100;100]
+TableHeader="Watched Data 1", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Value";"Location";"Refresh"], ColWidths=[309;168;100;100]
+TableHeader="RegisterSelectionDialog", SortCol="None", SortOrder="ASCENDING", VisibleCols=[], ColWidths=[]
+TableHeader="TargetExceptionDialog", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Address";"Description"], ColWidths=[200;100;100;340]
+WatchedExpression="gimbal_control", Window=Watched Data 1
+WatchedExpression="10", Window=Watched Data 1
+WatchedExpression="0", Window=Watched Data 1
+WatchedExpression="20001254", Window=Watched Data 1

@@ -1,0 +1,28 @@
+
+
+
+GraphedExpression="(shoot_control).fric_speed[0]", Color=#a00909
+GraphedExpression="(shoot_control).fric_speedset[0]", Color=#09a01b
+GraphedExpression="((shoot_control).fric_motor_pid[0]).Output", Color=#09a087
+GraphedExpression="((shoot_control).fric_motor_pid[0]).Dout", Color=#0984a0
+GraphedExpression="((shoot_control).fric_motor_pid[0]).Pout", Color=#0964a0
+GraphedExpression="((shoot_control).fric_motor_pid[0]).Iout", Color=#094fa0
+OpenDocument="main.c", FilePath="C:/Users/14826/Desktop/TJU_Robot/RM/demo/RM_Gimbal/Core/Src/main.c", Line=75
+OpenDocument="port.c", FilePath="C:/Users/14826/Desktop/TJU_Robot/RM/demo/RM_Gimbal/Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c", Line=452
+OpenDocument="stm32f4xx_it.c", FilePath="C:/Users/14826/Desktop/TJU_Robot/RM/demo/RM_Gimbal/Core/Src/stm32f4xx_it.c", Line=91
+OpenToolbar="Debug", Floating=0, x=0, y=0
+OpenWindow="Memory 1", DockArea=BOTTOM, x=1, y=0, w=604, h=328, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, EditorAddress=0x20000DC4
+OpenWindow="Global Data", DockArea=RIGHT, x=0, y=0, w=300, h=352, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Local Data", DockArea=RIGHT, x=0, y=1, w=300, h=206, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Functions", DockArea=LEFT, x=0, y=0, w=300, h=559, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Console", DockArea=BOTTOM, x=0, y=0, w=588, h=328, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+TableHeader="Global Data", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Location";"Size";"Type";"Scope"], ColWidths=[383;100;102;100;100;430]
+TableHeader="Local Data", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Location";"Size";"Type";"Scope"], ColWidths=[100;100;102;100;100;110]
+TableHeader="Functions", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Address";"Size";"#Insts";"Source"], ColWidths=[1562;104;100;100;742]
+TableHeader="Power Sampling", SortCol="Index", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Ch 0"], ColWidths=[100;100;100]
+TableHeader="RegisterSelectionDialog", SortCol="None", SortOrder="ASCENDING", VisibleCols=[], ColWidths=[]
+TableHeader="TargetExceptionDialog", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Address";"Description"], ColWidths=[200;100;100;340]
+WatchedExpression="(shoot_control).fric_motor_pid", Window=Watched Data 1
+WatchedExpression="6000", Window=Watched Data 1
+WatchedExpression="0", Window=Watched Data 1
+WatchedExpression="10", Window=Watched Data 1
