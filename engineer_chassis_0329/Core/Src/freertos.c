@@ -149,7 +149,7 @@ void MX_FREERTOS_Init(void) {
 	osThreadDef(ArmControlTask, arm_control_task, osPriorityNormal, 0, 1024);
 	uiTaskHandle = osThreadCreate(osThread(ArmControlTask), NULL);
 	
-	osThreadDef(RefereeusartTask, referee_usart_task, osPriorityNormal, 0, 256);
+	osThreadDef(RefereeusartTask, referee_usart_task, osPriorityNormal, 0, 128);
   RefereeusartTaskHandle = osThreadCreate(osThread(RefereeusartTask), NULL);
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */

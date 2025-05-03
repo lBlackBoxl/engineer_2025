@@ -60,7 +60,7 @@ void arm_task(void const * argument)
 						if(arm.motor_DM_data[0].DM_motor_measure->motor_enabled == 0)
 								CAN_cmd_4310_enable(DM_M2_TX_ID, hcan1);					
 						else if(arm.motor_DM_data[0].DM_motor_measure->motor_enabled == 1)	
-								CAN_cmd_4310_mit(arm.motor_DM_data[0].position_set,0.0f,10000.0f,20.0f,0.0f,DM_M2_TX_ID, hcan1);
+								CAN_cmd_4310_mit(arm.motor_DM_data[0].position_set,0.0f,2000.0f,2.0f,0.0f,DM_M2_TX_ID, hcan1);
 						else
 								CAN_cmd_4310_disable(DM_M2_TX_ID, hcan1);	
 								DWT_Delay(0.0003f);	

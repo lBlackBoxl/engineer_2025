@@ -94,8 +94,16 @@ void CAN_board_communicate_can_1(fp32 board_position_message[6],uint16_t mode, u
     board_communicate_can1_send_data[1] = board_position_message_tmp[4];
 		board_communicate_can1_send_data[2] = (board_position_message_tmp[5] >> 8);
     board_communicate_can1_send_data[3] = board_position_message_tmp[5];
-		board_communicate_can1_send_data[4] = mode >> 8;
-		board_communicate_can1_send_data[5] = mode;
+		if(arm_restart_flag == 0)
+		{
+			board_communicate_can1_send_data[4] = mode >> 8;
+			board_communicate_can1_send_data[5] = mode;
+		}
+		else if(arm_restart_flag == 1)
+		{
+			board_communicate_can1_send_data[4] = 0;
+			board_communicate_can1_send_data[5] = 0;
+		}
 		board_communicate_can1_send_data[6] = (suker_key_flag >> 8);
 		board_communicate_can1_send_data[7] = suker_key_flag;
  

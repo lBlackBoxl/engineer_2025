@@ -11,7 +11,7 @@
 #define	LEN_TX_DATA 		24	//发送数据段长度
 #define	LEN_RX_DATA 		24	//接收数据段长度
 #define	LEN_FRAME_TAILER 	2	//帧尾CRC16
-#define	LEN_TX_PACKET		27	//发送包整包长度
+#define	LEN_TX_PACKET		28	//发送包整包长度
 #define	LEN_RX_PACKET		2	//接收包整包长度
 
 #define USART7_MAX_RECV_LEN 100

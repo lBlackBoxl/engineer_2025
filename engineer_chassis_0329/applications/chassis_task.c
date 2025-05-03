@@ -546,8 +546,15 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 				TD_calc_angle(&chassis_control->chassis_yaw_TD, chassis_control->yaw_angle_set);
 				PID_Calculate_Angle(&chassis_control->chassis_yaw_pid, chassis_control->yaw_angle, chassis_control->yaw_angle_set);		
 //			}
-			CAN_cmd_4310_enable(DM_YAW_TX_ID,hcan2);
-			DWT_Delay(0.0003f);
+			if(arm_restart_flag == 0)
+			{
+				CAN_cmd_4310_enable(DM_YAW_TX_ID,hcan2);
+				DWT_Delay(0.0003f);
+			}
+			else if(arm_restart_flag == 1)
+			{
+				CAN_cmd_4310_disable(DM_YAW_TX_ID,hcan2);
+			}
 //			CAN_cmd_4310_enable(DM_4310_M2_TX_ID);
 //			DWT_Delay(0.0003f);		
 			chassis_control->vx_set = vx_set;

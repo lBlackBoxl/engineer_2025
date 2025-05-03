@@ -1,0 +1,40 @@
+gimbal\dma.o: ../Core/Src/dma.c
+gimbal\dma.o: ../Core/Inc/dma.h
+gimbal\dma.o: ../Core/Inc/main.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
+gimbal\dma.o: ../Core/Inc/stm32f4xx_hal_conf.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
+gimbal\dma.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
+gimbal\dma.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
+gimbal\dma.o: ../Drivers/CMSIS/Include/core_cm4.h
+gimbal\dma.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
+gimbal\dma.o: ../Drivers/CMSIS/Include/cmsis_version.h
+gimbal\dma.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+gimbal\dma.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+gimbal\dma.o: ../Drivers/CMSIS/Include/mpu_armv7.h
+gimbal\dma.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+gimbal\dma.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
+gimbal\dma.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+gimbal\dma.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
+gimbal\dma.o: ../Drivers/CMSIS/Include/core_cm4.h
+gimbal\dma.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\string.h
+gimbal\dma.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\math.h

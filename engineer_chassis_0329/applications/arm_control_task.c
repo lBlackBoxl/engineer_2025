@@ -35,6 +35,7 @@ float32_t yaw_angle_set;
 fp32 arm_target_position[6];
 uint16_t time_flag[8][2][2];
 uint16_t time_cnt = 0;
+fp32 sc_allowance[2] = {-100.0f, 0.0f};
 
 void arm_control_task(void const *argument)
 {
@@ -62,12 +63,12 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	AJX_flag = 0;
 	
 	//AJX时间标志位初始化
-	time_flag[Ag1][0][0] = 1, time_flag[Ag1][0][1] = 1000, time_flag[Ag1][1][0] = 0, time_flag[Ag1][1][1] = 1000;
-	time_flag[Ag2][0][0] = 1, time_flag[Ag2][0][1] = 1000, time_flag[Ag2][1][0] = 0, time_flag[Ag2][1][1] = 1000;	
-	time_flag[Ag3][0][0] = 1, time_flag[Ag3][0][1] = 1000, time_flag[Ag3][1][0] = 0, time_flag[Ag3][1][1] = 1000;
-	time_flag[Au1][0][0] = 1, time_flag[Au1][0][1] = 1000, time_flag[Au1][1][0] = 0, time_flag[Au1][1][1] = 1000;
-	time_flag[Au2][0][0] = 1, time_flag[Au2][0][1] = 1000, time_flag[Au2][1][0] = 0, time_flag[Au2][1][1] = 1000;
-	time_flag[Au3][0][0] = 1, time_flag[Au3][0][1] = 1000, time_flag[Au3][1][0] = 0, time_flag[Au3][1][1] = 1000;
+	time_flag[Ag1][0][0] = 1, time_flag[Ag1][0][1] = 1000, time_flag[Ag1][1][0] = 0, time_flag[Ag1][1][1] = 2000;
+	time_flag[Ag2][0][0] = 1, time_flag[Ag2][0][1] = 1000, time_flag[Ag2][1][0] = 0, time_flag[Ag2][1][1] = 2000;	
+	time_flag[Ag3][0][0] = 1, time_flag[Ag3][0][1] = 1000, time_flag[Ag3][1][0] = 0, time_flag[Ag3][1][1] = 2000;
+	time_flag[Au1][0][0] = 1, time_flag[Au1][0][1] = 1000, time_flag[Au1][1][0] = 0, time_flag[Au1][1][1] = 2000;
+	time_flag[Au2][0][0] = 1, time_flag[Au2][0][1] = 1000, time_flag[Au2][1][0] = 0, time_flag[Au2][1][1] = 2000;
+	time_flag[Au3][0][0] = 1, time_flag[Au3][0][1] = 1000, time_flag[Au3][1][0] = 0, time_flag[Au3][1][1] = 2000;
 	time_flag[EXCHANGE1][0][0] = 1, time_flag[EXCHANGE1][0][1] = 1000, time_flag[EXCHANGE1][1][0] = 1, time_flag[EXCHANGE1][1][1] = 1000;
 	time_flag[EXCHANGE2][0][0] = 1, time_flag[EXCHANGE2][0][1] = 1000, time_flag[EXCHANGE2][1][0] = 1, time_flag[EXCHANGE2][1][1] = 1000;
 	
@@ -184,7 +185,7 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 void arm_feedback_update(arm_control_t *arm_control_position, Robotic_6DOF_control_t *R_6D_ctrl)
 {
 	// 正解算输入
-	R_6D_ctrl->Joint6D_FK.theta[0] = arm_message.target_position[0];
+	R_6D_ctrl->Joint6D_FK.theta[0] = arm_control_position->motor_YAW_data.DM_motor_measure->motor_position;
 	R_6D_ctrl->Joint6D_FK.theta[1] = -arm_message.target_position[1] - 0.279f;
 	R_6D_ctrl->Joint6D_FK.theta[2] = arm_message.target_position[2] - 1.292f;
 	R_6D_ctrl->Joint6D_FK.theta[3] = arm_message.target_position[3];
@@ -196,12 +197,14 @@ void arm_feedback_update(arm_control_t *arm_control_position, Robotic_6DOF_contr
 	if (Quaterniont_Mode)
 	{
 		float arm_pose_q_temp[4];
-		const float q0[4] = {0.707, 0, 0, -0.707}; // 绕z轴逆时针转90度
+//		const float q0[4] = {0.707, 0, 0, -0.707}; // 绕z轴逆时针转90度
+		const float q0[4] = {1.0f, 0.0f, 0.0f, 0.0f};
+//		const float q0[4] = {0.707,0,0,0.707};
 		float q_multiply_result[4];
-
-		R_6D_ctrl->Pose6D_IK.X = arm_pose.x * 50.0f - 179.864f - 185.0f; // 2025/3/26测试用的偏移量
+		
+		R_6D_ctrl->Pose6D_IK.X = arm_pose.x * 50.0f - 179.864f - 185.0f + sc_allowance[0]; // 2025/3/26测试用的偏移量
 		R_6D_ctrl->Pose6D_IK.Y = arm_pose.y * 50.0f;
-		R_6D_ctrl->Pose6D_IK.Z = -arm_pose.z * 50.0f + 469.576f + 50.0f;
+		R_6D_ctrl->Pose6D_IK.Z = -arm_pose.z * 50.0f + 469.576f + 50.0f + sc_allowance[1];
 
 		for (int i = 0; i < 4; i++)
 		{
@@ -599,7 +602,7 @@ int l = 0;
 
 void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_loop, all_key_t *arm_key)
 {
-	if (chassis.arm_mode == ONE_KEY_MODE && arm_restart_flag == 0)
+	if (chassis.arm_mode == ONE_KEY_MODE )
 	{
 		if (arm_control_loop->arm_move_flag == NORMAL_POSITION)
 		{
@@ -651,76 +654,84 @@ void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_cont
 					}
 			}
 		}
-		else if (arm_control_loop->arm_move_flag != NORMAL_POSITION && AJX_flag == 0)
+		else if (arm_control_loop->arm_move_flag != NORMAL_POSITION)
 		{
-			for (int i = 0; i < 6; i++)
+			if(AJX_flag == 0)
 			{
-				if (arm_control_loop->arm_move_flag == Ag1)
+				for (int i = 0; i < 6; i++)
 				{
-					arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.Ag1[arm_control_loop->arm_position_flag][i];
-				}
-				else if (arm_control_loop->arm_move_flag == Ag2)
-				{
-					arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.Ag2[arm_control_loop->arm_position_flag][i];
-				}
-				else if (arm_control_loop->arm_move_flag == Ag3)
-				{
-					arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.Ag3[arm_control_loop->arm_position_flag][i];
-				}
-				else if (arm_control_loop->arm_move_flag == EXCHANGE1)
-				{
-					arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.exchange1[arm_control_loop->arm_position_flag][i];
-				}
-				else if (arm_control_loop->arm_move_flag == EXCHANGE2)
-				{
-					arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.exchange2[arm_control_loop->arm_position_flag][i];
-				}
-				else if (arm_control_loop->arm_move_flag == Au1)
-				{
-					arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.Au1[arm_control_loop->arm_position_flag][i];
-				}
-				else if (arm_control_loop->arm_move_flag == Au2)
-				{
-					arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.Au2[arm_control_loop->arm_position_flag][i];
-				}
-				else if (arm_control_loop->arm_move_flag == Au3)
-				{
-					arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.Au3[arm_control_loop->arm_position_flag][i];
+					if (arm_control_loop->arm_move_flag == Ag1)
+					{
+						arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.Ag1[arm_control_loop->arm_position_flag][i];
+					}
+					else if (arm_control_loop->arm_move_flag == Ag2)
+					{
+						arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.Ag2[arm_control_loop->arm_position_flag][i];
+					}
+					else if (arm_control_loop->arm_move_flag == Ag3)
+					{
+						arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.Ag3[arm_control_loop->arm_position_flag][i];
+					}
+					else if (arm_control_loop->arm_move_flag == EXCHANGE1)
+					{
+						arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.exchange1[arm_control_loop->arm_position_flag][i];
+					}
+					else if (arm_control_loop->arm_move_flag == EXCHANGE2)
+					{
+						arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.exchange2[arm_control_loop->arm_position_flag][i];
+					}
+					else if (arm_control_loop->arm_move_flag == Au1)
+					{
+						arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.Au1[arm_control_loop->arm_position_flag][i];
+					}
+					else if (arm_control_loop->arm_move_flag == Au2)
+					{
+						arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.Au2[arm_control_loop->arm_position_flag][i];
+					}
+					else if (arm_control_loop->arm_move_flag == Au3)
+					{
+						arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.Au3[arm_control_loop->arm_position_flag][i];
+					}
 				}
 			}
+			else
+			{
+				if(time_cnt % 5 == 0)
+				{
+					arm_control_loop->one_key_position[0] = (pc_receive_msg.rx_data.motor1_position + nx_allowance[0]);
+					arm_control_loop->one_key_position[1] = (pc_receive_msg.rx_data.motor2_position - nx_allowance[1]);
+					arm_control_loop->one_key_position[2] = -(pc_receive_msg.rx_data.motor3_position - nx_allowance[2]);
+					arm_control_loop->one_key_position[3] = (pc_receive_msg.rx_data.motor4_position - nx_allowance[3]);
+					arm_control_loop->one_key_position[4] = -(pc_receive_msg.rx_data.motor5_position + nx_allowance[4]);
+					arm_control_loop->one_key_position[5] = (pc_receive_msg.rx_data.motor6_position - nx_allowance[5]);
+				}
+					time_cnt++;
+					if(time_cnt > time_flag[arm_control_loop->arm_move_flag][0][1] && time_cnt < time_flag[arm_control_loop->arm_move_flag][1][1])
+					{
+							suker_key_flag = time_flag[arm_control_loop->arm_move_flag][0][0];
+					}
+					else if(time_cnt > time_flag[arm_control_loop->arm_move_flag][1][1])
+					{
+							suker_key_flag = time_flag[arm_control_loop->arm_move_flag][1][0];
+							if (fabs(arm_control_loop->motor_1_position - 0.0f) < 0.3f &&
+							fabs(arm_control_loop->motor_2_position - 0.0f) < 0.1f &&
+							fabs(arm_control_loop->motor_3_position - 0.0f) < 0.1f &&
+							fabs(arm_control_loop->motor_4_position - 0.0f) < 0.2f &&
+							fabs(arm_control_loop->motor_5_position - 1.8f) < 0.15f &&
+							fabs(arm_control_loop->motor_6_position - 0.0f) < 0.1f)
+							{
+								arm_control_loop->arm_move_flag = NORMAL_POSITION;
+								time_cnt = 0;
+							}
+					}
+			}
+		}
 			arm_target_position[0] = arm_control_loop->one_key_position[0];
 			arm_target_position[1] = arm_control_loop->one_key_position[1];
 			arm_target_position[2] = arm_control_loop->one_key_position[2];
 			arm_target_position[3] = arm_control_loop->one_key_position[3];
 			arm_target_position[4] = arm_control_loop->one_key_position[4];
 			arm_target_position[5] = arm_control_loop->one_key_position[5];
-		}
-		else
-		{
-			arm_target_position[0] = (pc_receive_msg.rx_data.motor1_position + nx_allowance[0]);
-			arm_target_position[1] = (pc_receive_msg.rx_data.motor2_position - nx_allowance[1]);
-			arm_target_position[2] = -(pc_receive_msg.rx_data.motor3_position - nx_allowance[2]);
-			arm_target_position[3] = (pc_receive_msg.rx_data.motor4_position - nx_allowance[3]);
-			arm_target_position[4] = -(pc_receive_msg.rx_data.motor5_position + nx_allowance[4]);
-			arm_target_position[5] = (pc_receive_msg.rx_data.motor6_position - nx_allowance[5]);
-			time_cnt+=2;
-			if(time_cnt > time_flag[arm_control_loop->arm_move_flag][0][1])
-			{
-					suker_key_flag = time_flag[arm_control_loop->arm_move_flag][0][0];
-			}
-			else if(time_cnt > time_flag[arm_control_loop->arm_move_flag][1][1])
-			{
-					suker_key_flag = time_flag[arm_control_loop->arm_move_flag][1][0];
-					if (fabs(arm_control_loop->motor_1_position - (-nx_allowance[0])) < 0.3f &&
-					fabs(arm_control_loop->motor_2_position - (nx_allowance[1])) < 0.1f &&
-					fabs(arm_control_loop->motor_3_position - (nx_allowance[2])) < 0.1f &&
-					fabs(arm_control_loop->motor_4_position - (nx_allowance[3])) < 0.2f &&
-					fabs(arm_control_loop->motor_5_position - (nx_allowance[4] + 1.466f)) < 0.15f &&
-					fabs(arm_control_loop->motor_6_position - (nx_allowance[5])) < 0.1f)
-					arm_control_loop->arm_move_flag = NORMAL_POSITION;
-			}
-		}
-		
 	}
 	else if (chassis.arm_mode == SELF_CONTROL_MODE)
 	{

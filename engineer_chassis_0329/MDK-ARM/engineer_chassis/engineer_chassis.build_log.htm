@@ -22,21 +22,21 @@ Dialog DLL:      TCM.DLL V1.36.2.0
  
 <h2>Project:</h2>
 C:\~Terminal's SSD~\Tewlet\CubeMX program\engineer_2025\engineer_chassis_0329\MDK-ARM\engineer_chassis.uvprojx
-Project File Date:  04/19/2025
+Project File Date:  05/02/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin'
 Build target 'engineer_chassis'
 compiling arm_control_task.c...
-..\applications\arm_control_task.c(470): warning:  #177-D: variable "new_joint_flag"  was declared but never referenced
+..\applications\arm_control_task.c(490): warning:  #177-D: variable "new_joint_flag"  was declared but never referenced
   	bool new_joint_flag = false;
 ..\applications\arm_control_task.c(23): warning:  #177-D: function "ONE_KEY_MoveL"  was declared but never referenced
   static void ONE_KEY_MoveL(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_set, Pose6D_t *arm_pose);
-..\applications\arm_control_task.c(167): warning: C4487E: read from variable 'Ag2_temp' with offset out of bounds
+..\applications\arm_control_task.c(183): warning: C4487E: read from variable 'Ag2_temp' with offset out of bounds
 }
 ..\applications\arm_control_task.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=54208 RO-data=4192 RW-data=652 ZI-data=36572  
+Program Size: Code=72848 RO-data=4192 RW-data=1304 ZI-data=50152  
 FromELF: creating hex file...
 "engineer_chassis\engineer_chassis.axf" - 0 Error(s), 3 Warning(s).
 
@@ -62,7 +62,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.5.0
       Include file:  CMSIS\Core\Include\tz_context.h
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
