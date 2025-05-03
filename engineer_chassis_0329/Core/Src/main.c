@@ -103,13 +103,12 @@ int main(void)
   MX_CAN1_Init();
   MX_CAN2_Init();
   MX_SPI5_Init();
-  MX_UART4_Init();
   MX_UART5_Init();
-  MX_UART7_Init();
   MX_UART8_Init();
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   MX_USART6_UART_Init();
+  MX_UART7_Init();
   /* USER CODE BEGIN 2 */
 	remote_control_init();
 	can_filter_init();

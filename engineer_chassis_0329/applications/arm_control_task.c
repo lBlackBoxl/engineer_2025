@@ -189,8 +189,8 @@ void arm_feedback_update(arm_control_t *arm_control_position, Robotic_6DOF_contr
 	R_6D_ctrl->Joint6D_FK.theta[1] = -arm_message.target_position[1] - 0.279f;
 	R_6D_ctrl->Joint6D_FK.theta[2] = arm_message.target_position[2] - 1.292f;
 	R_6D_ctrl->Joint6D_FK.theta[3] = arm_message.target_position[3];
-	R_6D_ctrl->Joint6D_FK.theta[4] = arm_message.target_position[4] - 0.10f;
-	R_6D_ctrl->Joint6D_FK.theta[5] = arm_message.target_position[5];
+	R_6D_ctrl->Joint6D_FK.theta[4] = arm_message.target_position[4] - 1.80f;
+	R_6D_ctrl->Joint6D_FK.theta[5] = -arm_message.target_position[5];
 	// 正解算调用
 	SolveFK(&R_6D_ctrl->Robotic_6D, &R_6D_ctrl->Joint6D_FK, &R_6D_ctrl->Pose6D_FK);
 
@@ -198,8 +198,8 @@ void arm_feedback_update(arm_control_t *arm_control_position, Robotic_6DOF_contr
 	{
 		float arm_pose_q_temp[4];
 //		const float q0[4] = {0.707, 0, 0, -0.707}; // 绕z轴逆时针转90度
-		const float q0[4] = {1.0f, 0.0f, 0.0f, 0.0f};
-//		const float q0[4] = {0.707,0,0,0.707};
+//		const float q0[4] = {1.0f, 0.0f, 0.0f, 0.0f};
+		const float q0[4] = {0.707,0,0,0.707}; //绕z轴顺时针转90度
 		float q_multiply_result[4];
 		
 		R_6D_ctrl->Pose6D_IK.X = arm_pose.x * 50.0f - 179.864f - 185.0f + sc_allowance[0]; // 2025/3/26测试用的偏移量
@@ -584,7 +584,7 @@ void MoveL(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_set, al
 			arm_target_position[1] = -(R_6D_ctrl->output_solvers_IK.theta[indexConfig][1] + 0.279f);
 			arm_target_position[2] = R_6D_ctrl->output_solvers_IK.theta[indexConfig][2] + 1.292f;
 			arm_target_position[3] = R_6D_ctrl->output_solvers_IK.theta[indexConfig][3];
-			arm_target_position[4] = -(R_6D_ctrl->output_solvers_IK.theta[indexConfig][4] - 0.1f);
+			arm_target_position[4] = (R_6D_ctrl->output_solvers_IK.theta[indexConfig][4] + 1.80f);
 			arm_target_position[5] = -R_6D_ctrl->output_solvers_IK.theta[indexConfig][5];
 		}
 		else

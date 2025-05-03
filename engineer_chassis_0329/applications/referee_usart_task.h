@@ -15,6 +15,6 @@ typedef __packed struct
 		uint16_t                               CRC16;
 }ARM_T;
 
-extern void referee_usart_task(void const *pvParameters);
+extern void referee_usart_task(void const * argument);
 extern void USART6_IRQHandler(void);
 #endif

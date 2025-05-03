@@ -8,8 +8,8 @@ extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart2;
 extern DMA_HandleTypeDef hdma_usart2_tx;
 extern DMA_HandleTypeDef hdma_usart2_rx;
-extern DMA_HandleTypeDef hdma_usart6_rx;
 extern DMA_HandleTypeDef hdma_usart6_tx;
+extern DMA_HandleTypeDef hdma_usart6_rx;
 
 uint8_t  USART2_RX_BUF[USART2_MAX_RECV_LEN]; 
 uint16_t USART2_RX_STA = 0;
@@ -103,7 +103,6 @@ void uart7_init(void)
   __HAL_UART_ENABLE_IT(&huart7, UART_IT_RXNE);  //receive interrupt
 	//__HAL_UART_ENABLE_IT(&huart7, UART_IT_IDLE);  //receive interrupt
 }
-
 
 void uart8_init(void)
 {

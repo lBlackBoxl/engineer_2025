@@ -136,7 +136,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 					case CAN_COMMUNICATE_RX_ID_0:
 					{
 							get_board_communicate_data_0(&arm_message_temp, rx_data);
-							arm_message.target_position[0] = uint_to_float(arm_message_temp.target_position[0], -50.0f, 50.0f, 16);
+							arm_message.target_position[0] = arm_control.motor_YAW_data.DM_motor_measure->motor_position;
 							arm_message.target_position[1] = uint_to_float(arm_message_temp.target_position[1], -6.2831852f, 6.2831852f, 16);
 							arm_message.target_position[2] = uint_to_float(arm_message_temp.target_position[2], -6.2831852f, 6.2831852f, 16);
 							arm_message.target_position[3] = uint_to_float(arm_message_temp.target_position[3], -6.2831852f, 6.2831852f, 16);

@@ -18,7 +18,7 @@ uint8_t referee_fifo_buf[REFEREE_FIFO_BUF_LENGTH];
 unpack_data_t referee_unpack_obj;
 uint8_t Flag;
 //裁判系统任务
-void referee_usart_task(void const *pvParameters)
+void referee_usart_task(void const * argument)
 {
     init_referee_struct_data();
     fifo_s_init(&referee_fifo, referee_fifo_buf, REFEREE_FIFO_BUF_LENGTH);
@@ -102,9 +102,9 @@ void referee_unpack_fifo_data(void)
 					}
 				}
 			}
-			break;  
+			break;
 			case STEP_DATA_CRC16:
-			{				
+			{
 				if (p_obj->index < (REF_HEADER_CRC_CMDID_LEN + p_obj->data_len))
 				{
 					p_obj->protocol_packet[p_obj->index++] = byte;  
@@ -113,10 +113,10 @@ void referee_unpack_fifo_data(void)
 				{
 					p_obj->unpack_step = STEP_HEADER_SOF;
 					p_obj->index = 0;
-					if (verify_crc16_check_sum(p_obj->protocol_packet, REF_HEADER_CRC_CMDID_LEN + p_obj->data_len) )
-					{						
+//					if (verify_crc16_check_sum(p_obj->protocol_packet, REF_HEADER_CRC_CMDID_LEN + p_obj->data_len) )
+//					{
 						referee_data_solve(p_obj->protocol_packet);
-					}
+//					}
 			}
 			}break;
 			default:

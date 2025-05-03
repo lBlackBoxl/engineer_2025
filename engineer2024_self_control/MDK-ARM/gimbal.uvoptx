@@ -315,6 +315,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>tx_buffer_self_control</ItemText>
         </Ww>
+        <Ww>
+          <count>31</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>huart1</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>

@@ -42,6 +42,7 @@ extern uint16_t USART2_RX_STA;
 extern void usart2_init(uint8_t *rx1_buf, uint8_t *rx2_buf, uint16_t dma_buf_num);
 extern void uart5_init(void);
 extern void uart6_init(void);
+extern void uart7_init(void);
 extern void uart8_init(void);
 
 
