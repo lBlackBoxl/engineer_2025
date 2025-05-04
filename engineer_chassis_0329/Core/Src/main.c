@@ -6,12 +6,13 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
+  * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
+  * All rights reserved.</center></h2>
   *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
+  * This software component is licensed by ST under Ultimate Liberty license
+  * SLA0044, the "License"; You may not use this file except in compliance with
+  * the License. You may obtain a copy of the License at:
+  *                             www.st.com/SLA0044
   *
   ******************************************************************************
   */
@@ -28,13 +29,12 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "remote_control.h"
-#include "can_communicate.h"
+#include "bsp_rc.h"
 #include "bsp_can.h"
-#include "bsp_dwt.h"
-#include "bsp_usart.h"
 #include "bsp_gyro.h"
-#include "bsp_imu.h"
+#include "bsp_usart.h"
+#include "remote_control.h"
+#include "bsp_dwt.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -78,7 +78,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+	
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -87,14 +87,14 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
- 
+	
   /* USER CODE END Init */
 
   /* Configure the system clock */
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+	
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -112,10 +112,11 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	remote_control_init();
 	can_filter_init();
-	DWT_Init(168);
-	mpu_device_init();
-	init_quaternion();	
+	uart5_init();
 	uart6_init();
+	uart7_init();
+	uart8_init();
+	DWT_Init(168);
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */

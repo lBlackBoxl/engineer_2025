@@ -856,11 +856,6 @@
               <FilePath>..\applications\remote_control.c</FilePath>
             </File>
             <File>
-              <FileName>UI_task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\applications\UI_task.c</FilePath>
-            </File>
-            <File>
               <FileName>init.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\applications\init.h</FilePath>

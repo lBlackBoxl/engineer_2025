@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
+  * Copyright (c) 2024 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -45,7 +45,8 @@ extern UART_HandleTypeDef huart2;
 extern UART_HandleTypeDef huart6;
 
 /* USER CODE BEGIN Private defines */
-
+extern DMA_HandleTypeDef hdma_usart6_rx;
+extern DMA_HandleTypeDef hdma_usart6_tx;
 /* USER CODE END Private defines */
 
 void MX_UART5_Init(void);

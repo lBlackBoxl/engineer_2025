@@ -100,8 +100,8 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	R_6D_ctrl->Joint[2].angleLimitMax = 1.558f;	 // 1.57f;
 	R_6D_ctrl->Joint[2].angleLimitMin = -1.242f; //-1.23f;
 
-	R_6D_ctrl->Joint[3].angleLimitMax = 1.57f;	///////2.3f;
-	R_6D_ctrl->Joint[3].angleLimitMin = -1.57f; ///////-1.9f;
+	R_6D_ctrl->Joint[3].angleLimitMax = 1.87f;	///////2.3f;
+	R_6D_ctrl->Joint[3].angleLimitMin = -1.87f; ///////-1.9f;
 
 	R_6D_ctrl->Joint[4].angleLimitMax = PI;
 	R_6D_ctrl->Joint[4].angleLimitMin = -PI;
@@ -197,9 +197,11 @@ void arm_feedback_update(arm_control_t *arm_control_position, Robotic_6DOF_contr
 	if (Quaterniont_Mode)
 	{
 		float arm_pose_q_temp[4];
-//		const float q0[4] = {0.707, 0, 0, -0.707}; // 绕z轴逆时针转90度
+		float arm_pose_q_temp_2[4];
+//		const float q0[4] = {0.707, 0, 0, 0.707}; // 绕z轴逆时针转90度
 //		const float q0[4] = {1.0f, 0.0f, 0.0f, 0.0f};
-		const float q0[4] = {0.707,0,0,0.707}; //绕z轴顺时针转90度
+		const float q0[4] = {0.707,0.0,0.0,0.707}; //绕z轴顺时针转90度
+		const float q1[4] = {0.707,0.0,-0.707,0.0}; //绕x轴顺时针转90度
 		float q_multiply_result[4];
 		
 		R_6D_ctrl->Pose6D_IK.X = arm_pose.x * 50.0f - 179.864f - 185.0f + sc_allowance[0]; // 2025/3/26测试用的偏移量
@@ -211,12 +213,14 @@ void arm_feedback_update(arm_control_t *arm_control_position, Robotic_6DOF_contr
 			arm_pose_q_temp[i] = arm_pose.q[i];
 		}
 
-		QuaternionMultiply(q0, arm_pose_q_temp, q_multiply_result);
+		QuaternionMultiply(q0, arm_pose_q_temp, arm_pose_q_temp_2);
+		QuaternionMultiply(q1, arm_pose_q_temp_2, q_multiply_result);
 
 		R_6D_ctrl->Pose6D_IK.Q[0] = q_multiply_result[0];
 		R_6D_ctrl->Pose6D_IK.Q[1] = q_multiply_result[1];
 		R_6D_ctrl->Pose6D_IK.Q[2] = q_multiply_result[2];
 		R_6D_ctrl->Pose6D_IK.Q[3] = q_multiply_result[3];
+
 	}
 }
 
@@ -586,6 +590,7 @@ void MoveL(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_set, al
 			arm_target_position[3] = R_6D_ctrl->output_solvers_IK.theta[indexConfig][3];
 			arm_target_position[4] = (R_6D_ctrl->output_solvers_IK.theta[indexConfig][4] + 1.80f);
 			arm_target_position[5] = -R_6D_ctrl->output_solvers_IK.theta[indexConfig][5];
+			
 		}
 		else
 		{

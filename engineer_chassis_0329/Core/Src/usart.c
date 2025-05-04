@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
+  * Copyright (c) 2024 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -21,7 +21,37 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
+#include "stdio.h"
+/*-----------------------      ����printf        -----------------------*/
 
+#if 1
+#pragma import(__use_no_semihosting)             
+//                
+struct __FILE 
+{ 
+    int handle; 
+}; 
+
+FILE __stdout;       
+//   
+void _sys_exit(int x) 
+{ 
+    x = x; 
+} 
+void _ttywrch(int ch)
+{
+    ch = ch;
+}
+//
+int fputc(int ch, FILE *f)
+{     
+//    while((USART6->SR&0X40)==0);//?��?-???��?��?��????,?�C?��?��???��?��???????a?��??   
+//    USART6->DR = (uint8_t) ch; 
+		HAL_UART_Transmit(&huart7,(uint8_t *)&ch,1,0xffff);
+    return ch;
+    
+}
+#endif
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart5;

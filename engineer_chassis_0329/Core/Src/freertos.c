@@ -28,11 +28,9 @@
 #include "chassis_task.h"
 #include "imu_task.h"
 #include "nx_communicate.h"
-#include "UI_task.h"
 #include "arm_control_task.h"
 #include "boards_communicate.h"
 #include "referee_usart_task.h"
-#include "pc_info_task.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

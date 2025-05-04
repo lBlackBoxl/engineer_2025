@@ -257,7 +257,7 @@ void Joint6D_Init(Robotic_6DOF * Robotic_6D)
         {0.0f,        300.0f,        0.0f,       0.0f},
         {PI/2,         	65.0f,     	430.0f,       0.0f},
         {PI/2,          0.0f,        0.0f,       0.0f},
-        {-PI/2,         0.0f,     40.953f,       0.0f}};
+        {-PI/2,         0.0f,     140.953f,       0.0f}};
 		
 		//更新DH参数->Robotic_6D结构体
 		for(int i = 0; i < 6; i++)

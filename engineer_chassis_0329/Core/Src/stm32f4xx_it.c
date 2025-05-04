@@ -6,12 +6,13 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
+  * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
+  * All rights reserved.</center></h2>
   *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
+  * This software component is licensed by ST under Ultimate Liberty license
+  * SLA0044, the "License"; You may not use this file except in compliance with
+  * the License. You may obtain a copy of the License at:
+  *                             www.st.com/SLA0044
   *
   ******************************************************************************
   */
@@ -24,6 +25,10 @@
 #include "task.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "remote_control.h"
+#include "bsp_gyro.h"
+#include "bsp_usart.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,7 +93,7 @@ void NMI_Handler(void)
 
   /* USER CODE END NonMaskableInt_IRQn 0 */
   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
-   while (1)
+  while (1)
   {
   }
   /* USER CODE END NonMaskableInt_IRQn 1 */
@@ -272,7 +277,7 @@ void CAN1_RX0_IRQHandler(void)
 //void USART1_IRQHandler(void)
 //{
 //  /* USER CODE BEGIN USART1_IRQn 0 */
-
+////////	usart1_IRQHandler();
 //  /* USER CODE END USART1_IRQn 0 */
 //  HAL_UART_IRQHandler(&huart1);
 //  /* USER CODE BEGIN USART1_IRQn 1 */
@@ -286,7 +291,7 @@ void CAN1_RX0_IRQHandler(void)
 //void USART2_IRQHandler(void)
 //{
 //  /* USER CODE BEGIN USART2_IRQn 0 */
-
+//////////	usart2_IRQHandler();
 //  /* USER CODE END USART2_IRQn 0 */
 //  HAL_UART_IRQHandler(&huart2);
 //  /* USER CODE BEGIN USART2_IRQn 1 */
@@ -398,7 +403,14 @@ void DMA2_Stream6_IRQHandler(void)
 void UART8_IRQHandler(void)
 {
   /* USER CODE BEGIN UART8_IRQn 0 */
+	if(huart8.Instance->SR & UART_FLAG_RXNE)//���յ�����
+	{
+//			CopeSerial8Data((unsigned char)UART8->DR);//��������		
+//		huart->Instance->DR 
+//			CopeSerial2Data((unsigned char)huart7.Instance->DR);//��������		
 
+			__HAL_UART_CLEAR_PEFLAG(&huart8);
+	}
   /* USER CODE END UART8_IRQn 0 */
   HAL_UART_IRQHandler(&huart8);
   /* USER CODE BEGIN UART8_IRQn 1 */

@@ -320,6 +320,16 @@
           <WinNumber>1</WinNumber>
           <ItemText>huart1</ItemText>
         </Ww>
+        <Ww>
+          <count>32</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>armend</ItemText>
+        </Ww>
+        <Ww>
+          <count>33</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>euler</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
