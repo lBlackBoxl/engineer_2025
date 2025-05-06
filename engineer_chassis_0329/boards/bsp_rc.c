@@ -42,6 +42,22 @@ void RC_init(uint8_t *rx1_buf, uint8_t *rx2_buf, uint16_t dma_buf_num)
 
 }
 
+void RC_unable(void)
+{
+    __HAL_UART_DISABLE(&huart1);
+}
+void RC_restart(uint16_t dma_buf_num)
+{
+    __HAL_UART_DISABLE(&huart1);
+    __HAL_DMA_DISABLE(&hdma_usart1_rx);
+
+    hdma_usart1_rx.Instance->NDTR = dma_buf_num;
+
+    __HAL_DMA_ENABLE(&hdma_usart1_rx);
+    __HAL_UART_ENABLE(&huart1);
+
+}
+
 
 
 

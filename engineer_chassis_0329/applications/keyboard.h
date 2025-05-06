@@ -22,7 +22,6 @@ typedef enum
 		B,
 		PR,
 		PL,
-
 }key_e;
 
 

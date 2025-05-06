@@ -19,7 +19,6 @@ typedef enum
 {
 	NO_POWER_MODE,
 	RUN_MODE,
-	STORAGE_MODE,
 } chassis_mode_e;
 
 typedef enum

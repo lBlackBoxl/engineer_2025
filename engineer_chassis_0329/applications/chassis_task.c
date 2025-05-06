@@ -81,7 +81,7 @@ void chassis_task(void const *pvParameters)
 						CAN_cmd_chassis(0, 0, 0, 0);
 //						CAN_cmd_chassis_clamp(0);
 				}
-				else if(chassis.chassis_mode == RUN_MODE || chassis.chassis_mode == STORAGE_MODE)
+				else if(chassis.chassis_mode == RUN_MODE)
 				{
 						CAN_cmd_chassis(chassis.motor_chassis[0].give_current,  chassis.motor_chassis[1].give_current, 
 														 chassis.motor_chassis[2].give_current,  chassis.motor_chassis[3].give_current);
@@ -143,7 +143,7 @@ static void chassis_init(all_key_t *chassis_key_init, chassis_t *chassis_init)
 						CLAMP_POSITION_PID_KP, CLAMP_POSITION_PID_KI, CLAMP_POSITION_PID_KD,0.0f,0.0f,0.00106103295394596890512589175582f,0.0f,4,0x11);
 		PID_Init(&chassis_init->clamp_motor_speed_pid, CLAMP_SPEED_PID_MAX_OUT, CLAMP_SPEED_PID_MAX_KD,0.0f,
 						CLAMP_SPEED_PID_KP, CLAMP_SPEED_PID_KI, CLAMP_SPEED_PID_KD,0.0f,0.0f,0.00106103295394596890512589175582f,0.0f,5,0x11);	
-		
+		clamp_flag = 0;
 		//获取底盘电机数据指针，初始化PID 
 		for (uint8_t i = 0; i < 4; i++)
     {
@@ -204,35 +204,27 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 		chassis_set_mode->last_arm_mode = chassis_set_mode->arm_mode;
 		
 		//底盘运动模式选择
-		if(switch_is_down(chassis_set_mode->chassis_RC->rc.s[RC_S_RIGHT]))
+		if(chassis_set_mode->chassis_RC->rc.s[RC_SW_RIGHT] == 1 && chassis_set_mode->chassis_mode != NO_POWER_MODE)
 		{
-			chassis_set_mode->chassis_mode = NO_POWER_MODE;
-		}
-		else if(switch_is_mid(chassis_set_mode->chassis_RC->rc.s[RC_S_RIGHT]))
-		{
-			chassis_set_mode->chassis_mode = RUN_MODE;
-		}
-		else if(switch_is_up(chassis_set_mode->chassis_RC->rc.s[RC_S_RIGHT]))
-		{
-			chassis_set_mode->chassis_mode = STORAGE_MODE;
+			chassis_set_mode->chassis_mode = 1 - chassis_set_mode->chassis_mode;
 		}
 		
 		//机械臂运动模式选择
-		if(switch_is_down(chassis_set_mode->chassis_RC->rc.s[RC_S_LEFT]))
+		if(switch_is_left(chassis_set_mode->chassis_RC->rc.s[RC_SW_MID]))
 		{
 			chassis_set_mode->arm_mode = NX_CONTROL_MODE;
 		}
-		else if(switch_is_mid(chassis_set_mode->chassis_RC->rc.s[RC_S_LEFT]))
+		else if(switch_is_mid(chassis_set_mode->chassis_RC->rc.s[RC_SW_MID]))
 		{
 			chassis_set_mode->arm_mode = ONE_KEY_MODE;
 		}
-		else if(switch_is_up(chassis_set_mode->chassis_RC->rc.s[RC_S_LEFT]))
+		else if(switch_is_right(chassis_set_mode->chassis_RC->rc.s[RC_SW_MID]))
 		{
 			chassis_set_mode->arm_mode = SELF_CONTROL_MODE;
 		}
 		
 		//夹矿
-		if ((chassis_set_mode->chassis_mode == STORAGE_MODE || chassis_set_mode->chassis_mode == RUN_MODE) && chassis_set_mode->last_chassis_mode == NO_POWER_MODE)
+		if (chassis_set_mode->chassis_mode == RUN_MODE && chassis_set_mode->last_chassis_mode == NO_POWER_MODE)
 		{
 				clamp_mode = 1;
 		}
@@ -499,8 +491,8 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 			chassis_control->vy_set = 0.0f;
 			chassis_control->wz_set = 0.0f;
 		}
-		//跑路模式||爬台阶模式
-		else if(chassis_control->chassis_mode == RUN_MODE || chassis_control->chassis_mode == STORAGE_MODE)
+		//跑路模式
+		else if(chassis_control->chassis_mode == RUN_MODE)
 		{
 			switch(chassis_control->move_mode)
 			{	
@@ -578,7 +570,11 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 		}
 		else if(clamp_mode ==2)
 		{
-				if(chassis_control->chassis_mode == STORAGE_MODE)
+				if(last_s[RC_SW_LEFT].itself.mode != last_s[RC_SW_LEFT].itself.last_mode)
+				{
+						clamp_flag = 1 - clamp_flag;
+				}
+				if(clamp_flag == 0)
 				{
 						chassis_control->motor_clamp.position_set = -0.08f;
 				}
