@@ -276,10 +276,9 @@ static void sbus_to_rc(volatile const uint8_t *sbus_buf, RC_ctrl_t *rc_ctrl)
 		for(int i = 0; i < 5; i++)
 		{
 				last_s[i].itself.last_mode = last_s[i].itself.mode;
-				last_s[i].content = rc_ctrl->rc.s[i];
 				if(last_s[i].itself.flag == 0)
 				{
-					if(last_s[i].content != 0)
+					if(rc_ctrl->rc.s[i] != 0)
 					{
 							last_s[i].itself.time++;
 					}
@@ -291,7 +290,7 @@ static void sbus_to_rc(volatile const uint8_t *sbus_buf, RC_ctrl_t *rc_ctrl)
 				}
 				else                                        
 				{
-					if(last_s[i].content  == 0)   
+					if(rc_ctrl->rc.s[i] == 0)   
 					{
 							last_s[i].itself.time++;
 					}

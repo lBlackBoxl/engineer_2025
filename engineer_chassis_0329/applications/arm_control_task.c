@@ -20,8 +20,6 @@ static void arm_control_key_check(all_key_t *arm_cnotrol_key_check);
 static void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key);
 static void arm_check_get_position(arm_control_t *check_position);
 static void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_loop, all_key_t *arm_key);
-static void ONE_KEY_MoveL(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_set, Pose6D_t *arm_pose);
-
 
 arm_control_t arm_control;
 Robotic_6DOF_control_t R_6D_ctrl;

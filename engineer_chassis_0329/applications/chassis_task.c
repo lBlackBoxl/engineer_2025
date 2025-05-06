@@ -204,7 +204,7 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 		chassis_set_mode->last_arm_mode = chassis_set_mode->arm_mode;
 		
 		//底盘运动模式选择
-		if(chassis_set_mode->chassis_RC->rc.s[RC_SW_RIGHT] == 1 && chassis_set_mode->chassis_mode != NO_POWER_MODE)
+		if(last_s[RC_SW_RIGHT].itself.mode != last_s[RC_SW_RIGHT].itself.last_mode)
 		{
 			chassis_set_mode->chassis_mode = 1 - chassis_set_mode->chassis_mode;
 		}

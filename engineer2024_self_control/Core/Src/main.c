@@ -75,6 +75,7 @@ void MX_FREERTOS_Init(void);
   */
 int main(void)
 {
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -118,13 +119,14 @@ int main(void)
   DWT_Init(168);
   /* USER CODE END 2 */
 
-  /* Call init function for freertos objects (in freertos.c) */
+  /* Call init function for freertos objects (in cmsis_os2.c) */
   MX_FREERTOS_Init();
 
   /* Start scheduler */
   osKernelStart();
 
   /* We should never get here as control is now taken by the scheduler */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -185,7 +187,7 @@ void SystemClock_Config(void)
 
 float32_t Get_SystemTimer(void)
 {
-	timcnt /= 100.0f;  //转换为s
+	timcnt /= 100.0f;  //转锟斤拷为s
 	return (float32_t)timcnt;
 }
 /* USER CODE END 4 */
