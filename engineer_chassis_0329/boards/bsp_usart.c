@@ -53,8 +53,6 @@ void usart2_init(uint8_t *rx1_buf, uint8_t *rx2_buf, uint16_t dma_buf_num)
         __HAL_DMA_DISABLE(&hdma_usart2_tx);
     hdma_usart2_tx.Instance->PAR = (uint32_t) & (USART2->DR);
 }
-
-
 	
 void usart6_init(uint8_t *rx1_buf, uint8_t *rx2_buf, uint16_t dma_buf_num)
 {

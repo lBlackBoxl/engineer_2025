@@ -35,6 +35,7 @@
 #include "bsp_usart.h"
 #include "remote_control.h"
 #include "bsp_dwt.h"
+#include "referee_usart_task.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -110,7 +111,7 @@ int main(void)
   MX_USART6_UART_Init();
   MX_UART7_Init();
   /* USER CODE BEGIN 2 */
-	remote_control_init();
+	serial2_selfcontrol_rc_init();
 	can_filter_init();
 	uart5_init();
 	uart6_init();

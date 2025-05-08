@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp
+--cpu=Cortex-M4.fp.sp
 "engineer_chassis\startup_stm32f427xx.o"
 "engineer_chassis\main.o"
 "engineer_chassis\gpio.o"
@@ -56,7 +56,6 @@
 "engineer_chassis\nx_communicate.o"
 "engineer_chassis\referee.o"
 "engineer_chassis\referee_usart_task.o"
-"engineer_chassis\remote_control.o"
 "engineer_chassis\pc_info_task.o"
 "engineer_chassis\butterworth_filter.o"
 "engineer_chassis\controller.o"
@@ -78,4 +77,4 @@
 --strict --scatter "engineer_chassis\engineer_chassis.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
---list "engineer_chassis.map" -o engineer_chassis\engineer_chassis.axf
+--list "engineer_chassis.map" -o engineer_chassis\engineer_chassis.elf

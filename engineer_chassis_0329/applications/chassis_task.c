@@ -49,7 +49,7 @@ int arm_restart_flag;
 bool_t  clamp_flag;
 uint8_t clamp_mode;
 int16_t clamp_reset_count;		
-		
+
 /**
   * @brief          底盘任务，间隔 CHASSIS_CONTROL_TIME_MS 2ms
   * @param[in]      pvParameters: 空
@@ -353,7 +353,6 @@ static void chassis_feedback_update(chassis_t *chassis_update)
 		chassis_update->vx = (-chassis_update->motor_chassis[0].speed + chassis_update->motor_chassis[1].speed + chassis_update->motor_chassis[2].speed - chassis_update->motor_chassis[3].speed) * MOTOR_SPEED_TO_CHASSIS_SPEED_VX;
     chassis_update->vy = (-chassis_update->motor_chassis[0].speed - chassis_update->motor_chassis[1].speed + chassis_update->motor_chassis[2].speed + chassis_update->motor_chassis[3].speed) * MOTOR_SPEED_TO_CHASSIS_SPEED_VY;
     chassis_update->wz = (-chassis_update->motor_chassis[0].speed - chassis_update->motor_chassis[1].speed - chassis_update->motor_chassis[2].speed - chassis_update->motor_chassis[3].speed) * MOTOR_SPEED_TO_CHASSIS_SPEED_WZ / MOTOR_DISTANCE_TO_CENTER;
-		
 }
 
 /**
@@ -364,6 +363,7 @@ static void chassis_feedback_update(chassis_t *chassis_update)
   * @param[out]     chassis_rc_to_vector: "chassis" 变量指针
   * @retval         none
   */
+
 void chassis_rc_to_control_vector(fp32 *vx_set, fp32 *vy_set, fp32 *vz_set, chassis_t *chassis_rc_to_vector)
 {
     if (chassis_rc_to_vector == NULL || vx_set == NULL || vy_set == NULL)
@@ -406,7 +406,7 @@ void chassis_rc_to_control_vector(fp32 *vx_set, fp32 *vy_set, fp32 *vz_set, chas
 		else if (chassis_rc_to_vector->chassis_RC->key.D)
 		{
 				vy_set_channel = NORMAL_MAX_CHASSIS_SPEED_Y;
-		}	
+		}
 		
     //一阶低通滤波代替斜波作为底盘速度输入
     first_order_filter_cali(&chassis_rc_to_vector->chassis_cmd_slow_set_vx, vx_set_channel);

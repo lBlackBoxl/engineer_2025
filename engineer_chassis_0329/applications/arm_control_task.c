@@ -69,7 +69,7 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	time_flag[Au3][0][0] = 1, time_flag[Au3][0][1] = 1000, time_flag[Au3][1][0] = 0, time_flag[Au3][1][1] = 2000;
 	time_flag[EXCHANGE1][0][0] = 1, time_flag[EXCHANGE1][0][1] = 1000, time_flag[EXCHANGE1][1][0] = 1, time_flag[EXCHANGE1][1][1] = 1000;
 	time_flag[EXCHANGE2][0][0] = 1, time_flag[EXCHANGE2][0][1] = 1000, time_flag[EXCHANGE2][1][0] = 1, time_flag[EXCHANGE2][1][1] = 1000;
-	
+
 	// YAW关节电机初始化
 	arm_control.motor_YAW_data.DM_motor_measure = return_4310_measure(1);
 	CAN_cmd_4310_disable(DM_YAW_TX_ID, hcan2);

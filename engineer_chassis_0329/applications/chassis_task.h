@@ -2,7 +2,6 @@
 #define CHASSIS_TASK_H
 
 #include "struct_typedef.h"
-#include "remote_control.h"
 #include "user_lib.h"
 #include "can_communicate.h"
 #include "controller.h"
@@ -11,6 +10,7 @@
 #include "keyboard.h"
 #include "referee.h"
 #include "nx_communicate.h"
+#include "referee_usart_task.h"
 
 extern void chassis_task(void const *pvParameters);
 extern int arm_restart_flag;

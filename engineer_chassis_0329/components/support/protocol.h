@@ -1,7 +1,13 @@
 #ifndef ROBOMASTER_PROTOCOL_H
 #define ROBOMASTER_PROTOCOL_H
 #include "struct_typedef.h"
-#define HEADER_SOF 							0xA5
+#define HEADER_SOF_SELF_CONTROL 						0xA5
+#define HEADER_SOF_RC_L 										0xA9
+#define HEADER_SOF_RC_H                     0x53
+#define RC_HEADER_LEN                       2
+#define RC_FRAME_LEN                        21
+#define RC_CRC_LEN                          2
+#define RC_DATA_LEN                         (RC_FRAME_LEN - RC_HEADER_LEN - RC_CRC_LEN)
 #define REF_PROTOCOL_FRAME_MAX_SIZE         128
 #define REF_PROTOCOL_HEADER_SIZE            sizeof(frame_header_struct_t)
 #define REF_PROTOCOL_CMD_SIZE               2

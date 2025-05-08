@@ -68,6 +68,7 @@ extern CAN_HandleTypeDef hcan2;
 extern DMA_HandleTypeDef hdma_uart7_rx;
 extern DMA_HandleTypeDef hdma_uart7_tx;
 extern DMA_HandleTypeDef hdma_usart1_rx;
+extern DMA_HandleTypeDef hdma_usart1_tx;
 extern DMA_HandleTypeDef hdma_usart2_rx;
 extern DMA_HandleTypeDef hdma_usart2_tx;
 extern DMA_HandleTypeDef hdma_usart6_rx;
@@ -277,7 +278,7 @@ void CAN1_RX0_IRQHandler(void)
 //void USART1_IRQHandler(void)
 //{
 //  /* USER CODE BEGIN USART1_IRQn 0 */
-//////////	usart1_IRQHandler();
+////////////	usart1_IRQHandler();
 //  /* USER CODE END USART1_IRQn 0 */
 //  HAL_UART_IRQHandler(&huart1);
 //  /* USER CODE BEGIN USART1_IRQn 1 */
@@ -291,7 +292,7 @@ void CAN1_RX0_IRQHandler(void)
 //void USART2_IRQHandler(void)
 //{
 //  /* USER CODE BEGIN USART2_IRQn 0 */
-////////////	usart2_IRQHandler();
+//////////////	usart2_IRQHandler();
 //  /* USER CODE END USART2_IRQn 0 */
 //  HAL_UART_IRQHandler(&huart2);
 //  /* USER CODE BEGIN USART2_IRQn 1 */
@@ -367,6 +368,20 @@ void DMA2_Stream6_IRQHandler(void)
   /* USER CODE BEGIN DMA2_Stream6_IRQn 1 */
 
   /* USER CODE END DMA2_Stream6_IRQn 1 */
+}
+
+/**
+  * @brief This function handles DMA2 stream7 global interrupt.
+  */
+void DMA2_Stream7_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream7_IRQn 0 */
+
+  /* USER CODE END DMA2_Stream7_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_usart1_tx);
+  /* USER CODE BEGIN DMA2_Stream7_IRQn 1 */
+
+  /* USER CODE END DMA2_Stream7_IRQn 1 */
 }
 
 /**
