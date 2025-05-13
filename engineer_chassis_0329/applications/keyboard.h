@@ -54,6 +54,7 @@ typedef struct
 	key_t arm_restart_key1;
 	key_t arm_restart_key2;	
 	key_t ajx_on_key;
+	key_t self_control_rotate_key;
 }all_key_t;
 
 extern all_key_t all_key;

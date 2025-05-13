@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp.sp
+--cpu=Cortex-M4.fp
 "engineer_chassis\startup_stm32f427xx.o"
 "engineer_chassis\main.o"
 "engineer_chassis\gpio.o"
@@ -48,8 +48,8 @@
 "engineer_chassis\bsp_usart.o"
 "engineer_chassis\myiic.o"
 "engineer_chassis\arm_control_task.o"
-"engineer_chassis\boards_communicate.o"
 "engineer_chassis\can_communicate.o"
+"engineer_chassis\boards_communicate.o"
 "engineer_chassis\chassis_task.o"
 "engineer_chassis\imu_task.o"
 "engineer_chassis\keyboard.o"

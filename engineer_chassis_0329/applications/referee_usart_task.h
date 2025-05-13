@@ -31,9 +31,9 @@
 //#define switch_is_mid(s)        (s == RC_SW_MID)
 //#define switch_is_up(s)         (s == RC_SW_UP)
 
-#define RC_SW_RIGHT                ((uint16_t)2)
+#define RC_SW_RIGHT                ((uint16_t)3)
 #define RC_SW_MID               ((uint16_t)1)
-#define RC_SW_LEFT              ((uint16_t)0)
+#define RC_SW_LEFT              ((uint16_t)2)
 #define switch_is_left(s)       (s == RC_SW_LEFT)
 #define switch_is_mid(s)        (s == RC_SW_MID)
 #define switch_is_right(s)         (s == RC_SW_RIGHT)
@@ -94,6 +94,8 @@ typedef __packed struct
         } CRC16;
 
 } RC_ctrl_t;
+
+extern RC_ctrl_t rc_ctrl;
 
 extern void referee_usart_task(void const * argument);
 extern void USART6_IRQHandler(void);

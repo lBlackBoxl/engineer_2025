@@ -20,7 +20,7 @@ nx_send_msg_t pc_send_msg;
 nx_receive_msg_t pc_receive_msg;
 uint8_t PC_SEND_BUF[LEN_TX_PACKET + 1];
 
-float nx_allowance[6] = {0.5589f,-1.5935f,1.5933f,0.0f,-1.6356f,0.0575f};
+float nx_allowance[6] = {0.5589f + 0.564f,-1.5935f,1.5933f,0.0f,-1.6356f,0.0575f};
 
 extern void nx_communicate_init(void);
 static int UART_Receive_DMA_No_IT(UART_HandleTypeDef* huart, uint8_t* pData, uint32_t Size);
@@ -29,9 +29,9 @@ void nx_communicate_task(void const *pvParameters)
 {
 		vTaskDelay(500);
 		
-		pc_receive_msg.rx_data.motor1_position = -nx_allowance[0];
-		pc_receive_msg.rx_data.motor2_position =  nx_allowance[1];
-		pc_receive_msg.rx_data.motor3_position =  nx_allowance[2];
+		pc_receive_msg.rx_data.motor1_position =  0.564f - nx_allowance[0];
+		pc_receive_msg.rx_data.motor2_position =  0.72f + nx_allowance[1];
+		pc_receive_msg.rx_data.motor3_position =  -0.5f + nx_allowance[2];
 		pc_receive_msg.rx_data.motor4_position =  nx_allowance[3];
 		pc_receive_msg.rx_data.motor5_position =  (nx_allowance[4] + 1.466f);
 		pc_receive_msg.rx_data.motor6_position =  nx_allowance[5];

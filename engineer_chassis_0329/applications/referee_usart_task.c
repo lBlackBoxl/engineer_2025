@@ -228,38 +228,6 @@ static void sbus_to_rc(volatile const uint8_t *sbus_buf, RC_ctrl_t *rc_ctrl)
 		rc_ctrl->key.C  = (key_information >> 13) & 1;  //按键C
 		rc_ctrl->key.V  = (key_information >> 14) & 1;  //按键V
 		rc_ctrl->key.B  = (key_information >> 15) & 1;  //按键B
-		
-		for(int i = 0; i < 5; i++)
-		{
-				last_s[i].itself.last_mode = last_s[i].itself.mode;
-				if(last_s[i].itself.flag == 0)
-				{
-					if(rc_ctrl->rc.s[i] != 0)
-					{
-							last_s[i].itself.time++;
-					}
-					if(last_s[i].itself.time >= 1) 
-					{	
-						last_s[i].itself.flag = 1;
-						last_s[i].itself.time = 0;
-					}
-				}
-				else                                        
-				{
-					if(rc_ctrl->rc.s[i] == 0)   
-					{
-							last_s[i].itself.time++;
-					}
-					if(last_s[i].itself.time >= 1) 
-					{	
-							last_s[i].itself.flag = 0;
-							last_s[i].itself.time = 0;
-							last_s[i].itself.mode = last_s[i].itself.mode +1;
-							if(last_s[i].itself.mode == 2)
-							last_s[i].itself.mode=0;
-					}
-				}
-		}
 }
 
 //单字节解包

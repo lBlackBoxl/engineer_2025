@@ -275,16 +275,16 @@ void CAN1_RX0_IRQHandler(void)
 /**
   * @brief This function handles USART1 global interrupt.
   */
-//void USART1_IRQHandler(void)
-//{
-//  /* USER CODE BEGIN USART1_IRQn 0 */
+void USART1_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART1_IRQn 0 */
 ////////////	usart1_IRQHandler();
-//  /* USER CODE END USART1_IRQn 0 */
-//  HAL_UART_IRQHandler(&huart1);
-//  /* USER CODE BEGIN USART1_IRQn 1 */
+  /* USER CODE END USART1_IRQn 0 */
+  HAL_UART_IRQHandler(&huart1);
+  /* USER CODE BEGIN USART1_IRQn 1 */
 
-//  /* USER CODE END USART1_IRQn 1 */
-//}
+  /* USER CODE END USART1_IRQn 1 */
+}
 
 /**
   * @brief This function handles USART2 global interrupt.
@@ -292,7 +292,7 @@ void CAN1_RX0_IRQHandler(void)
 //void USART2_IRQHandler(void)
 //{
 //  /* USER CODE BEGIN USART2_IRQn 0 */
-//////////////	usart2_IRQHandler();
+////////////////	usart2_IRQHandler();
 //  /* USER CODE END USART2_IRQn 0 */
 //  HAL_UART_IRQHandler(&huart2);
 //  /* USER CODE BEGIN USART2_IRQn 1 */

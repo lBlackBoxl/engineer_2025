@@ -57,6 +57,9 @@ void arm_control_task(void const *argument)
 
 void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R_6D_ctrl)
 {
+	//默认给机械臂上电
+	HAL_GPIO_WritePin(Arm_Power_GPIO_Port,Arm_Power_Pin, GPIO_PIN_SET);
+	
 	//默认不启用AJX一键
 	AJX_flag = 0;
 	
@@ -88,6 +91,7 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	key_init(&arm_control_key_init->capture_key, Z);
 	key_init(&arm_control_key_init->suker_key, R);
 	key_init(&arm_control_key_init->ajx_on_key, F);
+	key_init(&arm_control_key_init->self_control_rotate_key,CTRL);
 	// 各关节角度限制
 	R_6D_ctrl->Joint[0].angleLimitMax = +2.90f;
 	R_6D_ctrl->Joint[0].angleLimitMin = -2.85f;
@@ -300,6 +304,10 @@ void arm_control_key_check(all_key_t *arm_cnotrol_key_check)
 	{
 		key_itself_press_num(&(arm_cnotrol_key_check->capture_key), 2);
 		key_itself_press_num(&(arm_cnotrol_key_check->exchange_key), 2);
+	}
+	else if(chassis.arm_mode == SELF_CONTROL_MODE)
+	{
+			key_itself_press_num(&(arm_cnotrol_key_check->self_control_rotate_key),2);		
 	}
 	key_itself_press_num(&(arm_cnotrol_key_check->suker_key), 2);
 	key_itself_press_num(&(arm_cnotrol_key_check->ajx_on_key), 2);
@@ -653,12 +661,20 @@ void MoveL(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_set, al
 				Last_Joint6D.theta[j] = R_6D_ctrl->Joint_Final[j];
 			}
 
-			arm_target_position[0] = R_6D_ctrl->output_solvers_IK.theta[indexConfig][0];
+			arm_target_position[0] = (R_6D_ctrl->output_solvers_IK.theta[indexConfig][0] + 0.564f);
 			arm_target_position[1] = -(R_6D_ctrl->output_solvers_IK.theta[indexConfig][1] + 0.279f);
 			arm_target_position[2] = R_6D_ctrl->output_solvers_IK.theta[indexConfig][2] + 1.292f;
 			arm_target_position[3] = R_6D_ctrl->output_solvers_IK.theta[indexConfig][3];
 			arm_target_position[4] = (R_6D_ctrl->output_solvers_IK.theta[indexConfig][4] + 1.80f);
 			arm_target_position[5] = -R_6D_ctrl->output_solvers_IK.theta[indexConfig][5];
+			if(arm_key->self_control_rotate_key.itself.mode == 0)
+			{
+					arm_target_position[5] 	=		-R_6D_ctrl->output_solvers_IK.theta[indexConfig][5];
+			}
+			else
+			{
+					arm_target_position[5]   =  	 rad_format(-R_6D_ctrl->output_solvers_IK.theta[indexConfig][5] + PI);//rad_format(R_6D_ctrl->Joint_Final[4] + PI);								
+			}			
 			
 		}
 		else
@@ -819,7 +835,7 @@ void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_cont
 	}
 	else if (chassis.arm_mode == NX_CONTROL_MODE)
 	{
-		arm_target_position[0] = (pc_receive_msg.rx_data.motor1_position + nx_allowance[0] + 0.564f);
+		arm_target_position[0] = (pc_receive_msg.rx_data.motor1_position + nx_allowance[0]);
 		arm_target_position[1] = (pc_receive_msg.rx_data.motor2_position - nx_allowance[1]);
 		arm_target_position[2] = -(pc_receive_msg.rx_data.motor3_position - nx_allowance[2]);
 		arm_target_position[3] = (pc_receive_msg.rx_data.motor4_position - nx_allowance[3]);
