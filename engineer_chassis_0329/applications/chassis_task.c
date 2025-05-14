@@ -45,7 +45,7 @@ static void chassis_set_contorl(chassis_t *chassis_control);
 static void chassis_control_loop(chassis_t *chassis_control_loop);	
 		
 chassis_t chassis;
-int arm_restart_flag;
+uint8_t arm_restart_flag;
 bool_t  clamp_flag;
 uint8_t clamp_mode;
 int16_t clamp_reset_count;		
@@ -79,7 +79,7 @@ void chassis_task(void const *pvParameters)
 				if(chassis.chassis_mode == NO_POWER_MODE)
 				{			
 						CAN_cmd_chassis(0, 0, 0, 0);
-						clamp_flag = 1;
+						clamp_flag = 0;
 //						CAN_cmd_chassis_clamp(0);
 				}
 				else if(chassis.chassis_mode == RUN_MODE)
@@ -622,7 +622,7 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 				{
 						clamp_flag = 1 - clamp_flag;
 				}
-				if(clamp_flag == 0)
+				if(clamp_flag == 1)
 				{
 						chassis_control->motor_clamp.position_set = -0.06f;
 				}

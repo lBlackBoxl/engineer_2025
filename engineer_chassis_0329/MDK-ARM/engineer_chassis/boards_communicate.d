@@ -70,3 +70,4 @@ engineer_chassis\boards_communicate.o: ..\applications\arm_control_task.h
 engineer_chassis\boards_communicate.o: ../components/algorithm/kinematic/6dof_kinematic.h
 engineer_chassis\boards_communicate.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdbool.h
 engineer_chassis\boards_communicate.o: ../components/controller/Butterworth_Filter.h
+engineer_chassis\boards_communicate.o: ../Core/Inc/usart.h

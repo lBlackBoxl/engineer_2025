@@ -28,12 +28,13 @@ Ag_Catch_t Ag_Catch;
 float max_joint_speed[6];
 Joint6D_t Last_Joint6D;
 uint8_t suker_key_flag;
-int AJX_flag;
+uint8_t AJX_flag;
 float32_t yaw_angle_set;
 fp32 arm_target_position[6];
 uint16_t time_flag[8][2][2];
 uint16_t time_cnt = 0;
 fp32 sc_allowance[2] = {-100.0f, 0.0f};
+extern bool_t  clamp_flag;
 
 void arm_control_task(void const *argument)
 {
@@ -117,7 +118,7 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	}
 	//		uint8_t routine_length[9] = {12, 12, 10, 6, 7, 10, 10 ,3};
 
-	uint8_t routine_length[9] = {10, 11, 10, 3, 4, 8, 9, 3};
+	uint8_t routine_length[9] = {10, 11, 10, 3, 4, 8, 10, 4};
 
 	for (int i = 0; i < 9; i++)
 	{
@@ -176,23 +177,23 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 //	memcpy(arm_control.arm_move_routine.flag_and_time[2], flag_and_time_3,sizeof(flag_and_time_3));
 //	Ag_Catch.Ag3 = 	Ag3_temp[3][0];									
 	
-	fp32 exchange1_temp[4][6] = {{-2.2f,1.0f,0.8f,0.0f,2.90f,1.2f},
-													{-2.21f,1.0f,0.72f,0.0f,3.30f,1.2f},
-													{-2.21f,1.04f,0.59f,0.0f,3.10f,1.2f},
-													{0.0f,0.72f,0.64f,0.0f,1.8f,0.0f}
+	fp32 exchange1_temp[4][6] = {{-0.785f, 0.72f, 0.64f, 0.0f, 3.30f, 0.0f},
+													{-1.55f,0.4f,0.0f,1.364f,0.72f,1.3f},
+													{-1.75f,0.72f,0.1f,1.30f,0.72f,1.3f},
+													{0.564f,0.72f,0.64f,0.0f,1.8f,0.0f}
 													};
 	
-	uint16_t flag_and_time_4[4][2] = {{0,1000}, {1,200},{1,500},{1,1000}};
+	uint16_t flag_and_time_4[4][2] = {{0,200},{1,500},{1,200},{1,1000}};
 	
 	memcpy(arm_control.arm_move_routine.exchange1,exchange1_temp,sizeof(exchange1_temp));
 	memcpy(arm_control.arm_move_routine.flag_and_time[3], flag_and_time_4,sizeof(flag_and_time_4));
 	
-	fp32 exchange2_temp[4][6] = {{-2.69f,1.0f,0.8f,0.0f,2.90f,-1.2f},
-													{-2.87f,1.0f,0.72f,0.0f,3.30f,-1.2f},
-													{-2.87f,1.04f,0.57f,0.0f,3.20f,-1.2f},
-													{0.0f,0.72f,0.64f,0.0f,1.8f,0.0f}};
+	fp32 exchange2_temp[4][6] = {{-0.785f, 0.72f, 0.64f, 0.0f, 3.30f, 0.0f},
+													{-3.02f,0.0f,0.0f,1.67f,2.3f,0.8f},
+													{-3.10f,0.5f,0.0f,1.84f,2.57f,0.8f},
+													{0.564f,0.72f,0.64f,0.0f,1.8f,0.0f}};
 	
-	uint16_t flag_and_time_5[4][2] = {{0,1000},{1,200},{1,500},{1,1000}};
+	uint16_t flag_and_time_5[4][2] = {{0,200},{1,500},{1,500},{1,1000}};
 	
 	memcpy(arm_control.arm_move_routine.exchange2,exchange2_temp,sizeof(exchange2_temp));
 	memcpy(arm_control.arm_move_routine.flag_and_time[4], flag_and_time_5,sizeof(flag_and_time_5));
@@ -200,10 +201,10 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 			fp32 Au1_temp[9][6] = {{0.564f, 2.70f, 2.70f, 0.0f, 1.80f, 0.0f},
 															{0.564f, 2.50f, 2.50f, 0.0f, 1.85f, 0.0f},
 															{0.564f, 0.72f, 0.64f, 0.0f, 1.85f, 0.0f},
-															{-0.785f, 0.29f, 0.0f, 0.0f, 1.36f, 0.0f},
-															{-2.75f, 0.29f, 0.0f, 0.0f, 1.36f, 0.0f},
-															{-2.75f, 0.65f, 0.2f, 0.0f, 1.46f, 0.0f},
-															{-2.75f, 0.65f, 0.2f, 0.0f, 1.46f, 0.0f},
+															{-0.785f, 0.20f, 0.2f, 0.0f, 1.36f, 0.0f},
+															{-2.78f, 0.20f, 0.2f, 0.0f, 1.36f, 0.0f},
+															{-2.78f, 0.55f, 0.1f, 0.0f, 1.46f, 0.0f},
+															{-2.78f, 0.55f, 0.1f, 0.0f, 1.46f, 0.0f},
 															{-0.785f, 0.0f, 0.0f, 0.0f, 1.80f, 0.0f},
 															{0.564f, 0.72f, 0.5f, 0.0f, 1.80f, 0.0f},
 															};	
@@ -212,26 +213,28 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 		memcpy(arm_control.arm_move_routine.Au1,Au1_temp,sizeof(Au1_temp));	  
 		memcpy(arm_control.arm_move_routine.flag_and_time[5], flag_and_time_6,sizeof(flag_and_time_6));
 		
-		fp32 Au2_temp[9][6] = {{0.564f, 2.70f, 2.70f, 0.0f, 1.80f, 0.0f},
+		fp32 Au2_temp[10][6] = {	{0.564f, 0.72f, 0.5f, 0.0f, 1.80f, 0.0f},
+															{0.564f, 2.70f, 2.70f, 0.0f, 1.80f, 0.0f},
 															{0.564f, 2.50f, 2.50f, 0.0f, 1.85f, 0.0f},
 															{0.564f, 0.72f, 0.64f, 0.0f, 1.85f, 0.0f},
-															{-0.785f, 0.72f, 0.64f, 0.0f, 3.30f, 0.0f},
-															{-2.30f, 0.85f, 0.96f, 0.0f, 3.00f, 0.0f},
-															{-2.30f, 1.20f, 0.72f, 0.0f, 3.10f, 0.0f},
-															{-2.30f, 1.20f, 0.90f, 0.0f, 3.10f, 0.0f},
-															{-0.785f, 1.0f, 0.96f, 0.0f, 3.30f, 0.0f},
-															{0.564f, 2.87f, 2.80f, 0.0f, 1.61f, 0.0f},};          //复位  放下
+															{-0.785f, 0.72f, 0.3f, 0.0f, 1.36f, 0.0f},
+															{-1.937f, 0.49f, 0.3f, -1.70f, 2.42f, 0.0f},
+															{-1.937f, 0.68f, 0.3f, -1.70f, 2.42f, 0.0f},
+															{-1.937f, 0.68f, 0.3f, -1.70f, 2.42f, 0.0f},
+															{-0.785f, 0.0f, 0.0f, 0.0f, 1.80f, 0.0f},
+															{0.564f, 0.72f, 0.5f, 0.0f, 1.80f, 0.0f},};          //复位  放下
 		
-		uint16_t flag_and_time_7[9][2] = {{1,1000},{1,2000},{1,1000},{1,1000},{1,500},{1,500},{0,200},{0,500},{0,1000}};
+		uint16_t flag_and_time_7[10][2] = {{0,200},{1,1000},{1,2000},{1,1000},{1,1000},{1,500},{1,500},{0,200},{0,500},{0,1000}};
 		memcpy(arm_control.arm_move_routine.Au2,Au2_temp,sizeof(Au2_temp));	
 		memcpy(arm_control.arm_move_routine.flag_and_time[6], flag_and_time_7,sizeof(flag_and_time_7));
 		
-		fp32 Au3_temp[3][6] = {{0.564f, 2.70f, 2.70f, 0.0f, 1.80f, 0.0f},
+		fp32 Au3_temp[4][6] = {{0.564f, 0.72f, 0.5f, 0.0f, 1.80f, 0.0f},
+															{0.564f, 2.70f, 2.70f, 0.0f, 1.80f, 0.0f},
 															{0.564f, 2.50f, 2.50f, 0.0f, 1.85f, 0.0f},
 															{0.564f, 0.72f, 0.64f, 0.0f, 1.8f, 0.0f},     
 													};
 		
-		uint16_t flag_and_time_8[3][2] = {{1,1000},{1,2000},{1,1000}};
+		uint16_t flag_and_time_8[4][2] = {{0,200},{1,1000},{1,2000},{1,1000}};
 		
 		memcpy(arm_control.arm_move_routine.Au3,Au3_temp,sizeof(Au3_temp));	
 		memcpy(arm_control.arm_move_routine.flag_and_time[7], flag_and_time_8,sizeof(flag_and_time_8));
@@ -781,6 +784,26 @@ void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_cont
 					else if (arm_control_loop->arm_move_flag == Au3)
 					{
 						arm_control_loop->one_key_position[i] = arm_control_loop->arm_move_routine.Au3[arm_control_loop->arm_position_flag][i];
+					}
+				}
+				if(arm_control_loop->arm_move_flag == EXCHANGE2)
+				{
+					if(arm_control_loop->arm_position_flag == 1)
+					{
+						clamp_flag = 1;
+					}
+					else if(arm_control_loop->arm_position_flag == 2)
+					{
+						time_cnt++;
+						if(time_cnt > 200)
+						{
+							clamp_flag = 0;
+						}
+					}
+					else if(arm_control_loop->arm_position_flag == 3)
+					{
+						time_cnt = 0;
+						clamp_flag = 1;
 					}
 				}
 			}

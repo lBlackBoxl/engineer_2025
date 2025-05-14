@@ -13,7 +13,7 @@
 #include "referee_usart_task.h"
 
 extern void chassis_task(void const *pvParameters);
-extern int arm_restart_flag;
+extern uint8_t arm_restart_flag;
 
 typedef enum
 {

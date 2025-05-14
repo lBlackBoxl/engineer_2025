@@ -25,11 +25,11 @@ typedef struct
 	fp32 Ag1[11][6];
 	fp32 Ag2[1][6];
 	fp32 Ag3[10][6];
-	fp32 exchange1[3][6];
-	fp32 exchange2[10][6];
-	fp32 Au1[10][6];
+	fp32 exchange1[4][6];
+	fp32 exchange2[4][6];
+	fp32 Au1[9][6];
 	fp32 Au2[10][6];
-	fp32 Au3[10][6];
+	fp32 Au3[4][6];
 	int16_t flag_and_time[8][11][2];
 }arm_routine_t;
 

@@ -826,11 +826,6 @@
               <FilePath>..\applications\chassis_task.c</FilePath>
             </File>
             <File>
-              <FileName>imu_task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\applications\imu_task.c</FilePath>
-            </File>
-            <File>
               <FileName>keyboard.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\applications\keyboard.c</FilePath>
@@ -854,11 +849,6 @@
               <FileName>init.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\applications\init.h</FilePath>
-            </File>
-            <File>
-              <FileName>pc_info_task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\applications\pc_info_task.c</FilePath>
             </File>
           </Files>
         </Group>

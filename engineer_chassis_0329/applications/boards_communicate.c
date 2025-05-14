@@ -5,10 +5,15 @@
 #include "cmsis_os.h"
 #include "chassis_task.h"
 #include "arm_control_task.h"
+#include "usart.h"
 
 extern CAN_HandleTypeDef hcan1;
 extern CAN_HandleTypeDef hcan2;
 
+extern bool_t  clamp_flag;
+extern uint8_t AJX_flag;
+
+uint8_t USART6_TX_Buffer[20];
 
 #define get_board_communicate_data_0(ptr, data)                     			\
 {                                                                   			\
@@ -36,11 +41,14 @@ void board_communicate_task(void const *pvParameters)
 	
 		while(1)
 		{
-		TX_init();
-		CAN_board_communicate_can_0(tx_message_mp.target_position);
-		osDelay(1);
-		CAN_board_communicate_can_1(tx_message_mp.target_position, tx_message_mp.mode, tx_message_mp.suker_key_flag);
-		osDelay(1);
+			TX_init();
+			CAN_board_communicate_can_0(tx_message_mp.target_position);
+			osDelay(1);
+			CAN_board_communicate_can_1(tx_message_mp.target_position, tx_message_mp.mode, tx_message_mp.suker_key_flag);
+			osDelay(1);
+				
+			HAL_UART_Transmit(&huart6,USART6_TX_Buffer,sizeof(USART6_TX_Buffer), 100);
+			osDelay(1);
 		}
 }
 
@@ -54,6 +62,16 @@ void TX_init(void)
 	tx_message_mp.target_position[4] = arm_control.motor_5_position;
 	tx_message_mp.target_position[5] = arm_control.motor_6_position;
 	tx_message_mp.suker_key_flag = chassis.suker_key_flag;
+	
+	USART6_TX_Buffer[0] = chassis.chassis_mode;
+	USART6_TX_Buffer[1] = chassis.arm_mode;
+	USART6_TX_Buffer[2] = chassis.move_mode;
+	USART6_TX_Buffer[3] = suker_key_flag;
+	USART6_TX_Buffer[4] = HAL_GPIO_ReadPin(GPIOF,GPIO_PIN_0);
+	USART6_TX_Buffer[5] = HAL_GPIO_ReadPin(GPIOF,GPIO_PIN_1);
+	USART6_TX_Buffer[6] = clamp_flag;
+	USART6_TX_Buffer[7] = AJX_flag;
+	USART6_TX_Buffer[8] = arm_restart_flag;
 }
 
 void CAN_board_communicate_can_0(fp32 board_position_message[6])

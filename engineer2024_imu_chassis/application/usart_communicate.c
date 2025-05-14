@@ -5,11 +5,27 @@
 #include "6dof_kinematic.h"
 #include "ins_task.h"
 
+extern DMA_HandleTypeDef hdma_usart6_rx;
+extern DMA_HandleTypeDef hdma_usart6_tx;
 
 send_msg_t imu_send_msg;
 uint8_t tx_buffer[8];
 const fp32 *gimbal_INT_angle_point;
 const fp32 *gimbal_INT_gyro_point;
+
+uint8_t USART6_RX_Buffer[20];
+
+uint8_t chassis_mode;
+uint8_t arm_mode;
+uint8_t move_mode;
+uint8_t suker_key_flag;
+uint8_t Ore_1_flag;
+uint8_t Ore_2_flag;
+uint8_t clamp_flag;
+uint8_t AJX_flag;
+uint8_t arm_restart_flag;
+
+void data_solve(uint8_t *rx_buffer);
 
 void usart_communicate_task(void const * argument)
 {
@@ -33,23 +49,22 @@ void usart_communicate_task(void const * argument)
 
 void USART6_RX_IRQHandler(void)
 {
-//    if(huart6.Instance->SR & UART_FLAG_RXNE)//接收到数据
-//    {
-//        __HAL_UART_CLEAR_PEFLAG(&huart6);
-//    }
-//    else if(USART6->SR & UART_FLAG_IDLE)
-//    {
-//        static uint16_t this_time_rx_len = 0;
+    if(huart6.Instance->SR & UART_FLAG_RXNE)//接收到数据
+    {
+        __HAL_UART_CLEAR_PEFLAG(&huart6);
+    }
+    else if(USART6->SR & UART_FLAG_IDLE)
+    {
+        static uint16_t this_time_rx_len = 0;
 
-//        __HAL_UART_CLEAR_PEFLAG(&huart6);
+        __HAL_UART_CLEAR_PEFLAG(&huart6);
+        if ((hdma_usart6_rx.Instance->CR & DMA_SxCR_CT) == RESET)
+        {
+            /* Current memory buffer used is Memory 0 */
 
-//        if ((hdma_usart6_rx.Instance->CR & DMA_SxCR_CT) == RESET)
-//        {
-//            /* Current memory buffer used is Memory 0 */
-
-//            //disable DMA
-//            //失效DMA
-//            __HAL_DMA_DISABLE(&hdma_usart6_rx);
+            //disable DMA
+            //失效DMA
+            __HAL_DMA_DISABLE(&hdma_usart6_rx);
 
 //            //get receive data length, length = set_data_length - remain_length
 //            //获取接收数据长度,长度 = 设定长度 - 剩余长度
@@ -59,25 +74,27 @@ void USART6_RX_IRQHandler(void)
 //            //重新设定数据长度
 //            hdma_usart6_rx.Instance->NDTR = PC_RX_BUF_NUM;
 
-//            //set memory buffer 1
-//            //设定缓冲区1
-//            hdma_usart6_rx.Instance->CR |= DMA_SxCR_CT;
-
-//            //enable DMA
-//            //使能DMA
-//            __HAL_DMA_ENABLE(&hdma_usart6_rx);
-
+            //set memory buffer 1
+            //设定缓冲区1
+            hdma_usart6_rx.Instance->CR |= DMA_SxCR_CT;
+						
+						HAL_UART_Receive_DMA(&huart6, USART6_RX_Buffer,sizeof(USART6_RX_Buffer));
+            //enable DMA
+            //使能DMA
+            __HAL_DMA_ENABLE(&hdma_usart6_rx);
+						
+						data_solve(USART6_RX_Buffer);
 //            if(this_time_rx_len == PC_RX_BUF_LENGTH)
 //            {
 //                data_solve(&pc_receive_msg,PC_rx_buf[0]);
 //            }
-//        }
-//        else
-//        {
-//            /* Current memory buffer used is Memory 1 */
-//            //disable DMA
-//            //失效DMA
-//            __HAL_DMA_DISABLE(&hdma_usart6_rx);
+        }
+        else
+        {
+            /* Current memory buffer used is Memory 1 */
+            //disable DMA
+            //失效DMA
+            __HAL_DMA_DISABLE(&hdma_usart6_rx);
 
 //            //get receive data length, length = set_data_length - remain_length
 //            //获取接收数据长度,长度 = 设定长度 - 剩余长度
@@ -87,22 +104,35 @@ void USART6_RX_IRQHandler(void)
 //            //重新设定数据长度
 //            hdma_usart6_rx.Instance->NDTR =PC_RX_BUF_NUM;
 
-//            //set memory buffer 0
-//            //设定缓冲区0
-//            DMA1_Stream1->CR &= ~(DMA_SxCR_CT);
+            //set memory buffer 0
+            //设定缓冲区0
+            DMA1_Stream1->CR &= ~(DMA_SxCR_CT);
 
-//            //enable DMA
-//            //使能DMA
-//            __HAL_DMA_ENABLE(&hdma_usart6_rx);
-
+						HAL_UART_Receive_DMA(&huart6, USART6_RX_Buffer,sizeof(USART6_RX_Buffer));
+            //enable DMA
+            //使能DMA
+            __HAL_DMA_ENABLE(&hdma_usart6_rx);
+						
+						data_solve(USART6_RX_Buffer);
 //            if(this_time_rx_len == PC_RX_BUF_LENGTH)
 //            {
 //                //处理遥控器数据
 //                data_solve(&pc_receive_msg,PC_rx_buf[1]);
 
 //            }
-//        }
-//    }
+        }
+    }
 }
 
-
+void data_solve(uint8_t *rx_buffer)
+{
+		chassis_mode = rx_buffer[0];
+		arm_mode = rx_buffer[1];
+		move_mode = rx_buffer[2];
+		suker_key_flag = rx_buffer[3];
+		Ore_1_flag = rx_buffer[4];
+		Ore_2_flag = rx_buffer[5];
+		clamp_flag = rx_buffer[6];
+		AJX_flag = rx_buffer[7];
+		arm_restart_flag = rx_buffer[8];
+}

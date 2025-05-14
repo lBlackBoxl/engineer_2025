@@ -960,34 +960,9 @@
           <GroupName>application</GroupName>
           <Files>
             <File>
-              <FileName>gimbal_behaviour.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\application\gimbal_behaviour.c</FilePath>
-            </File>
-            <File>
               <FileName>ins_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\application\ins_task.c</FilePath>
-            </File>
-            <File>
-              <FileName>pc_task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\application\pc_task.c</FilePath>
-            </File>
-            <File>
-              <FileName>shoot.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\application\shoot.c</FilePath>
-            </File>
-            <File>
-              <FileName>gimbal_task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\application\gimbal_task.c</FilePath>
-            </File>
-            <File>
-              <FileName>can_communicate.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\application\can_communicate.c</FilePath>
             </File>
             <File>
               <FileName>motor_task.c</FileName>
@@ -1003,6 +978,16 @@
               <FileName>usart_communicate.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\application\usart_communicate.c</FilePath>
+            </File>
+            <File>
+              <FileName>UI_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\application\UI_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>can_communicate.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\application\can_communicate.c</FilePath>
             </File>
           </Files>
         </Group>

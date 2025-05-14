@@ -32,4 +32,13 @@ typedef __packed struct
 extern send_msg_t tx_imu_data;
 void usart_communicate_task(void const * argument);
 
+extern uint8_t chassis_mode;
+extern uint8_t arm_mode;
+extern uint8_t move_mode;
+extern uint8_t suker_key_flag;
+extern uint8_t Ore_1_flag;
+extern uint8_t Ore_2_flag;
+extern uint8_t clamp_flag;
+extern uint8_t AJX_flag;
+extern uint8_t arm_restart_flag;
 #endif
