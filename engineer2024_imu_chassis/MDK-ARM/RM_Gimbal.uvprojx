@@ -989,6 +989,46 @@
               <FileType>1</FileType>
               <FilePath>..\application\can_communicate.c</FilePath>
             </File>
+            <File>
+              <FileName>gimbal_behaviour.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\application\gimbal_behaviour.c</FilePath>
+            </File>
+            <File>
+              <FileName>gimbal_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\application\gimbal_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>imu_communicate.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\application\imu_communicate.c</FilePath>
+            </File>
+            <File>
+              <FileName>pc_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\application\pc_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>referee.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\application\referee.c</FilePath>
+            </File>
+            <File>
+              <FileName>referee_usart_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\application\referee_usart_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>shoot.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\application\shoot.c</FilePath>
+            </File>
+            <File>
+              <FileName>VOFA_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\application\VOFA_task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

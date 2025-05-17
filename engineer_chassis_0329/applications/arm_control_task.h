@@ -77,6 +77,7 @@ typedef struct
 	int 			ValidCnt;
 	float 		Joint_Valid[8][6];  //四组解在限制范围内的解
 	float     Joint_Final[6];     //四组解中选择出来的最终解
+	float     Last_Joint_Final[6];
 //	float     high;
 	Robotic_6DOF  Robotic_6D;
 	
@@ -105,6 +106,7 @@ extern void arm_control_task(void const * argument);
 extern arm_control_t arm_control;
 
 extern uint8_t suker_key_flag;
+
 //四元数模式（自定义控制器模式）
 #define Quaterniont_Mode 1 
 #define MaxJointSpeed 4.0f

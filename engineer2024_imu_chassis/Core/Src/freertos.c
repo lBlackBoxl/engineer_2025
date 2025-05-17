@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "motor_task.h"
 #include "usart_communicate.h"
+#include "referee_usart_task.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,6 +60,7 @@ osThreadId imuTaskHandle;
 /* USER CODE BEGIN FunctionPrototypes */
 osThreadId motorTaskHandle;
 osThreadId uasrtcommunicateTaskHandle;
+osThreadId refereecommunicateTaskHandle;
 /* USER CODE END FunctionPrototypes */
 
 void test_task(void const * argument);
@@ -139,6 +141,9 @@ void MX_FREERTOS_Init(void) {
 	
 	osThreadDef(uasrtcommunicateTask, usart_communicate_task, osPriorityNormal, 0, 256);
   uasrtcommunicateTaskHandle = osThreadCreate(osThread(uasrtcommunicateTask), NULL);
+	
+	osThreadDef(refereecommunicateTask, referee_usart_task, osPriorityNormal, 0, 256);
+  refereecommunicateTaskHandle = osThreadCreate(osThread(refereecommunicateTask), NULL);
 
   /* USER CODE END RTOS_THREADS */
 

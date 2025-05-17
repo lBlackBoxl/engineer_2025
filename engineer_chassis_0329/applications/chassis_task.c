@@ -49,6 +49,8 @@ uint8_t arm_restart_flag;
 bool_t  clamp_flag;
 uint8_t clamp_mode;
 int16_t clamp_reset_count;		
+int error_cnt;
+uint8_t error;
 
 /**
   * @brief          底盘任务，间隔 CHASSIS_CONTROL_TIME_MS 2ms
@@ -80,6 +82,7 @@ void chassis_task(void const *pvParameters)
 				{			
 						CAN_cmd_chassis(0, 0, 0, 0);
 						clamp_flag = 0;
+						error_cnt = 0; 
 //						CAN_cmd_chassis_clamp(0);
 				}
 				else if(chassis.chassis_mode == RUN_MODE)
@@ -374,7 +377,7 @@ void chassis_rc_to_control_vector(fp32 *vx_set, fp32 *vy_set, fp32 *vz_set, chas
     
     int16_t vx_channel, vy_channel, vz_channel, vz_channel_mouse;
     fp32 vx_set_channel, vy_set_channel, vz_set_channel;
-
+		
     //死区限制，因为遥控器可能存在差异 摇杆在中间，其值不为0
     rc_deadband_limit(chassis_rc_to_vector->chassis_RC->rc.ch[CHASSIS_X_CHANNEL], vx_channel, CHASSIS_RC_DEADLINE);
     rc_deadband_limit(chassis_rc_to_vector->chassis_RC->rc.ch[CHASSIS_Y_CHANNEL], vy_channel, CHASSIS_RC_DEADLINE);
@@ -398,6 +401,10 @@ void chassis_rc_to_control_vector(fp32 *vx_set, fp32 *vy_set, fp32 *vz_set, chas
 				{
 					vx_set_channel = -(NORMAL_MAX_CHASSIS_SPEED_X/4);
 				}
+				else if(chassis_rc_to_vector->move_mode == Ag || chassis_rc_to_vector->move_mode == Au)
+				{
+					vx_set_channel = -NORMAL_MAX_CHASSIS_SPEED_X/4;
+				}
 				else
 				{
 					vx_set_channel = -NORMAL_MAX_CHASSIS_SPEED_X;
@@ -408,6 +415,10 @@ void chassis_rc_to_control_vector(fp32 *vx_set, fp32 *vy_set, fp32 *vz_set, chas
 				if(chassis_rc_to_vector->arm_mode == SELF_CONTROL_MODE)
 				{
 					vx_set_channel = (NORMAL_MAX_CHASSIS_SPEED_X/4);
+				}
+				else if(chassis_rc_to_vector->move_mode == Ag || chassis_rc_to_vector->move_mode == Au)
+				{
+					vx_set_channel = NORMAL_MAX_CHASSIS_SPEED_X/4;
 				}
 				else
 				{
@@ -424,6 +435,10 @@ void chassis_rc_to_control_vector(fp32 *vx_set, fp32 *vy_set, fp32 *vz_set, chas
 				{
 					vy_set_channel = -(NORMAL_MAX_CHASSIS_SPEED_Y/4);
 				}
+				else if(chassis_rc_to_vector->move_mode == Ag || chassis_rc_to_vector->move_mode == Au)
+				{
+					vy_set_channel = -NORMAL_MAX_CHASSIS_SPEED_Y/4;
+				}
 				else
 				{
 					vy_set_channel = -NORMAL_MAX_CHASSIS_SPEED_Y;
@@ -436,6 +451,10 @@ void chassis_rc_to_control_vector(fp32 *vx_set, fp32 *vy_set, fp32 *vz_set, chas
 					vy_set_channel = NORMAL_MAX_CHASSIS_SPEED_Y/10;
 				}
 				else if(chassis_rc_to_vector->arm_mode == SELF_CONTROL_MODE)
+				{
+					vy_set_channel = NORMAL_MAX_CHASSIS_SPEED_Y/4;
+				}
+				else if(chassis_rc_to_vector->move_mode == Ag || chassis_rc_to_vector->move_mode == Au)
 				{
 					vy_set_channel = NORMAL_MAX_CHASSIS_SPEED_Y/4;
 				}
@@ -599,7 +618,35 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 //			DWT_Delay(0.0003f);		
 			chassis_control->vx_set = vx_set;
 			chassis_control->vy_set = vy_set;
-			chassis_control->vx_set = fp32_constrain(chassis_control->vx_set, -SHIFT_NORMAL_MAX_CHASSIS_SPEED_X, SHIFT_NORMAL_MAX_CHASSIS_SPEED_X);
+			if(chassis_control->chassis_motor_speed_pid[0].Output > 7200 ||
+				 chassis_control->chassis_motor_speed_pid[1].Output > 7200 ||
+			   chassis_control->chassis_motor_speed_pid[2].Output > 7200 ||
+				 chassis_control->chassis_motor_speed_pid[3].Output > 7200)
+			{
+				error_cnt ++;
+				if(error_cnt > 500)
+				{
+					error = 1;
+					error_cnt = 500;
+				}
+			}
+			else
+			{
+				error_cnt --;
+				if(error_cnt < 0)
+				{
+					error = 0;
+					error_cnt = 0;
+				}
+			}
+			if(error == 1)
+			{
+				chassis_control->vx_set = fp32_constrain(chassis_control->vx_set, -SHIFT_SLOW_CHASSIS_SPEED_X, SHIFT_SLOW_CHASSIS_SPEED_X);
+			}
+			else
+			{
+				chassis_control->vx_set = fp32_constrain(chassis_control->vx_set, -SHIFT_NORMAL_MAX_CHASSIS_SPEED_X, SHIFT_NORMAL_MAX_CHASSIS_SPEED_X);
+			}
       chassis_control->vy_set = fp32_constrain(chassis_control->vy_set, -SHIFT_NORMAL_MAX_CHASSIS_SPEED_Y, SHIFT_NORMAL_MAX_CHASSIS_SPEED_Y);
 			if(chassis_control->move_mode == GouDong)
 			{
@@ -629,7 +676,7 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 				else
 				{
 						chassis_control->motor_clamp.position_set = -2.50f;
-				}		
+				}
 		}		
 		
 //		switch(chassis_control->joint_mode)
@@ -651,7 +698,7 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 		{
 				arm_restart_flag = 1;
 				HAL_GPIO_WritePin(Arm_Power_GPIO_Port,Arm_Power_Pin,GPIO_PIN_RESET);
-		}					
+		}
 		else{
 			arm_restart_flag = 0;
 			HAL_GPIO_WritePin(Arm_Power_GPIO_Port,Arm_Power_Pin,GPIO_PIN_SET);

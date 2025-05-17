@@ -103,8 +103,8 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	R_6D_ctrl->Joint[2].angleLimitMax = 1.558f;	 // 1.57f;
 	R_6D_ctrl->Joint[2].angleLimitMin = -1.242f; //-1.23f;
 
-	R_6D_ctrl->Joint[3].angleLimitMax = 1.87f;	///////2.3f;
-	R_6D_ctrl->Joint[3].angleLimitMin = -1.87f; ///////-1.9f;
+	R_6D_ctrl->Joint[3].angleLimitMax = 1.57f;//1.87f;	///////2.3f;
+	R_6D_ctrl->Joint[3].angleLimitMin = -1.57f;//-1.87f; ///////-1.9f;
 
 	R_6D_ctrl->Joint[4].angleLimitMax = PI;
 	R_6D_ctrl->Joint[4].angleLimitMin = -PI;
@@ -118,7 +118,7 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	}
 	//		uint8_t routine_length[9] = {12, 12, 10, 6, 7, 10, 10 ,3};
 
-	uint8_t routine_length[9] = {10, 11, 10, 3, 4, 8, 10, 4};
+	uint8_t routine_length[9] = {10, 11, 10, 5, 4, 10, 10, 4};
 
 	for (int i = 0; i < 9; i++)
 	{
@@ -178,7 +178,7 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 //	Ag_Catch.Ag3 = 	Ag3_temp[3][0];									
 	
 	fp32 exchange1_temp[4][6] = {{-0.785f, 0.72f, 0.64f, 0.0f, 3.30f, 0.0f},
-													{-1.55f,0.4f,0.0f,1.364f,0.72f,1.3f},
+													{-1.65f,0.4f,0.0f,1.364f,0.72f,1.3f},
 													{-1.75f,0.72f,0.1f,1.30f,0.72f,1.3f},
 													{0.564f,0.72f,0.64f,0.0f,1.8f,0.0f}
 													};
@@ -188,34 +188,36 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	memcpy(arm_control.arm_move_routine.exchange1,exchange1_temp,sizeof(exchange1_temp));
 	memcpy(arm_control.arm_move_routine.flag_and_time[3], flag_and_time_4,sizeof(flag_and_time_4));
 	
-	fp32 exchange2_temp[4][6] = {{-0.785f, 0.72f, 0.64f, 0.0f, 3.30f, 0.0f},
-													{-3.02f,0.0f,0.0f,1.67f,2.3f,0.8f},
-													{-3.10f,0.5f,0.0f,1.84f,2.57f,0.8f},
+	fp32 exchange2_temp[5][6] = {{-0.785f, 0.72f, 0.64f, 0.0f, 3.30f, 0.0f},
+													{-3.10f,0.0f,0.2f,-1.52f,1.25f,0.0f},
+													{-3.10f,0.50f,0.0f,-1.07f,1.09f,0.0f},
+													{-3.10, 0.50f, 0.4f,-1.07f, 1.8f, 0.0f},
 													{0.564f,0.72f,0.64f,0.0f,1.8f,0.0f}};
 	
-	uint16_t flag_and_time_5[4][2] = {{0,200},{1,500},{1,500},{1,1000}};
+	uint16_t flag_and_time_5[5][2] = {{0,200},{1,400},{1,500},{1,100},{1,500}};
 	
 	memcpy(arm_control.arm_move_routine.exchange2,exchange2_temp,sizeof(exchange2_temp));
 	memcpy(arm_control.arm_move_routine.flag_and_time[4], flag_and_time_5,sizeof(flag_and_time_5));
 	
-			fp32 Au1_temp[9][6] = {{0.564f, 2.70f, 2.70f, 0.0f, 1.80f, 0.0f},
-															{0.564f, 2.50f, 2.50f, 0.0f, 1.85f, 0.0f},
+			fp32 Au1_temp[10][6] = {{0.564f, 2.21f, 2.05f, 0.0f, 1.39f, 0.0f},
+															{0.564f, 2.21f, 2.05f, 0.0f, 1.39f, 0.0f},
+															{0.564f, 2.05f, 1.95f, 0.0f, 1.95f, 0.0f},
 															{0.564f, 0.72f, 0.64f, 0.0f, 1.85f, 0.0f},
 															{-0.785f, 0.20f, 0.2f, 0.0f, 1.36f, 0.0f},
-															{-2.78f, 0.20f, 0.2f, 0.0f, 1.36f, 0.0f},
-															{-2.78f, 0.55f, 0.1f, 0.0f, 1.46f, 0.0f},
-															{-2.78f, 0.55f, 0.1f, 0.0f, 1.46f, 0.0f},
+															{-2.90f, 0.20f, 0.2f, -0.67f, 1.02f, 1.2f},
+															{-2.90f, 0.64f, 0.1f, -0.67f, 1.02f, 1.2f},
+															{-2.90f, 0.64f, 0.1f, -0.67f, 1.02f, 1.2f},
 															{-0.785f, 0.0f, 0.0f, 0.0f, 1.80f, 0.0f},
 															{0.564f, 0.72f, 0.5f, 0.0f, 1.80f, 0.0f},
 															};	
-		uint16_t flag_and_time_6[9][2] = {{1,1000},{1,2000},{1,1000},{1,1000},{1,500},{1,500},{0,200},{0,500},{0,1000}};
+		uint16_t flag_and_time_6[10][2] = {{0,2000},{1,500},{1,2000},{1,50},{1,50},{1,50},{1,100},{0,500},{0,50},{0,500}};
 			
 		memcpy(arm_control.arm_move_routine.Au1,Au1_temp,sizeof(Au1_temp));	  
 		memcpy(arm_control.arm_move_routine.flag_and_time[5], flag_and_time_6,sizeof(flag_and_time_6));
 		
 		fp32 Au2_temp[10][6] = {	{0.564f, 0.72f, 0.5f, 0.0f, 1.80f, 0.0f},
-															{0.564f, 2.70f, 2.70f, 0.0f, 1.80f, 0.0f},
-															{0.564f, 2.50f, 2.50f, 0.0f, 1.85f, 0.0f},
+															{0.564f, 2.21f, 2.05f, 0.0f, 1.39f, 0.0f},
+															{0.564f, 2.05f, 1.95f, 0.0f, 1.95f, 0.0f},
 															{0.564f, 0.72f, 0.64f, 0.0f, 1.85f, 0.0f},
 															{-0.785f, 0.72f, 0.3f, 0.0f, 1.36f, 0.0f},
 															{-1.937f, 0.49f, 0.3f, -1.70f, 2.42f, 0.0f},
@@ -229,9 +231,9 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 		memcpy(arm_control.arm_move_routine.flag_and_time[6], flag_and_time_7,sizeof(flag_and_time_7));
 		
 		fp32 Au3_temp[4][6] = {{0.564f, 0.72f, 0.5f, 0.0f, 1.80f, 0.0f},
-															{0.564f, 2.70f, 2.70f, 0.0f, 1.80f, 0.0f},
-															{0.564f, 2.50f, 2.50f, 0.0f, 1.85f, 0.0f},
-															{0.564f, 0.72f, 0.64f, 0.0f, 1.8f, 0.0f},     
+															{0.564f, 2.21f, 2.05f, 0.0f, 1.39f, 0.0f},
+															{0.564f, 2.05f, 1.95f, 0.0f, 1.95f, 0.0f},
+															{0.564f, 0.72f, 0.64f, 0.0f, 1.85f, 0.0f},   
 													};
 		
 		uint16_t flag_and_time_8[4][2] = {{0,200},{1,1000},{1,2000},{1,1000}};
@@ -242,7 +244,7 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 
 	// 机械臂复位位置
 	fp32 allowance[6] = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
-	fp32 repositon_position[6] = {0.564f + allowance[0], 0.72f + allowance[1], 0.5f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]};
+	fp32 repositon_position[6] = {0.564f + allowance[0], /*0.72f*/0.57f + allowance[1], 0.5f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]};
 	fp32 gou_dong[6] = {0.564f + allowance[0], 2.88f + allowance[1], 2.81f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]};
 	fp32 three_ore_position[6] = {0.564f + allowance[0], 0.72f + allowance[1], 0.5f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]};
 	fp32 pre_Au_reposition[6] = {00.564f + allowance[0], 0.72f + allowance[1], 0.5f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]};
@@ -281,9 +283,9 @@ void arm_feedback_update(arm_control_t *arm_control_position, Robotic_6DOF_contr
 		const float q1[4] = {0.707,0.0,-0.707,0.0}; //绕x轴顺时针转90度
 		float q_multiply_result[4];
 		
-		R_6D_ctrl->Pose6D_IK.X = arm_pose.x * 50.0f - 179.864f - 185.0f + sc_allowance[0]; // 2025/3/26测试用的偏移量
+		R_6D_ctrl->Pose6D_IK.X = arm_pose.x * 70.0f - 179.864f - 285.0f + sc_allowance[0]; // 2025/3/26测试用的偏移量
 		R_6D_ctrl->Pose6D_IK.Y = arm_pose.y * 50.0f;
-		R_6D_ctrl->Pose6D_IK.Z = -arm_pose.z * 50.0f + 469.576f + 50.0f + sc_allowance[1];
+		R_6D_ctrl->Pose6D_IK.Z = -arm_pose.z * 60.0f + 469.576f + 50.0f + sc_allowance[1];
 
 		for (int i = 0; i < 4; i++)
 		{
@@ -353,7 +355,7 @@ void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 	}
 	else if ((chassis.arm_mode == 0 || chassis.arm_mode == 2))
 	{
-		TD_set_r(&arm_control_set->arm_1_TD, 3.0f);
+		TD_set_r(&arm_control_set->arm_1_TD, 5.0f);
 	}
 	else
 	{
@@ -573,6 +575,11 @@ void MoveL(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_set, al
 	bool SolveIK_Success;
 	bool new_joint_flag = false;
 	// 机械臂逆解算
+	for(int i = 0; i < 6;i++)
+	{
+		R_6D_ctrl->Last_Joint_Final[i] = R_6D_ctrl->Joint_Final[i];
+	}
+	
 	SolveIK_Success = SolveIK(&R_6D_ctrl->Robotic_6D, &R_6D_ctrl->Pose6D_IK,
 							  &R_6D_ctrl->output_solvers_IK, &Last_Joint6D, Quaterniont_Mode);
 
@@ -659,17 +666,12 @@ void MoveL(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_set, al
 			R_6D_ctrl->Joint_Final[4] = R_6D_ctrl->output_solvers_IK.theta[indexConfig][4];
 			R_6D_ctrl->Joint_Final[5] = R_6D_ctrl->output_solvers_IK.theta[indexConfig][5];
 
-			for (int j = 0; j < 6; j++)
-			{
-				Last_Joint6D.theta[j] = R_6D_ctrl->Joint_Final[j];
-			}
-
 			arm_target_position[0] = (R_6D_ctrl->output_solvers_IK.theta[indexConfig][0] + 0.564f);
 			arm_target_position[1] = -(R_6D_ctrl->output_solvers_IK.theta[indexConfig][1] + 0.279f);
 			arm_target_position[2] = R_6D_ctrl->output_solvers_IK.theta[indexConfig][2] + 1.292f;
 			arm_target_position[3] = R_6D_ctrl->output_solvers_IK.theta[indexConfig][3];
 			arm_target_position[4] = (R_6D_ctrl->output_solvers_IK.theta[indexConfig][4] + 1.80f);
-			arm_target_position[5] = -R_6D_ctrl->output_solvers_IK.theta[indexConfig][5];
+			arm_target_position[5] = -(R_6D_ctrl->output_solvers_IK.theta[indexConfig][5]);
 			if(arm_key->self_control_rotate_key.itself.mode == 0)
 			{
 					arm_target_position[5] 	=		-R_6D_ctrl->output_solvers_IK.theta[indexConfig][5];
@@ -795,7 +797,7 @@ void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_cont
 					else if(arm_control_loop->arm_position_flag == 2)
 					{
 						time_cnt++;
-						if(time_cnt > 200)
+						if(time_cnt > 400)
 						{
 							clamp_flag = 0;
 						}

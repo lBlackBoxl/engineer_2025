@@ -262,16 +262,16 @@ void EXTI9_5_IRQHandler(void)
 /**
   * @brief This function handles USART1 global interrupt.
   */
-void USART1_IRQHandler(void)
-{
-  /* USER CODE BEGIN USART1_IRQn 0 */
+//void USART1_IRQHandler(void)
+//{
+//  /* USER CODE BEGIN USART1_IRQn 0 */
 
-  /* USER CODE END USART1_IRQn 0 */
-  HAL_UART_IRQHandler(&huart1);
-  /* USER CODE BEGIN USART1_IRQn 1 */
-	 USART1_RX_IRQHandler();
-  /* USER CODE END USART1_IRQn 1 */
-}
+//  /* USER CODE END USART1_IRQn 0 */
+//  HAL_UART_IRQHandler(&huart1);
+//  /* USER CODE BEGIN USART1_IRQn 1 */
+//	 USART1_RX_IRQHandler();
+//  /* USER CODE END USART1_IRQn 1 */
+//}
 
 /**
   * @brief This function handles USART3 global interrupt.
@@ -405,11 +405,11 @@ void DMA2_Stream7_IRQHandler(void)
 void USART6_IRQHandler(void)
 {
   /* USER CODE BEGIN USART6_IRQn 0 */
-
+  USART6_RX_IRQHandler();
   /* USER CODE END USART6_IRQn 0 */
   HAL_UART_IRQHandler(&huart6);
   /* USER CODE BEGIN USART6_IRQn 1 */
-  USART6_RX_IRQHandler();
+	
   /* USER CODE END USART6_IRQn 1 */
 }
 

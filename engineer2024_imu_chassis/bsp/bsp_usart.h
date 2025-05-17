@@ -3,7 +3,7 @@
 #include "struct_typedef.h"
 
 //最大缓冲字节数
-#define USART6_MAX_RECV_LEN 100
+#define USART6_MAX_RECV_LEN 50
 //接收缓冲
 extern uint8_t USART6_RX_BUF[USART6_MAX_RECV_LEN];
 //当前缓冲长度

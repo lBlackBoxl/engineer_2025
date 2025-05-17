@@ -26,6 +26,10 @@ uint32_t reset_2006_count[2];
 uint32_t reposition_count = 0;
 float32_t g_2006 = 249.0f;
 float32_t mode2_cnt = 0;
+int joint6_round;
+fp32 roll_angle_set;
+fp32 last_roll_angle_set;
+fp32 joint6_position;
 
 void arm_task(void const * argument)
 {	
@@ -54,6 +58,8 @@ void arm_task(void const * argument)
 						DWT_Delay(0.0003f);
 						CAN_cmd_4310_disable(DM_M4_TX_ID, hcan1);	
 						DWT_Delay(0.0003f);
+						joint6_round = 0;
+						joint6_position = board_message.target_position[5];
 				}
 				else if(arm.chassis_mode != 0)
 				{				
@@ -235,7 +241,7 @@ void arm_feedback_update(arm_t *arm_feedback)
 			arm_feedback->motor_2006_data[i].angle = (arm_feedback->motor_2006_data[i].round_cnt * ECD_RANGE 
 					+ arm_feedback->motor_2006_data[i].motor_measure->ecd - arm_feedback->motor_2006_data[i].offset_ecd) * MOTOR_ECD_TO_ANGLE_2006;	
 		}
-		arm.yaw_angle = rad_format((arm.motor_2006_data[0].angle + arm.motor_2006_data[1].angle)/(2 * YAW_TO_2006));
+		arm.yaw_angle = (arm.motor_2006_data[0].angle + arm.motor_2006_data[1].angle)/(2 * YAW_TO_2006);
 	  arm.roll_angle = (arm.motor_2006_data[0].angle - arm.motor_2006_data[1].angle)/(2 * ROLL_TO_2006);//转化成末端两轴角度
 
 		//根据模式更改TD
@@ -254,13 +260,13 @@ void arm_feedback_update(arm_t *arm_feedback)
 					TD_set_r(&arm_feedback->arm_6_TD,2.0f);
 				}
 		}
-		else if((arm_feedback->arm_mode == 0 || arm_feedback->arm_mode == 2 )&& arm_feedback->suker_mode == 0)
-		{	
-				TD_set_r(&arm_feedback->arm_2_TD,3.0f);
-				TD_set_r(&arm_feedback->arm_3_TD,3.0f);
-				TD_set_r(&arm_feedback->arm_4_TD,3.0f);
-				TD_set_r(&arm_feedback->arm_5_TD,3.0f);
-				TD_set_r(&arm_feedback->arm_6_TD,3.0f);
+		else if((arm_feedback->arm_mode == 0 || arm_feedback->arm_mode == 2 )&& arm_feedback->suker_mode == 1)
+		{
+				TD_set_r(&arm_feedback->arm_2_TD,7.0f);
+				TD_set_r(&arm_feedback->arm_3_TD,7.0f);
+				TD_set_r(&arm_feedback->arm_4_TD,7.0f);
+				TD_set_r(&arm_feedback->arm_5_TD,7.0f);
+				TD_set_r(&arm_feedback->arm_6_TD,7.0f);
 				reposition_count = 0;
 		}	
 		else
@@ -298,28 +304,39 @@ void arm_set_control(arm_t *arm_set_control)
 				arm_set_control->motor_DM_data[2].position_set = (fp32)(arm_set_control->arm_4_TD.x);
 		}
 		//5-6		
+		last_roll_angle_set = roll_angle_set;
+		roll_angle_set = board_message.target_position[5];
+		if(roll_angle_set - last_roll_angle_set < -PI)
+		{
+			joint6_round --;
+		}
+		else if(roll_angle_set - last_roll_angle_set > PI)
+		{
+			joint6_round ++;
+		}
+		joint6_position = board_message.target_position[5] - 2 * PI * joint6_round;
 		if(arm_set_control->motor_2006_mode == 0)
 		{
 				TD_set_x(&arm_set_control->arm_5_TD,arm_set_control->roll_angle);
-				TD_set_x(&arm_set_control->arm_6_TD,arm_set_control->yaw_angle);				
+				TD_set_x(&arm_set_control->arm_6_TD,joint6_position);				
 		}
 		else if(arm_set_control->motor_2006_mode == 1)
 		{			
 				TD_set_x(&arm_set_control->arm_5_TD,arm_set_control->roll_angle);
-				TD_set_x(&arm_set_control->arm_6_TD,arm_set_control->yaw_angle);		
+				TD_set_x(&arm_set_control->arm_6_TD,joint6_position);		
 				arm_set_control->motor_2006_data[0].speed_set =  -2.0f;
 				arm_set_control->motor_2006_data[1].speed_set =   2.0f;
 		}
 		else if(arm_set_control->motor_2006_mode == 2)
 		{
 				TD_set_x(&arm_set_control->arm_5_TD,arm_set_control->roll_angle);
-				TD_set_x(&arm_set_control->arm_6_TD,arm_set_control->yaw_angle);					
+				TD_set_x(&arm_set_control->arm_6_TD,joint6_position);					
 		}
 		else 
 		{
 				//锥齿轮的处理
 				TD_calc(&arm_set_control->arm_5_TD, board_message.target_position[4]);
-				TD_calc(&arm_set_control->arm_6_TD, board_message.target_position[5]);
+				TD_calc(&arm_set_control->arm_6_TD, joint6_position);
 				arm_set_control->roll_angle_set = arm_set_control->arm_5_TD.x;
 				arm_set_control->yaw_angle_set = arm_set_control->arm_6_TD.x;
 		}	

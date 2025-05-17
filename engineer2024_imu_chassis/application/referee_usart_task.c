@@ -1,15 +1,14 @@
 #include "referee_usart_task.h"
 #include "main.h"
 #include "cmsis_os.h"
-#include "motor.h"
 #include "bsp_usart.h"
 #include "fifo.h"
 #include "protocol.h"
 #include "referee.h"
 //裁判系统数据解包
 static void referee_unpack_fifo_data(void);
-extern UART_HandleTypeDef huart6;
-uint8_t usart6_buf[2][USART_RX_BUF_LENGHT];
+extern UART_HandleTypeDef huart1;
+uint8_t usart1_buf[2][USART_RX_BUF_LENGHT];
 uint16_t cmd_time;
 uint16_t dead_time; 
 uint8_t dead_flag;
@@ -21,7 +20,7 @@ void referee_usart_task(void const * argument)
 {
     init_referee_struct_data();
     fifo_s_init(&referee_fifo, referee_fifo_buf, REFEREE_FIFO_BUF_LENGTH);
-    usart6_init(usart6_buf[0], usart6_buf[1], USART_RX_BUF_LENGHT);
+    usart1_init(usart1_buf[0], usart1_buf[1], USART_RX_BUF_LENGHT);
     while(1)
     {
 		referee_unpack_fifo_data();
@@ -52,7 +51,7 @@ void referee_unpack_fifo_data(void)
 					p_obj->protocol_packet[p_obj->index++] = byte;
 				}
 				else
-				{
+				{  
 					p_obj->index = 0;
 				}
 			}
@@ -127,31 +126,31 @@ void referee_unpack_fifo_data(void)
 		}
 	}
 }
-void USART6_IRQHandler(void)
+void USART1_IRQHandler(void)
 {
     static volatile uint8_t res;
 	dead_flag = 0;
-    if(USART6->SR & UART_FLAG_IDLE)
+    if(USART1->SR & UART_FLAG_IDLE)
     {
-        __HAL_UART_CLEAR_PEFLAG(&huart6);
+        __HAL_UART_CLEAR_PEFLAG(&huart1);
         static uint16_t this_time_rx_len = 0;
-        if ((huart6.hdmarx->Instance->CR & DMA_SxCR_CT) == RESET)
+        if ((huart1.hdmarx->Instance->CR & DMA_SxCR_CT) == RESET)
         {
-            __HAL_DMA_DISABLE(huart6.hdmarx);
-            this_time_rx_len = USART_RX_BUF_LENGHT - __HAL_DMA_GET_COUNTER(huart6.hdmarx);
-            __HAL_DMA_SET_COUNTER(huart6.hdmarx, USART_RX_BUF_LENGHT);
-            huart6.hdmarx->Instance->CR |= DMA_SxCR_CT;
-            __HAL_DMA_ENABLE(huart6.hdmarx);
-            fifo_s_puts(&referee_fifo, (char*)usart6_buf[0], this_time_rx_len);
+            __HAL_DMA_DISABLE(huart1.hdmarx);
+            this_time_rx_len = USART_RX_BUF_LENGHT - __HAL_DMA_GET_COUNTER(huart1.hdmarx);
+            __HAL_DMA_SET_COUNTER(huart1.hdmarx, USART_RX_BUF_LENGHT);
+            huart1.hdmarx->Instance->CR |= DMA_SxCR_CT;
+            __HAL_DMA_ENABLE(huart1.hdmarx);
+            fifo_s_puts(&referee_fifo, (char*)usart1_buf[0], this_time_rx_len);
         }
         else
         {
-            __HAL_DMA_DISABLE(huart6.hdmarx);
-            this_time_rx_len = USART_RX_BUF_LENGHT - __HAL_DMA_GET_COUNTER(huart6.hdmarx);
-            __HAL_DMA_SET_COUNTER(huart6.hdmarx, USART_RX_BUF_LENGHT);
-            huart6.hdmarx->Instance->CR &= ~(DMA_SxCR_CT);
-            __HAL_DMA_ENABLE(huart6.hdmarx);
-            fifo_s_puts(&referee_fifo, (char*)usart6_buf[1], this_time_rx_len);
+            __HAL_DMA_DISABLE(huart1.hdmarx);
+            this_time_rx_len = USART_RX_BUF_LENGHT - __HAL_DMA_GET_COUNTER(huart1.hdmarx);
+            __HAL_DMA_SET_COUNTER(huart1.hdmarx, USART_RX_BUF_LENGHT);
+            huart1.hdmarx->Instance->CR &= ~(DMA_SxCR_CT);
+            __HAL_DMA_ENABLE(huart1.hdmarx);
+            fifo_s_puts(&referee_fifo, (char*)usart1_buf[1], this_time_rx_len);
         }
     }
 }

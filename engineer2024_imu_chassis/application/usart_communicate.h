@@ -4,6 +4,8 @@
 #include "stdint.h"
 #include "protocol.h"
 
+#define USART6_MAX_RECV_LEN 50
+
 //帧头结构体
 typedef __packed struct
 {

@@ -38,7 +38,7 @@ Tx_Message_t tx_message_mp;
 void board_communicate_task(void const *pvParameters)
 {
 		vTaskDelay(500);
-	
+		uint32_t mode_wake_time = osKernelSysTick();
 		while(1)
 		{
 			TX_init();
@@ -47,8 +47,8 @@ void board_communicate_task(void const *pvParameters)
 			CAN_board_communicate_can_1(tx_message_mp.target_position, tx_message_mp.mode, tx_message_mp.suker_key_flag);
 			osDelay(1);
 				
-			HAL_UART_Transmit(&huart6,USART6_TX_Buffer,sizeof(USART6_TX_Buffer), 100);
-			osDelay(1);
+			HAL_UART_Transmit_DMA(&huart6,USART6_TX_Buffer,sizeof(USART6_TX_Buffer));
+			osDelay(2);
 		}
 }
 
@@ -63,15 +63,17 @@ void TX_init(void)
 	tx_message_mp.target_position[5] = arm_control.motor_6_position;
 	tx_message_mp.suker_key_flag = chassis.suker_key_flag;
 	
-	USART6_TX_Buffer[0] = chassis.chassis_mode;
-	USART6_TX_Buffer[1] = chassis.arm_mode;
-	USART6_TX_Buffer[2] = chassis.move_mode;
-	USART6_TX_Buffer[3] = suker_key_flag;
-	USART6_TX_Buffer[4] = HAL_GPIO_ReadPin(GPIOF,GPIO_PIN_0);
-	USART6_TX_Buffer[5] = HAL_GPIO_ReadPin(GPIOF,GPIO_PIN_1);
-	USART6_TX_Buffer[6] = clamp_flag;
-	USART6_TX_Buffer[7] = AJX_flag;
-	USART6_TX_Buffer[8] = arm_restart_flag;
+	USART6_TX_Buffer[0] = 'i';
+	USART6_TX_Buffer[1] = chassis.chassis_mode;
+	USART6_TX_Buffer[2] = chassis.arm_mode;
+	USART6_TX_Buffer[3] = chassis.move_mode;
+	USART6_TX_Buffer[4] = suker_key_flag;
+	USART6_TX_Buffer[5] = HAL_GPIO_ReadPin(GPIOF,GPIO_PIN_0);
+	USART6_TX_Buffer[6] = HAL_GPIO_ReadPin(GPIOF,GPIO_PIN_1);
+	USART6_TX_Buffer[7] = clamp_flag;
+	USART6_TX_Buffer[8] = AJX_flag;
+	USART6_TX_Buffer[9] = arm_restart_flag;
+	USART6_TX_Buffer[19] = 'e';
 }
 
 void CAN_board_communicate_can_0(fp32 board_position_message[6])

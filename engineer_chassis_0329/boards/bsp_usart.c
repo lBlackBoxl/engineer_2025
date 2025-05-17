@@ -143,4 +143,5 @@ void USART6_IRQHandler(void)
 						}	
         }
     }
+		HAL_UART_IRQHandler(&huart6);
 }

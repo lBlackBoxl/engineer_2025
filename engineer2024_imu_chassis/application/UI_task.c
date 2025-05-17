@@ -32,6 +32,7 @@ uint8_t SELF_CONTROL[] = "SELF_CONTROL";
 uint8_t Error[] = "ERROR";
 
 static void send_dele(uint8_t layer);
+void Draw_layer_0(UI_message_t *UI_message, UI_message_t *UI_message_float, uint32_t operate_type);
 void Draw_layer_1(UI_message_t *UI_message, UI_message_t *UI_message_float, uint32_t operate_type);
 void Draw_layer_2(UI_message_t *UI_message, UI_message_t *UI_message_float, uint32_t operate_type);
 void Draw_layer_3(UI_message_t *UI_message, UI_message_t *UI_message_float, uint32_t operate_type);
@@ -56,6 +57,10 @@ void ui_task(void const *argu)
 				send_dele(i);
 			}
 			//清屏后再进入初始化
+			if(move_mode == 4)
+			{
+				Draw_layer_0(&UI_message,&UI_message_float,1);
+			}
 			Draw_layer_1(&UI_message,&UI_message_float,1);
 			Draw_layer_2(&UI_message,&UI_message_float,1);
 			Draw_layer_3(&UI_message,&UI_message_float,1);
@@ -66,6 +71,10 @@ void ui_task(void const *argu)
 		}
 		
 		//更新UI界面内容
+		if(move_mode == 4)
+		{
+			Draw_layer_0(&UI_message,&UI_message_float,2);
+		}
 		Draw_layer_1(&UI_message,&UI_message_float,2);
 		Draw_layer_2(&UI_message,&UI_message_float,2);
 		Draw_layer_3(&UI_message,&UI_message_float,2);
@@ -74,7 +83,48 @@ void ui_task(void const *argu)
 		osDelay(UI_TIME);
 	}
 }
-
+void Draw_layer_0(UI_message_t *UI_message, UI_message_t *UI_message_float, uint32_t operate_type)
+{
+	UI_message->graphic_five.FrameHead.sof = 0xA5;		
+	UI_message->graphic_five.FrameHead.dataLenth = 81;
+	UI_message->graphic_five.FrameHead.seq = (seqcount++) & 0xFF;  									//帧头填充
+	UI_message->graphic_five.CmdId = 0x0301;                     									//交互命令码
+	UI_message->graphic_five.Interactive_header_data.data_cmd_id = 0x0103;   						//UI图形命令码
+	UI_message->graphic_five.Interactive_header_data.sender_ID = robot_state.robot_id;				//机器人发送ID
+	UI_message->graphic_five.Interactive_header_data.receiver_ID = 0x0100 + robot_state.robot_id;	//机器人接收ID
+	
+	//狗洞辅助线
+	//辅助线1
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[0] = 0;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[1] = 0;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[2] = 0;
+	
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].operate_type = operate_type;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_type = 0;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].layer = 2;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].width = 3;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].color = 4;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_x = 800;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_y = 720;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_x = 680;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_y = 360;
+	
+	//辅助线2
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[0] = 0;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[1] = 0;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[2] = 1;
+	
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].operate_type = operate_type;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_type = 0;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].layer = 2;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].width = 3;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].color = 4;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_x = 1080;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_y = 720;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_x = 1220;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_y = 360;
+	
+}
 void Draw_layer_1(UI_message_t *UI_message, UI_message_t *UI_message_float, uint32_t operate_type)
 {
 	UI_message->graphic_five.FrameHead.sof = 0xA5;		

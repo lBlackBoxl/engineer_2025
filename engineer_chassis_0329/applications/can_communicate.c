@@ -147,6 +147,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 							get_board_communicate_data_1(&arm_message_temp, rx_data);
 							arm_message.target_position[4] = uint_to_float(arm_message_temp.target_position[4], -6.2831852f, 6.2831852f, 16);
 							arm_message.target_position[5] = uint_to_float(arm_message_temp.target_position[5], -6.2831852f, 6.2831852f, 16);
+							arm_message.target_position[5] = rad_format(arm_message.target_position[5]);
 							chassis.error_info = arm_message.error_info;
 							break;
 					}

@@ -352,7 +352,6 @@ void USART2_IRQHandler(void)
 
             this_time_rx_len = SBUS_RX_BUF_NUM - hdma_usart2_rx.Instance->NDTR;
 
-
             hdma_usart2_rx.Instance->NDTR = SBUS_RX_BUF_NUM;
 
             hdma_usart2_rx.Instance->CR |= DMA_SxCR_CT;

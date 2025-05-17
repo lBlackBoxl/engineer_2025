@@ -180,6 +180,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>board_message,0x0A</ItemText>
         </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>joint6_position</ItemText>
+        </Ww>
       </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
