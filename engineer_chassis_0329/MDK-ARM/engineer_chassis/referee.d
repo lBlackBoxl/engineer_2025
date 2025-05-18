@@ -39,3 +39,4 @@ engineer_chassis\referee.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\
 engineer_chassis\referee.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdio.h
 engineer_chassis\referee.o: ../components/support/protocol.h
 engineer_chassis\referee.o: ../boards/struct_typedef.h
+engineer_chassis\referee.o: ../applications/app_config.h

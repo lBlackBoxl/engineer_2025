@@ -51,6 +51,7 @@ engineer_chassis\can_communicate.o: ..\applications\referee.h
 engineer_chassis\can_communicate.o: ..\applications\nx_communicate.h
 engineer_chassis\can_communicate.o: ..\applications\referee_usart_task.h
 engineer_chassis\can_communicate.o: ../boards/bsp_rc.h
+engineer_chassis\can_communicate.o: ..\applications\app_config.h
 engineer_chassis\can_communicate.o: ..\applications\init.h
 engineer_chassis\can_communicate.o: ..\applications\boards_communicate.h
 engineer_chassis\can_communicate.o: ..\applications\arm_control_task.h

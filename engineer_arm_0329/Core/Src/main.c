@@ -99,11 +99,17 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART6_UART_Init();
   MX_TIM4_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-	can_filter_init();
-	DWT_Init(168);
+	HAL_TIM_Base_Start(&htim1);
+	HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_2);
+	HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_3);
+	HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_4);
 	HAL_TIM_Base_Start(&htim4);
 	HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
+	can_filter_init();
+	DWT_Init(168);
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */

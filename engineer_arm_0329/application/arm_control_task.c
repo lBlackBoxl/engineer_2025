@@ -12,6 +12,7 @@
 #include "task.h"
 #include "main.h"
 #include "TD.h"
+#include "tim.h"
 
 static void arm_control_init(arm_t *arm_control_init);
 static void arm_feedback_update(arm_t *arm_feedback);
@@ -136,7 +137,7 @@ void arm_control_init(arm_t *arm_control_init)
 			arm_control_init->motor_2006_data[i].offset_ecd = arm_control_init->motor_2006_data[i].motor_measure->ecd;
 			arm_control_init->motor_2006_data[i].angle_set = arm_control_init->motor_2006_data[i].angle;
 			arm_control_init->motor_2006_data[i].speed_set = 0;
-		}			
+		}
 		//初始化跟踪微分器TD
 		TD_init(&arm_control_init->arm_2_TD,5.0f,2.0f,0.002f,arm_control_init->motor_DM_data[1].DM_motor_measure->motor_position);
 		TD_init(&arm_control_init->arm_3_TD,5.0f,2.0f,0.002f,arm_control_init->motor_DM_data[2].DM_motor_measure->motor_position);
@@ -169,7 +170,7 @@ void arm_set_mode(arm_t *arm_set_mode)
 		}
 		//根据初始化情况更新2006标志位
 		if(arm_set_mode->motor_2006_mode == 1)
-		{   
+		{
 			if(arm_set_mode->motor_2006_last_mode != 1)
 			{
 				Set_KP(&arm_set_mode->motor_2006_speed_pid[0],M2006_SPEED_PID_KP_0);
@@ -225,7 +226,7 @@ void arm_set_mode(arm_t *arm_set_mode)
 //			}
 //		}	
 		arm_set_mode->motor_2006_last_mode = arm_set_mode->motor_2006_mode;
-}	
+}
 
 void arm_feedback_update(arm_t *arm_feedback)
 {
@@ -271,11 +272,11 @@ void arm_feedback_update(arm_t *arm_feedback)
 		}	
 		else
 		{
-				TD_set_r(&arm_feedback->arm_2_TD,1.0f);
-				TD_set_r(&arm_feedback->arm_3_TD,1.0f);
-				TD_set_r(&arm_feedback->arm_4_TD,1.0f);
-				TD_set_r(&arm_feedback->arm_5_TD,1.0f);
-				TD_set_r(&arm_feedback->arm_6_TD,1.0f);	
+				TD_set_r(&arm_feedback->arm_2_TD,7.0f);
+				TD_set_r(&arm_feedback->arm_3_TD,7.0f);
+				TD_set_r(&arm_feedback->arm_4_TD,7.0f);
+				TD_set_r(&arm_feedback->arm_5_TD,7.0f);
+				TD_set_r(&arm_feedback->arm_6_TD,7.0f);	
 				reposition_count = 0;
 		}
 }
@@ -340,6 +341,21 @@ void arm_set_control(arm_t *arm_set_control)
 				arm_set_control->roll_angle_set = arm_set_control->arm_5_TD.x;
 				arm_set_control->yaw_angle_set = arm_set_control->arm_6_TD.x;
 		}	
+		
+		if(arm_set_control->arm_mode == 2)
+		{
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_1,2000);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_2,2000);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_3,2000);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_4,2000);//500-2000
+		}
+		else
+		{
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_1,1500);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_2,1500);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_3,1500);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_4,1500);//500-2000
+		}
 }
 
 void arm_control_loop(arm_t *arm_control_loop)

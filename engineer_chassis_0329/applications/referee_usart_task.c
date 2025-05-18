@@ -248,6 +248,12 @@ void referee_unpack_fifo_data(void)
 					p_obj->unpack_step = STEP_LENGTH_LOW;
 					p_obj->protocol_packet[p_obj->index++] = byte;
 				}
+#if RC_FIFO_ENABLE
+				else if(byte == HEADER_SOF_RC_L){
+					p_obj->unpack_step = STEP_RC_SOF;
+					p_obj->protocol_packet[p_obj->index++] = byte;	
+				}
+#endif
 				else
 				{
 					p_obj->index = 0;
@@ -313,12 +319,44 @@ void referee_unpack_fifo_data(void)
 				{
 					p_obj->unpack_step = STEP_HEADER_SOF;
 					p_obj->index = 0;
-//					if (verify_crc16_check_sum(p_obj->protocol_packet, REF_HEADER_CRC_CMDID_LEN + p_obj->data_len) )
-//					{
+					if (verify_crc16_check_sum(p_obj->protocol_packet, REF_HEADER_CRC_CMDID_LEN + p_obj->data_len) )
+					{
 						referee_data_solve(p_obj->protocol_packet);
-//					}
-			}
+					}
+				}
 			}break;
+#if RC_FIFO_ENABLE
+			case STEP_RC_SOF:
+			{
+				if(byte == HEADER_SOF_RC_H){
+					p_obj->unpack_step = STEP_RC_DATA;
+					p_obj->protocol_packet[p_obj->index++] = byte;
+					p_obj->data_len = RC_DATA_LEN;
+				}
+				else{
+					p_obj->unpack_step = STEP_HEADER_SOF;
+					p_obj->index = 0;
+				}
+				break;
+			}
+			case STEP_RC_DATA:
+			{
+				if (p_obj->index < RC_FRAME_LEN)
+				{
+					p_obj->protocol_packet[p_obj->index++] = byte;  
+				}
+				if (p_obj->index >= RC_FRAME_LEN)
+				{
+					p_obj->unpack_step = STEP_HEADER_SOF;
+					p_obj->index = 0;
+					if(verify_crc16_check_sum(p_obj->protocol_packet, RC_FRAME_LEN)){
+						//add RC data solving function here
+						sbus_to_rc(p_obj->protocol_packet, &rc_ctrl);
+					}
+				}
+				break;
+			}
+#endif //endif REMOTE_CONTROL_NEW_ENABLE
 			default:
 			{
 				p_obj->unpack_step = STEP_HEADER_SOF;
@@ -329,7 +367,6 @@ void referee_unpack_fifo_data(void)
 	}
 }
 
-ARM_T arm;
 
 //´®¿ÚÖÐ¶Ï
 void USART2_IRQHandler(void)
@@ -357,19 +394,20 @@ void USART2_IRQHandler(void)
             hdma_usart2_rx.Instance->CR |= DMA_SxCR_CT;
 
             __HAL_DMA_ENABLE(&hdma_usart2_rx);
-					
-						//memcpy(&arm, usart2_buf[0], sizeof(ARM_T));
-						//memcpy(&arm_pose, &arm.arm_pose, sizeof(ext_arm_psoe_t));
 
+#if		!RC_FIFO_ENABLE
             if(this_time_rx_len == RC_FRAME_LENGTH)
             {
                 sbus_to_rc(usart2_buf[0], &rc_ctrl);
             }
-						
+		
 						if(this_time_rx_len == SELF_CONTROL_FRAME_LENGTH)
-            {
-								fifo_s_puts(&referee_fifo, (char*)usart2_buf[0], this_time_rx_len);
+            {	
+								fifo_s_puts(&referee_fifo, (char*)usart2_buf[1], this_time_rx_len);
             }
+#else
+						fifo_s_puts(&referee_fifo, (char*)usart2_buf[0], this_time_rx_len);
+#endif
         }
         else
         {
@@ -384,18 +422,19 @@ void USART2_IRQHandler(void)
 					
             __HAL_DMA_ENABLE(&hdma_usart2_rx);
 					
-						//memcpy(&arm, usart2_buf[1], sizeof(ARM_T));
-						//memcpy(&arm_pose, &arm.arm_pose, sizeof(ext_arm_psoe_t));
-
+#if		!RC_FIFO_ENABLE
             if(this_time_rx_len == RC_FRAME_LENGTH)
             {
                 sbus_to_rc(usart2_buf[1], &rc_ctrl);
             }
-						
+		
 						if(this_time_rx_len == SELF_CONTROL_FRAME_LENGTH)
-            {
+            {	
 								fifo_s_puts(&referee_fifo, (char*)usart2_buf[1], this_time_rx_len);
             }
+#else
+						fifo_s_puts(&referee_fifo, (char*)usart2_buf[1], this_time_rx_len);
+#endif
         }
     }
 		HAL_UART_IRQHandler(&huart2);

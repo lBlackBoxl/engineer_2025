@@ -100,6 +100,7 @@ typedef struct
 	uint16_t chassis_last_mode;
 	uint8_t  motor_2006_mode;
 	uint8_t  motor_2006_last_mode;
+	uint8_t  picture_mode;
 	
 	//末端锥齿轮控制的两个角度
 	fp32 roll_angle;

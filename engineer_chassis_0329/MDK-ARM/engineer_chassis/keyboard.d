@@ -39,3 +39,4 @@ engineer_chassis\keyboard.o: ..\applications\referee.h
 engineer_chassis\keyboard.o: ../boards/struct_typedef.h
 engineer_chassis\keyboard.o: ../boards/bsp_rc.h
 engineer_chassis\keyboard.o: ..\applications\keyboard.h
+engineer_chassis\keyboard.o: ..\applications\app_config.h

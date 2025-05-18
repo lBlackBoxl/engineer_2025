@@ -69,3 +69,4 @@ engineer_chassis\main.o: ../boards/bsp_dwt.h
 engineer_chassis\main.o: ../applications/referee_usart_task.h
 engineer_chassis\main.o: ../applications/referee.h
 engineer_chassis\main.o: ../applications/keyboard.h
+engineer_chassis\main.o: ../applications/app_config.h

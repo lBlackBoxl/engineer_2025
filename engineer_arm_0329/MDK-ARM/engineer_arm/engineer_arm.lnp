@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp
+--cpu=Cortex-M4.fp.sp
 "engineer_arm\startup_stm32f407xx.o"
 "engineer_arm\main.o"
 "engineer_arm\gpio.o"
@@ -27,8 +27,8 @@
 "engineer_arm\stm32f4xx_hal_tim_ex.o"
 "engineer_arm\stm32f4xx_hal_uart.o"
 "engineer_arm\system_stm32f4xx.o"
-"engineer_arm\bsp_can.o"
 "engineer_arm\bsp_dwt.o"
+"engineer_arm\bsp_can.o"
 "engineer_arm\bsp_usart.o"
 "engineer_arm\bsp_buzzer.o"
 "engineer_arm\ahrs_middleware.o"

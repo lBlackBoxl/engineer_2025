@@ -1,6 +1,7 @@
 #ifndef ROBOMASTER_PROTOCOL_H
 #define ROBOMASTER_PROTOCOL_H
 #include "struct_typedef.h"
+#include "app_config.h"
 #define HEADER_SOF_SELF_CONTROL 						0xA5
 #define HEADER_SOF_RC_L 										0xA9
 #define HEADER_SOF_RC_H                     0x53
@@ -32,6 +33,11 @@ typedef enum
   STEP_FRAME_SEQ   = 3,
   STEP_HEADER_CRC8 = 4,
   STEP_DATA_CRC16  = 5,
+#if RC_FIFO_ENABLE
+	STEP_RC_SOF      = 6,
+	STEP_RC_DATA		 = 7,
+	STEP_RC_CRC16    = 8
+#endif	
 } unpack_step_e;
 typedef struct
 {

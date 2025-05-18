@@ -65,6 +65,7 @@ engineer_chassis\freertos.o: ../applications/referee.h
 engineer_chassis\freertos.o: ../applications/nx_communicate.h
 engineer_chassis\freertos.o: ../applications/referee_usart_task.h
 engineer_chassis\freertos.o: ../boards/bsp_rc.h
+engineer_chassis\freertos.o: ../applications/app_config.h
 engineer_chassis\freertos.o: ../applications/imu_task.h
 engineer_chassis\freertos.o: ../boards/bsp_imu.h
 engineer_chassis\freertos.o: ../boards/mytype.h

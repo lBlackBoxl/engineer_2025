@@ -39,6 +39,7 @@ engineer_chassis\referee_usart_task.o: ..\applications\referee.h
 engineer_chassis\referee_usart_task.o: ../boards/struct_typedef.h
 engineer_chassis\referee_usart_task.o: ../boards/bsp_rc.h
 engineer_chassis\referee_usart_task.o: ..\applications\keyboard.h
+engineer_chassis\referee_usart_task.o: ..\applications\app_config.h
 engineer_chassis\referee_usart_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 engineer_chassis\referee_usart_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 engineer_chassis\referee_usart_task.o: ../Core/Inc/FreeRTOSConfig.h

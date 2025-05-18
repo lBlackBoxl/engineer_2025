@@ -39,6 +39,7 @@ engineer_chassis\bsp_usart.o: ../applications/referee.h
 engineer_chassis\bsp_usart.o: ../boards/struct_typedef.h
 engineer_chassis\bsp_usart.o: ../boards/bsp_rc.h
 engineer_chassis\bsp_usart.o: ../applications/keyboard.h
+engineer_chassis\bsp_usart.o: ../applications/app_config.h
 engineer_chassis\bsp_usart.o: ..\boards\bsp_usart.h
 engineer_chassis\bsp_usart.o: ../Core/Inc/usart.h
 engineer_chassis\bsp_usart.o: ../components/support/protocol.h

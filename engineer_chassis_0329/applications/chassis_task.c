@@ -199,7 +199,7 @@ static void chassis_init(all_key_t *chassis_key_init, chassis_t *chassis_init)
   */
 static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_mode)
 {
-				if (chassis_set_mode == NULL)
+		if (chassis_set_mode == NULL)
 		{
 				return;
 		}
@@ -210,7 +210,7 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 		//底盘运动模式选择
 		if(last_s[RC_SW_RIGHT].itself.mode != last_s[RC_SW_RIGHT].itself.last_mode)
 		{
-			chassis_set_mode->chassis_mode = 1 - chassis_set_mode->chassis_mode;
+			chassis_set_mode->chassis_mode = (chassis_mode_e)(1 - (uint8_t)chassis_set_mode->chassis_mode);
 		}
 		
 		//机械臂运动模式选择
@@ -479,7 +479,7 @@ void chassis_rc_to_control_vector(fp32 *vx_set, fp32 *vy_set, fp32 *vz_set, chas
         chassis_rc_to_vector->chassis_cmd_slow_set_vy.out = 0.0f;
     }
 		
-		if(chassis_rc_to_vector->move_mode == GouDong)
+		if(chassis_rc_to_vector->move_mode == GouDong || chassis_rc_to_vector->move_mode == Ag || chassis_rc_to_vector->move_mode == Au)
 		{
 				if (chassis_rc_to_vector->chassis_RC->key.Q)
 				{
@@ -618,10 +618,10 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 //			DWT_Delay(0.0003f);		
 			chassis_control->vx_set = vx_set;
 			chassis_control->vy_set = vy_set;
-			if(chassis_control->chassis_motor_speed_pid[0].Output > 7200 ||
-				 chassis_control->chassis_motor_speed_pid[1].Output > 7200 ||
-			   chassis_control->chassis_motor_speed_pid[2].Output > 7200 ||
-				 chassis_control->chassis_motor_speed_pid[3].Output > 7200)
+			if(abs(chassis_control->chassis_motor_speed_pid[0].Output) > 7200 ||
+				 abs(chassis_control->chassis_motor_speed_pid[1].Output) > 7200 ||
+			   abs(chassis_control->chassis_motor_speed_pid[2].Output) > 7200 ||
+				 abs(chassis_control->chassis_motor_speed_pid[3].Output) > 7200)
 			{
 				error_cnt ++;
 				if(error_cnt > 500)
@@ -671,11 +671,11 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 				}
 				if(clamp_flag == 1)
 				{
-						chassis_control->motor_clamp.position_set = -0.06f;
+						chassis_control->motor_clamp.position_set = -0.12f;
 				}
 				else
 				{
-						chassis_control->motor_clamp.position_set = -2.50f;
+						chassis_control->motor_clamp.position_set = -2.16f;
 				}
 		}		
 		

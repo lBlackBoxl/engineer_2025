@@ -6,6 +6,7 @@
 #include "struct_typedef.h"
 #include "bsp_rc.h"
 #include "keyboard.h"
+#include "app_config.h"
 
 #define USART_RX_BUF_LENGHT     512
 #define REFEREE_FIFO_BUF_LENGTH 1024
@@ -38,13 +39,7 @@
 #define switch_is_mid(s)        (s == RC_SW_MID)
 #define switch_is_right(s)         (s == RC_SW_RIGHT)
 
-typedef __packed struct
-{
-		tFrameHeader                           FrameHead;                 //÷°Õ∑
-		uint16_t                               CmdId;                     //√¸¡Ó¬Î 
-		ext_arm_psoe_t    arm_pose;
-		uint16_t                               CRC16;
-}ARM_T;
+
 
 typedef __packed struct
 {
