@@ -2,17 +2,17 @@
 .\rm_gimbal\6dof_kinematic.o: ..\components\algorithm\kinematic\6dof_kinematic.h
 .\rm_gimbal\6dof_kinematic.o: ../components/algorithm/Include/arm_math.h
 .\rm_gimbal\6dof_kinematic.o: ../Drivers/CMSIS/Include/core_cm4.h
-.\rm_gimbal\6dof_kinematic.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\rm_gimbal\6dof_kinematic.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\rm_gimbal\6dof_kinematic.o: ../Drivers/CMSIS/Include/cmsis_version.h
 .\rm_gimbal\6dof_kinematic.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 .\rm_gimbal\6dof_kinematic.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
-.\rm_gimbal\6dof_kinematic.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\string.h
-.\rm_gimbal\6dof_kinematic.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\math.h
-.\rm_gimbal\6dof_kinematic.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdlib.h
-.\rm_gimbal\6dof_kinematic.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdbool.h
+.\rm_gimbal\6dof_kinematic.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\rm_gimbal\6dof_kinematic.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\rm_gimbal\6dof_kinematic.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\rm_gimbal\6dof_kinematic.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\rm_gimbal\6dof_kinematic.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\rm_gimbal\6dof_kinematic.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-.\rm_gimbal\6dof_kinematic.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
+.\rm_gimbal\6dof_kinematic.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\rm_gimbal\6dof_kinematic.o: ../Core/Inc/FreeRTOSConfig.h
 .\rm_gimbal\6dof_kinematic.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 .\rm_gimbal\6dof_kinematic.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

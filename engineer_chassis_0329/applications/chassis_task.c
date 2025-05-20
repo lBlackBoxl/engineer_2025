@@ -102,7 +102,7 @@ void chassis_task(void const *pvParameters)
 				
         //ÏµÍ³ÑÓÊ±
 				osDelay(2);
-
+				
 		}
 }
 
@@ -260,7 +260,7 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 				}
 				else if(chassis_set_mode->last_move_mode == Au)
 				{
-					chassis_set_mode->move_mode = Home;
+					chassis_set_mode->move_mode = Wait;
 				}
 				chassis_set_mode->last_move_mode = chassis_set_mode->move_mode;
 		}
@@ -273,6 +273,7 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 				else if(chassis_set_mode->last_move_mode == Ag)
 				{
 					chassis_set_mode->move_mode = Home;
+					chassis_set_mode->yaw_angle_set = rad_format(chassis_set_mode->yaw_angle_set += PI);
 				}
 				chassis_set_mode->last_move_mode = chassis_set_mode->move_mode;
 		}
@@ -602,6 +603,12 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 //			}
 //			else
 //			{
+			
+			if(chassis_control->chassis_RC->mouse.press_r == 1)
+			{
+				chassis_control->yaw_angle_set = chassis_control->yaw_angle;
+			}
+			
 				TD_calc_angle(&chassis_control->chassis_yaw_TD, chassis_control->yaw_angle_set);
 				PID_Calculate_Angle(&chassis_control->chassis_yaw_pid, chassis_control->yaw_angle, chassis_control->yaw_angle_set);		
 //			}

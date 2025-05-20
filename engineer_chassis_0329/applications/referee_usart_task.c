@@ -199,8 +199,8 @@ static void sbus_to_rc(volatile const uint8_t *sbus_buf, RC_ctrl_t *rc_ctrl)
     rc_ctrl->mouse.y = sbus_buf[12] | (sbus_buf[13] << 8);                  //!< Mouse Y axis
     rc_ctrl->mouse.z = sbus_buf[14] | (sbus_buf[15] << 8);                  //!< Mouse Z axis
     rc_ctrl->mouse.press_l = sbus_buf[16] & 0x0001;                         //!< Mouse Left Is Press ?
-    rc_ctrl->mouse.press_l = (sbus_buf[16] >> 2) & 0x0001;                  //!< Mouse Right Is Press ?
-		rc_ctrl->mouse.press_l = (sbus_buf[16] >> 4) & 0x0001;								  //!< Mouse Mid Is Press ?
+    rc_ctrl->mouse.press_r = (sbus_buf[16] >> 2) & 0x0001;                  //!< Mouse Right Is Press ?
+		rc_ctrl->mouse.press_mid = (sbus_buf[16] >> 4) & 0x0001;								  //!< Mouse Mid Is Press ?
 		
 //    rc_ctrl->key.v = sbus_buf[17] | (sbus_buf[18] << 8);                    //!< KeyBoard value
     

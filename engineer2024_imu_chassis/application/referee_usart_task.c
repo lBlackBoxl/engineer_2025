@@ -153,4 +153,5 @@ void USART1_IRQHandler(void)
             fifo_s_puts(&referee_fifo, (char*)usart1_buf[1], this_time_rx_len);
         }
     }
+  HAL_UART_IRQHandler(&huart1);
 }

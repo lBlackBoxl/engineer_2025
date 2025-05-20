@@ -1,8 +1,8 @@
 engineer_chassis\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
-engineer_chassis\stream_buffer.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
-engineer_chassis\stream_buffer.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\string.h
+engineer_chassis\stream_buffer.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+engineer_chassis\stream_buffer.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 engineer_chassis\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-engineer_chassis\stream_buffer.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
+engineer_chassis\stream_buffer.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 engineer_chassis\stream_buffer.o: ../Core/Inc/FreeRTOSConfig.h
 engineer_chassis\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 engineer_chassis\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

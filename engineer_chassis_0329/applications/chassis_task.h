@@ -35,6 +35,7 @@ typedef enum
 	Ag,
 	Exchange,
 	GouDong,
+    Wait
 } move_mode_e;
 
 typedef struct

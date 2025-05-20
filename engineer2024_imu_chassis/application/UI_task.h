@@ -4,7 +4,7 @@
 #include "referee.h"
 
 //发送频率推荐不高于2Hz
-#define UI_TIME 50
+#define UI_TIME 35
 
 //内容ID data_cmd_id 长度（头结构长度+内容数据段长度）    功能说明
 //0x0200~0x02FF      6+n                                  己方机器人间通信

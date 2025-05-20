@@ -16,6 +16,7 @@ void init_referee_struct_data(void)
     memset(&robot_rfid, 0, sizeof(ext_rfid_status_t));
     memset(&arm_pose, 0, sizeof(ext_arm_psoe_t));
 }
+
 //裁判系统数据解包
 void referee_data_solve(uint8_t *frame)
 {

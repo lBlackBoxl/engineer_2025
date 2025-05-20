@@ -25,6 +25,10 @@ uint8_t Ore_2_flag;
 uint8_t clamp_flag;
 uint8_t AJX_flag;
 uint8_t arm_restart_flag;
+uint8_t last_move_mode;
+uint8_t last_arm_mode;
+extern uint8_t restart_flag;
+uint8_t time_cnt;
 
 void data_solve(uint8_t *usart_buffer,uint8_t *rx_buffer);
 static int UART_Receive_DMA_No_IT(UART_HandleTypeDef* huart, uint8_t* pData, uint32_t Size);
@@ -47,6 +51,19 @@ void usart_communicate_task(void const * argument)
 		memcpy(tx_buffer,&imu_send_msg, 8);
 
 		HAL_UART_Transmit_DMA(&huart6,tx_buffer,8);
+        
+        if((last_arm_mode != arm_mode) || (last_move_mode != move_mode))
+        {
+            restart_flag = 1;
+        }
+        else
+        {
+            restart_flag = 0;
+        }
+        
+        last_arm_mode = arm_mode;
+        last_move_mode = move_mode;
+        
 		osDelay(2);		
 	}
 }

@@ -159,6 +159,7 @@ void arm_set_mode(arm_t *arm_set_mode)
 		arm_set_mode->chassis_last_mode = arm_set_mode->chassis_mode;	
 		arm_set_mode->chassis_mode = board_message.chassis_mode;	
 		arm_set_mode->suker_mode = board_message.suker_mode;
+    	arm_set_mode->move_mode = board_message.move_mode;
 		//根据底盘标志位更新1-3508和5&6-2006标志位
 		if(arm_set_mode->chassis_mode == 0)
 		{
@@ -254,11 +255,11 @@ void arm_feedback_update(arm_t *arm_feedback)
 				}
 				else
 				{
-					TD_set_r(&arm_feedback->arm_2_TD,2.0f);
-					TD_set_r(&arm_feedback->arm_3_TD,2.0f);
-					TD_set_r(&arm_feedback->arm_4_TD,2.0f);
-					TD_set_r(&arm_feedback->arm_5_TD,2.0f);
-					TD_set_r(&arm_feedback->arm_6_TD,2.0f);
+					TD_set_r(&arm_feedback->arm_2_TD,5.0f);
+					TD_set_r(&arm_feedback->arm_3_TD,5.0f);
+					TD_set_r(&arm_feedback->arm_4_TD,5.0f);
+					TD_set_r(&arm_feedback->arm_5_TD,5.0f);
+					TD_set_r(&arm_feedback->arm_6_TD,5.0f);
 				}
 		}
 		else if((arm_feedback->arm_mode == 0 || arm_feedback->arm_mode == 2 )&& arm_feedback->suker_mode == 1)
@@ -333,28 +334,28 @@ void arm_set_control(arm_t *arm_set_control)
 				TD_set_x(&arm_set_control->arm_5_TD,arm_set_control->roll_angle);
 				TD_set_x(&arm_set_control->arm_6_TD,joint6_position);					
 		}
-		else 
+		else
 		{
 				//锥齿轮的处理
 				TD_calc(&arm_set_control->arm_5_TD, board_message.target_position[4]);
 				TD_calc(&arm_set_control->arm_6_TD, joint6_position);
 				arm_set_control->roll_angle_set = arm_set_control->arm_5_TD.x;
 				arm_set_control->yaw_angle_set = arm_set_control->arm_6_TD.x;
-		}	
-		
-		if(arm_set_control->arm_mode == 2)
-		{
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_1,2000);//500-2000
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_2,2000);//500-2000
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_3,2000);//500-2000
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_4,2000);//500-2000
 		}
-		else
+		
+		if(arm_set_control -> move_mode == 4)
 		{
 			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_1,1500);//500-2000
 			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_2,1500);//500-2000
 			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_3,1500);//500-2000
 			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_4,1500);//500-2000
+		}
+		else
+		{
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_1,2000);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_2,2000);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_3,2000);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_4,2000);//500-2000
 		}
 }
 

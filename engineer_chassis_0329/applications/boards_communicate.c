@@ -124,8 +124,8 @@ void CAN_board_communicate_can_1(fp32 board_position_message[6],uint16_t mode, u
 			board_communicate_can1_send_data[4] = 0;
 			board_communicate_can1_send_data[5] = 0;
 		}
-		board_communicate_can1_send_data[6] = (suker_key_flag >> 8);
-		board_communicate_can1_send_data[7] = suker_key_flag;
+		board_communicate_can1_send_data[6] = (suker_key_flag << 8);
+		board_communicate_can1_send_data[7] = chassis.move_mode;
  
     HAL_CAN_AddTxMessage(&BROADS_CAN, &board_communicate_can1_tx_message, board_communicate_can1_send_data, &send_mail_box);
 }

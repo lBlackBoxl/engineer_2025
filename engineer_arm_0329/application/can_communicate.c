@@ -148,7 +148,8 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 							board_message.target_position[5] = uint_to_float(board_message_temp.target_position[5], -6.2831852f, 6.2831852f, 16);
 							board_message.chassis_mode = board_message_temp.mode >> 8 & 0x00FF;
 							board_message.arm_mode = board_message_temp.mode & 0x00FF;
-							board_message.suker_mode = board_message_temp.suker_mode;
+							board_message.suker_mode = board_message_temp.suker_mode >> 8;
+							board_message.move_mode = (board_message_temp.suker_mode & 0x00ff);
 					}
 				}
 		}

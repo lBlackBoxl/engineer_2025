@@ -829,15 +829,14 @@ ARM Macro Assembler    Page 13
   422 0000001C                 END
               00000000 
               00000000 
-Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
-erwork --depend=.\rm_gimbal\startup_stm32f407xx.d -o.\rm_gimbal\startup_stm32f4
-07xx.o -I../Core/Inc -I.\RTE\_RM_Gimbal -I"C:\~Terminal's SSD~\software data\MD
-K Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include" -I"C:\~Terminal's SSD~\software dat
-a\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include
-" -I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Devi
-ce\Include" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA
- 528" --predefine="_RTE_ SETA 1" --predefine="STM32F407xx SETA 1" --list=startu
-p_stm32f407xx.lst startup_stm32f407xx.s
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
+interwork --depend=.\rm_gimbal\startup_stm32f407xx.d -o.\rm_gimbal\startup_stm3
+2f407xx.o -I../Core/Inc -I.\RTE\_RM_Gimbal -IG:\keil\KeilMDK\packs\ARM\CMSIS\5.
+7.0\CMSIS\Core\Include -IG:\keil\KeilMDK\packs\Keil\STM32F4xx_DFP\2.16.0\Driver
+s\CMSIS\Device\ST\STM32F4xx\Include -IG:\keil\KeilMDK\packs\Keil\STM32F4xx_DFP\
+2.16.0\Device\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VE
+RSION SETA 531" --predefine="_RTE_ SETA 1" --predefine="STM32F407xx SETA 1" --p
+redefine="_RTE_ SETA 1" --list=startup_stm32f407xx.lst startup_stm32f407xx.s
 
 
 

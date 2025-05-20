@@ -3,7 +3,7 @@
 <title>Static Call Graph - [engineer_chassis\engineer_chassis.elf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image engineer_chassis\engineer_chassis.elf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun May 18 22:19:22 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue May 20 21:23:26 2025
 <BR><P>
 <H3>Maximum Stack Usage =       2100 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -875,7 +875,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;board_communicate_task
 </UL>
 
-<P><STRONG><a name="[c4]"></a>CAN_board_communicate_can_1</STRONG> (Thumb, 172 bytes, Stack size 32 bytes, boards_communicate.o(i.CAN_board_communicate_can_1))
+<P><STRONG><a name="[c4]"></a>CAN_board_communicate_can_1</STRONG> (Thumb, 174 bytes, Stack size 32 bytes, boards_communicate.o(i.CAN_board_communicate_can_1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = CAN_board_communicate_can_1 &rArr; HAL_CAN_AddTxMessage
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_AddTxMessage
@@ -3018,9 +3018,11 @@ Global Symbols
 <P><STRONG><a name="[eb]"></a>loop_fp32_constrain</STRONG> (Thumb, 96 bytes, Stack size 0 bytes, user_lib.o(i.loop_fp32_constrain))
 <BR><BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc_angle
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate_Angle
+<LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_set_mode
 <LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_set_contorl
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo0MsgPendingCallback
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
+<LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_loop
 </UL>
 
 <P><STRONG><a name="[9b]"></a>main</STRONG> (Thumb, 94 bytes, Stack size 0 bytes, main.o(i.main))
@@ -3899,7 +3901,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[1db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_set
 </UL>
 
-<P><STRONG><a name="[1d2]"></a>arm_control_init</STRONG> (Thumb, 1834 bytes, Stack size 1976 bytes, arm_control_task.o(i.arm_control_init))
+<P><STRONG><a name="[1d2]"></a>arm_control_init</STRONG> (Thumb, 1904 bytes, Stack size 1976 bytes, arm_control_task.o(i.arm_control_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 2028<LI>Call Chain = arm_control_init &rArr; CAN_cmd_4310_disable &rArr; HAL_CAN_AddTxMessage
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -3923,10 +3925,11 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
 
-<P><STRONG><a name="[1da]"></a>arm_control_loop</STRONG> (Thumb, 1974 bytes, Stack size 32 bytes, arm_control_task.o(i.arm_control_loop))
+<P><STRONG><a name="[1da]"></a>arm_control_loop</STRONG> (Thumb, 2518 bytes, Stack size 32 bytes, arm_control_task.o(i.arm_control_loop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 592<LI>Call Chain = arm_control_loop &rArr; MoveL &rArr; SolveIK &rArr; RotMatToQua &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display
 </UL>
-<BR>[Calls]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
+<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
+<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
@@ -4008,7 +4011,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
 </UL>
 
-<P><STRONG><a name="[1f0]"></a>chassis_set_contorl</STRONG> (Thumb, 1182 bytes, Stack size 88 bytes, chassis_task.o(i.chassis_set_contorl))
+<P><STRONG><a name="[1f0]"></a>chassis_set_contorl</STRONG> (Thumb, 1192 bytes, Stack size 88 bytes, chassis_task.o(i.chassis_set_contorl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 376<LI>Call Chain = chassis_set_contorl &rArr; TD_calc_angle &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -4026,10 +4029,11 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
 </UL>
 
-<P><STRONG><a name="[1f2]"></a>chassis_set_mode</STRONG> (Thumb, 528 bytes, Stack size 32 bytes, chassis_task.o(i.chassis_set_mode))
+<P><STRONG><a name="[1f2]"></a>chassis_set_mode</STRONG> (Thumb, 572 bytes, Stack size 32 bytes, chassis_task.o(i.chassis_set_mode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = chassis_set_mode &rArr; __aeabi_cdcmple
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
+<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
 </UL>

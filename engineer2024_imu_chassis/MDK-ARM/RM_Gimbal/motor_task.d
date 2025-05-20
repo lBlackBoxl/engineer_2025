@@ -1,7 +1,7 @@
 .\rm_gimbal\motor_task.o: ..\application\motor_task.c
 .\rm_gimbal\motor_task.o: ..\application\motor_task.h
 .\rm_gimbal\motor_task.o: ../components/algorithm/user_lib.h
-.\rm_gimbal\motor_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\rm_gimbal\motor_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\rm_gimbal\motor_task.o: ../Core/Inc/main.h
 .\rm_gimbal\motor_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 .\rm_gimbal\motor_task.o: ../Core/Inc/stm32f4xx_hal_conf.h
@@ -17,7 +17,7 @@
 .\rm_gimbal\motor_task.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 .\rm_gimbal\motor_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 .\rm_gimbal\motor_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-.\rm_gimbal\motor_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
+.\rm_gimbal\motor_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\rm_gimbal\motor_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 .\rm_gimbal\motor_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 .\rm_gimbal\motor_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h

@@ -9,7 +9,7 @@
 #define REF_HEADER_CRC_LEN                  (REF_PROTOCOL_HEADER_SIZE + REF_PROTOCOL_CRC16_SIZE)
 #define REF_HEADER_CRC_CMDID_LEN            (REF_PROTOCOL_HEADER_SIZE + REF_PROTOCOL_CRC16_SIZE + sizeof(uint16_t))
 #define REF_HEADER_CMDID_LEN                (REF_PROTOCOL_HEADER_SIZE + sizeof(uint16_t))
-#define JUDGE_HUART        					huart6
+#define JUDGE_HUART        					huart1
 #pragma pack(push, 1)
 typedef  struct
 {

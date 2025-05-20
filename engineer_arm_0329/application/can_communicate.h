@@ -51,6 +51,7 @@ typedef struct
 	uint16_t suker_mode;
 	uint16_t chassis_mode;
 	uint16_t arm_mode;
+	uint16_t move_mode;
 }board_communicate;
 
 extern void CAN_cmd_2006(int16_t motor_2006_current_1, int16_t motor_2006_current_2);

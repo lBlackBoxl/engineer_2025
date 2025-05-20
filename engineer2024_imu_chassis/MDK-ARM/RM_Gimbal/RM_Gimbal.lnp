@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp
+--cpu=Cortex-M4.fp.sp
 ".\rm_gimbal\startup_stm32f407xx.o"
 ".\rm_gimbal\main.o"
 ".\rm_gimbal\gpio.o"
