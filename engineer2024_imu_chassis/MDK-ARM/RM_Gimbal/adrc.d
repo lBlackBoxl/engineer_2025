@@ -1,9 +1,9 @@
 .\rm_gimbal\adrc.o: ..\components\controller\adrc.c
 .\rm_gimbal\adrc.o: ..\components\controller\adrc.h
 .\rm_gimbal\adrc.o: ../bsp/struct_typedef.h
-.\rm_gimbal\adrc.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\rm_gimbal\adrc.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\math.h
 .\rm_gimbal\adrc.o: ../components/algorithm/user_lib.h
-.\rm_gimbal\adrc.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rm_gimbal\adrc.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\rm_gimbal\adrc.o: ../Core/Inc/main.h
 .\rm_gimbal\adrc.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 .\rm_gimbal\adrc.o: ../Core/Inc/stm32f4xx_hal_conf.h
@@ -19,7 +19,7 @@
 .\rm_gimbal\adrc.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 .\rm_gimbal\adrc.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 .\rm_gimbal\adrc.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-.\rm_gimbal\adrc.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\rm_gimbal\adrc.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
 .\rm_gimbal\adrc.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 .\rm_gimbal\adrc.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 .\rm_gimbal\adrc.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h

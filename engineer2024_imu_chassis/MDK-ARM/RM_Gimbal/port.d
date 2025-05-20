@@ -1,7 +1,7 @@
 .\rm_gimbal\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c
 .\rm_gimbal\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-.\rm_gimbal\port.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\rm_gimbal\port.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rm_gimbal\port.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
+.\rm_gimbal\port.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\rm_gimbal\port.o: ../Core/Inc/FreeRTOSConfig.h
 .\rm_gimbal\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 .\rm_gimbal\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

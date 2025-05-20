@@ -1,8 +1,8 @@
 .\rm_gimbal\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
-.\rm_gimbal\stream_buffer.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\rm_gimbal\stream_buffer.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\rm_gimbal\stream_buffer.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\rm_gimbal\stream_buffer.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\string.h
 .\rm_gimbal\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-.\rm_gimbal\stream_buffer.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\rm_gimbal\stream_buffer.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
 .\rm_gimbal\stream_buffer.o: ../Core/Inc/FreeRTOSConfig.h
 .\rm_gimbal\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 .\rm_gimbal\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

@@ -27,6 +27,7 @@ uint8_t AJX_flag;
 uint8_t arm_restart_flag;
 uint8_t last_move_mode;
 uint8_t last_arm_mode;
+uint8_t last_clamp_flag;
 extern uint8_t restart_flag;
 uint8_t time_cnt;
 
@@ -40,6 +41,7 @@ void usart_communicate_task(void const * argument)
     //陀螺仪数据指针获取
   gimbal_INT_angle_point = get_angle_data_point();
 	USART6_IDLE_Enable();
+	time_cnt = 0;
 	
 	while(1)
 	{
@@ -51,18 +53,6 @@ void usart_communicate_task(void const * argument)
 		memcpy(tx_buffer,&imu_send_msg, 8);
 
 		HAL_UART_Transmit_DMA(&huart6,tx_buffer,8);
-        
-        if((last_arm_mode != arm_mode) || (last_move_mode != move_mode))
-        {
-            restart_flag = 1;
-        }
-        else
-        {
-            restart_flag = 0;
-        }
-        
-        last_arm_mode = arm_mode;
-        last_move_mode = move_mode;
         
 		osDelay(2);		
 	}

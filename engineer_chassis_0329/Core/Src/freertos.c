@@ -144,7 +144,7 @@ void MX_FREERTOS_Init(void) {
 //	osThreadDef(pcinfo, pc_info_task, osPriorityNormal, 0, 128);
 //	pcinfoHandle = osThreadCreate(osThread(pcinfo), NULL);
 	
-	osThreadDef(ArmControlTask, arm_control_task, osPriorityNormal, 0, 1024);
+	osThreadDef(ArmControlTask, arm_control_task, osPriorityNormal, 0, 2048);
 	uiTaskHandle = osThreadCreate(osThread(ArmControlTask), NULL);
 	
 	osThreadDef(RefereeusartTask, referee_usart_task, osPriorityNormal, 0, 128);

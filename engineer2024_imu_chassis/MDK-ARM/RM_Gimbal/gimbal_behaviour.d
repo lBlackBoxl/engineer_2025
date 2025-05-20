@@ -3,8 +3,8 @@
 .\rm_gimbal\gimbal_behaviour.o: ../bsp/struct_typedef.h
 .\rm_gimbal\gimbal_behaviour.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\rm_gimbal\gimbal_behaviour.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-.\rm_gimbal\gimbal_behaviour.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\rm_gimbal\gimbal_behaviour.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rm_gimbal\gimbal_behaviour.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
+.\rm_gimbal\gimbal_behaviour.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\rm_gimbal\gimbal_behaviour.o: ../Core/Inc/FreeRTOSConfig.h
 .\rm_gimbal\gimbal_behaviour.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 .\rm_gimbal\gimbal_behaviour.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -55,8 +55,8 @@
 .\rm_gimbal\gimbal_behaviour.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\rm_gimbal\gimbal_behaviour.o: ../components/algorithm/Include/arm_math.h
 .\rm_gimbal\gimbal_behaviour.o: ../Drivers/CMSIS/Include/core_cm4.h
-.\rm_gimbal\gimbal_behaviour.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\rm_gimbal\gimbal_behaviour.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\rm_gimbal\gimbal_behaviour.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\string.h
+.\rm_gimbal\gimbal_behaviour.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\math.h
 .\rm_gimbal\gimbal_behaviour.o: ../components/devices/laser.h
 .\rm_gimbal\gimbal_behaviour.o: ..\application\pc_task.h
 .\rm_gimbal\gimbal_behaviour.o: ../Core/Inc/usart.h
@@ -68,6 +68,6 @@
 .\rm_gimbal\gimbal_behaviour.o: ../components/controller/adrc.h
 .\rm_gimbal\gimbal_behaviour.o: ../components/controller/pid.h
 .\rm_gimbal\gimbal_behaviour.o: ../components/algorithm/kalman_filter.h
-.\rm_gimbal\gimbal_behaviour.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\rm_gimbal\gimbal_behaviour.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdlib.h
 .\rm_gimbal\gimbal_behaviour.o: ../components/controller/controller.h
 .\rm_gimbal\gimbal_behaviour.o: ../bsp/bsp_dwt.h

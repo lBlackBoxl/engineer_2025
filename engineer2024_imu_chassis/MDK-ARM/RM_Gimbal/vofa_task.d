@@ -3,8 +3,8 @@
 .\rm_gimbal\vofa_task.o: ../bsp/struct_typedef.h
 .\rm_gimbal\vofa_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 .\rm_gimbal\vofa_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-.\rm_gimbal\vofa_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\rm_gimbal\vofa_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rm_gimbal\vofa_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
+.\rm_gimbal\vofa_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\rm_gimbal\vofa_task.o: ../Core/Inc/FreeRTOSConfig.h
 .\rm_gimbal\vofa_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 .\rm_gimbal\vofa_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -59,12 +59,12 @@
 .\rm_gimbal\vofa_task.o: ../Core/Inc/can.h
 .\rm_gimbal\vofa_task.o: ../components/algorithm/Include/arm_math.h
 .\rm_gimbal\vofa_task.o: ../Drivers/CMSIS/Include/core_cm4.h
-.\rm_gimbal\vofa_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\rm_gimbal\vofa_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\rm_gimbal\vofa_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\string.h
+.\rm_gimbal\vofa_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\math.h
 .\rm_gimbal\vofa_task.o: ../components/controller/adrc.h
 .\rm_gimbal\vofa_task.o: ../components/controller/pid.h
 .\rm_gimbal\vofa_task.o: ../components/algorithm/kalman_filter.h
-.\rm_gimbal\vofa_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\rm_gimbal\vofa_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdlib.h
 .\rm_gimbal\vofa_task.o: ../components/controller/TD.h
 .\rm_gimbal\vofa_task.o: ../components/controller/controller.h
 .\rm_gimbal\vofa_task.o: ../bsp/bsp_dwt.h

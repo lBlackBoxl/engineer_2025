@@ -1,6 +1,6 @@
 .\rm_gimbal\ins_task.o: ..\application\ins_task.c
 .\rm_gimbal\ins_task.o: ..\application\ins_task.h
-.\rm_gimbal\ins_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rm_gimbal\ins_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\rm_gimbal\ins_task.o: ../components/devices/BMI088driver.h
 .\rm_gimbal\ins_task.o: ../bsp/struct_typedef.h
 .\rm_gimbal\ins_task.o: ../Core/Inc/spi.h
@@ -19,7 +19,7 @@
 .\rm_gimbal\ins_task.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 .\rm_gimbal\ins_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 .\rm_gimbal\ins_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-.\rm_gimbal\ins_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\rm_gimbal\ins_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
 .\rm_gimbal\ins_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 .\rm_gimbal\ins_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 .\rm_gimbal\ins_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
@@ -43,9 +43,9 @@
 .\rm_gimbal\ins_task.o: ../components/algorithm/kalman_filter.h
 .\rm_gimbal\ins_task.o: ../components/algorithm/Include/arm_math.h
 .\rm_gimbal\ins_task.o: ../Drivers/CMSIS/Include/core_cm4.h
-.\rm_gimbal\ins_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\rm_gimbal\ins_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-.\rm_gimbal\ins_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\rm_gimbal\ins_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\string.h
+.\rm_gimbal\ins_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\math.h
+.\rm_gimbal\ins_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdlib.h
 .\rm_gimbal\ins_task.o: ../components/controller/controller.h
 .\rm_gimbal\ins_task.o: ../bsp/bsp_dwt.h
 .\rm_gimbal\ins_task.o: ../components/algorithm/user_lib.h
@@ -67,4 +67,4 @@
 .\rm_gimbal\ins_task.o: ..\application\motor_task.h
 .\rm_gimbal\ins_task.o: ..\application\CAN_receive.h
 .\rm_gimbal\ins_task.o: ..\components\algorithm\kinematic\6dof_kinematic.h
-.\rm_gimbal\ins_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\rm_gimbal\ins_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdbool.h

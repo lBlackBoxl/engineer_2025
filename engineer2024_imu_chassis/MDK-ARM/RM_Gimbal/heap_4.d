@@ -1,8 +1,8 @@
 .\rm_gimbal\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
-.\rm_gimbal\heap_4.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\rm_gimbal\heap_4.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdlib.h
 .\rm_gimbal\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-.\rm_gimbal\heap_4.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\rm_gimbal\heap_4.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rm_gimbal\heap_4.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
+.\rm_gimbal\heap_4.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\rm_gimbal\heap_4.o: ../Core/Inc/FreeRTOSConfig.h
 .\rm_gimbal\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 .\rm_gimbal\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

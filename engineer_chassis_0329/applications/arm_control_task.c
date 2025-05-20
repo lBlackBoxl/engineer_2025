@@ -100,7 +100,8 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	key_init(&arm_control_key_init->capture_key, Z);
 	key_init(&arm_control_key_init->suker_key, R);
 	key_init(&arm_control_key_init->ajx_on_key, F);
-	key_init(&arm_control_key_init->self_control_rotate_key,CTRL);
+	key_init(&arm_control_key_init->self_control_rotate1_key,SHIFT);
+	key_init(&arm_control_key_init->self_control_rotate2_key,CTRL);
 	// 各关节角度限制
 	R_6D_ctrl->Joint[0].angleLimitMax = +2.90f;
 	R_6D_ctrl->Joint[0].angleLimitMin = -2.85f;
@@ -328,7 +329,8 @@ void arm_control_key_check(all_key_t *arm_cnotrol_key_check)
 	}
 	else if(chassis.arm_mode == SELF_CONTROL_MODE)
 	{
-			key_itself_press_num(&(arm_cnotrol_key_check->self_control_rotate_key),2);		
+			key_itself_press_num(&(arm_cnotrol_key_check->self_control_rotate1_key),2);		
+			key_itself_press_num(&(arm_cnotrol_key_check->self_control_rotate2_key),2);
 	}
 	key_itself_press_num(&(arm_cnotrol_key_check->suker_key), 2);
 	key_itself_press_num(&(arm_cnotrol_key_check->ajx_on_key), 2);
@@ -688,15 +690,14 @@ void MoveL(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_set, al
 			arm_target_position[3] = R_6D_ctrl->output_solvers_IK.theta[indexConfig][3];
 			arm_target_position[4] = (R_6D_ctrl->output_solvers_IK.theta[indexConfig][4] + 1.80f);
 			arm_target_position[5] = -(R_6D_ctrl->output_solvers_IK.theta[indexConfig][5]);
-			if(arm_key->self_control_rotate_key.itself.mode == 0)
+			if(arm_key->self_control_rotate1_key.itself.mode != arm_key->self_control_rotate1_key.itself.last_mode)
 			{
-					arm_target_position[5] 	=		-R_6D_ctrl->output_solvers_IK.theta[indexConfig][5];
+					arm_target_position[5]   =  	 rad_format(-(R_6D_ctrl->output_solvers_IK.theta[indexConfig][5]) + PI/2);//rad_format(R_6D_ctrl->Joint_Final[4] + PI);		
 			}
-			else
+			else if(arm_key->self_control_rotate2_key.itself.mode != arm_key->self_control_rotate2_key.itself.last_mode)
 			{
-					arm_target_position[5]   =  	 rad_format(-R_6D_ctrl->output_solvers_IK.theta[indexConfig][5] + PI);//rad_format(R_6D_ctrl->Joint_Final[4] + PI);								
-			}			
-			
+					arm_target_position[5]   = 		 rad_format(-(R_6D_ctrl->output_solvers_IK.theta[indexConfig][5]) - PI/2);
+			}
 		}
 		else
 		{

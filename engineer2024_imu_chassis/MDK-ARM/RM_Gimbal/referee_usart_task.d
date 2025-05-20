@@ -8,7 +8,7 @@
 .\rm_gimbal\referee_usart_task.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 .\rm_gimbal\referee_usart_task.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
 .\rm_gimbal\referee_usart_task.o: ../Drivers/CMSIS/Include/core_cm4.h
-.\rm_gimbal\referee_usart_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rm_gimbal\referee_usart_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\rm_gimbal\referee_usart_task.o: ../Drivers/CMSIS/Include/cmsis_version.h
 .\rm_gimbal\referee_usart_task.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 .\rm_gimbal\referee_usart_task.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -16,7 +16,7 @@
 .\rm_gimbal\referee_usart_task.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 .\rm_gimbal\referee_usart_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 .\rm_gimbal\referee_usart_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-.\rm_gimbal\referee_usart_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\rm_gimbal\referee_usart_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
 .\rm_gimbal\referee_usart_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 .\rm_gimbal\referee_usart_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 .\rm_gimbal\referee_usart_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
@@ -53,8 +53,8 @@
 .\rm_gimbal\referee_usart_task.o: ../bsp/bsp_usart.h
 .\rm_gimbal\referee_usart_task.o: ../bsp/struct_typedef.h
 .\rm_gimbal\referee_usart_task.o: ../components/support/fifo.h
-.\rm_gimbal\referee_usart_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\rm_gimbal\referee_usart_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\rm_gimbal\referee_usart_task.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\rm_gimbal\referee_usart_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\rm_gimbal\referee_usart_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\string.h
+.\rm_gimbal\referee_usart_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdlib.h
 .\rm_gimbal\referee_usart_task.o: ../components/algorithm/protocol.h
 .\rm_gimbal\referee_usart_task.o: ..\application\referee.h
