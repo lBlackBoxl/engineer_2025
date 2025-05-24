@@ -25,6 +25,7 @@ uint8_t Ore_2_flag;
 uint8_t clamp_flag;
 uint8_t AJX_flag;
 uint8_t arm_restart_flag;
+uint8_t arm_error_flag;
 uint8_t last_move_mode;
 uint8_t last_arm_mode;
 uint8_t last_clamp_flag;
@@ -117,6 +118,7 @@ void data_solve(uint8_t *usart_buffer,uint8_t *rx_buffer)
 	clamp_flag = rx_buffer[7];
 	AJX_flag = rx_buffer[8];
 	arm_restart_flag = rx_buffer[9];
+	arm_error_flag = rx_buffer[10];
 }
 
 static int UART_Receive_DMA_No_IT(UART_HandleTypeDef* huart, uint8_t* pData, uint32_t Size)

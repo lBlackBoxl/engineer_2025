@@ -12,6 +12,7 @@ extern CAN_HandleTypeDef hcan2;
 
 extern bool_t  clamp_flag;
 extern uint8_t AJX_flag;
+extern uint8_t error_flag;
 
 uint8_t USART6_TX_Buffer[20];
 
@@ -68,11 +69,12 @@ void TX_init(void)
 	USART6_TX_Buffer[2] = chassis.arm_mode;
 	USART6_TX_Buffer[3] = chassis.move_mode;
 	USART6_TX_Buffer[4] = suker_key_flag;
-	USART6_TX_Buffer[5] = HAL_GPIO_ReadPin(GPIOF,GPIO_PIN_0);
-	USART6_TX_Buffer[6] = HAL_GPIO_ReadPin(GPIOF,GPIO_PIN_1);
+	USART6_TX_Buffer[5] = HAL_GPIO_ReadPin(Ore_1_GPIO_Port,Ore_1_Pin);
+	USART6_TX_Buffer[6] = HAL_GPIO_ReadPin(Ore_2_GPIO_Port,Ore_2_Pin);
 	USART6_TX_Buffer[7] = clamp_flag;
 	USART6_TX_Buffer[8] = AJX_flag;
 	USART6_TX_Buffer[9] = arm_restart_flag;
+	USART6_TX_Buffer[10] = error_flag;
 	USART6_TX_Buffer[19] = 'e';
 }
 

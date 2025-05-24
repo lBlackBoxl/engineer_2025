@@ -43,4 +43,5 @@ extern uint8_t Ore_2_flag;
 extern uint8_t clamp_flag;
 extern uint8_t AJX_flag;
 extern uint8_t arm_restart_flag;
+extern uint8_t arm_error_flag;
 #endif

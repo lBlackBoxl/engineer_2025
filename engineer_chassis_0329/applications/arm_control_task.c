@@ -33,8 +33,11 @@ float32_t yaw_angle_set;
 fp32 arm_target_position[6];
 uint16_t time_flag[8][2][2];
 uint16_t time_cnt = 0;
+uint16_t arm_error_cnt = 0;
+uint8_t error_flag = 0;
 fp32 sc_allowance[2] = {0.0f, 0.0f};
 extern bool_t  clamp_flag;
+int Half_rod_cnt;
 
 void arm_control_task(void const *argument)
 {
@@ -216,48 +219,48 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	memcpy(arm_control.arm_move_routine.exchange2,exchange2_temp,sizeof(exchange2_temp));
 	memcpy(arm_control.arm_move_routine.flag_and_time[4], flag_and_time_5,sizeof(flag_and_time_5));
 	
-	fp32 Au1_temp[10][6] = {{0.564f, 2.21f, 2.05f, 0.0f, 1.39f, 0.0f},
-														{0.564f, 2.21f, 2.05f, 0.0f, 1.39f, 0.0f},
-														{0.564f, 2.05f, 1.95f, 0.0f, 1.95f, 0.0f},
-														{0.564f, 0.72f, 0.64f, 0.0f, 1.85f, 0.0f},
-														{-0.785f, 0.20f, 0.2f, 0.0f, 1.36f, 0.0f},
-														{-2.90f, 0.20f, 0.2f, -0.67f, 1.02f, 1.2f},
-														{-2.90f, 0.64f, 0.1f, -0.67f, 1.02f, 1.2f},
-														{-2.90f, 0.59f, 0.0f, -0.67f, 1.02f, 1.2f},
-														{-2.90f, 0.0f, 0.0f, -0.67f, 1.02f, 1.2f},
-														{0.764f, 0.52f, 0.2f, 0.0f, 1.80f, 0.0f},
-														};
-	uint16_t flag_and_time_6[10][2] = {{0,2000},{1,500},{1,2000},{1,50},{1,50},{1,50},{1,100},{0,500},{0,50},{0,500}};
+	fp32 Au1_temp[10][6] = {{0.564f, 2.28f, 2.05f, 0.0f, 1.32f, 0.0f},
+                            {0.564f, 2.28f, 2.05f, 0.0f, 1.32f, 0.0f},
+                            {0.564f, 2.12f, 1.95f, 0.0f, 1.98f, 0.0f},
+                            {0.564f, 0.72f, 0.64f, 0.0f, 1.85f, 0.0f},
+                            {-0.785f, 0.20f, 0.2f, 0.0f, 1.36f, 0.0f},
+                            {-2.90f, 0.20f, 0.2f, -0.67f, 1.02f, 1.2f},
+                            {-2.90f, 0.64f, 0.1f, -0.67f, 1.02f, 1.2f},
+                            {-2.90f, 0.64f, 0.1f, -0.67f, 1.02f, 1.2f},
+                            {-2.90f, 0.06f, 0.6f, -0.67f, 1.02f, 1.2f},
+                            {0.564f, 0.64f, 0.6f, 0.0f, 1.8f, 0.0f},
+                            };
+	uint16_t flag_and_time_6[10][2] = {{0,1500},{1,500},{1,2000},{1,50},{1,50},{1,50},{1,100},{0,500},{0,500},{0,100}};
 		
 	memcpy(arm_control.arm_move_routine.Au1,Au1_temp,sizeof(Au1_temp));	  
 	memcpy(arm_control.arm_move_routine.flag_and_time[5], flag_and_time_6,sizeof(flag_and_time_6));
 	
-	fp32 Au2_temp[10][6] = {	{0.564f, 2.21f, 2.05f, 0.0f, 1.39f, 0.0f},
-														{0.564f, 2.21f, 2.05f, 0.0f, 1.39f, 0.0f},
-														{0.564f, 2.05f, 1.95f, 0.0f, 1.95f, 0.0f},
-														{0.564f, 0.72f, 0.64f, 0.0f, 1.85f, 0.0f},
-														{-0.785f, 0.72f, 0.6f, 0.0f, 1.36f, 0.0f},
-														{-1.87f, 0.72f, 0.5f, -2.19f, 2.72f, -0.8f},
-														{-1.87f, 0.70f, 0.16f, -2.19f, 2.72f, -0.8f},
-														{-1.87f, 0.70f, 0.16f, -2.19f, 2.72f, -0.8f},
-														{-0.785f, 0.0f, 0.0f, 0.0f, 1.80f, 0.0f},
-														{0.564f, 0.72f, 0.5f, 0.0f, 1.80f, 0.0f},};          //复位  放下
+	fp32 Au2_temp[10][6] = {	{0.564f, 2.28f, 2.05f, 0.0f, 1.32f, 0.0f},
+                                {0.564f, 2.28f, 2.05f, 0.0f, 1.32f, 0.0f},
+                                {0.564f, 2.12f, 1.95f, 0.0f, 1.98f, 0.0f},
+                                {0.564f, 0.72f, 0.64f, 0.0f, 1.98f, 0.0f},
+                                {-0.785f, 0.72f, 0.6f, 0.0f, 1.36f, 0.0f},
+                                {-1.92f, 0.72f, 0.5f, -2.19f, 2.72f, -0.8f},
+                                {-1.92f, 0.70f, 0.16f, -2.19f, 2.72f, -0.8f},
+                                {-1.92f, 0.70f, 0.16f, -2.19f, 2.72f, -0.8f},
+                                {-0.785f, 0.70f, 0.0f, 0.0f, 1.80f, 0.0f},
+                                {0.564f, 0.72f, 0.5f, 0.0f, 1.80f, 0.0f},};          //复位  放下
 	
-	uint16_t flag_and_time_7[10][2] = {{0,2000},{1,500},{1,2000},{1,50},{1,50},{1,50},{1,100},{0,500},{0,50},{0,500}};
+	uint16_t flag_and_time_7[10][2] = {{0,1500},{1,500},{1,2000},{1,50},{1,50},{1,50},{1,100},{0,500},{0,50},{0,500}};
 	memcpy(arm_control.arm_move_routine.Au2,Au2_temp,sizeof(Au2_temp));	
 	memcpy(arm_control.arm_move_routine.flag_and_time[6], flag_and_time_7,sizeof(flag_and_time_7));
 	
-	fp32 Au3_temp[4][6] = {{0.564f, 2.21f, 2.05f, 0.0f, 1.39f, 0.0f},
-														{0.564f, 2.21f, 2.05f, 0.0f, 1.39f, 0.0f},
-														{0.564f, 2.05f, 1.95f, 0.0f, 1.95f, 0.0f},
-														{0.564f, 0.72f, 0.64f, 0.0f, 1.85f, 0.0f},   
+	fp32 Au3_temp[4][6] = {{0.564f, 2.28f, 2.05f, 0.0f, 1.32f, 0.0f},
+														{0.564f, 2.28f, 2.05f, 0.0f, 1.32f, 0.0f},
+														{0.564f, 2.12f, 1.95f, 0.0f, 1.98f, 0.0f},
+														{0.564f, 2.12f, 1.95f, 0.0f, 1.98f, 0.0f},   
 												};
 	
-	uint16_t flag_and_time_8[4][2] = {{0,200},{1,1000},{1,2000},{1,1000}};
+	uint16_t flag_and_time_8[4][2] = {{0,200},{1,1000},{1,300},{1,300}};
 	
 	memcpy(arm_control.arm_move_routine.Au3,Au3_temp,sizeof(Au3_temp));	
 	memcpy(arm_control.arm_move_routine.flag_and_time[7], flag_and_time_8,sizeof(flag_and_time_8));
-		
+	
 
 	// 机械臂复位位置
 	fp32 allowance[6] = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
@@ -265,7 +268,7 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	fp32 gou_dong[6] = {0.564f + allowance[0], 2.88f + allowance[1], 2.81f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]};
 	fp32 three_ore_position[6] = {0.564f + allowance[0], 0.72f + allowance[1], 0.5f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]};
 	fp32 pre_Au_reposition[6] = {0.564f + allowance[0], 0.72f + allowance[1], 0.5f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]};
-	fp32 Au_reposition[6] = {0.564f + allowance[0], 2.21f + allowance[1], 2.05f + allowance[2], 0.0f + allowance[3], 1.39f + allowance[4], 0.0f + allowance[5]};
+	fp32 Au_reposition[6] = {0.564f + allowance[0], 2.28f + allowance[1], 2.05f + allowance[2], 0.0f + allowance[3], 1.32f + allowance[4], 0.0f + allowance[5]};
 	fp32 Ag_reposition[6] = {0.564f + allowance[0], 0.72f + allowance[1], 0.5f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]};
 
 	memcpy(arm_control.repostion_position, repositon_position, sizeof(repositon_position));
@@ -317,6 +320,34 @@ void arm_feedback_update(arm_control_t *arm_control_position, Robotic_6DOF_contr
 		R_6D_ctrl->Pose6D_IK.Q[2] = q_multiply_result[2];
 		R_6D_ctrl->Pose6D_IK.Q[3] = q_multiply_result[3];
 
+	}
+	
+		if(arm_target_position[0] == arm_control_position->last_motor_position[0] ||
+		arm_target_position[1] == arm_control_position->last_motor_position[1] ||
+		arm_target_position[2] == arm_control_position->last_motor_position[2] ||
+		arm_target_position[3] == arm_control_position->last_motor_position[3] ||
+		arm_target_position[4] == arm_control_position->last_motor_position[4] ||
+		arm_target_position[5] == arm_control_position->last_motor_position[5])
+	{
+		arm_error_cnt ++;
+	}
+	else
+	{
+		arm_error_cnt = 0;
+	}
+	
+	if(arm_error_cnt > 800)
+	{
+		error_flag = 1;
+	}
+	else
+	{
+		error_flag = 0;
+	}
+	
+	for(int i = 0; i < 6; i++)
+	{
+		arm_control_position->last_motor_position[i] = arm_target_position[i];
 	}
 }
 
@@ -387,11 +418,11 @@ void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 		{
 			if (chassis.move_mode == Au)
 			{
-				if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_0) == 0)
+				if (HAL_GPIO_ReadPin(Ore_2_GPIO_Port, Ore_2_Pin) == 0)
 				{
 					arm_control_set->arm_move_flag = Au3;
 				}
-				else if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_1) == 0)
+				else if (HAL_GPIO_ReadPin(Ore_1_GPIO_Port, Ore_1_Pin) == 0)
 				{
 					arm_control_set->arm_move_flag = Au2;
 				}
@@ -402,11 +433,11 @@ void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 			}
 			else if (chassis.move_mode == Ag)
 			{
-				if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_0) == 0)
+				if (HAL_GPIO_ReadPin(Ore_2_GPIO_Port, Ore_2_Pin) == 0)
 				{
 					arm_control_set->arm_move_flag = Ag3;
 				}
-				else if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_1) == 0)
+				else if (HAL_GPIO_ReadPin(Ore_1_GPIO_Port, Ore_1_Pin) == 0)
 				{
 					arm_control_set->arm_move_flag = Ag2;
 				}
@@ -417,11 +448,11 @@ void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 			}
 			else
 			{
-				if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_0) == 0)
+				if (HAL_GPIO_ReadPin(Ore_2_GPIO_Port, Ore_2_Pin) == 0)
 				{
 					arm_control_set->arm_move_flag = Ag3;
 				}
-				else if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_1) == 0)
+				else if (HAL_GPIO_ReadPin(Ore_1_GPIO_Port, Ore_1_Pin) == 0)
 				{
 					arm_control_set->arm_move_flag = Ag2;
 				}
@@ -444,7 +475,7 @@ void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 			arm_control_set->arm_position_flag = 0;
 			if (arm_control_set->arm_move_flag == NORMAL_POSITION)
 			{
-				if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_0) == 0)
+				if (HAL_GPIO_ReadPin(Ore_2_GPIO_Port, Ore_2_Pin) == 0)
 				{
 					arm_control_set->arm_move_flag = EXCHANGE1;
 				}
@@ -482,7 +513,7 @@ void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 			// 连续一键
 			if (arm_control_set->arm_move_flag == Ag1)
 			{
-				if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_1) == 0)
+				if (HAL_GPIO_ReadPin(Ore_1_GPIO_Port, Ore_1_Pin) == 0)
 				{
 					arm_control_set->arm_move_flag = Ag2;
 					arm_control_set->arm_position_flag = 0;
@@ -494,7 +525,7 @@ void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 			}
 			else if (arm_control_set->arm_move_flag == Ag2)
 			{
-				if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_0) == 0)
+				if (HAL_GPIO_ReadPin(Ore_2_GPIO_Port, Ore_2_Pin) == 0)
 				{
 					arm_control_set->arm_move_flag = NORMAL_POSITION;
 					arm_control_set->arm_position_flag = 0;
@@ -521,7 +552,7 @@ void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 			}
 			else if (arm_control_set->arm_move_flag == Au1)
 			{
-				if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_1) == 0)
+				if (HAL_GPIO_ReadPin(Ore_1_GPIO_Port, Ore_1_Pin) == 0)
 				{
 					arm_control_set->arm_move_flag = Au2;
 					arm_control_set->arm_position_flag = 0;
@@ -533,7 +564,7 @@ void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 			}
 			else if (arm_control_set->arm_move_flag == Au2)
 			{
-				if (HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_0) == 0)
+				if (HAL_GPIO_ReadPin(Ore_2_GPIO_Port, Ore_2_Pin) == 0)
 				{
 					arm_control_set->arm_move_flag = Au3;
 					arm_control_set->arm_position_flag = 0;
@@ -690,14 +721,6 @@ void MoveL(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_control_set, al
 			arm_target_position[3] = R_6D_ctrl->output_solvers_IK.theta[indexConfig][3];
 			arm_target_position[4] = (R_6D_ctrl->output_solvers_IK.theta[indexConfig][4] + 1.80f);
 			arm_target_position[5] = -(R_6D_ctrl->output_solvers_IK.theta[indexConfig][5]);
-			if(arm_key->self_control_rotate1_key.itself.mode != arm_key->self_control_rotate1_key.itself.last_mode)
-			{
-					arm_target_position[5]   =  	 rad_format(-(R_6D_ctrl->output_solvers_IK.theta[indexConfig][5]) + PI/2);//rad_format(R_6D_ctrl->Joint_Final[4] + PI);		
-			}
-			else if(arm_key->self_control_rotate2_key.itself.mode != arm_key->self_control_rotate2_key.itself.last_mode)
-			{
-					arm_target_position[5]   = 		 rad_format(-(R_6D_ctrl->output_solvers_IK.theta[indexConfig][5]) - PI/2);
-			}
 		}
 		else
 		{
@@ -938,6 +961,15 @@ void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_cont
 		//					TD_calc(&R_6D_ctrl->Pose6D_IK_Z_TD,R_6D_ctrl->Pose6D_IK.Z);
 		//					R_6D_ctrl->Pose6D_IK.Z = R_6D_ctrl->Pose6D_IK_Z_TD.x;
 		MoveL(R_6D_ctrl, arm_control_loop, arm_key);
+			if(arm_key->self_control_rotate1_key.itself.mode != arm_key->self_control_rotate1_key.itself.last_mode)
+			{
+					Half_rod_cnt ++;
+			}
+			else if(arm_key->self_control_rotate2_key.itself.mode != arm_key->self_control_rotate2_key.itself.last_mode)
+			{
+					Half_rod_cnt --;
+			}
+			arm_target_position[5] = rad_format(arm_target_position[5] + PI / 2 * Half_rod_cnt);
 	}
 	else if (chassis.arm_mode == NX_CONTROL_MODE)
 	{

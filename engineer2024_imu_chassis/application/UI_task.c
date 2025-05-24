@@ -159,7 +159,7 @@ void Draw_layer_0(UI_message_t *UI_message, UI_message_t *UI_message_float, uint
 	
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].operate_type = operate_type;
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_type = 0;
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].layer = 2;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].layer = 0;
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].width = 3;
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].color = 4;
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_x = 800;
@@ -168,19 +168,19 @@ void Draw_layer_0(UI_message_t *UI_message, UI_message_t *UI_message_float, uint
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_y = 360;
 	
 	//辅助线2
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[0] = 0;
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[1] = 0;
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[2] = 1;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].graphic_name[0] = 0;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].graphic_name[1] = 0;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].graphic_name[2] = 1;
 	
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].operate_type = operate_type;
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_type = 0;
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].layer = 2;
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].width = 3;
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].color = 4;
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_x = 1080;
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_y = 720;
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_x = 1220;
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_y = 360;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].operate_type = operate_type;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].graphic_type = 0;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].layer = 0;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].width = 3;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].color = 4;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].start_x = 1080;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].start_y = 720;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].end_x = 1220;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].end_y = 360;
 	
 	append_crc8_check_sum(&UI_message->graphic_five.FrameHead.sof,sizeof(UI_message->graphic_five.FrameHead));
 	append_crc16_check_sum(&UI_message->graphic_five.FrameHead.sof,sizeof(UI_message->graphic_five.FrameHead)
@@ -295,6 +295,13 @@ void Draw_layer_2(UI_message_t *UI_message, UI_message_t *UI_message_float, uint
 			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].color = 2;
 			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].color = 2;
 			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].color = 2;
+	}
+	else if(arm_error_flag == 1)
+	{
+			//异常显示橙色
+			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].color = 3;
+			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].color = 3;
+			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].color = 3;
 	}
 	else
 	{

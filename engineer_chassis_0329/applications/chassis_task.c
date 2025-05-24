@@ -51,6 +51,7 @@ uint8_t clamp_mode;
 int16_t clamp_reset_count;		
 int error_cnt;
 uint8_t error;
+extern int Half_rod_cnt;
 
 /**
   * @brief          底盘任务，间隔 CHASSIS_CONTROL_TIME_MS 2ms
@@ -83,6 +84,7 @@ void chassis_task(void const *pvParameters)
 						CAN_cmd_chassis(0, 0, 0, 0);
 						clamp_flag = 0;
 						error_cnt = 0; 
+						Half_rod_cnt = 0;
 //						CAN_cmd_chassis_clamp(0);
 				}
 				else if(chassis.chassis_mode == RUN_MODE)
@@ -406,6 +408,10 @@ void chassis_rc_to_control_vector(fp32 *vx_set, fp32 *vy_set, fp32 *vz_set, chas
 				{
 					vx_set_channel = -NORMAL_MAX_CHASSIS_SPEED_X/4;
 				}
+				else if(chassis_rc_to_vector->move_mode == GouDong)
+				{
+					vx_set_channel = -NORMAL_MAX_CHASSIS_SPEED_X/2;
+				}
 				else
 				{
 					vx_set_channel = -NORMAL_MAX_CHASSIS_SPEED_X;
@@ -420,6 +426,10 @@ void chassis_rc_to_control_vector(fp32 *vx_set, fp32 *vy_set, fp32 *vz_set, chas
 				else if(chassis_rc_to_vector->move_mode == Ag || chassis_rc_to_vector->move_mode == Au)
 				{
 					vx_set_channel = NORMAL_MAX_CHASSIS_SPEED_X/4;
+				}
+				else if(chassis_rc_to_vector->move_mode == GouDong)
+				{
+					vx_set_channel = NORMAL_MAX_CHASSIS_SPEED_X/2;
 				}
 				else
 				{
@@ -532,10 +542,10 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 //		{
 //				chassis_control->error_info = 1;
 //		}
-		if(chassis_control->error_info == 1)
-		{
-				chassis_control->chassis_mode = NO_POWER_MODE;
-		}
+//		if(chassis_control->error_info == 1)
+//		{
+//				chassis_control->chassis_mode = NO_POWER_MODE;
+//		}
 	
     if (chassis_control == NULL)
     {
@@ -560,33 +570,18 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 			chassis_control->wz_set = 0.0f;
 		}
 		//跑路模式
-		else if(chassis_control->chassis_mode == RUN_MODE)
+else if(chassis_control->chassis_mode == RUN_MODE)
 		{
 			switch(chassis_control->move_mode)
 			{	
 				case Home:
-				{		
-					chassis_control->yaw_angle_set = rad_format(chassis_control->yaw_angle_set + angle_set);
-					break;
-				}
 				case Au:
-				{
-					chassis_control->yaw_angle_set = rad_format(chassis_control->yaw_angle_set + angle_set);					
-					break;
-				}
 				case Ag:
-				{
-					chassis_control->yaw_angle_set = rad_format(chassis_control->yaw_angle_set + angle_set);
-					break;
-				}
 				case Exchange:
+				case GouDong:
+				case Wait:
 				{
 					chassis_control->yaw_angle_set = rad_format(chassis_control->yaw_angle_set + angle_set);
-					break;
-				}
-				case GouDong:
-				{
-					chassis_control->chassis_yaw_pid.Output = 0;
 					break;
 				}
 				default:
@@ -655,14 +650,7 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 				chassis_control->vx_set = fp32_constrain(chassis_control->vx_set, -SHIFT_NORMAL_MAX_CHASSIS_SPEED_X, SHIFT_NORMAL_MAX_CHASSIS_SPEED_X);
 			}
       chassis_control->vy_set = fp32_constrain(chassis_control->vy_set, -SHIFT_NORMAL_MAX_CHASSIS_SPEED_Y, SHIFT_NORMAL_MAX_CHASSIS_SPEED_Y);
-			if(chassis_control->move_mode == GouDong)
-			{
-				chassis_control->wz_set = angle_set * 500;
-			}
-			else
-			{
-				chassis_control->wz_set = chassis_control->chassis_yaw_pid.Output;
-			}
+			chassis_control->wz_set = chassis_control->chassis_yaw_pid.Output;
 		}
 		
 		//夹矿

@@ -940,6 +940,11 @@
               <FilePath>..\bsp\bsp_delay.c</FilePath>
             </File>
             <File>
+              <FileName>bsp_usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\bsp\bsp_usart.c</FilePath>
+            </File>
+            <File>
               <FileName>bsp_dwt.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\bsp\bsp_dwt.c</FilePath>
@@ -948,11 +953,6 @@
               <FileName>bsp_spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\bsp\bsp_spi.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_usart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\bsp\bsp_usart.c</FilePath>
             </File>
           </Files>
         </Group>

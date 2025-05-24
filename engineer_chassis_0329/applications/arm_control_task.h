@@ -55,7 +55,7 @@ typedef struct
 	fp32 motor_4_position;
 	fp32 motor_5_position;
 	fp32 motor_6_position;
-	
+	fp32 last_motor_position[6];
 	motor_DM_t motor_YAW_data;
 	
 	fp32 lift_adjustion;

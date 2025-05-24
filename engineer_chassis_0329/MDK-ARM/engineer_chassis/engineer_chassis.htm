@@ -3,7 +3,7 @@
 <title>Static Call Graph - [engineer_chassis\engineer_chassis.elf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image engineer_chassis\engineer_chassis.elf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed May 21 00:50:55 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri May 23 13:58:17 2025
 <BR><P>
 <H3>Maximum Stack Usage =       2100 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -127,7 +127,7 @@ Function Pointers
  <LI><a href="#[85]">UART_DMAError</a> from stm32f4xx_hal_uart.o(i.UART_DMAError) referenced from stm32f4xx_hal_uart.o(i.HAL_UART_Transmit_DMA)
  <LI><a href="#[83]">UART_DMATransmitCplt</a> from stm32f4xx_hal_uart.o(i.UART_DMATransmitCplt) referenced from stm32f4xx_hal_uart.o(i.HAL_UART_Transmit_DMA)
  <LI><a href="#[84]">UART_DMATxHalfCplt</a> from stm32f4xx_hal_uart.o(i.UART_DMATxHalfCplt) referenced from stm32f4xx_hal_uart.o(i.HAL_UART_Transmit_DMA)
- <LI><a href="#[4d]">USART1_IRQHandler</a> from stm32f4xx_it.o(i.USART1_IRQHandler) referenced from startup_stm32f427xx.o(RESET)
+ <LI><a href="#[4d]">USART1_IRQHandler</a> from startup_stm32f427xx.o(.text) referenced from startup_stm32f427xx.o(RESET)
  <LI><a href="#[4e]">USART2_IRQHandler</a> from referee_usart_task.o(i.USART2_IRQHandler) referenced from startup_stm32f427xx.o(RESET)
  <LI><a href="#[4f]">USART3_IRQHandler</a> from startup_stm32f427xx.o(.text) referenced from startup_stm32f427xx.o(RESET)
  <LI><a href="#[6f]">USART6_IRQHandler</a> from bsp_usart.o(i.USART6_IRQHandler) referenced from startup_stm32f427xx.o(RESET)
@@ -164,8 +164,8 @@ Function Pointers
 Global Symbols
 </H3>
 <P><STRONG><a name="[8e]"></a>__main</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))
-<BR><BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+<BR><BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 
 <P><STRONG><a name="[8f]"></a>__scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter))
@@ -260,8 +260,8 @@ Global Symbols
 <P><STRONG><a name="[26b]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
 
 <P><STRONG><a name="[90]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
-<BR><BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 </UL>
 
 <P><STRONG><a name="[26c]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
@@ -542,6 +542,9 @@ Global Symbols
 <P><STRONG><a name="[5d]"></a>UART5_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f427xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f427xx.o(RESET)
 </UL>
+<P><STRONG><a name="[4d]"></a>USART1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f427xx.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f427xx.o(RESET)
+</UL>
 <P><STRONG><a name="[4f]"></a>USART3_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f427xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f427xx.o(RESET)
 </UL>
@@ -579,8 +582,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Full
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLS_Init
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Joint6D_Init
+<BR>[Called By]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Joint6D_Init
+<LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLS_Init
 </UL>
 
 <P><STRONG><a name="[a5]"></a>free</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, h1_free.o(.text))
@@ -602,10 +605,10 @@ Global Symbols
 
 <P><STRONG><a name="[1d6]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nx_communicate_task
-<LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fifo_s_puts
 <LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;referee_data_solve
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_solve
 <LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_init
+<LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fifo_s_puts
 </UL>
 
 <P><STRONG><a name="[a6]"></a>__rt_memcpy</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text), UNUSED)
@@ -633,9 +636,9 @@ Global Symbols
 <P><STRONG><a name="[276]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
 
 <P><STRONG><a name="[16d]"></a>__aeabi_memclr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLS_Init
+<BR><BR>[Called By]<UL><LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_referee_struct_data
+<LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLS_Init
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLS_Derivative
-<LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_referee_struct_data
 </UL>
 
 <P><STRONG><a name="[a8]"></a>__rt_memclr</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
@@ -652,11 +655,11 @@ Global Symbols
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
 <LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Joint6D_Init
+<LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_init
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLS_Init
 <LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CDC_Init
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_MspInit
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Joint6D_Init
-<LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_init
 </UL>
 
 <P><STRONG><a name="[278]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
@@ -706,10 +709,10 @@ Global Symbols
 <P><STRONG><a name="[95]"></a>_init_alloc</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, init_alloc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = _init_alloc &rArr; __rt_SIGRTMEM &rArr; __rt_SIGRTMEM_inner &rArr; __default_signal_display
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Initialize
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
+<BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_ProvideMemory
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Initialize
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_heap_2
 </UL>
@@ -1019,9 +1022,9 @@ Global Symbols
 <LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN2_Init
 <LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN1_Init
 <LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nx_communicate_init
 <LI><a href="#[1b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_LL_Init
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_ResetCallback
-<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nx_communicate_init
 </UL>
 
 <P><STRONG><a name="[1e4]"></a>HAL_CAN_ActivateNotification</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, stm32f4xx_hal_can.o(i.HAL_CAN_ActivateNotification))
@@ -1563,9 +1566,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[125]"></a>HAL_RCC_GetHCLKFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_hal_rcc.o(i.HAL_RCC_GetHCLKFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_IRQHandler
-<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK2Freq
+<BR><BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK2Freq
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK1Freq
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_IRQHandler
 </UL>
 
 <P><STRONG><a name="[141]"></a>HAL_RCC_GetPCLK1Freq</STRONG> (Thumb, 22 bytes, Stack size 4 bytes, stm32f4xx_hal_rcc.o(i.HAL_RCC_GetPCLK1Freq))
@@ -1649,7 +1652,6 @@ Global Symbols
 <LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART6_IRQHandler
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART8_IRQHandler
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IRQHandler
 </UL>
@@ -1762,7 +1764,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[15c]"></a>MX_GPIO_Init</STRONG> (Thumb, 406 bytes, Stack size 32 bytes, gpio.o(i.MX_GPIO_Init))
+<P><STRONG><a name="[15c]"></a>MX_GPIO_Init</STRONG> (Thumb, 426 bytes, Stack size 32 bytes, gpio.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -1850,11 +1852,10 @@ Global Symbols
 <P><STRONG><a name="[21]"></a>MemManage_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.MemManage_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f427xx.o(RESET)
 </UL>
-<P><STRONG><a name="[16a]"></a>MoveL</STRONG> (Thumb, 880 bytes, Stack size 80 bytes, arm_control_task.o(i.MoveL))
+<P><STRONG><a name="[16a]"></a>MoveL</STRONG> (Thumb, 750 bytes, Stack size 80 bytes, arm_control_task.o(i.MoveL))
 <BR><BR>[Stack]<UL><LI>Max Depth = 560<LI>Call Chain = MoveL &rArr; SolveIK &rArr; RotMatToQua &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
-<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
+<BR>[Calls]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AbsMaxWithJoint4Priority
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_loop
@@ -1868,9 +1869,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_Derivative_On_Measurement
-<LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate_Angle
+<BR>[Called By]<UL><LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate_Angle
 <LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calculate
+<LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_Derivative_On_Measurement
 </UL>
 
 <P><STRONG><a name="[16e]"></a>OLS_Init</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, user_lib.o(i.OLS_Init))
@@ -1912,6 +1913,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = PID_Calculate_Angle &rArr; DWT_GetDeltaT &rArr; DWT_CNT_Update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_GetDeltaT
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLS_Derivative
 <LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_Trapezoid_Intergral
 <LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_Proportion_Limit
@@ -1922,7 +1924,6 @@ Global Symbols
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_Derivative_On_Measurement
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_Derivative_Filter
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_Changing_Integration_Rate
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_set_contorl
 </UL>
@@ -1951,9 +1952,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[18d]"></a>Sign</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, td.o(i.Sign))
-<BR><BR>[Called By]<UL><LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fsg
-<LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc_angle
+<BR><BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc_angle
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
+<LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fsg
 </UL>
 
 <P><STRONG><a name="[182]"></a>SolveFK</STRONG> (Thumb, 680 bytes, Stack size 104 bytes, 6dof_kinematic.o(i.SolveFK))
@@ -2033,9 +2034,9 @@ Global Symbols
 <P><STRONG><a name="[18f]"></a>TD_calc_angle</STRONG> (Thumb, 640 bytes, Stack size 104 bytes, td.o(i.TD_calc_angle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = TD_calc_angle &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fsg
+<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
+<LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fsg
 <LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sign
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
 <LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
@@ -2071,13 +2072,6 @@ Global Symbols
 </UL>
 <P><STRONG><a name="[7a]"></a>UART8_IRQHandler</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.UART8_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = UART8_IRQHandler &rArr; HAL_UART_IRQHandler &rArr; UART_Receive_IT
-</UL>
-<BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f427xx.o(RESET)
-</UL>
-<P><STRONG><a name="[4d]"></a>USART1_IRQHandler</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.USART1_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = USART1_IRQHandler &rArr; HAL_UART_IRQHandler &rArr; UART_Receive_IT
 </UL>
 <BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 </UL>
@@ -2766,8 +2760,8 @@ Global Symbols
 <LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan2
 <LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
-<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
+<BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
+<LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
 </UL>
 
 <P><STRONG><a name="[d1]"></a>__hardfp_cosf</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, 6dof_kinematic.o(i.__hardfp_cosf))
@@ -2775,23 +2769,23 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_cos_f32
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EulerAngleToRotMat
-<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
+<BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
 <LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveFK
+<LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EulerAngleToRotMat
 </UL>
 
 <P><STRONG><a name="[bd]"></a>__hardfp_fabs</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fabs.o(i.__hardfp_fabs))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __hardfp_fabs
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
-<LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc_angle
+<BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc_angle
 <LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_set_mode
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_control_loop
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AbsMaxWithJoint4Priority
 <LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_loop
 <LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_check_get_position
+<LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
 </UL>
 
 <P><STRONG><a name="[d2]"></a>__hardfp_sinf</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, 6dof_kinematic.o(i.__hardfp_sinf))
@@ -2799,9 +2793,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_sin_f32
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EulerAngleToRotMat
-<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
+<BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveIK
 <LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveFK
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EulerAngleToRotMat
 </UL>
 
 <P><STRONG><a name="[181]"></a>__hardfp_sqrt</STRONG> (Thumb, 122 bytes, Stack size 32 bytes, sqrt_full.o(i.__hardfp_sqrt))
@@ -2810,9 +2804,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToQua
-<LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc_angle
+<BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc_angle
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
+<LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToQua
 </UL>
 
 <P><STRONG><a name="[17f]"></a>__hardfp_sqrtf</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, sqrtf_full.o(i.__hardfp_sqrtf))
@@ -2840,7 +2834,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__default_signal_display
 </UL>
 
-<P><STRONG><a name="[8c]"></a>arm_control_task</STRONG> (Thumb, 160 bytes, Stack size 72 bytes, arm_control_task.o(i.arm_control_task))
+<P><STRONG><a name="[8c]"></a>arm_control_task</STRONG> (Thumb, 162 bytes, Stack size 72 bytes, arm_control_task.o(i.arm_control_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 2100<LI>Call Chain = arm_control_task &rArr; arm_control_init &rArr; CAN_cmd_4310_disable &rArr; HAL_CAN_AddTxMessage
 </UL>
 <BR>[Calls]<UL><LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
@@ -2881,7 +2875,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1ee]"></a>chassis_rc_to_control_vector</STRONG> (Thumb, 830 bytes, Stack size 56 bytes, chassis_task.o(i.chassis_rc_to_control_vector))
+<P><STRONG><a name="[1ee]"></a>chassis_rc_to_control_vector</STRONG> (Thumb, 866 bytes, Stack size 56 bytes, chassis_task.o(i.chassis_rc_to_control_vector))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = chassis_rc_to_control_vector
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;first_order_filter_cali
@@ -2889,7 +2883,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_set_contorl
 </UL>
 
-<P><STRONG><a name="[89]"></a>chassis_task</STRONG> (Thumb, 144 bytes, Stack size 0 bytes, chassis_task.o(i.chassis_task))
+<P><STRONG><a name="[89]"></a>chassis_task</STRONG> (Thumb, 148 bytes, Stack size 0 bytes, chassis_task.o(i.chassis_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 376<LI>Call Chain = chassis_task &rArr; chassis_set_contorl &rArr; TD_calc_angle &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display
 </UL>
 <BR>[Calls]<UL><LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
@@ -3021,7 +3015,6 @@ Global Symbols
 <LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_set_mode
 <LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_set_contorl
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo0MsgPendingCallback
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
 <LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_loop
 </UL>
 
@@ -3149,9 +3142,9 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = referee_usart_task &rArr; osDelay &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
-<LI><a href="#[221]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fifo_s_init
 <LI><a href="#[21d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;referee_unpack_fifo_data
 <LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_referee_struct_data
+<LI><a href="#[221]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fifo_s_init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> freertos.o(.constdata)
 </UL>
@@ -3410,19 +3403,19 @@ Global Symbols
 <P><STRONG><a name="[bf]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f_clz.o(x$fpl$d2f))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToQua
-<LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc_angle
+<BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc_angle
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_control_loop
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AbsMaxWithJoint4Priority
+<LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToQua
 </UL>
 
 <P><STRONG><a name="[22f]"></a>_d2f</STRONG> (Thumb, 700 bytes, Stack size 32 bytes, d2f_clz.o(x$fpl$d2f), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[231]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fretinf
+<BR><BR>[Calls]<UL><LI><a href="#[233]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trapveneer
+<LI><a href="#[234]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__funder
+<LI><a href="#[231]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fretinf
 <LI><a href="#[230]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
 <LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
-<LI><a href="#[233]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trapveneer
-<LI><a href="#[234]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__funder
 </UL>
 
 <P><STRONG><a name="[18c]"></a>__aeabi_dadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd))
@@ -3514,8 +3507,8 @@ Global Symbols
 <P><STRONG><a name="[17d]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, drleqf.o(x$fpl$drleqf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_cdrcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
-<LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc_angle
+<BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc_angle
+<LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
 </UL>
 
 <P><STRONG><a name="[240]"></a>_drcmple</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, drleqf.o(x$fpl$drleqf), UNUSED)
@@ -3553,8 +3546,8 @@ Global Symbols
 <P><STRONG><a name="[23f]"></a>__dunder_d</STRONG> (Thumb, 64 bytes, Stack size 24 bytes, dunder_clz.o(x$fpl$dunder))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display
 </UL>
-<BR>[Calls]<UL><LI><a href="#[242]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_drenorm1
-<LI><a href="#[233]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trapveneer
+<BR>[Calls]<UL><LI><a href="#[233]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trapveneer
+<LI><a href="#[242]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_drenorm1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
 <LI><a href="#[243]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
@@ -3566,7 +3559,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[246]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
 <LI><a href="#[233]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trapveneer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[249]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
+<BR>[Called By]<UL><LI><a href="#[234]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__funder
+<LI><a href="#[249]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 <LI><a href="#[23c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__dunder
 <LI><a href="#[1cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
 <LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dnaninf
@@ -3574,21 +3568,20 @@ Global Symbols
 <LI><a href="#[243]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
 <LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
 <LI><a href="#[22f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
-<LI><a href="#[234]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__funder
 </UL>
 
 <P><STRONG><a name="[bc]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToQua
-<LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
-<LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc_angle
+<BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc_angle
 <LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_set_mode
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_control_loop
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TD_calc
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AbsMaxWithJoint4Priority
 <LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_loop
 <LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_check_get_position
+<LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToQua
+<LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RotMatToEulerAngle
 </UL>
 
 <P><STRONG><a name="[247]"></a>_f2d</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
@@ -3598,8 +3591,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[249]"></a>__fpl_fnaninf</STRONG> (Thumb, 242 bytes, Stack size 8 bytes, fnaninf.o(x$fpl$fnaninf), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[230]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
-<LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__funder_d
+<BR><BR>[Calls]<UL><LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__funder_d
+<LI><a href="#[230]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
 </UL>
 <BR>[Called By]<UL><LI><a href="#[247]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
 </UL>
@@ -3639,10 +3632,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_trap
 </UL>
-<BR>[Called By]<UL><LI><a href="#[230]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
+<BR>[Called By]<UL><LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__funder_d
+<LI><a href="#[230]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_exception
 <LI><a href="#[23f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__dunder_d
 <LI><a href="#[22f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
-<LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__funder_d
 </UL>
 
 <P><STRONG><a name="[24b]"></a>__fpl_cmpreturn</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, trapv.o(x$fpl$trapveneer))
@@ -3925,7 +3918,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
 
-<P><STRONG><a name="[1da]"></a>arm_control_loop</STRONG> (Thumb, 2518 bytes, Stack size 32 bytes, arm_control_task.o(i.arm_control_loop))
+<P><STRONG><a name="[1da]"></a>arm_control_loop</STRONG> (Thumb, 2616 bytes, Stack size 32 bytes, arm_control_task.o(i.arm_control_loop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 592<LI>Call Chain = arm_control_loop &rArr; MoveL &rArr; SolveIK &rArr; RotMatToQua &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display
 </UL>
 <BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
@@ -3950,7 +3943,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
 
-<P><STRONG><a name="[1df]"></a>arm_feedback_update</STRONG> (Thumb, 332 bytes, Stack size 96 bytes, arm_control_task.o(i.arm_feedback_update))
+<P><STRONG><a name="[1df]"></a>arm_feedback_update</STRONG> (Thumb, 548 bytes, Stack size 96 bytes, arm_control_task.o(i.arm_feedback_update))
 <BR><BR>[Stack]<UL><LI>Max Depth = 432<LI>Call Chain = arm_feedback_update &rArr; SolveFK &rArr; RotMatToQua &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display
 </UL>
 <BR>[Calls]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveFK
@@ -3959,7 +3952,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
 
-<P><STRONG><a name="[190]"></a>TX_init</STRONG> (Thumb, 186 bytes, Stack size 8 bytes, boards_communicate.o(i.TX_init))
+<P><STRONG><a name="[190]"></a>TX_init</STRONG> (Thumb, 192 bytes, Stack size 8 bytes, boards_communicate.o(i.TX_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TX_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
@@ -4011,7 +4004,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
 </UL>
 
-<P><STRONG><a name="[1f0]"></a>chassis_set_contorl</STRONG> (Thumb, 1192 bytes, Stack size 88 bytes, chassis_task.o(i.chassis_set_contorl))
+<P><STRONG><a name="[1f0]"></a>chassis_set_contorl</STRONG> (Thumb, 966 bytes, Stack size 88 bytes, chassis_task.o(i.chassis_set_contorl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 376<LI>Call Chain = chassis_set_contorl &rArr; TD_calc_angle &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -4064,11 +4057,11 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = referee_unpack_fifo_data &rArr; verify_crc16_check_sum &rArr; get_crc16_check_sum
 </UL>
 <BR>[Calls]<UL><LI><a href="#[199]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;verify_crc16_check_sum
+<LI><a href="#[21f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sbus_to_rc
+<LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;referee_data_solve
 <LI><a href="#[21e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;verify_crc8_check_sum
 <LI><a href="#[220]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fifo_s_used
 <LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fifo_s_get
-<LI><a href="#[21f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sbus_to_rc
-<LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;referee_data_solve
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;referee_usart_task
 </UL>
