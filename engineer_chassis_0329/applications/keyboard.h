@@ -56,6 +56,8 @@ typedef struct
 	key_t ajx_on_key;
 	key_t self_control_rotate1_key;
 	key_t self_control_rotate2_key;
+	key_t speed_up_key;
+	key_t chassis_rotate_key;
 }all_key_t;
 
 extern all_key_t all_key;

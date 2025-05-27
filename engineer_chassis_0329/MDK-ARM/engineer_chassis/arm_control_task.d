@@ -52,10 +52,10 @@ engineer_chassis\arm_control_task.o: ../components/controller/controller.h
 engineer_chassis\arm_control_task.o: ../boards/bsp_dwt.h
 engineer_chassis\arm_control_task.o: ..\applications\keyboard.h
 engineer_chassis\arm_control_task.o: ..\applications\referee.h
+engineer_chassis\arm_control_task.o: ..\applications\app_config.h
 engineer_chassis\arm_control_task.o: ..\applications\nx_communicate.h
 engineer_chassis\arm_control_task.o: ..\applications\referee_usart_task.h
 engineer_chassis\arm_control_task.o: ../boards/bsp_rc.h
-engineer_chassis\arm_control_task.o: ..\applications\app_config.h
 engineer_chassis\arm_control_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 engineer_chassis\arm_control_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 engineer_chassis\arm_control_task.o: ../Core/Inc/FreeRTOSConfig.h

@@ -25,6 +25,7 @@ uint8_t  reset_3508_switch;
 uint32_t reset_3508_count[2];
 uint32_t reset_2006_count[2];
 uint32_t reposition_count = 0;
+bool_t reposition_flag = 0;
 float32_t g_2006 = 249.0f;
 float32_t mode2_cnt = 0;
 int joint6_round;
@@ -61,6 +62,11 @@ void arm_task(void const * argument)
 						DWT_Delay(0.0003f);
 						joint6_round = 0;
 						joint6_position = board_message.target_position[5];
+						arm.yaw_angle_set = joint6_position;
+						arm.motor_2006_data[0].round_cnt = 0;
+						arm.motor_2006_data[1].round_cnt = 0;
+						arm.motor_2006_data[0].angle = 0;
+						arm.motor_2006_data[1].angle = 0;
 				}
 				else if(arm.chassis_mode != 0)
 				{				
@@ -83,7 +89,7 @@ void arm_task(void const * argument)
 						if(arm.motor_DM_data[2].DM_motor_measure->motor_enabled == 0)
 								CAN_cmd_4310_enable(DM_M4_TX_ID, hcan1);					
 						else if(arm.motor_DM_data[2].DM_motor_measure->motor_enabled == 1)	
-								CAN_cmd_4310_mit(arm.motor_DM_data[2].position_set,0.0f,100.0f,1.0f,0.0f,DM_M4_TX_ID, hcan1);
+								CAN_cmd_4310_mit(arm.motor_DM_data[2].position_set,0.0f,85.0f,1.0f,0.0f,DM_M4_TX_ID, hcan1);
 						else
 								CAN_cmd_4310_disable(DM_M4_TX_ID, hcan1);	
 								DWT_Delay(0.0003f);	
@@ -139,11 +145,11 @@ void arm_control_init(arm_t *arm_control_init)
 			arm_control_init->motor_2006_data[i].speed_set = 0;
 		}
 		//初始化跟踪微分器TD
-		TD_init(&arm_control_init->arm_2_TD,5.0f,2.0f,0.002f,arm_control_init->motor_DM_data[1].DM_motor_measure->motor_position);
-		TD_init(&arm_control_init->arm_3_TD,5.0f,2.0f,0.002f,arm_control_init->motor_DM_data[2].DM_motor_measure->motor_position);
-		TD_init(&arm_control_init->arm_4_TD,5.0f,2.0f,0.002f,arm_control_init->motor_DM_data[3].DM_motor_measure->motor_position);
-		TD_init(&arm_control_init->arm_5_TD,5.0f,2.0f,0.002f,arm_control_init->roll_angle);
-		TD_init(&arm_control_init->arm_6_TD,5.0f,2.0f,0.002f,arm_control_init->yaw_angle);		
+		TD_init(&arm_control_init->arm_2_TD,3.0f,2.0f,0.002f,arm_control_init->motor_DM_data[1].DM_motor_measure->motor_position);
+		TD_init(&arm_control_init->arm_3_TD,3.0f,2.0f,0.002f,arm_control_init->motor_DM_data[2].DM_motor_measure->motor_position);
+		TD_init(&arm_control_init->arm_4_TD,3.0f,2.0f,0.002f,arm_control_init->motor_DM_data[3].DM_motor_measure->motor_position);
+		TD_init(&arm_control_init->arm_5_TD,3.0f,2.0f,0.002f,arm_control_init->roll_angle);
+		TD_init(&arm_control_init->arm_6_TD,3.0f,2.0f,0.002f,arm_control_init->yaw_angle);		
 }
 
 void arm_set_mode(arm_t *arm_set_mode)
@@ -247,38 +253,64 @@ void arm_feedback_update(arm_t *arm_feedback)
 	  arm.roll_angle = (arm.motor_2006_data[0].angle - arm.motor_2006_data[1].angle)/(2 * ROLL_TO_2006);//转化成末端两轴角度
 
 		//根据模式更改TD
-		if(arm_feedback->arm_mode == 1 && arm_feedback->suker_mode == 0)
-		{		
-				if(reposition_count < 500)
-				{
-					reposition_count++;
-				}
-				else
-				{
-					TD_set_r(&arm_feedback->arm_2_TD,5.0f);
-					TD_set_r(&arm_feedback->arm_3_TD,5.0f);
-					TD_set_r(&arm_feedback->arm_4_TD,5.0f);
-					TD_set_r(&arm_feedback->arm_5_TD,5.0f);
-					TD_set_r(&arm_feedback->arm_6_TD,5.0f);
-				}
-		}
-		else if((arm_feedback->arm_mode == 0 || arm_feedback->arm_mode == 2 )&& arm_feedback->suker_mode == 1)
+		if(arm_feedback->chassis_mode == 0)
 		{
-				TD_set_r(&arm_feedback->arm_2_TD,7.0f);
-				TD_set_r(&arm_feedback->arm_3_TD,7.0f);
-				TD_set_r(&arm_feedback->arm_4_TD,7.0f);
-				TD_set_r(&arm_feedback->arm_5_TD,7.0f);
-				TD_set_r(&arm_feedback->arm_6_TD,7.0f);
-				reposition_count = 0;
-		}	
+			reposition_count = 0;
+			reposition_flag = 0;
+			TD_set_r(&arm_feedback->arm_2_TD,3.0f);
+			TD_set_r(&arm_feedback->arm_3_TD,3.0f);
+			TD_set_r(&arm_feedback->arm_4_TD,3.0f);
+			TD_set_r(&arm_feedback->arm_5_TD,3.0f);
+			TD_set_r(&arm_feedback->arm_6_TD,3.0f);
+		}
 		else
 		{
-				TD_set_r(&arm_feedback->arm_2_TD,7.0f);
-				TD_set_r(&arm_feedback->arm_3_TD,7.0f);
-				TD_set_r(&arm_feedback->arm_4_TD,7.0f);
-				TD_set_r(&arm_feedback->arm_5_TD,7.0f);
-				TD_set_r(&arm_feedback->arm_6_TD,7.0f);	
+			if(reposition_count < 5000)
+			{
+				reposition_count++;
+			}
+			else
+			{
+				reposition_flag = 1;
 				reposition_count = 0;
+			}
+			
+			if(reposition_flag == 1)
+			{
+				if(arm_feedback->arm_mode == 1 && arm_feedback->suker_mode == 0)
+				{		
+						if(reposition_count < 500)
+						{
+							reposition_count++;
+						}
+						else
+						{
+							TD_set_r(&arm_feedback->arm_2_TD,5.0f);
+							TD_set_r(&arm_feedback->arm_3_TD,5.0f);
+							TD_set_r(&arm_feedback->arm_4_TD,5.0f);
+							TD_set_r(&arm_feedback->arm_5_TD,5.0f);
+							TD_set_r(&arm_feedback->arm_6_TD,5.0f);
+						}
+				}
+				else if((arm_feedback->arm_mode == 0 || arm_feedback->arm_mode == 2 )&& arm_feedback->suker_mode == 1)
+				{
+						TD_set_r(&arm_feedback->arm_2_TD,7.0f);
+						TD_set_r(&arm_feedback->arm_3_TD,7.0f);
+						TD_set_r(&arm_feedback->arm_4_TD,7.0f);
+						TD_set_r(&arm_feedback->arm_5_TD,7.0f);
+						TD_set_r(&arm_feedback->arm_6_TD,7.0f);
+						reposition_count = 0;
+				}	
+				else
+				{
+						TD_set_r(&arm_feedback->arm_2_TD,7.0f);
+						TD_set_r(&arm_feedback->arm_3_TD,7.0f);
+						TD_set_r(&arm_feedback->arm_4_TD,7.0f);
+						TD_set_r(&arm_feedback->arm_5_TD,7.0f);
+						TD_set_r(&arm_feedback->arm_6_TD,7.0f);	
+						reposition_count = 0;
+				}
+			}
 		}
 }
 
@@ -320,7 +352,7 @@ void arm_set_control(arm_t *arm_set_control)
 		if(arm_set_control->motor_2006_mode == 0)
 		{
 				TD_set_x(&arm_set_control->arm_5_TD,arm_set_control->roll_angle);
-				TD_set_x(&arm_set_control->arm_6_TD,joint6_position);				
+				TD_set_x(&arm_set_control->arm_6_TD,joint6_position);	
 		}
 		else if(arm_set_control->motor_2006_mode == 1)
 		{			
@@ -345,17 +377,17 @@ void arm_set_control(arm_t *arm_set_control)
 		
 		if(arm_set_control -> move_mode == 4)
 		{
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_1,1500);//500-2000
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_2,1500);//500-2000
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_3,1500);//500-2000
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_4,1500);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_1,1200);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_2,1200);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_3,1200);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_4,1200);//500-2000
 		}
 		else
 		{
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_1,2000);//500-2000
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_2,2000);//500-2000
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_3,2000);//500-2000
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_4,2000);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_1,1700);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_2,1700);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_3,1700);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_4,1700);//500-2000
 		}
 }
 

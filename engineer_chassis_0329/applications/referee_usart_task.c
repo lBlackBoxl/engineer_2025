@@ -65,7 +65,7 @@ static void sbus_to_rc(volatile const uint8_t *sbus_buf, RC_ctrl_t *rc_ctrl);
 
 
 //接收原始数据，为18个字节，给了36个字节长度，防止DMA传输越界
-static uint8_t sbus_rx_buf[2][SBUS_RX_BUF_NUM];
+//static uint8_t sbus_rx_buf[2][SBUS_RX_BUF_NUM];
 
 /**
   * @brief          遥控器初始化

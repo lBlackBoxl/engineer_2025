@@ -36,10 +36,10 @@ engineer_chassis\bsp_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_
 engineer_chassis\bsp_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
 engineer_chassis\bsp_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 engineer_chassis\bsp_usart.o: ../applications/referee.h
+engineer_chassis\bsp_usart.o: ../applications/app_config.h
 engineer_chassis\bsp_usart.o: ../boards/struct_typedef.h
 engineer_chassis\bsp_usart.o: ../boards/bsp_rc.h
 engineer_chassis\bsp_usart.o: ../applications/keyboard.h
-engineer_chassis\bsp_usart.o: ../applications/app_config.h
 engineer_chassis\bsp_usart.o: ..\boards\bsp_usart.h
 engineer_chassis\bsp_usart.o: ../Core/Inc/usart.h
 engineer_chassis\bsp_usart.o: ../components/support/protocol.h

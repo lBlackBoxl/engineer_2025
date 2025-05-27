@@ -77,6 +77,17 @@
 #define CLAMP_SPEED_PID_KD         0.0f
 #define CLAMP_SPEED_PID_MAX_OUT    10000.0f
 #define CLAMP_SPEED_PID_MAX_KD     0.0f
+//uwb电机
+#define UWB_POSITION_PID_KP				15.0f
+#define UWB_POSITION_PID_KI				0.0f
+#define UWB_POSITION_PID_KD				0.1f
+#define UWB_POSITION_PID_MAX_OUT	20.0f
+#define UWB_POSITION_PID_MAX_KD		0.0f
+#define UWB_SPEED_PID_KP					320.0f
+#define UWB_SPEED_PID_KI					0.0f
+#define UWB_SPEED_PID_KD					0.0f
+#define UWB_SPEED_PID_MAX_OUT			10000.0f
+#define UWB_SPEED_PID_MAX_KD			0.0f
 //编码器参考值
 #define HALF_ECD_RANGE              4096
 #define ECD_RANGE                   8192

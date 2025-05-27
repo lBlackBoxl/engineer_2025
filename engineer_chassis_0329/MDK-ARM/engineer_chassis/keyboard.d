@@ -36,7 +36,7 @@ engineer_chassis\keyboard.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_us
 engineer_chassis\keyboard.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 engineer_chassis\keyboard.o: ..\applications\referee_usart_task.h
 engineer_chassis\keyboard.o: ..\applications\referee.h
+engineer_chassis\keyboard.o: ..\applications\app_config.h
 engineer_chassis\keyboard.o: ../boards/struct_typedef.h
 engineer_chassis\keyboard.o: ../boards/bsp_rc.h
 engineer_chassis\keyboard.o: ..\applications\keyboard.h
-engineer_chassis\keyboard.o: ..\applications\app_config.h

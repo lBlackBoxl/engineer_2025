@@ -49,7 +49,7 @@ extern CAN_HandleTypeDef hcan2;
 		(ptr)->error_info = (uint16_t)((data)[4] << 8 | (data)[5]);						\
 }		
 
-motor_measure_t CAN1_rx_buffer[5];//0~3-µ×ÅÌ4¸ö3508 4ÂÄ´ø3508
+motor_measure_t CAN1_rx_buffer[6];//0~3-µ×ÅÌ4¸ö3508 4¿ó²Ö2006 5ubw2006
 motor_DM_motor_t DM_motor_4310[2];//1Ì¨½×£¬2YAW
 
 arm_communicate arm_message;
@@ -123,10 +123,18 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 	 {
 			 switch (rx_header.StdId)
 			 {
-					case MST_1_ID:
+					case CAN_2006_ubw_ID:
 					{
-							get_DM_motor_measure(&DM_motor_4310[0], rx_data);
-							break;
+						get_motor_measure(&CAN1_rx_buffer[5], rx_data);
+						if(CAN1_rx_buffer[5].ecd - CAN1_rx_buffer[5].last_ecd > HALF_ECD_RANGE)
+						{
+							chassis.motor_uwb.round_cnt--;
+						}
+						else if(CAN1_rx_buffer[5].ecd - CAN1_rx_buffer[5].last_ecd < -HALF_ECD_RANGE)
+						{
+							chassis.motor_uwb.round_cnt++;
+						}
+            break;
 					}
 					case MST_YAW_ID:
 					{
@@ -279,6 +287,25 @@ void CAN_cmd_chassis_clamp(int16_t motor1)
     chassis_can2_send_data[7] = 0;
 
     HAL_CAN_AddTxMessage(&hcan1, &chassis_can2_tx_message, chassis_can2_send_data, &send_mail_box);
+}
+
+void CAN_cmd_chassis_uwb(int16_t motor1)
+{
+	  uint32_t send_mail_box;
+    chassis_can2_tx_message.StdId = 0x1FF;
+    chassis_can2_tx_message.IDE = CAN_ID_STD;
+    chassis_can2_tx_message.RTR = CAN_RTR_DATA;
+    chassis_can2_tx_message.DLC = 0x08;
+    chassis_can2_send_data[0] = 0;
+    chassis_can2_send_data[1] = 0;
+    chassis_can2_send_data[2] = motor1 >> 8;
+    chassis_can2_send_data[3] = motor1;
+    chassis_can2_send_data[4] = 0;
+    chassis_can2_send_data[5] = 0;
+    chassis_can2_send_data[6] = 0;
+    chassis_can2_send_data[7] = 0;
+
+    HAL_CAN_AddTxMessage(&hcan2, &chassis_can2_tx_message, chassis_can2_send_data, &send_mail_box);
 }
 
 const motor_measure_t *get_chassis_motor_point(uint8_t i)

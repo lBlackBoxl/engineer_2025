@@ -36,10 +36,10 @@ engineer_chassis\referee_usart_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32
 engineer_chassis\referee_usart_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
 engineer_chassis\referee_usart_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 engineer_chassis\referee_usart_task.o: ..\applications\referee.h
+engineer_chassis\referee_usart_task.o: ..\applications\app_config.h
 engineer_chassis\referee_usart_task.o: ../boards/struct_typedef.h
 engineer_chassis\referee_usart_task.o: ../boards/bsp_rc.h
 engineer_chassis\referee_usart_task.o: ..\applications\keyboard.h
-engineer_chassis\referee_usart_task.o: ..\applications\app_config.h
 engineer_chassis\referee_usart_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 engineer_chassis\referee_usart_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 engineer_chassis\referee_usart_task.o: ../Core/Inc/FreeRTOSConfig.h

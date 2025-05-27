@@ -1,6 +1,7 @@
 #ifndef REFEREE_H
 #define REFEREE_H
 #include "main.h"
+#include "app_config.h"
 typedef enum
 {
     ROBOT_STATE_CMD_ID                = 0x0201,
@@ -43,6 +44,7 @@ typedef __packed struct
 	uint32_t rfid_status;
 } ext_rfid_status_t;
 
+#if SELF_CTRL_XYZYPR	
 typedef __packed struct
 {
 	float x;
@@ -50,9 +52,21 @@ typedef __packed struct
 	float z;
 	float q[4];
 	uint16_t nothing;
-} ext_arm_psoe_t;
+} ext_arm_pose_t;
 
-extern ext_arm_psoe_t    arm_pose;
+extern ext_arm_pose_t    arm_pose;
+
+#else
+typedef __packed struct{
+	float joint[6];
+	uint16_t time_stamp;
+	uint32_t nothing;
+}ext_arm_position_t;
+
+extern ext_arm_position_t	arm_position;
+
+#endif
+
 extern ext_game_robot_status_t robot_state;
 extern ext_rfid_status_t robot_rfid;
 

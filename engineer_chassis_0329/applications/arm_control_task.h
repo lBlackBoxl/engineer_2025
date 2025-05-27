@@ -26,7 +26,7 @@ typedef struct
 	fp32 Ag2[11][6];
 	fp32 Ag3[6][6];
 	fp32 exchange1[4][6];
-	fp32 exchange2[5][6];
+	fp32 exchange2[6][6];
 	fp32 Au1[10][6];
 	fp32 Au2[10][6];
 	fp32 Au3[4][6];
@@ -95,6 +95,15 @@ typedef struct
 	
 	
 }Robotic_6DOF_control_t;
+
+//SELF_CTRL_XYZYPR == 0  ± π”√
+typedef struct{
+	uint8_t		link_flag;
+	uint16_t  last_stamp;
+	float			joint[6];
+//	TD_t			joint_TD[7];
+	float 		joint5_offset;
+}isomorphic_control_t;
 
 typedef struct
 {

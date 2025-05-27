@@ -1,6 +1,6 @@
 engineer_arm\bsp_can.o: ..\board\bsp_can.c
 engineer_arm\bsp_can.o: ..\board\bsp_can.h
-engineer_arm\bsp_can.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+engineer_arm\bsp_can.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
 engineer_arm\bsp_can.o: ../Core/Inc/main.h
 engineer_arm\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 engineer_arm\bsp_can.o: ../Core/Inc/stm32f4xx_hal_conf.h
@@ -16,7 +16,7 @@ engineer_arm\bsp_can.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 engineer_arm\bsp_can.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 engineer_arm\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 engineer_arm\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-engineer_arm\bsp_can.o: G:\keil\KeilMDK\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+engineer_arm\bsp_can.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
 engineer_arm\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 engineer_arm\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 engineer_arm\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h

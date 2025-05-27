@@ -35,8 +35,8 @@ engineer_chassis\referee.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_ua
 engineer_chassis\referee.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h
 engineer_chassis\referee.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
 engineer_chassis\referee.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
+engineer_chassis\referee.o: ..\applications\app_config.h
 engineer_chassis\referee.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\string.h
 engineer_chassis\referee.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdio.h
 engineer_chassis\referee.o: ../components/support/protocol.h
 engineer_chassis\referee.o: ../boards/struct_typedef.h
-engineer_chassis\referee.o: ../applications/app_config.h

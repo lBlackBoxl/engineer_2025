@@ -35,7 +35,7 @@ typedef enum
 	Ag,
 	Exchange,
 	GouDong,
-    Wait
+  Wait
 } move_mode_e;
 
 typedef struct
@@ -71,6 +71,7 @@ typedef struct
 	const RC_ctrl_t *chassis_RC;                //底盘使用的遥控器指针
   chassis_motor_t motor_chassis[4];           //底盘3508电机数据
 	position_motor_t motor_clamp;								//夹矿2006电机数据
+	position_motor_t motor_uwb;								//uwb2006电机数据
 	motor_DM_t motor_DM_data;          			//达妙电机数据
 
 	
@@ -78,6 +79,8 @@ typedef struct
 	PID_t chassis_yaw_pid;                      //底盘旋转控制PID参数
 	PID_t clamp_motor_position_pid;
 	PID_t clamp_motor_speed_pid;
+	PID_t uwb_motor_position_pid;
+	PID_t uwb_motor_speed_pid;
 	
 	TD_t chassis_yaw_TD;                        //底盘旋转微分算法参数
 	TD_t joint_TD;

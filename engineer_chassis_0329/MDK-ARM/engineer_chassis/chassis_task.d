@@ -55,10 +55,10 @@ engineer_chassis\chassis_task.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC
 engineer_chassis\chassis_task.o: ../components/controller/TD.h
 engineer_chassis\chassis_task.o: ..\applications\keyboard.h
 engineer_chassis\chassis_task.o: ..\applications\referee.h
+engineer_chassis\chassis_task.o: ..\applications\app_config.h
 engineer_chassis\chassis_task.o: ..\applications\nx_communicate.h
 engineer_chassis\chassis_task.o: ..\applications\referee_usart_task.h
 engineer_chassis\chassis_task.o: ../boards/bsp_rc.h
-engineer_chassis\chassis_task.o: ..\applications\app_config.h
 engineer_chassis\chassis_task.o: ..\applications\init.h
 engineer_chassis\chassis_task.o: ..\applications\remote_control.h
 engineer_chassis\chassis_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h

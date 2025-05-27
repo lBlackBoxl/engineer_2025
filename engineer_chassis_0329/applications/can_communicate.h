@@ -21,6 +21,7 @@ typedef enum
 	CAN_3508_M3_ID = 0x203, 
 	CAN_3508_M4_ID = 0x204,
 	CAN_2006_clamp_ID = 0x205,
+	CAN_2006_ubw_ID = 0x206
 } can1_msg_id;
 
 typedef enum
@@ -64,6 +65,7 @@ extern void CAN_cmd_chassis_reset_ID(void);
 extern void CAN_cmd_chassis(int16_t motor1, int16_t motor2, int16_t motor3, int16_t motor4);
 extern void CAN_cmd_chassis_JC(int16_t motor1);
 extern void CAN_cmd_chassis_clamp(int16_t motor1);
+extern void CAN_cmd_chassis_uwb(int16_t motor1);
 extern void CAN_cmd_4310_enable(uint8_t DM_ID, CAN_HandleTypeDef hcan);
 extern void CAN_cmd_4310_disable(uint8_t DM_ID, CAN_HandleTypeDef hcan);
 extern void CAN_cmd_4310_PV(fp32 DM_motor_position, fp32 DM_motor_speed, uint8_t DM_ID, CAN_HandleTypeDef hcan);

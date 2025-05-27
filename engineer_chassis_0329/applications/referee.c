@@ -6,7 +6,11 @@
 frame_header_struct_t referee_receive_header;
 ext_game_robot_status_t robot_state;
 ext_rfid_status_t robot_rfid;
-ext_arm_psoe_t    arm_pose;
+#if SELF_CTRL_XYZYPR	
+ext_arm_pose_t    arm_pose;
+#else
+ext_arm_position_t	arm_position;
+#endif
 
 //与裁判系统通信初始化
 void init_referee_struct_data(void)
@@ -14,7 +18,11 @@ void init_referee_struct_data(void)
     memset(&referee_receive_header, 0, sizeof(frame_header_struct_t));
     memset(&robot_state, 0, sizeof(ext_game_robot_status_t));
     memset(&robot_rfid, 0, sizeof(ext_rfid_status_t));
-    memset(&arm_pose, 0, sizeof(ext_arm_psoe_t));
+#if SELF_CTRL_XYZYPR	
+    memset(&arm_pose, 0, sizeof(ext_arm_pose_t));
+#else
+    memset(&arm_position, 0, sizeof(ext_arm_position_t));
+#endif
 }
 
 //裁判系统数据解包
@@ -40,7 +48,11 @@ void referee_data_solve(uint8_t *frame)
 				}
 				case ROBOT_POSE_CMD_ID:
 				{
-					memcpy(&arm_pose, frame + index, sizeof(ext_arm_psoe_t));
+#if	SELF_CTRL_XYZYPR
+					memcpy(&arm_pose, frame + index, sizeof(ext_arm_pose_t));
+#else
+					memcpy(&arm_position, frame + index, sizeof(ext_arm_position_t));
+#endif
 					break;
 				}
         default:

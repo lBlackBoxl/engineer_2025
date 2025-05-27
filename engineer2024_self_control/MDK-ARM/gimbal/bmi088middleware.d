@@ -1,0 +1,55 @@
+gimbal\bmi088middleware.o: ..\devices\Src\BMI088middleware.c
+gimbal\bmi088middleware.o: ../devices/Inc/BMI088Middleware.h
+gimbal\bmi088middleware.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stdint.h
+gimbal\bmi088middleware.o: ../Core/Inc/main.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
+gimbal\bmi088middleware.o: ../Core/Inc/stm32f4xx_hal_conf.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
+gimbal\bmi088middleware.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
+gimbal\bmi088middleware.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
+gimbal\bmi088middleware.o: ../Drivers/CMSIS/Include/core_cm4.h
+gimbal\bmi088middleware.o: ../Drivers/CMSIS/Include/cmsis_version.h
+gimbal\bmi088middleware.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+gimbal\bmi088middleware.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+gimbal\bmi088middleware.o: ../Drivers/CMSIS/Include/mpu_armv7.h
+gimbal\bmi088middleware.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+gimbal\bmi088middleware.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\stddef.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
+gimbal\bmi088middleware.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+gimbal\bmi088middleware.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
+gimbal\bmi088middleware.o: ../Drivers/CMSIS/Include/core_cm4.h
+gimbal\bmi088middleware.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\string.h
+gimbal\bmi088middleware.o: C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\Bin\..\include\math.h
+gimbal\bmi088middleware.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
+gimbal\bmi088middleware.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+gimbal\bmi088middleware.o: ../Core/Inc/FreeRTOSConfig.h
+gimbal\bmi088middleware.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+gimbal\bmi088middleware.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+gimbal\bmi088middleware.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+gimbal\bmi088middleware.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
+gimbal\bmi088middleware.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+gimbal\bmi088middleware.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+gimbal\bmi088middleware.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+gimbal\bmi088middleware.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+gimbal\bmi088middleware.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
+gimbal\bmi088middleware.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
+gimbal\bmi088middleware.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
+gimbal\bmi088middleware.o: ../boards/Inc/bsp_delay.h

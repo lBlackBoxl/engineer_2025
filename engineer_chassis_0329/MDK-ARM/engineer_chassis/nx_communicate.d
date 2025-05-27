@@ -68,7 +68,7 @@ engineer_chassis\nx_communicate.o: ../components/controller/controller.h
 engineer_chassis\nx_communicate.o: ../boards/bsp_dwt.h
 engineer_chassis\nx_communicate.o: ..\applications\keyboard.h
 engineer_chassis\nx_communicate.o: ..\applications\referee.h
+engineer_chassis\nx_communicate.o: ..\applications\app_config.h
 engineer_chassis\nx_communicate.o: ..\applications\referee_usart_task.h
 engineer_chassis\nx_communicate.o: ../boards/bsp_rc.h
-engineer_chassis\nx_communicate.o: ..\applications\app_config.h
 engineer_chassis\nx_communicate.o: ..\applications\boards_communicate.h

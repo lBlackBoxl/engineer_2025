@@ -62,10 +62,10 @@ void Error_Handler(void);
 #define Arm_Power_GPIO_Port GPIOH
 #define Pump_Pin GPIO_PIN_10
 #define Pump_GPIO_Port GPIOF
-#define Ore_1_Pin GPIO_PIN_3
-#define Ore_1_GPIO_Port GPIOC
-#define Ore_2_Pin GPIO_PIN_5
+#define Ore_2_Pin GPIO_PIN_1
 #define Ore_2_GPIO_Port GPIOA
+#define Ore_1_Pin GPIO_PIN_0
+#define Ore_1_GPIO_Port GPIOA
 #define LED_G_Pin GPIO_PIN_14
 #define LED_G_GPIO_Port GPIOE
 
