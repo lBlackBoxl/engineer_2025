@@ -293,7 +293,7 @@ void CAN_board_communicate_can2_1(fp32 arm_position_message[6])
 {
 		uint16_t board_position_message_tmp[6];
 	  board_position_message_tmp[4] = float_to_uint(arm_position_message[4], -6.2831852f, 6.2831852f, 16);
-    board_position_message_tmp[5] = float_to_uint(rad_format(arm_position_message[5]), -6.2831852f, 6.2831852f, 16);
+    board_position_message_tmp[5] = float_to_uint(arm_position_message[5], -6.2831852f, 6.2831852f, 16);
 		uint32_t send_mail_box;
     board_communicate_can2_tx_message.StdId = CAN_COMMUNICATE_TX_ID_1;
     board_communicate_can2_tx_message.IDE = CAN_ID_STD;

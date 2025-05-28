@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp.sp
+--cpu=Cortex-M4.fp
 "selfctrl_encoder_2025\startup_stm32f407xx.o"
 "selfctrl_encoder_2025\main.o"
 "selfctrl_encoder_2025\gpio.o"

@@ -681,8 +681,10 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 			chassis_control->wz_set = 0.0f;
 		}
 		//ÅÜÂ·Ä£Ê½
-else if(chassis_control->chassis_mode == RUN_MODE)
+		else if(chassis_control->chassis_mode == RUN_MODE)
 		{
+			CAN_cmd_4310_enable(DM_YAW_TX_ID,hcan2);
+			DWT_Delay(0.0003f);
 			switch(chassis_control->move_mode)
 			{	
 				case Home:
@@ -718,48 +720,39 @@ else if(chassis_control->chassis_mode == RUN_MODE)
 				TD_calc_angle(&chassis_control->chassis_yaw_TD, chassis_control->yaw_angle_set);
 				PID_Calculate_Angle(&chassis_control->chassis_yaw_pid, chassis_control->yaw_angle, chassis_control->yaw_angle_set);		
 //			}
-			if(arm_restart_flag == 0)
-			{
-				CAN_cmd_4310_enable(DM_YAW_TX_ID,hcan2);
-				DWT_Delay(0.0003f);
-			}
-			else if(arm_restart_flag == 1)
-			{
-				CAN_cmd_4310_disable(DM_YAW_TX_ID,hcan2);
-			}
 //			CAN_cmd_4310_enable(DM_4310_M2_TX_ID);
 //			DWT_Delay(0.0003f);		
 			chassis_control->vx_set = vx_set;
 			chassis_control->vy_set = vy_set;
-			if(abs(chassis_control->chassis_motor_speed_pid[0].Output) > 7200 ||
-				 abs(chassis_control->chassis_motor_speed_pid[1].Output) > 7200 ||
-			   abs(chassis_control->chassis_motor_speed_pid[2].Output) > 7200 ||
-				 abs(chassis_control->chassis_motor_speed_pid[3].Output) > 7200)
-			{
-				error_cnt ++;
-				if(error_cnt > 500)
-				{
-					error = 1;
-					error_cnt = 500;
-				}
-			}
-			else
-			{
-				error_cnt --;
-				if(error_cnt < 0)
-				{
-					error = 0;
-					error_cnt = 0;
-				}
-			}
-			if(error == 1)
-			{
-				chassis_control->vx_set = fp32_constrain(chassis_control->vx_set, -SHIFT_SLOW_CHASSIS_SPEED_X, SHIFT_SLOW_CHASSIS_SPEED_X);
-			}
-			else
-			{
+//			if(abs(chassis_control->chassis_motor_speed_pid[0].Output) > 7200 ||
+//				 abs(chassis_control->chassis_motor_speed_pid[1].Output) > 7200 ||
+//			   abs(chassis_control->chassis_motor_speed_pid[2].Output) > 7200 ||
+//				 abs(chassis_control->chassis_motor_speed_pid[3].Output) > 7200)
+//			{
+//				error_cnt ++;
+//				if(error_cnt > 500)
+//				{
+//					error = 1;
+//					error_cnt = 500;
+//				}
+//			}
+//			else
+//			{
+//				error_cnt --;
+//				if(error_cnt < 0)
+//				{
+//					error = 0;
+//					error_cnt = 0;
+//				}
+//			}
+//			if(error == 1)
+//			{
+//				chassis_control->vx_set = fp32_constrain(chassis_control->vx_set, -SHIFT_SLOW_CHASSIS_SPEED_X, SHIFT_SLOW_CHASSIS_SPEED_X);
+//			}
+//			else
+//			{
 				chassis_control->vx_set = fp32_constrain(chassis_control->vx_set, -SHIFT_NORMAL_MAX_CHASSIS_SPEED_X, SHIFT_NORMAL_MAX_CHASSIS_SPEED_X);
-			}
+//			}
       chassis_control->vy_set = fp32_constrain(chassis_control->vy_set, -SHIFT_NORMAL_MAX_CHASSIS_SPEED_Y, SHIFT_NORMAL_MAX_CHASSIS_SPEED_Y);
 			chassis_control->wz_set = chassis_control->chassis_yaw_pid.Output;
 		}
@@ -813,15 +806,6 @@ else if(chassis_control->chassis_mode == RUN_MODE)
 //				break;
 //			}
 //		}
-		if(all_key.arm_restart_key1.itself.flag == 1 && all_key.arm_restart_key2.itself.flag == 1)
-		{
-				arm_restart_flag = 1;
-				HAL_GPIO_WritePin(Arm_Power_GPIO_Port,Arm_Power_Pin,GPIO_PIN_RESET);
-		}
-		else{
-			arm_restart_flag = 0;
-			HAL_GPIO_WritePin(Arm_Power_GPIO_Port,Arm_Power_Pin,GPIO_PIN_SET);
-		}
 }
 
 /**

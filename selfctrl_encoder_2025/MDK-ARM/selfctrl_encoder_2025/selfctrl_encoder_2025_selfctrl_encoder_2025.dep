@@ -1,0 +1,1226 @@
+Dependencies for Project 'selfctrl_encoder_2025', Target 'selfctrl_encoder_2025': (DO NOT MODIFY !)
+F (startup_stm32f407xx.s)(0x682DC1B4)(--cpu Cortex-M4.fp -g --apcs=interwork -I ../Core/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"--pd "__UVISION_VERSION SETA 528" --pd "_RTE_ SETA 1" --pd "STM32F407xx SETA 1"--list startup_stm32f407xx.lst --xref -o selfctrl_encoder_2025\startup_stm32f407xx.o --depend selfctrl_encoder_2025\startup_stm32f407xx.d)
+F (../Core/Src/main.c)(0x67FA7822)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\main.o --omf_browse selfctrl_encoder_2025\main.crf --depend selfctrl_encoder_2025\main.d)
+I (../Core/Inc/main.h)(0x682DC1B2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x67E569B0)
+I (../Core/Inc/dma.h)(0x67E56A70)
+I (../Core/Inc/usart.h)(0x67E56A70)
+I (../Core/Inc/gpio.h)(0x67E56A6C)
+I (../bsp/Inc/bsp_uart.h)(0x682E169A)
+I (../support/Inc/struct_typedef.h)(0x5E1D0AC2)
+I (../support/Inc/fifo.h)(0x682CB8F8)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+F (../Core/Src/gpio.c)(0x682DC1B0)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\gpio.o --omf_browse selfctrl_encoder_2025\gpio.crf --depend selfctrl_encoder_2025\gpio.d)
+I (../Core/Inc/gpio.h)(0x67E56A6C)
+I (../Core/Inc/main.h)(0x682DC1B2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Core/Src/freertos.c)(0x67E686F0)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\freertos.o --omf_browse selfctrl_encoder_2025\freertos.crf --depend selfctrl_encoder_2025\freertos.d)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+I (../Core/Inc/main.h)(0x682DC1B2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x67E569B0)
+I (../apps/Inc/pos_send_task.h)(0x68364FC6)
+I (../support/Inc/global_defines.h)(0x6814E57A)
+I (../apps/Inc/encoder_task.h)(0x682DED9E)
+I (../bsp/Inc/bsp_uart.h)(0x682E169A)
+I (../support/Inc/struct_typedef.h)(0x5E1D0AC2)
+I (../support/Inc/fifo.h)(0x682CB8F8)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (../Core/Inc/usart.h)(0x67E56A70)
+F (../Core/Src/dma.c)(0x67E56A70)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\dma.o --omf_browse selfctrl_encoder_2025\dma.crf --depend selfctrl_encoder_2025\dma.d)
+I (../Core/Inc/dma.h)(0x67E56A70)
+I (../Core/Inc/main.h)(0x682DC1B2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Core/Src/usart.c)(0x682363AC)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\usart.o --omf_browse selfctrl_encoder_2025\usart.crf --depend selfctrl_encoder_2025\usart.d)
+I (../Core/Inc/usart.h)(0x67E56A70)
+I (../Core/Inc/main.h)(0x682DC1B2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+I (../support/Inc/global_defines.h)(0x6814E57A)
+F (../Core/Src/stm32f4xx_it.c)(0x67FA7820)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_it.o --omf_browse selfctrl_encoder_2025\stm32f4xx_it.crf --depend selfctrl_encoder_2025\stm32f4xx_it.d)
+I (../Core/Inc/main.h)(0x682DC1B2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_it.h)(0x67FA7820)
+I (../bsp/Inc/bsp_uart.h)(0x682E169A)
+I (../support/Inc/struct_typedef.h)(0x5E1D0AC2)
+I (../support/Inc/fifo.h)(0x682CB8F8)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (../Core/Inc/usart.h)(0x67E56A70)
+F (../Core/Src/stm32f4xx_hal_msp.c)(0x67E56A72)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_msp.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_msp.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_msp.d)
+I (../Core/Inc/main.h)(0x682DC1B2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Core/Src/stm32f4xx_hal_timebase_tim.c)(0x67FA7822)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_timebase_tim.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_timebase_tim.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_timebase_tim.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_rcc.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_rcc.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_rcc.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_rcc_ex.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_rcc_ex.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_rcc_ex.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_flash.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_flash.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_flash.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_flash_ex.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_flash_ex.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_flash_ex.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_flash_ramfunc.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_flash_ramfunc.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_flash_ramfunc.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_gpio.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_gpio.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_gpio.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_dma_ex.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_dma_ex.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_dma_ex.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_dma.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_dma.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_dma.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_pwr.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_pwr.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_pwr.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_pwr_ex.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_pwr_ex.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_pwr_ex.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_cortex.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_cortex.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_cortex.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal.crf --depend selfctrl_encoder_2025\stm32f4xx_hal.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_exti.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_exti.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_exti.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_tim.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_tim.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_tim.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_tim_ex.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_tim_ex.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_tim_ex.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stm32f4xx_hal_uart.o --omf_browse selfctrl_encoder_2025\stm32f4xx_hal_uart.crf --depend selfctrl_encoder_2025\stm32f4xx_hal_uart.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Core/Src/system_stm32f4xx.c)(0x67E56A04)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\system_stm32f4xx.o --omf_browse selfctrl_encoder_2025\system_stm32f4xx.crf --depend selfctrl_encoder_2025\system_stm32f4xx.d)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+F (../Middlewares/Third_Party/FreeRTOS/Source/croutine.c)(0x67E569B0)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\croutine.o --omf_browse selfctrl_encoder_2025\croutine.crf --depend selfctrl_encoder_2025\croutine.d)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h)(0x67E569B0)
+F (../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c)(0x67E569B0)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\event_groups.o --omf_browse selfctrl_encoder_2025\event_groups.crf --depend selfctrl_encoder_2025\event_groups.d)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x67E569B0)
+F (../Middlewares/Third_Party/FreeRTOS/Source/list.c)(0x67E569B0)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\list.o --omf_browse selfctrl_encoder_2025\list.crf --depend selfctrl_encoder_2025\list.d)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+F (../Middlewares/Third_Party/FreeRTOS/Source/queue.c)(0x67E569B0)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\queue.o --omf_browse selfctrl_encoder_2025\queue.crf --depend selfctrl_encoder_2025\queue.d)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x67E569B0)
+F (../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c)(0x67E569B0)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\stream_buffer.o --omf_browse selfctrl_encoder_2025\stream_buffer.crf --depend selfctrl_encoder_2025\stream_buffer.d)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h)(0x67E569B0)
+F (../Middlewares/Third_Party/FreeRTOS/Source/tasks.c)(0x67E569B0)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\tasks.o --omf_browse selfctrl_encoder_2025\tasks.crf --depend selfctrl_encoder_2025\tasks.d)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/stack_macros.h)(0x67E569B0)
+F (../Middlewares/Third_Party/FreeRTOS/Source/timers.c)(0x67E569B0)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\timers.o --omf_browse selfctrl_encoder_2025\timers.crf --depend selfctrl_encoder_2025\timers.d)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x67E569B0)
+F (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c)(0x67E569B0)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\cmsis_os.o --omf_browse selfctrl_encoder_2025\cmsis_os.crf --depend selfctrl_encoder_2025\cmsis_os.d)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x67E569B0)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+F (../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c)(0x67E569B0)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\heap_4.o --omf_browse selfctrl_encoder_2025\heap_4.crf --depend selfctrl_encoder_2025\heap_4.d)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+F (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c)(0x67E569B0)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\port.o --omf_browse selfctrl_encoder_2025\port.crf --depend selfctrl_encoder_2025\port.d)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+F (..\bsp\Src\bsp_encoder.c)(0x682DD100)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\bsp_encoder.o --omf_browse selfctrl_encoder_2025\bsp_encoder.crf --depend selfctrl_encoder_2025\bsp_encoder.d)
+I (../bsp/Inc/bsp_encoder.h)(0x683550C6)
+I (../support/Inc/struct_typedef.h)(0x5E1D0AC2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (../support/Inc/protocol.h)(0x67FA64CA)
+F (..\bsp\Src\bsp_uart.c)(0x682E169A)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\bsp_uart.o --omf_browse selfctrl_encoder_2025\bsp_uart.crf --depend selfctrl_encoder_2025\bsp_uart.d)
+I (../bsp/Inc/bsp_uart.h)(0x682E169A)
+I (../support/Inc/struct_typedef.h)(0x5E1D0AC2)
+I (../support/Inc/fifo.h)(0x682CB8F8)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+I (../Core/Inc/usart.h)(0x67E56A70)
+I (../Core/Inc/main.h)(0x682DC1B2)
+I (../bsp/Inc/bsp_encoder.h)(0x683550C6)
+F (..\apps\Src\encoder_task.c)(0x6831A45C)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\encoder_task.o --omf_browse selfctrl_encoder_2025\encoder_task.crf --depend selfctrl_encoder_2025\encoder_task.d)
+I (../apps/Inc/encoder_task.h)(0x682DED9E)
+I (../bsp/Inc/bsp_uart.h)(0x682E169A)
+I (../support/Inc/struct_typedef.h)(0x5E1D0AC2)
+I (../support/Inc/fifo.h)(0x682CB8F8)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+I (../Core/Inc/usart.h)(0x67E56A70)
+I (../Core/Inc/main.h)(0x682DC1B2)
+I (../bsp/Inc/bsp_encoder.h)(0x683550C6)
+I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x67E569B0)
+F (..\apps\Src\pos_send_task.c)(0x68362707)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\pos_send_task.o --omf_browse selfctrl_encoder_2025\pos_send_task.crf --depend selfctrl_encoder_2025\pos_send_task.d)
+I (../apps/Inc/pos_send_task.h)(0x68364FC6)
+I (../support/Inc/global_defines.h)(0x6814E57A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x67E569B0)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (../Core/Inc/FreeRTOSConfig.h)(0x67FA7820)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x67E569B0)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x67E569B0)
+I (../support/Inc/protocol.h)(0x67FA64CA)
+I (../support/Inc/struct_typedef.h)(0x5E1D0AC2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (../apps/Inc/encoder_task.h)(0x682DED9E)
+I (../bsp/Inc/bsp_uart.h)(0x682E169A)
+I (../support/Inc/fifo.h)(0x682CB8F8)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+I (../Core/Inc/usart.h)(0x67E56A70)
+I (../Core/Inc/main.h)(0x682DC1B2)
+I (../apps/Inc/referee.h)(0x682E11AA)
+F (..\apps\Src\referee.c)(0x682E4D66)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\referee.o --omf_browse selfctrl_encoder_2025\referee.crf --depend selfctrl_encoder_2025\referee.d)
+I (../apps/Inc/referee.h)(0x682E11AA)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (../support/Inc/struct_typedef.h)(0x5E1D0AC2)
+I (../support/Inc/protocol.h)(0x67FA64CA)
+I (../bsp/Inc/bsp_uart.h)(0x682E169A)
+I (../support/Inc/fifo.h)(0x682CB8F8)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
+I (../Core/Inc/usart.h)(0x67E56A70)
+I (../Core/Inc/main.h)(0x682DC1B2)
+F (..\support\Src\protocol.c)(0x6811E902)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\protocol.o --omf_browse selfctrl_encoder_2025\protocol.crf --depend selfctrl_encoder_2025\protocol.d)
+I (../support/Inc/protocol.h)(0x67FA64CA)
+I (../support/Inc/struct_typedef.h)(0x5E1D0AC2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+F (..\support\Src\fifo.c)(0x682CB8F8)(--c99 -c --cpu Cortex-M4.fp -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../apps/Inc -I ../bsp/Inc -I ../support/Inc-I.\RTE\_selfctrl_encoder_2025-I"C:\~Terminal's SSD~\software data\MDK Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\~Terminal's SSD~\software data\MDK Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o selfctrl_encoder_2025\fifo.o --omf_browse selfctrl_encoder_2025\fifo.crf --depend selfctrl_encoder_2025\fifo.d)
+I (../support/Inc/fifo.h)(0x682CB8F8)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67E56A04)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67FA7822)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67E56A04)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67E569AA)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67E569AA)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67E56A04)
+I (C:\~Terminal's SSD~\software\Keil MDK\ARM\ARMCC\include\stddef.h)(0x5CEB79E2)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67E56A04)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x67E56A04)
