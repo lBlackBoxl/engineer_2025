@@ -55,6 +55,7 @@ int16_t uwb_reset_count;
 int error_cnt;
 uint8_t error;
 extern int Half_rod_cnt;
+extern uint16_t time_cnt;
 
 /**
   * @brief          底盘任务，间隔 CHASSIS_CONTROL_TIME_MS 2ms
@@ -90,6 +91,8 @@ void chassis_task(void const *pvParameters)
 						clamp_flag = 0;
 						error_cnt = 0; 
 						Half_rod_cnt = 0;
+						chassis.move_mode = Wait;
+						time_cnt = 0;
 //						CAN_cmd_chassis_clamp(0);
 				}
 				else if(chassis.chassis_mode == RUN_MODE)
@@ -138,7 +141,7 @@ static void chassis_init(all_key_t *chassis_key_init, chassis_t *chassis_init)
 		//机械臂默认控制模式为一键模式
 		chassis_init->arm_mode = ONE_KEY_MODE;
 		
-		//机械臂目标位置为HOME
+		//机械臂默认位置为Home
 		chassis_init->move_mode = Home;
 		
 		//吸盘默认为关
@@ -299,12 +302,12 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 				if(chassis_set_mode->move_mode == chassis_set_mode->last_move_mode && chassis_set_mode->last_move_mode != Au)
 				{
 					chassis_set_mode->move_mode = Au;
+					chassis.last_move_mode = chassis.move_mode;
 				}
 				else if(chassis_set_mode->last_move_mode == Au)
 				{
 					chassis_set_mode->move_mode = Wait;
 				}
-				chassis_set_mode->last_move_mode = chassis_set_mode->move_mode;
 		}
 		if(all_key.rotate_key_V.itself.mode != all_key.rotate_key_V.itself.last_mode)
 		{
@@ -317,7 +320,7 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 					chassis_set_mode->move_mode = Home;
 					chassis_set_mode->yaw_angle_set = rad_format(chassis_set_mode->yaw_angle_set += PI);
 				}
-				chassis_set_mode->last_move_mode = chassis_set_mode->move_mode;
+				chassis.last_move_mode = chassis.move_mode;
 		}
 		if(all_key.exchange_key.itself.mode != all_key.exchange_key.itself.last_mode)
 		{
@@ -329,7 +332,7 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 				{
 					chassis_set_mode->move_mode = Home;
 				}
-				chassis_set_mode->last_move_mode = chassis_set_mode->move_mode;
+				chassis.last_move_mode = chassis.move_mode;
 		}
 		if(last_s[0].itself.mode != last_s[0].itself.last_mode)
 		{
@@ -341,7 +344,7 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 				{
 					chassis_set_mode->move_mode = Home;
 				}
-				chassis_set_mode->last_move_mode = chassis_set_mode->move_mode;
+				chassis.last_move_mode = chassis.move_mode;
 		}
 		
 		
@@ -681,10 +684,8 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 			chassis_control->wz_set = 0.0f;
 		}
 		//跑路模式
-		else if(chassis_control->chassis_mode == RUN_MODE)
+else if(chassis_control->chassis_mode == RUN_MODE)
 		{
-			CAN_cmd_4310_enable(DM_YAW_TX_ID,hcan2);
-			DWT_Delay(0.0003f);
 			switch(chassis_control->move_mode)
 			{	
 				case Home:
@@ -720,39 +721,48 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 				TD_calc_angle(&chassis_control->chassis_yaw_TD, chassis_control->yaw_angle_set);
 				PID_Calculate_Angle(&chassis_control->chassis_yaw_pid, chassis_control->yaw_angle, chassis_control->yaw_angle_set);		
 //			}
+			if(arm_restart_flag == 0)
+			{
+				CAN_cmd_4310_enable(DM_YAW_TX_ID,hcan2);
+				DWT_Delay(0.0003f);
+			}
+			else if(arm_restart_flag == 1)
+			{
+				CAN_cmd_4310_disable(DM_YAW_TX_ID,hcan2);
+			}
 //			CAN_cmd_4310_enable(DM_4310_M2_TX_ID);
 //			DWT_Delay(0.0003f);		
 			chassis_control->vx_set = vx_set;
 			chassis_control->vy_set = vy_set;
-//			if(abs(chassis_control->chassis_motor_speed_pid[0].Output) > 7200 ||
-//				 abs(chassis_control->chassis_motor_speed_pid[1].Output) > 7200 ||
-//			   abs(chassis_control->chassis_motor_speed_pid[2].Output) > 7200 ||
-//				 abs(chassis_control->chassis_motor_speed_pid[3].Output) > 7200)
-//			{
-//				error_cnt ++;
-//				if(error_cnt > 500)
-//				{
-//					error = 1;
-//					error_cnt = 500;
-//				}
-//			}
-//			else
-//			{
-//				error_cnt --;
-//				if(error_cnt < 0)
-//				{
-//					error = 0;
-//					error_cnt = 0;
-//				}
-//			}
-//			if(error == 1)
-//			{
-//				chassis_control->vx_set = fp32_constrain(chassis_control->vx_set, -SHIFT_SLOW_CHASSIS_SPEED_X, SHIFT_SLOW_CHASSIS_SPEED_X);
-//			}
-//			else
-//			{
+			if(abs(chassis_control->chassis_motor_speed_pid[0].Output) > 7200 ||
+				 abs(chassis_control->chassis_motor_speed_pid[1].Output) > 7200 ||
+			   abs(chassis_control->chassis_motor_speed_pid[2].Output) > 7200 ||
+				 abs(chassis_control->chassis_motor_speed_pid[3].Output) > 7200)
+			{
+				error_cnt ++;
+				if(error_cnt > 500)
+				{
+					error = 1;
+					error_cnt = 500;
+				}
+			}
+			else
+			{
+				error_cnt --;
+				if(error_cnt < 0)
+				{
+					error = 0;
+					error_cnt = 0;
+				}
+			}
+			if(error == 1)
+			{
+				chassis_control->vx_set = fp32_constrain(chassis_control->vx_set, -SHIFT_SLOW_CHASSIS_SPEED_X, SHIFT_SLOW_CHASSIS_SPEED_X);
+			}
+			else
+			{
 				chassis_control->vx_set = fp32_constrain(chassis_control->vx_set, -SHIFT_NORMAL_MAX_CHASSIS_SPEED_X, SHIFT_NORMAL_MAX_CHASSIS_SPEED_X);
-//			}
+			}
       chassis_control->vy_set = fp32_constrain(chassis_control->vy_set, -SHIFT_NORMAL_MAX_CHASSIS_SPEED_Y, SHIFT_NORMAL_MAX_CHASSIS_SPEED_Y);
 			chassis_control->wz_set = chassis_control->chassis_yaw_pid.Output;
 		}
@@ -787,7 +797,7 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 				}
 				else
 				{
-					chassis_control->motor_uwb.position_set = 15.2f;
+					chassis_control->motor_uwb.position_set = 15.0f;
 				}
 		}		
 		
@@ -806,6 +816,17 @@ static void chassis_set_contorl(chassis_t *chassis_control)
 //				break;
 //			}
 //		}
+		if(all_key.arm_restart_key1.itself.flag == 1 && all_key.arm_restart_key2.itself.flag == 1)
+		{
+				arm_restart_flag = 1;
+				HAL_GPIO_WritePin(Arm_Power_GPIO_Port,Arm_Power_Pin,GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(Yaw_Power_GPIO_Port, Yaw_Power_Pin, GPIO_PIN_RESET);
+		}
+		else{
+			arm_restart_flag = 0;
+			HAL_GPIO_WritePin(Arm_Power_GPIO_Port,Arm_Power_Pin,GPIO_PIN_SET);
+			HAL_GPIO_WritePin(Yaw_Power_GPIO_Port, Yaw_Power_Pin, GPIO_PIN_SET);
+		}
 }
 
 /**

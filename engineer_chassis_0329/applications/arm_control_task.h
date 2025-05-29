@@ -25,8 +25,8 @@ typedef struct
 	fp32 Ag1[11][6];
 	fp32 Ag2[11][6];
 	fp32 Ag3[6][6];
-	fp32 exchange1[4][6];
-	fp32 exchange2[6][6];
+	fp32 exchange1[5][6];
+	fp32 exchange2[5][6];
 	fp32 Au1[10][6];
 	fp32 Au2[10][6];
 	fp32 Au3[4][6];

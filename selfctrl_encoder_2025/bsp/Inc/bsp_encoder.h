@@ -93,7 +93,7 @@ typedef struct{
 typedef struct{
 	uint8_t TxMode;
 	Tx_t Sender;
-	Encoder_Rx_t Encoder[6];
+	Encoder_Rx_t Encoder[7];
 }Encoder_t;
 
 //地址偏移量（该宏定义应等于最小的id值）

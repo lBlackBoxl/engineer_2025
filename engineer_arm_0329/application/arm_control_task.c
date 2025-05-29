@@ -377,10 +377,10 @@ void arm_set_control(arm_t *arm_set_control)
 		
 		if(arm_set_control -> move_mode == 4)
 		{
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_1,1200);//500-2000
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_2,1200);//500-2000
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_3,1200);//500-2000
-			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_4,1200);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_1,1150);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_2,1150);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_3,1150);//500-2000
+			__HAL_TIM_SetCompare(&htim1,TIM_CHANNEL_4,1150);//500-2000
 		}
 		else
 		{

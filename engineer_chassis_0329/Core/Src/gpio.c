@@ -87,8 +87,8 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(Pump_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Ore_1_Pin Ore_2_Pin */
-  GPIO_InitStruct.Pin = Ore_1_Pin|Ore_2_Pin;
+  /*Configure GPIO pins : Ore_2_Pin Ore_1_Pin */
+  GPIO_InitStruct.Pin = Ore_2_Pin|Ore_1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);

@@ -72,19 +72,18 @@ void joint_init(J_Data_t* arm){
 	arm->limit[5].ratio = JOINT_5_RATIO;
 	arm->limit[5].offset= JOINT_5_OFFSET;
 }
-
+	
 void motor_data_calc(J_Data_t* arm, J_Data_t arm_data){//换算成p1,p2单位毫米，r1-r5单位rad
 	static uint8_t i;
 	for(i = 0;i < 6;i++){
 		//角度换算成rad，圈数也算成rad，最后全部累加到joint[i]里
 		if(arm_data.cycle[i]<ENCODER_HALF_CYCLE_RESOLUTION){
 			arm_data.joint[i] = (arm_data.cycle[i] + arm_data.joint[i]/360)*2*PI;
-
 		}
 		else if(arm_data.cycle[i] >= ENCODER_HALF_CYCLE_RESOLUTION){
 			arm_data.joint[i] = (arm_data.cycle[i] - ENCODER_CYCLE_RESOLUTION + arm_data.joint[i]/360)*2*PI;
 		}
-				
+		
 		//线性映射和限位
 		arm_data.joint[i] = arm_data.joint[i]*arm_data.limit[i].ratio + arm_data.limit[i].offset; 
 		arm->joint[i] = DEADBAND_LIMIT(arm_data.joint[i], arm_data.limit[i].min, arm_data.limit[i].max);
