@@ -102,13 +102,13 @@ void uart7_init(void)
 	//__HAL_UART_ENABLE_IT(&huart7, UART_IT_IDLE);  //receive interrupt
 }
 
-void uart8_init(void)
-{
-  //open uart idle it	
-  	//¿ªÆô¿ÕÏÐÖÐ¶Ï
-  __HAL_UART_CLEAR_IDLEFLAG(&huart8);
-  __HAL_UART_ENABLE_IT(&huart8, UART_IT_IDLE);  //receive interrupt
-}
+//void uart8_init(void)
+//{
+//  //open uart idle it	
+//  	//¿ªÆô¿ÕÏÐÖÐ¶Ï
+//  __HAL_UART_CLEAR_IDLEFLAG(&huart8);
+//  __HAL_UART_ENABLE_IT(&huart8, UART_IT_IDLE);  //receive interrupt
+//}
 
 void USART6_IRQHandler(void)
 {

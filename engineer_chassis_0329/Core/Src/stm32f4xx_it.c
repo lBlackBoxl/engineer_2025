@@ -74,7 +74,6 @@ extern DMA_HandleTypeDef hdma_usart2_tx;
 extern DMA_HandleTypeDef hdma_usart6_rx;
 extern DMA_HandleTypeDef hdma_usart6_tx;
 extern UART_HandleTypeDef huart7;
-extern UART_HandleTypeDef huart8;
 extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart2;
 extern UART_HandleTypeDef huart6;
@@ -278,7 +277,7 @@ void CAN1_RX0_IRQHandler(void)
 //void USART1_IRQHandler(void)
 //{
 //  /* USER CODE BEGIN USART1_IRQn 0 */
-//////////////////////////////	usart1_IRQHandler();
+////////////////////////////////	usart1_IRQHandler();
 //  /* USER CODE END USART1_IRQn 0 */
 //  HAL_UART_IRQHandler(&huart1);
 //  /* USER CODE BEGIN USART1_IRQn 1 */
@@ -292,7 +291,7 @@ void CAN1_RX0_IRQHandler(void)
 //void USART2_IRQHandler(void)
 //{
 //  /* USER CODE BEGIN USART2_IRQn 0 */
-////////////////////////////////////	usart2_IRQHandler();
+//////////////////////////////////////	usart2_IRQHandler();
 //  /* USER CODE END USART2_IRQn 0 */
 //  HAL_UART_IRQHandler(&huart2);
 //  /* USER CODE BEGIN USART2_IRQn 1 */
@@ -411,27 +410,6 @@ void DMA2_Stream7_IRQHandler(void)
 
 //  /* USER CODE END UART7_IRQn 1 */
 //}
-
-/**
-  * @brief This function handles UART8 global interrupt.
-  */
-void UART8_IRQHandler(void)
-{
-  /* USER CODE BEGIN UART8_IRQn 0 */
-//	if(huart8.Instance->SR & UART_FLAG_RXNE)//���յ�����
-//	{
-////			CopeSerial8Data((unsigned char)UART8->DR);//��������		
-////		huart->Instance->DR 
-////			CopeSerial2Data((unsigned char)huart7.Instance->DR);//��������		
-
-//			__HAL_UART_CLEAR_PEFLAG(&huart8);
-//	}
-  /* USER CODE END UART8_IRQn 0 */
-  HAL_UART_IRQHandler(&huart8);
-  /* USER CODE BEGIN UART8_IRQn 1 */
-
-  /* USER CODE END UART8_IRQn 1 */
-}
 
 /* USER CODE BEGIN 1 */
 

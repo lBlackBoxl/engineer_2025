@@ -58,6 +58,10 @@ typedef struct
 	key_t self_control_rotate2_key;
 	key_t speed_up_key;
 	key_t chassis_rotate_key;
+	key_t mode_change_key;
+	key_t Power_get_key;
+	key_t clamp_key;
+	key_t arm_mode_change_key;
 }all_key_t;
 
 extern all_key_t all_key;

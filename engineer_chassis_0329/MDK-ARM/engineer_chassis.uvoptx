@@ -278,22 +278,27 @@
         <Ww>
           <count>24</count>
           <WinNumber>1</WinNumber>
-          <ItemText>uwb_mode</ItemText>
+          <ItemText>cmd_id</ItemText>
         </Ww>
         <Ww>
           <count>25</count>
           <WinNumber>1</WinNumber>
-          <ItemText>suker_key_flag</ItemText>
+          <ItemText>sc_allowance</ItemText>
         </Ww>
         <Ww>
           <count>26</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Half_rod_cnt,0x0A</ItemText>
+          <ItemText>last_s</ItemText>
         </Ww>
         <Ww>
           <count>27</count>
           <WinNumber>1</WinNumber>
-          <ItemText>\\engineer_chassis\../applications/can_communicate.c\arm_message.target_position</ItemText>
+          <ItemText>last_rc_mid</ItemText>
+        </Ww>
+        <Ww>
+          <count>28</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Half_rod_cnt,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>
