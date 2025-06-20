@@ -285,20 +285,20 @@ void arm_feedback_update(arm_t *arm_feedback)
 						}
 						else
 						{
-							TD_set_r(&arm_feedback->arm_2_TD,5.0f);
-							TD_set_r(&arm_feedback->arm_3_TD,5.0f);
-							TD_set_r(&arm_feedback->arm_4_TD,5.0f);
-							TD_set_r(&arm_feedback->arm_5_TD,5.0f);
-							TD_set_r(&arm_feedback->arm_6_TD,5.0f);
+							TD_set_r(&arm_feedback->arm_2_TD,9.0f);
+							TD_set_r(&arm_feedback->arm_3_TD,9.0f);
+							TD_set_r(&arm_feedback->arm_4_TD,9.0f);
+							TD_set_r(&arm_feedback->arm_5_TD,9.0f);
+							TD_set_r(&arm_feedback->arm_6_TD,9.0f);
 						}
-				}
+				}	 		 
 				else if((arm_feedback->arm_mode == 0 || arm_feedback->arm_mode == 2 )&& arm_feedback->suker_mode == 1)
 				{
-						TD_set_r(&arm_feedback->arm_2_TD,7.0f);
-						TD_set_r(&arm_feedback->arm_3_TD,7.0f);
-						TD_set_r(&arm_feedback->arm_4_TD,7.0f);
-						TD_set_r(&arm_feedback->arm_5_TD,7.0f);
-						TD_set_r(&arm_feedback->arm_6_TD,7.0f);
+						TD_set_r(&arm_feedback->arm_2_TD,9.0f);
+						TD_set_r(&arm_feedback->arm_3_TD,9.0f);
+						TD_set_r(&arm_feedback->arm_4_TD,9.0f);
+						TD_set_r(&arm_feedback->arm_5_TD,9.0f);
+						TD_set_r(&arm_feedback->arm_6_TD,9.0f);
 						reposition_count = 0;
 				}	
 				else

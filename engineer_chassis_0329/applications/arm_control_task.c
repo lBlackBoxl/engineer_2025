@@ -39,7 +39,7 @@ uint16_t time_flag[8][2][2];
 uint16_t time_cnt = 0;
 uint16_t arm_error_cnt = 0;
 uint8_t error_flag = 0;
-fp32 sc_allowance[2] = {0.0f, 0.0f};
+fp32 sc_allowance[3] = {0.0f, 0.0f, 0.0f};
 extern bool_t  clamp_flag;
 int Half_rod_cnt;
 fp32 allowance[6] = {-0.0f, -0.1f, 0.0f, 0.0f, 0.06f, 0.0f};
@@ -127,8 +127,8 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	R_6D_ctrl->Joint[2].angleLimitMax = 1.558f;	 // 1.57f;
 	R_6D_ctrl->Joint[2].angleLimitMin = -1.242f; //-1.23f;
 
-	R_6D_ctrl->Joint[3].angleLimitMax = 2.35f;//1.87f;	///////2.3f;
-	R_6D_ctrl->Joint[3].angleLimitMin = -2.35f;//-1.87f; ///////-1.9f;
+	R_6D_ctrl->Joint[3].angleLimitMax = 2.32f;//1.87f;
+	R_6D_ctrl->Joint[3].angleLimitMin = -2.50f;//-1.87f;
 
 	R_6D_ctrl->Joint[4].angleLimitMax = PI;
 	R_6D_ctrl->Joint[4].angleLimitMin = -PI;
@@ -142,7 +142,7 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	}
 	//		uint8_t routine_length[9] = {12, 12, 10, 6, 7, 10, 10 ,3};
 
-	uint8_t routine_length[9] = {11, 11, 6, 5, 5, 10, 10, 4};
+	uint8_t routine_length[9] = {11, 10, 6, 4, 4, 10, 9, 4};
 
 	for (int i = 0; i < 9; i++)
 	{
@@ -158,19 +158,19 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 													{0.344f + allowance[0], 1.3f + allowance[1], 0.70f + allowance[2], 0.0f + allowance[3], 2.93f + allowance[4], 0.0f + allowance[5]},
 													{0.344f + allowance[0], 0.96f + allowance[1], 0.96f + allowance[2], 0.0f + allowance[3], 3.30f + allowance[4], 0.0f + allowance[5]},
 													{-0.641f + allowance[0], 0.20f + allowance[1], 0.2f + allowance[2], 0.0f + allowance[3], 1.36f + allowance[4], 0.0f + allowance[5]},
-													{-2.87f + allowance[0], 0.20f + allowance[1], 0.2f + allowance[2], -0.67f + allowance[3], 1.02f + allowance[4], -1.0f + allowance[5]},
-													{-2.87f + allowance[0], 0.64f + allowance[1], 0.1f + allowance[2], -0.67f + allowance[3], 1.02f + allowance[4], -1.0f + allowance[5]},
-													{-2.87f + allowance[0], 0.64f + allowance[1], 0.1f + allowance[2], -0.67f + allowance[3], 1.02f + allowance[4], -1.0f + allowance[5]},
-													{-2.87f + allowance[0], 0.06f + allowance[1], 0.6f + allowance[2], -0.67f + allowance[3], 1.02f + allowance[4], -1.0f + allowance[5]},
+													{-2.87f + allowance[0], 0.24f + allowance[1], 0.2f + allowance[2], -0.67f + allowance[3], 0.92f + allowance[4], -1.0f + allowance[5]},
+													{-2.87f + allowance[0], 0.68f + allowance[1], 0.15f + allowance[2], -0.67f + allowance[3], 0.92f + allowance[4], -1.0f + allowance[5]},
+													{-2.87f + allowance[0], 0.68f + allowance[1], 0.15f + allowance[2], -0.67f + allowance[3], 0.92f + allowance[4], -1.0f + allowance[5]},
+													{-0.641f + allowance[0], 0.40f + allowance[1], 0.2f + allowance[2], -0.67f + allowance[3], 0.92f + allowance[4], -1.0f + allowance[5]},
 													{0.708f + allowance[0], 0.94f + allowance[1], 0.6f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]},
 												};
 
-	uint16_t flag_and_time_1[11][2] = {{0, 50}, {1, 50}, {1, 300}, {1, 50}, {1, 50}, {1, 50}, {1, 100}, {1,300}, {0,300},{0, 50}, {0, 50}};
+	uint16_t flag_and_time_1[11][2] = {{0, 50}, {1, 50}, {1, 300},{1, 50}, {1, 50}, {1, 50}, {1, 50}, {1,50}, {0,400},{0, 50},{0, 50}};
 	Ag_Catch.Ag1 = Ag1_temp[3][0];
 	memcpy(arm_control.arm_move_routine.Ag1, Ag1_temp, sizeof(Ag1_temp));
 	memcpy(arm_control.arm_move_routine.flag_and_time[0], flag_and_time_1, sizeof(flag_and_time_1));
 
-	fp32 Ag2_temp[11][6] = {
+	fp32 Ag2_temp[10][6] = {
 													{0.708f + allowance[0], 0.72f + allowance[1], 0.64f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]},
 													{1.144f + allowance[0], 1.62f + allowance[1], 0.61f + allowance[2], 0.0f + allowance[3], 2.43f + allowance[4], 0.0f + allowance[5]},
 													{1.144f + allowance[0], 1.75f + allowance[1], 0.62f + allowance[2], 0.0f + allowance[3], 2.43f + allowance[4], 0.0f + allowance[5]},
@@ -180,11 +180,10 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 													{-1.806f + allowance[0], 0.79f + allowance[1], 0.4f + allowance[2], -2.19f + allowance[3], 2.72f + allowance[4], 1.2f + allowance[5]},
 													{-1.926f + allowance[0], 0.79f + allowance[1], 0.16f + allowance[2], -2.19f + allowance[3], 2.72f + allowance[4], 1.2f + allowance[5]},
 													{-1.926f + allowance[0], 0.79f + allowance[1], 0.16f + allowance[2], -2.19f + allowance[3], 2.72f + allowance[4], 1.2f + allowance[5]},
-													{-0.641f + allowance[0], 0.79f + allowance[1], 0.16f + allowance[2], 0.0f + allowance[3], 1.80f + allowance[4], 0.0f + allowance[5]},
-													{0.708f + allowance[0], 0.92f + allowance[1], 0.5f + allowance[2], 0.0f + allowance[3], 1.80f + allowance[4], 0.0f + allowance[5]},
+													{0.708f + allowance[0], 0.88f + allowance[1], 0.12f + allowance[2], 0.0f + allowance[3], 1.80f + allowance[4], 0.0f + allowance[5]},
 												};
 
-	uint16_t flag_and_time_2[11][2] = {{0, 50}, {1, 50}, {1, 300}, {1, 50}, {1, 50}, {1, 50}, {1, 100}, {1, 300}, {0,300},{0, 50}, {0, 50}};
+	uint16_t flag_and_time_2[10][2] = {{0, 50}, {1, 50}, {1, 300},{1, 50}, {1, 50}, {1, 50}, {1, 50}, {1, 50}, {0,400}, {0, 50}};
 	Ag_Catch.Ag2 = Ag2_temp[3][0];
 	memcpy(arm_control.arm_move_routine.Ag2,Ag2_temp,sizeof(Ag2_temp));
 	memcpy(arm_control.arm_move_routine.flag_and_time[1], flag_and_time_2,sizeof(flag_and_time_2));
@@ -209,57 +208,57 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 //	
 //	uint16_t flag_and_time_4[4][2] = {{0,200},{1,500},{1,200},{1,1000}};
 	
-	fp32 exchange1_temp[5][6] = {	{-0.641f + allowance[0], 0.92f + allowance[1], 0.64f + allowance[2], 0.0f + allowance[3], 3.0f + allowance[4], 0.0f + allowance[5]},
-																{-2.038f + allowance[0],1.3f + allowance[1],0.9f + allowance[2],-0.1f + allowance[3],3.0f + allowance[4],-0.87f + allowance[5]},
-																{-2.038f + allowance[0],1.2f + allowance[1],0.60f + allowance[2],-0.1f + allowance[3],3.10f + allowance[4],-0.85f + allowance[5]},
-																{-2.038f + allowance[0],1.3f + allowance[1],0.9f + allowance[2],-0.1f + allowance[3],3.10f + allowance[4],-0.85f + allowance[5]},
-																{0.708f + allowance[0],1.3f + allowance[1],1.0f + allowance[2],0.0f + allowance[3],1.8f + allowance[4],0.0f + allowance[5]}
+	fp32 exchange1_temp[4][6] = {
+																{-2.038f + allowance[0],1.3f + allowance[1],0.9f + allowance[2],-0.1f + allowance[3],3.0f + allowance[4],3.89f - 0.87f  + allowance[5]},
+																{-2.038f + allowance[0],1.2f + allowance[1],0.60f + allowance[2],-0.1f + allowance[3],3.10f + allowance[4],3.89f - 0.87f+ allowance[5]},
+																{-2.038f + allowance[0],1.3f + allowance[1],0.7f + allowance[2],-0.1f + allowance[3],3.10f + allowance[4],3.89f - 0.87f + allowance[5]},
+																{0.708f + allowance[0],1.1f + allowance[1],1.0f + allowance[2],0.0f + allowance[3],1.8f + allowance[4],0.0f + allowance[5]}
 															};
 	
-	uint16_t flag_and_time_4[5][2] = {{0,200},{1,200},{1,200},{1,500},{1,200}};
+	uint16_t flag_and_time_4[4][2] = {{1,50},{1,100},{1,50},{1,50}};
 	
 	memcpy(arm_control.arm_move_routine.exchange1,exchange1_temp,sizeof(exchange1_temp));
 	memcpy(arm_control.arm_move_routine.flag_and_time[3], flag_and_time_4,sizeof(flag_and_time_4));
 	
-	fp32 exchange2_temp[5][6] = {{-0.641f + allowance[0], 0.92f + allowance[1], 0.64f + allowance[2], 0.0f + allowance[3], 3.0f + allowance[4], 0.0f + allowance[5]},
-													{-2.69f + allowance[0], 1.15f + allowance[1], 0.75f + allowance[2],0.02f + allowance[3], 3.20f + allowance[4], 0.0f + allowance[5]},
-													{-2.69f + allowance[0], 1.05f + allowance[1], 0.50f + allowance[2],0.02f + allowance[3], 3.20f + allowance[4], 0.0f + allowance[5]},
-													{-2.69f + allowance[0], 1.15f + allowance[1], 0.75f + allowance[2],0.02f + allowance[3], 3.20f + allowance[4], 0.0f + allowance[5]},
+	
+	fp32 exchange2_temp[4][6] = {
+													{-2.69f + allowance[0], 1.15f + allowance[1], 0.75f + allowance[2],0.02f + allowance[3], 3.10f + allowance[4], 3.24f + allowance[5]},
+													{-2.69f + allowance[0], 1.05f + allowance[1], 0.50f + allowance[2],0.02f + allowance[3], 3.10f + allowance[4], 3.24f + allowance[5]},
+													{-2.69f + allowance[0], 1.15f + allowance[1], 0.75f + allowance[2],0.02f + allowance[3], 3.10f + allowance[4], 3.24f + allowance[5]},
 													{0.708f + allowance[0],0.92f + allowance[1],1.2f + allowance[2],0.0f + allowance[3],1.8f + allowance[4],0.0f + allowance[5]}};
 	
-	uint16_t flag_and_time_5[5][2] = {{0,200},{1,200},{1,200},{1,200},{1,500}};
+	uint16_t flag_and_time_5[4][2] = {{1,50},{1,100},{1,50},{1,50}};
 	
 	memcpy(arm_control.arm_move_routine.exchange2,exchange2_temp,sizeof(exchange2_temp));
 	memcpy(arm_control.arm_move_routine.flag_and_time[4], flag_and_time_5,sizeof(flag_and_time_5));
 	
-	fp32 Au1_temp[10][6] = {{0.708f + allowance[0], 2.60f + allowance[1], 2.35f + allowance[2], 0.0f + allowance[3], 1.53f + allowance[4], 0.0f + allowance[5]},
-													{0.708f + allowance[0], 2.60f + allowance[1], 2.35f + allowance[2], 0.0f + allowance[3], 1.53f + allowance[4], 0.0f + allowance[5]},
-													{0.708f + allowance[0], 2.43f + allowance[1], 2.26f + allowance[2], 0.0f + allowance[3], 1.98f + allowance[4], 0.0f + allowance[5]},
+	fp32 Au1_temp[10][6] = {{0.708f + allowance[0], 2.60f + allowance[1], 2.35f + allowance[2], 0.0f + allowance[3], 1.53f + allowance[4], -0.3f + allowance[5]},
+													{0.708f + allowance[0], 2.60f + allowance[1], 2.35f + allowance[2], 0.0f + allowance[3], 1.53f + allowance[4], -0.3f + allowance[5]},
+													{0.708f + allowance[0], 2.43f + allowance[1], 2.26f + allowance[2], 0.0f + allowance[3], 1.98f + allowance[4], -0.3f + allowance[5]},
 													{0.708f + allowance[0], 0.72f + allowance[1], 0.64f + allowance[2], 0.0f + allowance[3], 1.85f + allowance[4], 0.0f + allowance[5]},
-													{-0.641f + allowance[0], 0.72f + allowance[1], 0.69f + allowance[2], 0.0f + allowance[3], 3.30f + allowance[4], 0.0f + allowance[5]},
-													{-2.656f + allowance[0], 1.12f + allowance[1], 0.87f + allowance[2], 0.0f + allowance[3], 2.90f + allowance[4], 0.0f + allowance[5]},
-													{-2.656f + allowance[0], 0.94f + allowance[1], 0.72f + allowance[2], 0.0f + allowance[3], 2.90f + allowance[4], 0.0f + allowance[5]},
-													{-2.656f + allowance[0], 0.94f + allowance[1], 0.72f + allowance[2], 0.0f + allowance[3], 2.90f + allowance[4], 0.0f + allowance[5]},
+													{-0.641f + allowance[0], 0.72f + allowance[1], 0.69f + allowance[2], 0.0f + allowance[3], 3.30f + allowance[4], 3.14f + allowance[5]},
+													{-2.606f + allowance[0], 1.12f + allowance[1], 0.87f + allowance[2], 0.0f + allowance[3], 2.90f + allowance[4], 3.14f + allowance[5]},
+													{-2.606f + allowance[0], 0.94f + allowance[1], 0.72f + allowance[2], 0.0f + allowance[3], 2.90f + allowance[4], 3.14f + allowance[5]},
+													{-2.606f + allowance[0], 0.94f + allowance[1], 0.72f + allowance[2], 0.0f + allowance[3], 2.90f + allowance[4], 3.14f + allowance[5]},
 													{-0.641f + allowance[0], 0.94f + allowance[1], 0.96f + allowance[2], 0.0f + allowance[3], 3.30f + allowance[4], 0.0f + allowance[5]},
 													{0.708f + allowance[0], 0.92f + allowance[1], 0.64f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]},
 												 };
-	uint16_t flag_and_time_6[10][2] = {{0,300},{1,300},{1,1000},{1,50},{1,50},{1,50},{1,100},{0,500},{0,500},{0,100}};
+	uint16_t flag_and_time_6[10][2] = {{0,300},{1,300},{1,1000},{1,50},{1,50},{1,50},{1,50},{0,300},{0,50},{0,50}};
 	
 	memcpy(arm_control.arm_move_routine.Au1,Au1_temp,sizeof(Au1_temp));	  
 	memcpy(arm_control.arm_move_routine.flag_and_time[5], flag_and_time_6,sizeof(flag_and_time_6));
 	
-	fp32 Au2_temp[10][6] = {	{0.708f + allowance[0], 2.60f + allowance[1], 2.35f + allowance[2], 0.0f + allowance[3], 1.53f + allowance[4], 0.0f + allowance[5]},
+	fp32 Au2_temp[9][6] = {	{0.708f + allowance[0], 2.60f + allowance[1], 2.35f + allowance[2], 0.0f + allowance[3], 1.53f + allowance[4], 0.0f + allowance[5]},
                                 {0.708f + allowance[0], 2.60f + allowance[1], 2.35f + allowance[2], 0.0f + allowance[3], 1.53f + allowance[4], 0.0f + allowance[5]},
                                 {0.708f + allowance[0], 2.43f + allowance[1], 2.26f + allowance[2], 0.0f + allowance[3], 1.98f + allowance[4], 0.0f + allowance[5]},
-                                {0.708f + allowance[0], 0.82f + allowance[1], 0.64f + allowance[2], 0.0f + allowance[3], 1.98f + allowance[4], 0.0f + allowance[5]},
-																{-1.456f + allowance[0], 1.26f + allowance[1], 1.10f + allowance[2], 0.0f + allowance[3], 3.05f + allowance[4], -0.40f + allowance[5]},
-																{-2.216f + allowance[0], 1.10f + allowance[1], 0.90f + allowance[2], 0.0f + allowance[3], 3.25f + allowance[4], -0.40f + allowance[5]},
-																{-2.216f + allowance[0], 1.10f + allowance[1], 0.90f + allowance[2], 0.0f + allowance[3], 3.25f + allowance[4], -0.40f + allowance[5]},
-																{-2.216f + allowance[0], 1.10f + allowance[1], 0.90f + allowance[2], 0.0f + allowance[3], 3.25f + allowance[4], -0.40f + allowance[5]},
-																{-0.641f + allowance[0], 1.0f + allowance[1], 0.96f + allowance[2], 0.0f + allowance[3], 3.30f + allowance[4], 0.0f + allowance[5]},
+                                {0.708f + allowance[0], 1.0f + allowance[1], 0.64f + allowance[2], 0.0f + allowance[3], 1.98f + allowance[4], 0.0f + allowance[5]},
+																{-2.180f + allowance[0], 1.22f + allowance[1], 1.0f + allowance[2], 0.0f + allowance[3], 3.0f + allowance[4], 2.9f + allowance[5]},
+																{-2.180f + allowance[0], 1.15f + allowance[1], 0.72f + allowance[2], 0.0f + allowance[3], 2.9f + allowance[4], 2.9f + allowance[5]},
+																{-2.180f + allowance[0], 1.15f + allowance[1], 0.72f + allowance[2], 0.0f + allowance[3], 2.9f + allowance[4], 2.9f + allowance[5]},
+																{-0.641f + allowance[0], 0.8f + allowance[1], 0.70f + allowance[2], 0.0f + allowance[3], 2.9f + allowance[4], 0.0f + allowance[5]},
 																{0.708f + allowance[0], 0.92f + allowance[1], 0.64f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]},};          //复位  放下
 	
-	uint16_t flag_and_time_7[10][2] = {{0,300},{1,300},{1,1000},{1,50},{1,50},{1,50},{1,100},{0,500},{0,50},{0,500}};
+	uint16_t flag_and_time_7[9][2] = {{0,300},{1,300},{1,1000},{1,50},{1,50},{1,50},{0,500},{0,50},{0,50}};
 	memcpy(arm_control.arm_move_routine.Au2,Au2_temp,sizeof(Au2_temp));	
 	memcpy(arm_control.arm_move_routine.flag_and_time[6], flag_and_time_7,sizeof(flag_and_time_7));
 	
@@ -279,7 +278,7 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	fp32 gou_dong[6] = {0.708f + allowance[0], 2.87f + allowance[1], 2.54f + allowance[2], 0.0f + allowance[3], 0.2f + allowance[4], 0.0f + allowance[5]};
 	fp32 three_ore_position[6] = {0.708f + allowance[0], 0.72f + allowance[1], 0.5f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]};
 	fp32 pre_Au_reposition[6] = {0.708f + allowance[0], 0.72f + allowance[1], 0.5f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]};
-	fp32 Au_reposition[6] = {0.708f + allowance[0], 2.60f + allowance[1], 2.35f + allowance[2], 0.0f + allowance[3]  , 1.53f + allowance[4], 0.0f + allowance[5]};
+	fp32 Au_reposition[6] = {0.708f + allowance[0], 2.60f + allowance[1], 2.35f + allowance[2], 0.0f + allowance[3]  , 1.53f + allowance[4], -0.3f + allowance[5]};
 	fp32 Ag_reposition[6] = {0.708f + allowance[0], 0.72f + allowance[1], 0.5f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]};
 
 	memcpy(arm_control.repostion_position, repositon_position, sizeof(repositon_position));
@@ -319,8 +318,8 @@ void arm_feedback_update(arm_control_t *arm_control_position, Robotic_6DOF_contr
 		float q_multiply_result[4];
 		
 		R_6D_ctrl->Pose6D_IK.X = arm_pose.x * 70.0f - 179.864f - 385.0f + sc_allowance[0];
-		R_6D_ctrl->Pose6D_IK.Y = arm_pose.y * 80.0f;
-		R_6D_ctrl->Pose6D_IK.Z = -arm_pose.z * 70.0f + 469.576f + 20.0f + sc_allowance[1];
+		R_6D_ctrl->Pose6D_IK.Y = arm_pose.y * 80.0f + sc_allowance[1];
+		R_6D_ctrl->Pose6D_IK.Z = -arm_pose.z * 70.0f + 469.576f + 20.0f + sc_allowance[2];
 
 		for (int i = 0; i < 4; i++)
 		{
@@ -399,15 +398,15 @@ void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 
 	if (chassis.arm_mode == 1 && chassis.suker_key_flag == 0)
 	{
-		TD_set_r(&arm_control_set->arm_1_TD, 3.0f);
+		TD_set_r(&arm_control_set->arm_1_TD, 6.0f);
 	}
 	else if ((chassis.arm_mode == 0 || chassis.arm_mode == 2))
 	{
-		TD_set_r(&arm_control_set->arm_1_TD, 5.0f);
+		TD_set_r(&arm_control_set->arm_1_TD, 6.0f);
 	}
 	else
 	{
-		TD_set_r(&arm_control_set->arm_1_TD, 3.0f);
+		TD_set_r(&arm_control_set->arm_1_TD, 6.0f);
 	}
 	// 一键抓矿
 	if (arm_key->capture_key.itself.mode != arm_key->capture_key.itself.last_mode)
@@ -1039,7 +1038,7 @@ void arm_check_get_position(arm_control_t *check_position)
 		fabs(check_position->motor_3_position - (arm_message.target_position[2])) < 0.1f &&
 		fabs(check_position->motor_4_position - (arm_message.target_position[3])) < 0.2f &&
 		fabs(check_position->motor_5_position - (arm_message.target_position[4])) < 0.15f &&
-		fabs(check_position->motor_6_position - (arm_message.target_position[5])) < 0.15f)
+		fabs(rad_format(check_position->motor_6_position) - (arm_message.target_position[5])) < 0.15f)
 	{
 		check_position->arm_get_position_flag++;
 	}

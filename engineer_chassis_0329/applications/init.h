@@ -67,7 +67,7 @@
 #define CHASSIS_YAW_PID_MAX_OUT  5.8f
 #define CHASSIA_YAW_PID_MAX_IOUT 0.3f
 //¼Ð¿óµç»ú
-#define CLAMP_POSITION_PID_KP      10.0f
+#define CLAMP_POSITION_PID_KP      12.0f
 #define CLAMP_POSITION_PID_KI      0.0f
 #define CLAMP_POSITION_PID_KD      0.05f
 #define CLAMP_POSITION_PID_MAX_OUT 20.0f

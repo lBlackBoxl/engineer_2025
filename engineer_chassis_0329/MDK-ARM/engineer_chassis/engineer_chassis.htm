@@ -3,9 +3,9 @@
 <title>Static Call Graph - [engineer_chassis\engineer_chassis.elf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image engineer_chassis\engineer_chassis.elf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri May 30 12:48:59 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Jun 02 14:27:43 2025
 <BR><P>
-<H3>Maximum Stack Usage =       2100 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       1988 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 arm_control_task &rArr; arm_control_init &rArr; CAN_cmd_4310_disable &rArr; HAL_CAN_AddTxMessage
 <P>
@@ -1262,9 +1262,9 @@ Global Symbols
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Init
 <LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Start
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Start
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 </UL>
 
@@ -1275,9 +1275,9 @@ Global Symbols
 <P><STRONG><a name="[f6]"></a>HAL_Init</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, stm32f4xx_hal.o(i.HAL_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_Init &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriorityGrouping
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriorityGrouping
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -2828,7 +2828,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[8c]"></a>arm_control_task</STRONG> (Thumb, 166 bytes, Stack size 72 bytes, arm_control_task.o(i.arm_control_task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 2100<LI>Call Chain = arm_control_task &rArr; arm_control_init &rArr; CAN_cmd_4310_disable &rArr; HAL_CAN_AddTxMessage
+<BR><BR>[Stack]<UL><LI>Max Depth = 1988<LI>Call Chain = arm_control_task &rArr; arm_control_init &rArr; CAN_cmd_4310_disable &rArr; HAL_CAN_AddTxMessage
 </UL>
 <BR>[Calls]<UL><LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_GetDeltaT
@@ -2868,7 +2868,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1ee]"></a>chassis_rc_to_control_vector</STRONG> (Thumb, 930 bytes, Stack size 56 bytes, chassis_task.o(i.chassis_rc_to_control_vector))
+<P><STRONG><a name="[1ee]"></a>chassis_rc_to_control_vector</STRONG> (Thumb, 982 bytes, Stack size 56 bytes, chassis_task.o(i.chassis_rc_to_control_vector))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = chassis_rc_to_control_vector
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;first_order_filter_cali
@@ -3011,6 +3011,7 @@ Global Symbols
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_RxFifo0MsgPendingCallback
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveL
 <LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_loop
+<LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_check_get_position
 </UL>
 
 <P><STRONG><a name="[9b]"></a>main</STRONG> (Thumb, 86 bytes, Stack size 0 bytes, main.o(i.main))
@@ -3871,18 +3872,19 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_GetDeltaT
 </UL>
 
-<P><STRONG><a name="[1d0]"></a>arm_check_get_position</STRONG> (Thumb, 458 bytes, Stack size 24 bytes, arm_control_task.o(i.arm_check_get_position))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = arm_check_get_position &rArr; __aeabi_cdcmple
+<P><STRONG><a name="[1d0]"></a>arm_check_get_position</STRONG> (Thumb, 474 bytes, Stack size 32 bytes, arm_control_task.o(i.arm_check_get_position))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = arm_check_get_position &rArr; __aeabi_cdcmple
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
+<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_set
 </UL>
 
-<P><STRONG><a name="[1d2]"></a>arm_control_init</STRONG> (Thumb, 9486 bytes, Stack size 1976 bytes, arm_control_task.o(i.arm_control_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 2028<LI>Call Chain = arm_control_init &rArr; CAN_cmd_4310_disable &rArr; HAL_CAN_AddTxMessage
+<P><STRONG><a name="[1d2]"></a>arm_control_init</STRONG> (Thumb, 8952 bytes, Stack size 1864 bytes, arm_control_task.o(i.arm_control_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1916<LI>Call Chain = arm_control_init &rArr; CAN_cmd_4310_disable &rArr; HAL_CAN_AddTxMessage
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[1d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Delay
@@ -3929,7 +3931,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
 
-<P><STRONG><a name="[1df]"></a>arm_feedback_update</STRONG> (Thumb, 334 bytes, Stack size 96 bytes, arm_control_task.o(i.arm_feedback_update))
+<P><STRONG><a name="[1df]"></a>arm_feedback_update</STRONG> (Thumb, 332 bytes, Stack size 96 bytes, arm_control_task.o(i.arm_feedback_update))
 <BR><BR>[Stack]<UL><LI>Max Depth = 432<LI>Call Chain = arm_feedback_update &rArr; SolveFK &rArr; RotMatToQua &rArr; __hardfp_sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf &rArr; __dunder_d &rArr; _fp_trapveneer &rArr; _fp_trap &rArr; __rt_SIGFPE &rArr; __rt_SIGFPE_inner &rArr; __default_signal_display
 </UL>
 <BR>[Calls]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SolveFK
@@ -3968,7 +3970,7 @@ Local Symbols
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_init
 </UL>
 
-<P><STRONG><a name="[1e9]"></a>chassis_init</STRONG> (Thumb, 628 bytes, Stack size 16 bytes, chassis_task.o(i.chassis_init))
+<P><STRONG><a name="[1e9]"></a>chassis_init</STRONG> (Thumb, 632 bytes, Stack size 16 bytes, chassis_task.o(i.chassis_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = chassis_init &rArr; PID_Init &rArr; OLS_Init &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_remote_control_point
@@ -4007,7 +4009,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
 </UL>
 
-<P><STRONG><a name="[1f2]"></a>chassis_set_mode</STRONG> (Thumb, 1206 bytes, Stack size 32 bytes, chassis_task.o(i.chassis_set_mode))
+<P><STRONG><a name="[1f2]"></a>chassis_set_mode</STRONG> (Thumb, 1168 bytes, Stack size 32 bytes, chassis_task.o(i.chassis_set_mode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = chassis_set_mode &rArr; __aeabi_cdcmple
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
