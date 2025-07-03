@@ -697,6 +697,11 @@
               <FileType>1</FileType>
               <FilePath>..\devices\Src\BMI088middleware.c</FilePath>
             </File>
+            <File>
+              <FileName>STS_drive.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\devices\Src\STS_drive.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

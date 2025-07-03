@@ -55,6 +55,7 @@
 "gimbal\usart_communicate.o"
 "gimbal\bmi088driver.o"
 "gimbal\bmi088middleware.o"
+"gimbal\sts_drive.o"
 "gimbal\bsp_can.o"
 "gimbal\bsp_delay.o"
 "gimbal\bsp_led.o"
