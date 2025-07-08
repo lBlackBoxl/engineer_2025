@@ -25,10 +25,26 @@ void usart_communicate_task(void const * argument)
 		osDelay(40);
 		send_data_self_control.header.seq = seq++;
 		
+		if(Present_Position[4] < 500 && Present_Position[4] > -500)
+		{
+				Present_Position[4] = 0;
+		}
+		if(Present_Position[5] < 500 && Present_Position[5] > -500)
+		{
+				Present_Position[5] = 0;
+		}
+		
 		for(int i = 0; i < 6; i++)
 		{
 				send_data_self_control.data[i] = Present_Position[i];
 		}
+		
+		if((Present_Position[4] == 1000 || Present_Position[4] == -1000) && (Present_Position[5] == 1000 || Present_Position[5] == -1000))
+		{
+				send_data_self_control.data[4] = 0;
+				send_data_self_control.data[5] = 0;
+		}
+		send_data_self_control.rocker_button = HAL_GPIO_ReadPin(Rocker_button_GPIO_Port,Rocker_button_Pin);
 		
 		append_crc8_check_sum(&send_data_self_control.header.sof, 5);
 		append_crc16_check_sum(&send_data_self_control.header.sof, 39);
@@ -41,7 +57,7 @@ void usart_communicate_task(void const * argument)
 void tx_init()
 {
 	  send_data_self_control.header.sof = 0xA5;
-    send_data_self_control.header.dataLenth = 30; // 4 * 7 + 1 * 2 = 30
+    send_data_self_control.header.dataLenth = 30; // 4 * 6 + 1 + 1* 5 = 30
     send_data_self_control.header.seq = 0;
 		send_data_self_control.cmd_id = 0x0302;
 }

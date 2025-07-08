@@ -4,6 +4,8 @@
 #include "string.h"
 #include "usart.h"
 
+extern int UART_Receive_DMA_No_IT(UART_HandleTypeDef* huart, uint8_t* pData, uint32_t Size);
+
 extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart2;
 extern DMA_HandleTypeDef hdma_usart2_tx;
@@ -15,6 +17,9 @@ uint8_t  USART2_RX_BUF[USART2_MAX_RECV_LEN];
 uint16_t USART2_RX_STA = 0;
 uint8_t  USART6_RX_BUF[2][USART_RX_BUF_LENGHT];
 receive_msg_t imu_rx_data;
+
+uint8_t  UART4_RX_BUF[UART4_MAX_RECV_LEN]; 
+uint16_t UART4_RX_STA = 0;
 
 //和算法通信的串口初始化
 //void usart2_idle_init(void)
@@ -84,11 +89,12 @@ void usart6_init(uint8_t *rx1_buf, uint8_t *rx2_buf, uint16_t dma_buf_num)
     hdma_usart6_tx.Instance->PAR = (uint32_t) & (USART6->DR);
 }
 
-void uart5_init(void)
-{
-	__HAL_UART_CLEAR_IDLEFLAG(&huart5);
-	__HAL_UART_ENABLE_IT(&huart5, UART_IT_RXNE);
-}
+//void uart4_init(void)
+//{
+//		__HAL_UART_CLEAR_IDLEFLAG(&huart4);
+//		__HAL_UART_ENABLE_IT(&huart4, UART_IT_IDLE);									//使能空闲中断
+//		UART_Receive_DMA_No_IT(&huart4, UART4_RX_BUF , UART4_MAX_RECV_LEN);
+//}
 
 void uart6_init(void)
 {

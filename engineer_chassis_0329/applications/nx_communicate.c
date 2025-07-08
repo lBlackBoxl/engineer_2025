@@ -23,7 +23,7 @@ uint8_t PC_SEND_BUF[LEN_TX_PACKET + 1];
 float nx_allowance[6] = {0.5589f + 0.564f,-1.5935f,1.5933f,0.0f,-1.6356f,0.0575f};
 
 extern void nx_communicate_init(void);
-static int UART_Receive_DMA_No_IT(UART_HandleTypeDef* huart, uint8_t* pData, uint32_t Size);
+int UART_Receive_DMA_No_IT(UART_HandleTypeDef* huart, uint8_t* pData, uint32_t Size);
 	
 void nx_communicate_task(void const *pvParameters)
 {
@@ -106,7 +106,7 @@ void UART7_IRQHandler(void)
 	}
 }
 
-static int UART_Receive_DMA_No_IT(UART_HandleTypeDef* huart, uint8_t* pData, uint32_t Size)
+int UART_Receive_DMA_No_IT(UART_HandleTypeDef* huart, uint8_t* pData, uint32_t Size)
 {
   uint32_t tmp1 = 0;
   tmp1 = huart->RxState;

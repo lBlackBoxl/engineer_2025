@@ -14,6 +14,6 @@
  * @param: 0 Õ¨ππ
  * @param: 1 xyzypr¡˘÷·
 ***************************************************************************/
-#define SELF_CTRL_XYZYPR    1
+#define SELF_CTRL_XYZYPR    0
 
 #endif

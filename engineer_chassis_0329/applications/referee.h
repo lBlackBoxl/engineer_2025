@@ -2,6 +2,8 @@
 #define REFEREE_H
 #include "main.h"
 #include "app_config.h"
+#include "keyboard.h"
+
 typedef enum
 {
     ROBOT_STATE_CMD_ID                = 0x0201,
@@ -59,11 +61,21 @@ extern ext_arm_pose_t    arm_pose;
 #else
 typedef __packed struct{
 	float joint[6];
-	uint16_t time_stamp;
-	uint32_t nothing;
+	uint8_t Rocker_button;
+	uint8_t nothing[5];
 }ext_arm_position_t;
 
 extern ext_arm_position_t	arm_position;
+
+typedef enum{
+		Ori_Left,
+		Ori_Right
+}orientation_station;
+
+extern uint8_t orientation_flag;
+extern orientation_station orientation_mode;
+extern orientation_station last_orientation_mode;
+extern key_t Rocker_key;
 
 #endif
 

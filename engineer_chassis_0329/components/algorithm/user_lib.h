@@ -58,6 +58,7 @@ extern fp32 fp32_deadline(fp32 Value, fp32 minValue, fp32 maxValue);
 extern int16_t int16_deadline(int16_t Value, int16_t minValue, int16_t maxValue);
 //限幅函数
 extern fp32 fp32_constrain(fp32 Value, fp32 minValue, fp32 maxValue);
+extern fp32 dead_limit_fp32(fp32 Input, fp32 Max_limit, fp32 Min_limit);
 //限幅函数
 extern int16_t int16_constrain(int16_t Value, int16_t minValue, int16_t maxValue);
 //循环限幅函数

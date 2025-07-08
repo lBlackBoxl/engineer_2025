@@ -283,22 +283,42 @@
         <Ww>
           <count>25</count>
           <WinNumber>1</WinNumber>
-          <ItemText>sc_allowance</ItemText>
+          <ItemText>I_6D_ctrl</ItemText>
         </Ww>
         <Ww>
           <count>26</count>
           <WinNumber>1</WinNumber>
-          <ItemText>last_s</ItemText>
+          <ItemText>referee_receive_header,0x10</ItemText>
         </Ww>
         <Ww>
           <count>27</count>
           <WinNumber>1</WinNumber>
-          <ItemText>last_rc_mid</ItemText>
+          <ItemText>referee_fifo,0x10</ItemText>
         </Ww>
         <Ww>
           <count>28</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Half_rod_cnt,0x0A</ItemText>
+          <ItemText>referee_unpack_obj,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>29</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>arm_position</ItemText>
+        </Ww>
+        <Ww>
+          <count>30</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>arm_target_position</ItemText>
+        </Ww>
+        <Ww>
+          <count>31</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>USART6_TX_Buffer</ItemText>
+        </Ww>
+        <Ww>
+          <count>32</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>orientation_mode</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

@@ -2,6 +2,7 @@
 #include "string.h"
 #include "stdio.h"
 #include "protocol.h"
+#include "keyboard.h"
 
 frame_header_struct_t referee_receive_header;
 ext_game_robot_status_t robot_state;
@@ -11,6 +12,10 @@ ext_arm_pose_t    arm_pose;
 #else
 ext_arm_position_t	arm_position;
 #endif
+uint8_t orientation_flag;
+orientation_station orientation_mode;
+orientation_station last_orientation_mode;
+key_t Rocker_key;
 
 //与裁判系统通信初始化
 void init_referee_struct_data(void)
@@ -52,6 +57,35 @@ void referee_data_solve(uint8_t *frame)
 					memcpy(&arm_pose, frame + index, sizeof(ext_arm_pose_t));
 #else
 					memcpy(&arm_position, frame + index, sizeof(ext_arm_position_t));
+					Rocker_key.itself.last_mode = Rocker_key.itself.mode;
+					if(Rocker_key.itself.flag == 0)
+					{
+						if(arm_position.Rocker_button != 0)
+						{
+								Rocker_key.itself.time++;
+						}
+						if(Rocker_key.itself.time >= 1) 
+						{	
+							Rocker_key.itself.flag = 1;
+							Rocker_key.itself.time = 0;
+						}
+					}
+					else                                        
+					{
+						if(arm_position.Rocker_button == 0)   
+						{
+								Rocker_key.itself.time++;
+						}
+						if(Rocker_key.itself.time >= 1) 
+						{	
+								Rocker_key.itself.flag = 0;
+								Rocker_key.itself.time = 0;
+								Rocker_key.itself.mode = Rocker_key.itself.mode +1;
+								if(Rocker_key.itself.mode == 2)
+								Rocker_key.itself.mode=0;
+						}
+					}
+					
 #endif
 					break;
 				}

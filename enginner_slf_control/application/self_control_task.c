@@ -42,7 +42,7 @@ void self_control_init(void);
 extern int ReadPos(int ID);//¶ÁÎ»ÖÃ
 extern int writeWord(uint8_t ID, uint8_t MemAddr, uint16_t wDat);//Ð´2¸ö×Ö½Ú
 
-fp32 position_allowance[4] = {1.49869919, -2.8854177, -0.829883575, -0.420310736};
+fp32 position_allowance[4] = {1.54869919, 3.3754177, -0.909883575, -0.420310736};
 
 void self_control_task(void const *argument)
 {

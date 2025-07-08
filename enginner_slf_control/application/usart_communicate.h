@@ -16,8 +16,9 @@ typedef struct
 {
     tFrameHeader header;
     uint16_t cmd_id;
-    float data[7];
-    uint8_t unused_data[2];
+    float data[6];
+		uint8_t rocker_button;
+    uint8_t unused_data[5];
     uint16_t crc16;
 }__attribute__((packed)) send_data;
 

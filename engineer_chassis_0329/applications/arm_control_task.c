@@ -42,7 +42,7 @@ uint8_t error_flag = 0;
 fp32 sc_allowance[3] = {0.0f, 0.0f, 0.0f};
 extern bool_t  clamp_flag;
 int Half_rod_cnt;
-fp32 allowance[6] = {-0.0f, -0.1f, 0.0f, 0.0f, 0.06f, 0.0f};
+fp32 allowance[6] = {0.103f, -0.1f, 0.0f, 0.0f, 0.06f, 0.0f};
 
 void arm_control_task(void const *argument)
 {
@@ -74,6 +74,9 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 	
 	//默认不启用AJX一键
 	AJX_flag = 0;
+	
+	//默认自控朝向为左
+	orientation_mode = Ori_Left;
 	
 	//AJX时间标志位初始化
 	time_flag[Ag1][0][0] = 1, time_flag[Ag1][0][1] = 1000, time_flag[Ag1][1][0] = 0, time_flag[Ag1][1][1] = 2000;
@@ -336,15 +339,9 @@ void arm_feedback_update(arm_control_t *arm_control_position, Robotic_6DOF_contr
 	}
 #else 
 		//同构模式
-		for(uint8_t i=0;i<6;i++){
+		for(int i = 0; i < 6; i++)
+		{
 			i_ctrl->joint[i] = arm_position.joint[i];
-		}
-		if(arm_position.time_stamp != i_ctrl->last_stamp){
-			i_ctrl->last_stamp = arm_position.time_stamp;
-			i_ctrl->link_flag  = 1;
-		}
-		else{
-			i_ctrl->link_flag = 0;
 		}
 #endif
 }
@@ -378,6 +375,11 @@ void arm_control_set(arm_control_t *arm_control_set, all_key_t *arm_key)
 	else if (suker_key_flag == 0)
 	{
 		HAL_GPIO_WritePin(Pump_GPIO_Port, Pump_Pin, GPIO_PIN_RESET);
+	}
+	last_orientation_mode = orientation_mode;
+	if(Rocker_key.itself.mode != Rocker_key.itself.last_mode)
+	{
+		orientation_mode = 1 - orientation_mode;
 	}
 	
 //	if (arm_key->ajx_on_key.itself.mode != arm_key->ajx_on_key.itself.last_mode)
@@ -992,25 +994,50 @@ void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_cont
 		}
 #else 
 		//同构模式
-			if(chassis.arm_mode != SELF_CONTROL_MODE)
-			{
-					i_ctrl->joint5_offset = i_ctrl->joint[5];
-			}
-			if(i_ctrl->link_flag == 1){
-				for(uint8_t j=0;j<6;j++){
-					arm_target_position[j] = i_ctrl->joint[j];
-				}
-				arm_target_position[5] -= i_ctrl->joint5_offset;
-				if(arm_key->self_control_rotate1_key.itself.mode != arm_key->self_control_rotate1_key.itself.last_mode)
+//			if(i_ctrl->link_flag == 1){
+//				void dead_limit_fp32(fp32 Input, fp32 Output, fp32 Max_limit, fp32 Min_limit)
+				arm_target_position[0] = dead_limit_fp32(i_ctrl->joint[0] + 0.811f,2.95f,-2.89f);
+				arm_target_position[1] = dead_limit_fp32(i_ctrl->joint[1] + 0.6f,2.87f,1.03f);
+				arm_target_position[2] = dead_limit_fp32(i_ctrl->joint[2] + 1.04f,2.81f,0.0f);
+				arm_target_position[3] = dead_limit_fp32(i_ctrl->joint[3] + 0.0f,2.40f,-2.52f);
+				if(orientation_mode == Ori_Left)
 				{
-						Half_rod_cnt ++;
+					arm_target_position[3] += 1.57f;
+					if(chassis.last_arm_mode != SELF_CONTROL_MODE)
+					{
+						arm_target_position[4] += 1.44f;
+						arm_target_position[5] += 1.57f;
+					}
+					else
+					{
+						if(last_orientation_mode == Ori_Right)
+						{
+							arm_target_position[5] += 3.14f;
+						}
+					}
 				}
-				else if(arm_key->self_control_rotate2_key.itself.mode != arm_key->self_control_rotate2_key.itself.last_mode)
+				else if(orientation_mode == Ori_Right)
 				{
-						Half_rod_cnt --;
+					arm_target_position[3] -= 1.57f;
+					if(chassis.last_arm_mode != SELF_CONTROL_MODE)
+					{
+						arm_target_position[4] += 1.44f;
+						arm_target_position[5] -= 1.57f;
+					}
+					else
+					{
+						if(last_orientation_mode == Ori_Left)
+						{
+							arm_target_position[5] -= 3.14f;
+						}
+					}
 				}
-				arm_target_position[5] = rad_format(arm_target_position[5] + PI / 2 * Half_rod_cnt);
-			}
+				if((arm_target_position[4] + (0.000002f * i_ctrl->joint[4]) < 3.3f) && (arm_target_position[4] + (0.000002f * i_ctrl->joint[4]) > 0.1f))
+				{
+					arm_target_position[4] = (arm_target_position[4] += 0.000002f * i_ctrl->joint[4]);
+				}
+				arm_target_position[5] = rad_format(arm_target_position[5] -= 0.000002f * i_ctrl->joint[5]);
+//			}
 #endif
 	}
 	else if (chassis.arm_mode == NX_CONTROL_MODE)

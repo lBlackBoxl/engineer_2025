@@ -259,6 +259,7 @@ void referee_unpack_fifo_data(void)
 					p_obj->index = 0;
 				}
 			}
+			
 			break;
 			case STEP_LENGTH_LOW:
 			{

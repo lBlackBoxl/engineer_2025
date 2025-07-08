@@ -6,9 +6,19 @@
 #include "chassis_task.h"
 #include "arm_control_task.h"
 #include "usart.h"
+#include "bsp_usart.h"
+#include "referee.h"
 
 extern CAN_HandleTypeDef hcan1;
 extern CAN_HandleTypeDef hcan2;
+
+//extern DMA_HandleTypeDef hdma_uart4_rx;
+//extern DMA_HandleTypeDef hdma_uart4_tx;
+
+//extern uint8_t  UART4_RX_BUF[UART4_MAX_RECV_LEN]; 
+//extern uint16_t UART4_RX_STA;
+
+//extern isomorphic_control_t  I_6D_ctrl;
 
 extern bool_t  clamp_flag;
 extern uint8_t AJX_flag;
@@ -131,3 +141,20 @@ void CAN_board_communicate_can_1(fp32 board_position_message[6],uint16_t mode, u
  
     HAL_CAN_AddTxMessage(&BROADS_CAN, &board_communicate_can1_tx_message, board_communicate_can1_send_data, &send_mail_box);
 }
+
+//void UART4_IRQHandler(void)
+//{
+//	if (__HAL_UART_GET_FLAG(&huart4, UART_FLAG_IDLE) && __HAL_UART_GET_IT_SOURCE(&huart4, UART_IT_IDLE))
+//	{
+//		__HAL_UART_CLEAR_IDLEFLAG(&huart4);
+//		uint32_t DMA_FLAGS = __HAL_DMA_GET_TC_FLAG_INDEX(huart4.hdmarx); 
+//		UART4_RX_STA = UART4_MAX_RECV_LEN - huart4.hdmarx->Instance->NDTR; 
+//		__HAL_DMA_DISABLE(huart4.hdmarx);
+//		
+//		memcpy(&arm_position, UART4_RX_BUF + 5, 24);
+//		
+//		__HAL_DMA_CLEAR_FLAG(huart4.hdmarx, DMA_FLAGS);	
+//		__HAL_DMA_SET_COUNTER(huart4.hdmarx,UART4_MAX_RECV_LEN);
+//		__HAL_DMA_ENABLE(huart4.hdmarx);
+//	}
+//}

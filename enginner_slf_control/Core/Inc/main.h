@@ -57,6 +57,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define Rocker_button_Pin GPIO_PIN_0
+#define Rocker_button_GPIO_Port GPIOF
 
 /* USER CODE BEGIN Private defines */
 

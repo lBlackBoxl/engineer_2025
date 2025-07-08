@@ -151,6 +151,22 @@ fp32 fp32_constrain(fp32 Value, fp32 minValue, fp32 maxValue)
         return Value;
 }
 
+fp32 dead_limit_fp32(fp32 Input, fp32 Max_limit, fp32 Min_limit)
+{
+		if(Input > Max_limit)
+		{
+				return Max_limit;
+		}
+		else if(Input < Min_limit)
+		{
+				return Min_limit;
+		}
+		else
+		{
+				return Input;
+		}
+}
+
 //ÏŞ·ùº¯Êı
 int16_t int16_constrain(int16_t Value, int16_t minValue, int16_t maxValue)
 {
