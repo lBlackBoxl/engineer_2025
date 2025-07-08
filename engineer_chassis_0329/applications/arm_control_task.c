@@ -42,7 +42,7 @@ uint8_t error_flag = 0;
 fp32 sc_allowance[3] = {0.0f, 0.0f, 0.0f};
 extern bool_t  clamp_flag;
 int Half_rod_cnt;
-fp32 allowance[6] = {0.103f, -0.1f, 0.0f, 0.0f, 0.06f, 0.0f};
+fp32 allowance[6] = {-0.151f, -0.1f, 0.0f, 0.0f, 0.06f, 0.0f};
 
 void arm_control_task(void const *argument)
 {
@@ -996,7 +996,7 @@ void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_cont
 		//同构模式
 //			if(i_ctrl->link_flag == 1){
 //				void dead_limit_fp32(fp32 Input, fp32 Output, fp32 Max_limit, fp32 Min_limit)
-				arm_target_position[0] = dead_limit_fp32(i_ctrl->joint[0] + 0.811f,2.95f,-2.89f);
+				arm_target_position[0] = dead_limit_fp32(i_ctrl->joint[0] + 0.557f,2.695f,-3.135f);
 				arm_target_position[1] = dead_limit_fp32(i_ctrl->joint[1] + 0.6f,2.87f,1.03f);
 				arm_target_position[2] = dead_limit_fp32(i_ctrl->joint[2] + 1.04f,2.81f,0.0f);
 				arm_target_position[3] = dead_limit_fp32(i_ctrl->joint[3] + 0.0f,2.40f,-2.52f);
