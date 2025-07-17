@@ -3,9 +3,9 @@
 <title>Static Call Graph - [engineer_chassis\engineer_chassis.elf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image engineer_chassis\engineer_chassis.elf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Jul 08 18:03:12 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Jul 17 14:18:46 2025
 <BR><P>
-<H3>Maximum Stack Usage =       1988 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       2020 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 arm_control_task &rArr; arm_control_init &rArr; CAN_cmd_4310_disable &rArr; HAL_CAN_AddTxMessage
 <P>
@@ -1742,7 +1742,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[155]"></a>MX_GPIO_Init</STRONG> (Thumb, 416 bytes, Stack size 32 bytes, gpio.o(i.MX_GPIO_Init))
+<P><STRONG><a name="[155]"></a>MX_GPIO_Init</STRONG> (Thumb, 438 bytes, Stack size 32 bytes, gpio.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -2002,7 +2002,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f427xx.o(RESET)
 </UL>
-<P><STRONG><a name="[4e]"></a>USART2_IRQHandler</STRONG> (Thumb, 260 bytes, Stack size 8 bytes, referee_usart_task.o(i.USART2_IRQHandler))
+<P><STRONG><a name="[4e]"></a>USART2_IRQHandler</STRONG> (Thumb, 264 bytes, Stack size 8 bytes, referee_usart_task.o(i.USART2_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = USART2_IRQHandler &rArr; HAL_UART_IRQHandler &rArr; UART_Receive_IT
 </UL>
 <BR>[Calls]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
@@ -2705,7 +2705,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[8c]"></a>arm_control_task</STRONG> (Thumb, 166 bytes, Stack size 72 bytes, arm_control_task.o(i.arm_control_task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1988<LI>Call Chain = arm_control_task &rArr; arm_control_init &rArr; CAN_cmd_4310_disable &rArr; HAL_CAN_AddTxMessage
+<BR><BR>[Stack]<UL><LI>Max Depth = 2020<LI>Call Chain = arm_control_task &rArr; arm_control_init &rArr; CAN_cmd_4310_disable &rArr; HAL_CAN_AddTxMessage
 </UL>
 <BR>[Calls]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_GetDeltaT
@@ -3003,7 +3003,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[207]"></a>referee_data_solve</STRONG> (Thumb, 202 bytes, Stack size 16 bytes, referee.o(i.referee_data_solve))
+<P><STRONG><a name="[207]"></a>referee_data_solve</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, referee.o(i.referee_data_solve))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = referee_data_solve
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
@@ -3749,8 +3749,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_set
 </UL>
 
-<P><STRONG><a name="[1bf]"></a>arm_control_init</STRONG> (Thumb, 8842 bytes, Stack size 1864 bytes, arm_control_task.o(i.arm_control_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1916<LI>Call Chain = arm_control_init &rArr; CAN_cmd_4310_disable &rArr; HAL_CAN_AddTxMessage
+<P><STRONG><a name="[1bf]"></a>arm_control_init</STRONG> (Thumb, 8998 bytes, Stack size 1896 bytes, arm_control_task.o(i.arm_control_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1948<LI>Call Chain = arm_control_init &rArr; CAN_cmd_4310_disable &rArr; HAL_CAN_AddTxMessage
 </UL>
 <BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Delay
@@ -3765,7 +3765,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
 
-<P><STRONG><a name="[1c5]"></a>arm_control_key_check</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, arm_control_task.o(i.arm_control_key_check))
+<P><STRONG><a name="[1c5]"></a>arm_control_key_check</STRONG> (Thumb, 196 bytes, Stack size 8 bytes, arm_control_task.o(i.arm_control_key_check))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = arm_control_key_check &rArr; key_itself_press_num &rArr; key_press
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;key_itself_press_num
@@ -3773,7 +3773,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
 
-<P><STRONG><a name="[1c7]"></a>arm_control_loop</STRONG> (Thumb, 3250 bytes, Stack size 64 bytes, arm_control_task.o(i.arm_control_loop))
+<P><STRONG><a name="[1c7]"></a>arm_control_loop</STRONG> (Thumb, 3274 bytes, Stack size 64 bytes, arm_control_task.o(i.arm_control_loop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = arm_control_loop &rArr; __aeabi_cdcmple
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
@@ -3834,7 +3834,7 @@ Local Symbols
 <LI><a href="#[1d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_init
 </UL>
 
-<P><STRONG><a name="[1d6]"></a>chassis_init</STRONG> (Thumb, 632 bytes, Stack size 16 bytes, chassis_task.o(i.chassis_init))
+<P><STRONG><a name="[1d6]"></a>chassis_init</STRONG> (Thumb, 636 bytes, Stack size 16 bytes, chassis_task.o(i.chassis_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = chassis_init &rArr; PID_Init &rArr; OLS_Init &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_remote_control_point
@@ -3873,7 +3873,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
 </UL>
 
-<P><STRONG><a name="[1df]"></a>chassis_set_mode</STRONG> (Thumb, 1168 bytes, Stack size 32 bytes, chassis_task.o(i.chassis_set_mode))
+<P><STRONG><a name="[1df]"></a>chassis_set_mode</STRONG> (Thumb, 1290 bytes, Stack size 32 bytes, chassis_task.o(i.chassis_set_mode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = chassis_set_mode &rArr; __aeabi_cdcmple
 </UL>
 <BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin

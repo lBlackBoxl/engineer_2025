@@ -419,7 +419,7 @@ void USART2_IRQHandler(void)
 
             hdma_usart2_rx.Instance->NDTR = SBUS_RX_BUF_NUM;
 
-            DMA1_Stream1->CR &= ~(DMA_SxCR_CT);
+            hdma_usart2_rx.Instance->CR |= DMA_SxCR_CT;
 					
             __HAL_DMA_ENABLE(&hdma_usart2_rx);
 					

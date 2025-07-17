@@ -58,8 +58,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define Ore_Pump_2_Pin GPIO_PIN_5
+#define Ore_Pump_2_GPIO_Port GPIOE
 #define Yaw_Power_Pin GPIO_PIN_2
 #define Yaw_Power_GPIO_Port GPIOH
+#define Ore_Pump_1_Pin GPIO_PIN_1
+#define Ore_Pump_1_GPIO_Port GPIOF
 #define Arm_Power_Pin GPIO_PIN_4
 #define Arm_Power_GPIO_Port GPIOH
 #define Pump_Pin GPIO_PIN_10
