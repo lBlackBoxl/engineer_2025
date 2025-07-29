@@ -31,6 +31,8 @@ uint8_t last_arm_mode;
 uint8_t last_clamp_flag;
 extern uint8_t restart_flag;
 uint8_t time_cnt;
+uint8_t ore_pump_flag;
+uint8_t last_ore_pump_flag;
 
 void data_solve(uint8_t *usart_buffer,uint8_t *rx_buffer);
 static int UART_Receive_DMA_No_IT(UART_HandleTypeDef* huart, uint8_t* pData, uint32_t Size);
@@ -119,6 +121,7 @@ void data_solve(uint8_t *usart_buffer,uint8_t *rx_buffer)
 	AJX_flag = rx_buffer[8];
 	arm_restart_flag = rx_buffer[9];
 	arm_error_flag = rx_buffer[10];
+	ore_pump_flag = rx_buffer[11];
 }
 
 static int UART_Receive_DMA_No_IT(UART_HandleTypeDef* huart, uint8_t* pData, uint32_t Size)

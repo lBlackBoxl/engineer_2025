@@ -23,6 +23,7 @@ extern CAN_HandleTypeDef hcan2;
 extern bool_t  clamp_flag;
 extern uint8_t AJX_flag;
 extern uint8_t error_flag;
+extern uint8_t Ore_Pump_flag;
 
 uint8_t USART6_TX_Buffer[20];
 
@@ -85,6 +86,7 @@ void TX_init(void)
 	USART6_TX_Buffer[8] = AJX_flag;
 	USART6_TX_Buffer[9] = arm_restart_flag;
 	USART6_TX_Buffer[10] = error_flag;
+	USART6_TX_Buffer[11] = Ore_Pump_flag;
 	USART6_TX_Buffer[19] = 'e';
 }
 

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [engineer_chassis\engineer_chassis.elf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image engineer_chassis\engineer_chassis.elf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Jul 17 14:18:46 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Jul 26 16:12:41 2025
 <BR><P>
 <H3>Maximum Stack Usage =       2020 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -3773,7 +3773,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
 
-<P><STRONG><a name="[1c7]"></a>arm_control_loop</STRONG> (Thumb, 3274 bytes, Stack size 64 bytes, arm_control_task.o(i.arm_control_loop))
+<P><STRONG><a name="[1c7]"></a>arm_control_loop</STRONG> (Thumb, 3286 bytes, Stack size 64 bytes, arm_control_task.o(i.arm_control_loop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = arm_control_loop &rArr; __aeabi_cdcmple
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;loop_fp32_constrain
@@ -3804,7 +3804,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_control_task
 </UL>
 
-<P><STRONG><a name="[182]"></a>TX_init</STRONG> (Thumb, 192 bytes, Stack size 8 bytes, boards_communicate.o(i.TX_init))
+<P><STRONG><a name="[182]"></a>TX_init</STRONG> (Thumb, 198 bytes, Stack size 8 bytes, boards_communicate.o(i.TX_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TX_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
@@ -3812,7 +3812,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;board_communicate_task
 </UL>
 
-<P><STRONG><a name="[1d2]"></a>chassis_control_loop</STRONG> (Thumb, 660 bytes, Stack size 64 bytes, chassis_task.o(i.chassis_control_loop))
+<P><STRONG><a name="[1d2]"></a>chassis_control_loop</STRONG> (Thumb, 694 bytes, Stack size 64 bytes, chassis_task.o(i.chassis_control_loop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = chassis_control_loop &rArr; PID_Calculate &rArr; DWT_GetDeltaT &rArr; DWT_CNT_Update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;int16_constrain

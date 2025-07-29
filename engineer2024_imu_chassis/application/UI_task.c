@@ -22,6 +22,8 @@ uint8_t Temp[128];
 extern uint8_t last_move_mode;
 extern uint8_t last_arm_mode;
 extern uint8_t last_clamp_flag;
+extern uint8_t ore_pump_flag;
+extern uint8_t last_ore_pump_flag;
 uint8_t restart_flag;
 
 static void send_dele(uint8_t layer);
@@ -32,6 +34,7 @@ void Draw_layer_3(UI_message_t *UI_message, UI_message_t *UI_message_float, uint
 void Draw_layer_4(UI_message_t *UI_message, UI_message_t *UI_message_float, uint32_t operate_type);
 void Draw_layer_5(UI_message_t *UI_message, UI_message_t *UI_message_float, uint32_t operate_type);
 void Draw_layer_6(UI_message_t *UI_message, UI_message_t *UI_message_float, uint32_t operate_type);
+void Draw_layer_7(UI_message_t *UI_message, UI_message_t *UI_message_float, uint32_t operate_type);
 
 //UI任务
 void ui_task(void const *argu)
@@ -40,11 +43,11 @@ void ui_task(void const *argu)
 	//初始化
 	uint32_t UI_wake_time = osKernelSysTick();	
 	
-    for(int i = 0 ; i < 9; i++)
-    {
-        send_dele(i);
-        osDelay(UI_TIME);
-    }
+	for(int i = 0 ; i < 9; i++)
+	{
+			send_dele(i);
+			osDelay(UI_TIME);
+	}
 	Draw_layer_1(&UI_message,&UI_message_float,1);
 	osDelay(UI_TIME);
 	Draw_layer_2(&UI_message,&UI_message_float,1);
@@ -55,11 +58,13 @@ void ui_task(void const *argu)
 	osDelay(UI_TIME);
 	Draw_layer_5(&UI_message,&UI_message_float,1);
 	osDelay(UI_TIME);
+	Draw_layer_7(&UI_message,&UI_message_float,1);
+	osDelay(UI_TIME);
 	
 	while(1)
 	{
 		//为防止UI界面出现故障，每隔10s进行一次清屏
-		if((last_arm_mode != arm_mode) || (last_move_mode != move_mode) || (last_clamp_flag != clamp_flag))
+		if((last_arm_mode != arm_mode) || (last_move_mode != move_mode) || (last_clamp_flag != clamp_flag) || (last_ore_pump_flag != ore_pump_flag))
 		{
 				restart_flag = 1;
 		}
@@ -80,6 +85,13 @@ void ui_task(void const *argu)
 				send_dele(3);
 				osDelay(UI_TIME);
 				Draw_layer_3(&UI_message,&UI_message_float,1);
+				osDelay(UI_TIME);
+			}
+			else if(last_ore_pump_flag != ore_pump_flag)
+			{
+				send_dele(7);
+				osDelay(UI_TIME);
+				Draw_layer_7(&UI_message,&UI_message_float,1);
 				osDelay(UI_TIME);
 			}
 			else
@@ -119,6 +131,8 @@ void ui_task(void const *argu)
 									osDelay(UI_TIME);
 									Draw_layer_5(&UI_message,&UI_message_float,1);
 									osDelay(UI_TIME);
+									Draw_layer_7(&UI_message,&UI_message_float,1);
+									osDelay(UI_TIME);
 							}
 				}
 		}
@@ -126,6 +140,7 @@ void ui_task(void const *argu)
 		last_arm_mode = arm_mode;
 		last_move_mode = move_mode;
 		last_clamp_flag = clamp_flag;
+		last_ore_pump_flag = ore_pump_flag;
 		
 		//更新UI界面内容
 		if(arm_mode == 2)
@@ -133,6 +148,8 @@ void ui_task(void const *argu)
 				Draw_layer_4(&UI_message,&UI_message_float,2);
 						osDelay(UI_TIME);
 				Draw_layer_5(&UI_message,&UI_message_float,2);
+						osDelay(UI_TIME);
+				Draw_layer_7(&UI_message,&UI_message_float,2);
 						osDelay(UI_TIME);
 		}
 		else
@@ -157,6 +174,8 @@ void ui_task(void const *argu)
 						osDelay(UI_TIME);
 				Draw_layer_5(&UI_message,&UI_message_float,2);
 						osDelay(UI_TIME);
+				Draw_layer_7(&UI_message,&UI_message_float,2);
+				osDelay(UI_TIME);
 		}
 	}
 }
@@ -401,9 +420,9 @@ void Draw_layer_3(UI_message_t *UI_message, UI_message_t *UI_message_float, uint
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].layer = 3;
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].width = 5;
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_x = 1550;
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_y = 880;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_y = 880 - 50;
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_x = 1550 + 300;
-	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_y = 880 - 100;
+	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_y = 880 - 100 - 50;
 
 	//矿仓显示
 	if(clamp_flag == 1)
@@ -423,9 +442,9 @@ void Draw_layer_3(UI_message_t *UI_message, UI_message_t *UI_message_float, uint
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].layer = 3;
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].width = 20;
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].start_x = 1550 + 75;
-		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].start_y = 880 - 100;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].start_y = 880 - 50;
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].end_x = 1550 + 75;
-		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].end_y = 880 - 100 - 40;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].end_y = 880 + 40 - 50;
 	
 		//矿仓夹取机关_连杆2
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].graphic_name[0] = 0;
@@ -437,9 +456,9 @@ void Draw_layer_3(UI_message_t *UI_message, UI_message_t *UI_message_float, uint
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].layer = 3;
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].width = 20;
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].start_x = 1550 + 300 - 75;
-		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].start_y = 880 - 100;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].start_y = 880 - 50;
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].end_x = 1550 + 300 - 75;
-		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].end_y = 880 - 100 - 40;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].end_y = 880 + 40 - 50;
 
 		//矿仓夹取机关_夹板
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].graphic_name[0] = 0;
@@ -451,9 +470,9 @@ void Draw_layer_3(UI_message_t *UI_message, UI_message_t *UI_message_float, uint
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].layer = 3;
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].width = 10;
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].start_x = 1550;
-		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].start_y = 880 - 100 - 40;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].start_y = 880 + 40 - 50;
 		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].end_x = 1550 + 300;
-		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].end_y = 880 - 100 - 40;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].end_y = 880 + 40 - 50;
 	}
 	
 	append_crc8_check_sum(&UI_message->graphic_five.FrameHead.sof,sizeof(UI_message->graphic_five.FrameHead));
@@ -492,9 +511,9 @@ void Draw_layer_4(UI_message_t *UI_message, UI_message_t *UI_message_float, uint
 			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].layer = 4;
 			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].width = 80;
 			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_x = 1550 + 35;
-			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_y = 880 - 50;
+			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_y = 880 - 50 - 50;
 			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_x = 1550 + 115;
-			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_y = 880 - 50;
+			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_y = 880 - 50 - 50;
 
 			//矿石2
 			if(Ore_2_flag == 0)
@@ -514,9 +533,9 @@ void Draw_layer_4(UI_message_t *UI_message, UI_message_t *UI_message_float, uint
 			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].layer = 4;
 			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].width = 80;
 			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].start_x = 1550 + 300 - 35;
-			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].start_y = 880 - 50;
+			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].start_y = 880 - 50 - 50;
 			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].end_x = 1550 + 300 - 115;
-			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].end_y = 880 - 50;
+			UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].end_y = 880 - 50 - 50;
 	}
 
 	//气泵状态指示
@@ -764,7 +783,66 @@ void Draw_layer_6(UI_message_t *UI_message, UI_message_t *UI_message_float, uint
 	UI_message->graphic_five.Interactive_header_data.receiver_ID = 0x0100 + robot_state.robot_id;	//机器人接收ID
 	
 	//银矿辅助线
-	//辅助线1
+//	//辅助线1
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[0] = 0;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[1] = 6;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[2] = 0;
+//	
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].operate_type = operate_type;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_type = 0;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].layer = 6;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].width = 3;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].color = 4;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_x = 1172;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_y = 280;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_x = 1070;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_y = 272;
+//	
+//	//辅助线2 
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].graphic_name[0] = 0;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].graphic_name[1] = 6;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].graphic_name[2] = 1;
+//	
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].operate_type = operate_type;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].graphic_type = 0;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].layer = 6;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].width = 3;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].color = 4;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].start_x = 1172;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].start_y = 280;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].end_x = 1260;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].end_y = 0;
+//	
+//	//辅助线3
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].graphic_name[0] = 0;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].graphic_name[1] = 6;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].graphic_name[2] = 2;
+//	
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].operate_type = operate_type;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].graphic_type = 0;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].layer = 6;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].width = 3;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].color = 4;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].start_x = 660;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].start_y = 270;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].end_x = 870;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[2].end_y = 270;
+//	
+//	//辅助线4
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].graphic_name[0] = 0;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].graphic_name[1] = 6;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].graphic_name[2] = 3;
+//	
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].operate_type = operate_type;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].graphic_type = 0;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].layer = 6;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].width = 3;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].color = 4;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].start_x = 660;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].start_y = 270;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].end_x = 570;
+//	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].end_y = 0;
+
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[0] = 0;
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[1] = 6;
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[2] = 0;
@@ -824,11 +902,142 @@ void Draw_layer_6(UI_message_t *UI_message, UI_message_t *UI_message_float, uint
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].end_x = 640;
 	UI_message->graphic_five.Client_graphic_five.grapic_data_struct[3].end_y = 0;
 	 
+	 
 	append_crc8_check_sum(&UI_message->graphic_five.FrameHead.sof,sizeof(UI_message->graphic_five.FrameHead));
 	append_crc16_check_sum(&UI_message->graphic_five.FrameHead.sof,sizeof(UI_message->graphic_five.FrameHead)
 	+ REF_PROTOCOL_CMD_SIZE + REF_PROTOCOL_CRC16_SIZE + UI_message->graphic_five.FrameHead.dataLenth);
 	HAL_UART_Transmit_DMA(&JUDGE_HUART,&UI_message->graphic_five.FrameHead.sof,sizeof(UI_message->graphic_five));
 		osDelay(UI_TIME);
+}
+
+void Draw_layer_7(UI_message_t *UI_message, UI_message_t *UI_message_float, uint32_t operate_type)
+{
+	UI_message->character.FrameHead.sof = 0xA5;		
+	UI_message->character.FrameHead.dataLenth = 51;
+	UI_message->character.FrameHead.seq = (seqcount++) & 0xFF;  									//帧头填充
+	UI_message->character.CmdId = 0x0301;                     									//交互命令码
+	UI_message->character.Interactive_header_data.data_cmd_id = 0x0110;   						//UI图形命令码
+	UI_message->character.Interactive_header_data.sender_ID = robot_state.robot_id;				//机器人发送ID
+	UI_message->character.Interactive_header_data.receiver_ID = 0x0100 + robot_state.robot_id;	//机器人接收ID
+	
+	UI_message->character.Client_character.grapic_data_struct.graphic_name[0] = 0;
+	UI_message->character.Client_character.grapic_data_struct.graphic_name[1] = 7;
+	UI_message->character.Client_character.grapic_data_struct.graphic_name[2] = 0;
+	UI_message->character.Client_character.grapic_data_struct.operate_type = operate_type;
+	UI_message->character.Client_character.grapic_data_struct.graphic_type = 7;
+	UI_message->character.Client_character.grapic_data_struct.layer = 7;
+	UI_message->character.Client_character.grapic_data_struct.color = 4;
+	UI_message->character.Client_character.grapic_data_struct.start_angle = 20;
+	UI_message->character.Client_character.grapic_data_struct.width = 3;
+	UI_message->character.Client_character.grapic_data_struct.start_x = 1600;
+	UI_message->character.Client_character.grapic_data_struct.start_y = 480;
+	uint8_t UI_String_1[] = "ORE_PUMP_FLAG";
+	memset(UI_message->character.Client_character.data, 0, sizeof(UI_message->character.Client_character));
+	memcpy(UI_message->character.Client_character.data, UI_String_1, sizeof(UI_String_1)-1);
+	UI_message->character.Client_character.grapic_data_struct.end_angle = sizeof(UI_String_1) - 1;
+	
+	append_crc8_check_sum(&UI_message->character.FrameHead.sof,sizeof(UI_message->character.FrameHead));
+	append_crc16_check_sum(&UI_message->character.FrameHead.sof,sizeof(UI_message->character.FrameHead)
+	+ REF_PROTOCOL_CMD_SIZE + REF_PROTOCOL_CRC16_SIZE + UI_message->character.FrameHead.dataLenth);	
+	HAL_UART_Transmit_DMA(&JUDGE_HUART,&UI_message->character.FrameHead.sof,sizeof(UI_message->character));
+	osDelay(UI_TIME);
+
+	//ORE_PUMP状态显示
+	if(ore_pump_flag == 0)
+	{
+		uint8_t UI_String_2[] = "0"; 
+		UI_message->character.Client_character.grapic_data_struct.color = 2;
+				UI_message->character.Client_character.grapic_data_struct.end_angle = sizeof(UI_String_2);
+				memset(UI_message->character.Client_character.data, 0, sizeof(UI_message->character.Client_character));
+				memcpy(UI_message->character.Client_character.data, UI_String_2, sizeof(UI_String_2));
+	}
+	else if(ore_pump_flag == 1)
+	{
+		uint8_t UI_String_2[] = "1"; 
+		UI_message->character.Client_character.grapic_data_struct.color = 2;
+				UI_message->character.Client_character.grapic_data_struct.end_angle = sizeof(UI_String_2);
+				memset(UI_message->character.Client_character.data, 0, sizeof(UI_message->character.Client_character));
+				memcpy(UI_message->character.Client_character.data, UI_String_2, sizeof(UI_String_2));
+	}
+	else if(ore_pump_flag == 2)
+	{
+		uint8_t UI_String_2[] = "2"; 
+		UI_message->character.Client_character.grapic_data_struct.color = 2;
+				UI_message->character.Client_character.grapic_data_struct.end_angle = sizeof(UI_String_2);
+				memset(UI_message->character.Client_character.data, 0, sizeof(UI_message->character.Client_character));
+				memcpy(UI_message->character.Client_character.data, UI_String_2, sizeof(UI_String_2));
+	}
+	else
+	{
+		uint8_t UI_String_2[] = "ERROR"; 
+		UI_message->character.Client_character.grapic_data_struct.color = 3;
+				UI_message->character.Client_character.grapic_data_struct.end_angle = sizeof(UI_String_2);
+				memset(UI_message->character.Client_character.data, 0, sizeof(UI_message->character.Client_character));
+				memcpy(UI_message->character.Client_character.data, UI_String_2, sizeof(UI_String_2));
+	}
+	UI_message->character.Client_character.grapic_data_struct.graphic_name[0] = 0;
+	UI_message->character.Client_character.grapic_data_struct.graphic_name[1] = 7;
+	UI_message->character.Client_character.grapic_data_struct.graphic_name[2] = 1;
+	UI_message->character.Client_character.grapic_data_struct.operate_type = operate_type;
+	UI_message->character.Client_character.grapic_data_struct.graphic_type = 7;
+	UI_message->character.Client_character.grapic_data_struct.layer = 7;
+	UI_message->character.Client_character.grapic_data_struct.start_angle = 20;
+	UI_message->character.Client_character.grapic_data_struct.width = 3;
+	UI_message->character.Client_character.grapic_data_struct.start_x = 1600;
+	UI_message->character.Client_character.grapic_data_struct.start_y = 430;
+
+	append_crc8_check_sum(&UI_message->character.FrameHead.sof,sizeof(UI_message->character.FrameHead));
+	append_crc16_check_sum(&UI_message->character.FrameHead.sof,sizeof(UI_message->character.FrameHead)
+	+ REF_PROTOCOL_CMD_SIZE + REF_PROTOCOL_CRC16_SIZE + UI_message->character.FrameHead.dataLenth);	
+	HAL_UART_Transmit_DMA(&JUDGE_HUART,&UI_message->character.FrameHead.sof,sizeof(UI_message->character));
+	osDelay(UI_TIME);
+				
+	UI_message->graphic_five.FrameHead.sof = 0xA5;		
+	UI_message->graphic_five.FrameHead.dataLenth = 81;
+	UI_message->graphic_five.FrameHead.seq = (seqcount++) & 0xFF;  									//帧头填充
+	UI_message->graphic_five.CmdId = 0x0301;                     									//交互命令码
+	UI_message->graphic_five.Interactive_header_data.data_cmd_id = 0x0103;   						//UI图形命令码
+	UI_message->graphic_five.Interactive_header_data.sender_ID = robot_state.robot_id;				//机器人发送ID
+	UI_message->graphic_five.Interactive_header_data.receiver_ID = 0x0100 + robot_state.robot_id;	//机器人接收ID
+	
+	if(ore_pump_flag == 1 || ore_pump_flag == 2)
+	{
+		//矿仓气泵1
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[0] = 0;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[1] = 7;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_name[2] = 2;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].color = 2;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].operate_type = operate_type;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].graphic_type = 0;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].layer = 7;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].width = 20;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_x = 1550 + 90;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].start_y = 880 - 100 - 50;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_x = 1550 + 60;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[0].end_y = 880 - 100 - 50;
+	}
+	
+	if(ore_pump_flag == 2)
+	{
+		//矿仓气泵2
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].graphic_name[0] = 0;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].graphic_name[1] = 7;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].graphic_name[2] = 3;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].color = 2;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].operate_type = operate_type;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].graphic_type = 0;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].layer = 7;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].width = 20;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].start_x = 1550 + 300 - 60;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].start_y = 880 - 100 - 50;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].end_x = 1550 + 300 - 90;
+		UI_message->graphic_five.Client_graphic_five.grapic_data_struct[1].end_y = 880 - 100 - 50;
+	}
+	
+	append_crc8_check_sum(&UI_message->graphic_five.FrameHead.sof,sizeof(UI_message->graphic_five.FrameHead));
+	append_crc16_check_sum(&UI_message->graphic_five.FrameHead.sof,sizeof(UI_message->graphic_five.FrameHead)
+	+ REF_PROTOCOL_CMD_SIZE + REF_PROTOCOL_CRC16_SIZE + UI_message->graphic_five.FrameHead.dataLenth);
+	HAL_UART_Transmit_DMA(&JUDGE_HUART,&UI_message->graphic_five.FrameHead.sof,sizeof(UI_message->graphic_five));
 }
 
 static void send_dele(uint8_t lay)

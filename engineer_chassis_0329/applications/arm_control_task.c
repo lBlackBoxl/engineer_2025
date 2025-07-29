@@ -43,7 +43,7 @@ fp32 sc_allowance[3] = {0.0f, 0.0f, 0.0f};
 extern bool_t  clamp_flag;
 extern uint8_t clamp_mode;
 int Half_rod_cnt;
-fp32 allowance[6] = {0.076f, -0.1f, 0.0f, 0.0f, 0.16f, 0.0f};
+fp32 allowance[6] = {0.059f, -0.1f, 0.0f, 0.0f, 0.16f, 0.0f};
 
 void arm_control_task(void const *argument)
 {
@@ -161,11 +161,11 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 													{0.344f + allowance[0], 1.75f + allowance[1], 0.62f + allowance[2], 0.0f + allowance[3], 2.43f + allowance[4], 0.0f + allowance[5]},
 													{0.344f + allowance[0], 1.3f + allowance[1], 0.70f + allowance[2], 0.0f + allowance[3], 2.93f + allowance[4], 0.0f + allowance[5]},
 													{0.344f + allowance[0], 0.96f + allowance[1], 0.96f + allowance[2], 0.0f + allowance[3], 3.30f + allowance[4], 0.0f + allowance[5]},
-													{-0.641f + allowance[0], 0.20f + allowance[1], 0.2f + allowance[2], 0.0f + allowance[3], 1.36f + allowance[4], 0.0f + allowance[5]},
-													{-3.03f + allowance[0], 0.32f + allowance[1], 0.2f + allowance[2], 1.53f + allowance[3], 2.45f + allowance[4], 0.0f + allowance[5]},
-													{-3.03f + allowance[0], 0.11f + allowance[1], 0.0f + allowance[2], 1.53f + allowance[3], 2.45f + allowance[4], -0.4f + allowance[5]},
-													{-3.03f + allowance[0], 0.11f + allowance[1], 0.0f + allowance[2], 1.53f + allowance[3], 2.45f + allowance[4], -0.4f + allowance[5]},
-													{-0.641f + allowance[0], 0.40f + allowance[1], 0.4f + allowance[2], -0.67f + allowance[3], 0.92f + allowance[4], 0.0f + allowance[5]},
+													{-0.641f + allowance[0], 0.96f + allowance[1], 0.96f + allowance[2], 0.0f + allowance[3], 1.36f + allowance[4], 0.0f + allowance[5]},
+													{-3.05f + allowance[0], 0.32f + allowance[1], 0.2f + allowance[2], 1.53f + allowance[3], 2.45f + allowance[4], 0.0f + allowance[5]},
+													{-3.05f + allowance[0], 0.0f + allowance[1], 0.0f + allowance[2], 1.53f + allowance[3], 2.30f + allowance[4], -0.6f + allowance[5]},
+													{-3.05f + allowance[0], 0.0f + allowance[1], 0.0f + allowance[2], 1.53f + allowance[3], 2.30f + allowance[4], -0.6f + allowance[5]},
+													{-1.641f + allowance[0], 0.45f + allowance[1], 0.65f + allowance[2],1.53f + allowance[3], 3.3f + allowance[4], 0.0f + allowance[5]},
 													{0.708f + allowance[0], 1.0f + allowance[1], 0.6f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]},
 												};
 
@@ -178,13 +178,13 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 													{0.708f + allowance[0], 0.72f + allowance[1], 0.64f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]},
 													{1.144f + allowance[0], 1.62f + allowance[1], 0.61f + allowance[2], 0.0f + allowance[3], 2.43f + allowance[4], 0.0f + allowance[5]},
 													{1.144f + allowance[0], 1.75f + allowance[1], 0.62f + allowance[2], 0.0f + allowance[3], 2.43f + allowance[4], 0.0f + allowance[5]},
-													{1.144f + allowance[0], 1.3f + allowance[1], 0.70f + allowance[2], 0.0f + allowance[3], 2.93f + allowance[4], 0.0f + allowance[5]},
-													{1.114f + allowance[0], 0.96f + allowance[1], 0.96f + allowance[2], 0.0f + allowance[3], 3.30f + allowance[4], 0.0f + allowance[5]},
-													{-0.641f + allowance[0], 0.82f + allowance[1], 0.6f + allowance[2], 0.0f + allowance[3], 1.36f + allowance[4], 0.0f + allowance[5]},
-													{-1.620f + allowance[0], 0.38f + allowance[1], 0.2f + allowance[2], 1.157f + allowance[3], 1.2f + allowance[4], -0.3f + allowance[5]},
-													{-1.723f + allowance[0], 0.38f + allowance[1], 0.0f + allowance[2], 1.157f + allowance[3], 1.1f + allowance[4], -0.3f + allowance[5]},
-													{-1.723f + allowance[0], 0.38f + allowance[1], 0.0f + allowance[2], 1.157f + allowance[3], 1.1f + allowance[4], -0.3f + allowance[5]},
-													{-0.641f + allowance[0], 0.40f + allowance[1], 0.4f + allowance[2], -0.67f + allowance[3], 0.92f + allowance[4], 0.0f + allowance[5]},
+													{1.144f + allowance[0], 1.3f + allowance[1], 0.8f + allowance[2], 0.0f + allowance[3], 2.93f + allowance[4], 0.0f + allowance[5]},
+													{1.114f + allowance[0], 1.06f + allowance[1], 0.96f + allowance[2], 0.0f + allowance[3], 3.30f + allowance[4], 0.0f + allowance[5]},
+													{-0.641f + allowance[0], 1.0f + allowance[1], 0.8f + allowance[2], 0.0f + allowance[3], 1.36f + allowance[4], 0.0f + allowance[5]},
+													{-1.450f + allowance[0], 0.45f + allowance[1], 0.0f + allowance[2], 1.157f + allowance[3], 1.10f + allowance[4], -0.5f + allowance[5]},
+													{-1.723f + allowance[0], 0.45f + allowance[1], 0.0f + allowance[2], 1.157f + allowance[3], 1.0f + allowance[4], -0.3f + allowance[5]},
+													{-1.723f + allowance[0], 0.45f + allowance[1], 0.0f + allowance[2], 1.157f + allowance[3], 1.0f + allowance[4], -0.3f + allowance[5]},
+													{-0.641f + allowance[0], 0.45f + allowance[1], 0.0f + allowance[2], -0.67f + allowance[3], 0.6f + allowance[4], 0.0f + allowance[5]},
 													{0.708f + allowance[0], 0.94f + allowance[1], 0.6f + allowance[2], 0.0f + allowance[3], 1.80f + allowance[4], 0.0f + allowance[5]},
 												};
 
@@ -257,9 +257,9 @@ void arm_control_init(all_key_t *arm_control_key_init, Robotic_6DOF_control_t *R
 										{0.708f + allowance[0], 2.60f + allowance[1], 2.35f + allowance[2], 0.0f + allowance[3], 1.53f + allowance[4], 0.0f + allowance[5]},
 										{0.708f + allowance[0], 2.43f + allowance[1], 2.26f + allowance[2], 0.0f + allowance[3], 1.98f + allowance[4], 0.0f + allowance[5]},
 										{0.708f + allowance[0], 1.0f + allowance[1], 0.64f + allowance[2], 0.0f + allowance[3], 1.98f + allowance[4], 0.0f + allowance[5]},
-										{-1.8f + allowance[0], 0.97f + allowance[1], 1.0f + allowance[2], 0.0f + allowance[3], 3.1f + allowance[4], 2.76f + allowance[5]},
-										{-2.1f + allowance[0], 0.87f + allowance[1], 0.7f + allowance[2], 0.0f + allowance[3], 3.3f + allowance[4], 2.76f + allowance[5]},
-										{-2.1f + allowance[0], 0.87f + allowance[1], 0.7f + allowance[2], 0.0f + allowance[3], 3.3f + allowance[4], 2.76f + allowance[5]},
+										{-1.8f + allowance[0], 0.97f + allowance[1], 1.0f + allowance[2], 0.0f + allowance[3], 3.1f + allowance[4], 2.56f + allowance[5]},
+										{-2.1f + allowance[0], 0.86f + allowance[1], 0.67f + allowance[2], 0.0f + allowance[3], 3.4f + allowance[4], 2.56f + allowance[5]},
+										{-2.1f + allowance[0], 0.86f + allowance[1], 0.67f + allowance[2], 0.0f + allowance[3], 3.4f + allowance[4], 2.56f + allowance[5]},
 										{-0.641f + allowance[0], 1.0f + allowance[1], 0.70f + allowance[2], 0.0f + allowance[3], 2.9f + allowance[4], 0.0f + allowance[5]},
 										{0.708f + allowance[0], 0.92f + allowance[1], 0.64f + allowance[2], 0.0f + allowance[3], 1.8f + allowance[4], 0.0f + allowance[5]},};          //复位  放下
 	
@@ -1026,9 +1026,7 @@ void arm_control_loop(Robotic_6DOF_control_t *R_6D_ctrl, arm_control_t *arm_cont
 		}
 #else 
 		//同构模式
-//			if(i_ctrl->link_flag == 1){
-//				void dead_limit_fp32(fp32 Input, fp32 Output, fp32 Max_limit, fp32 Min_limit)
-				arm_target_position[0] = dead_limit_fp32(i_ctrl->joint[0] + 0.88f,2.695f,-3.135f);
+				arm_target_position[0] = dead_limit_fp32(i_ctrl->joint[0] + 0.708f + allowance[0],2.695f,-3.135f);
 				arm_target_position[1] = dead_limit_fp32(i_ctrl->joint[1] + 0.1f,2.87f,0.6f);
 				arm_target_position[2] = dead_limit_fp32(i_ctrl->joint[2] + 1.04f,2.81f,0.0f);
 //				arm_target_position[3] = dead_limit_fp32(i_ctrl->joint[3] + 0.0f,2.40f,-2.3f);

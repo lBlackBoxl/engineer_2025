@@ -285,6 +285,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>Ore_Pump_flag</ItemText>
         </Ww>
+        <Ww>
+          <count>26</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>arm_error_cnt</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>

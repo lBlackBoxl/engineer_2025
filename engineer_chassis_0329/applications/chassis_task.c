@@ -425,7 +425,7 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 				}
 				else
 				{
-						chassis_set_mode->motor_clamp.position_set = -2.4f;
+						chassis_set_mode->motor_clamp.position_set = -2.35f;
 				}
 		}		
 		if(all_key.mode_change_key.itself.flag == 1 && (all_key.gou_dong_key.itself.mode != all_key.gou_dong_key.itself.last_mode))
@@ -464,7 +464,7 @@ static void chassis_set_mode(all_key_t *chassis_set_key, chassis_t *chassis_set_
 				}
 				else
 				{
-					chassis_set_mode->motor_uwb.position_set = 14.5f;
+					chassis_set_mode->motor_uwb.position_set = 15.7f;
 				}
 		}
 		
@@ -1013,7 +1013,8 @@ static void chassis_control_loop(chassis_t *chassis_control_loop)
 		}
 		else if(uwb_mode == 1)
 		{
-			chassis_control_loop->motor_uwb.give_current = -500;
+				PID_Calculate(&chassis_control_loop->uwb_motor_speed_pid, chassis_control_loop->motor_uwb.speed, -10.0f);	
+				chassis_control_loop->motor_uwb.give_current = (int16_t)(chassis_control_loop->uwb_motor_speed_pid.Output);
 		}
 		else if(clamp_mode == 2)
 		{
